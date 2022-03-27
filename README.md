@@ -1,4 +1,6 @@
-![[]] (https://github.com/fluffyfatec/Dom_Rock/blob/main/GIT/cabe%C3%A7ario.jpg)
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Dom_Rock/blob/main/GIT/cabe%C3%A7ario.jpg width="100%" height="100%">
+<p align="center">
 
 ## ⚙️ DESAFIO
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
