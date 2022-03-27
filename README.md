@@ -1,3 +1,5 @@
+![[]] (https://github.com/fluffyfatec/Dom_Rock/blob/main/GIT/cabe%C3%A7ario.jpg)
+
 ## ⚙️ DESAFIO
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
@@ -24,9 +26,9 @@ fatores.
 <p>• Utilizar em servidor/ambiente Linux<p>
 
 ## 💡 SOLUÇÃO
-A Fluffy API ...
+A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o briefing dos clientes.
 
-## 👨‍💻 👩‍💻 Equipe
+## 👨‍💻 👩‍💻 EQUIPE
 
 ![](https://github.com/vinicius-hso/api-fatec-2s-gswatcher/blob/main/Docs/Images/cluster8_logo.png)
 
@@ -34,7 +36,7 @@ A Fluffy API ...
 | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
 |__Victor Fernandes__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/DanielleBritoEvangelista)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2OCwbci) |
 |__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
-|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/PatrickSouzza)  | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/patrick-g-souza/) |
+|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
 |__Ana Clara Leal__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://bit.ly/3skFVGG)      | [![](https://bit.ly/2P1ZogM)](https://bit.ly/397ULc3) |
 |__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/mariana299)   | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3foKv3d) |
 |__Tiago Camillo__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
