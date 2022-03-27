@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Dom_Rock/blob/main/GIT/cabe%C3%A7ario.jpg width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Dom_Rock/blob/main/GIT/cabecario.jpg width="100%" height="100%">
 <p align="center">
 
 ## ⚙️ DESAFIO
