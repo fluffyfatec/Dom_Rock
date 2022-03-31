@@ -12,16 +12,16 @@
 
 <VBox blendMode="DARKEN" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: #2d343a;">
+    <MenuBar fx:id="inputMenubar" prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: #2d343a;">
       <menus>
-        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Cliente">
+        <Menu fx:id="inputCliente" mnemonicParsing="false" onAction="#Cliente" style="-fx-text-base-color: #ffffff;" text="Cliente">
           <items>
-            <MenuItem mnemonicParsing="false" style="-fx-text-base-color: black;" text="Cadastrar Cliente" />
-                  <MenuItem mnemonicParsing="false" style="-fx-text-base-color: black;" text="Buscar Cliente" />
+            <MenuItem fx:id="inputCadastrar" mnemonicParsing="false" onAction="#CadastrarCliente" style="-fx-text-base-color: black;" text="Cadastrar Cliente" />
+                  <MenuItem fx:id="inputBuscar" mnemonicParsing="false" onAction="#BuscarCliente" style="-fx-text-base-color: black;" text="Buscar Cliente" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Ajuda" />
-        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Sair" />
+        <Menu fx:id="inputAjuda" mnemonicParsing="false" onAction="#Ajuda" style="-fx-text-base-color: #ffffff;" text="Ajuda" />
+        <Menu fx:id="inputSair" mnemonicParsing="false" onAction="#Sair" style="-fx-text-base-color: #ffffff;" text="Sair" />
       </menus>
          <opaqueInsets>
             <Insets />
