@@ -36,7 +36,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button id="bt_novo" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" mouseTransparent="true" onAction="#btnLimpar" style="-fx-background-color: #1c1c1c; -fx-border-width: white;" styleClass="css_bt1" textAlignment="CENTER" textFill="#08b5f4" textOverrun="CLIP">
+            <Button id="bt_novo" fx:id="btnLimpar" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" mouseTransparent="true" style="-fx-background-color: #1c1c1c; -fx-border-width: white;" styleClass="css_bt1" textAlignment="CENTER" textFill="#08b5f4" textOverrun="CLIP">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
@@ -53,15 +53,15 @@
                   <FontAwesomeIconView fill="#fcfcfc" glyphName="ERASER" size="20" />
                </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" textAlignment="CENTER" GridPane.columnIndex="1">
+            <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" textAlignment="CENTER" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
                <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="CHECK" size="20" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="CHECK" size="20" text="" />
                </graphic>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAtualizar" style="-fx-background-color: #1c1c1c;" GridPane.columnIndex="2">
+            <Button fx:id="btnAtualizar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #1c1c1c;" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -72,7 +72,7 @@
                   <Insets left="5.0" right="2.0" top="1.0" />
                </padding>
             </Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#bdnPesquisar" prefHeight="40.0" prefWidth="38.0" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" GridPane.columnIndex="3">
+            <Button fx:id="btnPesquisar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="38.0" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -80,7 +80,7 @@
                   <FontAwesomeIconView fill="#f8f8f8" glyphName="SEARCH" size="20" />
                </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnComentar" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" GridPane.columnIndex="4">
+            <Button fx:id="btnComentar" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" GridPane.columnIndex="4">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -96,7 +96,7 @@
             <Insets bottom="5.0" right="5.0" top="5.0" />
          </padding>
       </GridPane>
-      <TabPane layoutY="53.0" prefHeight="632.0" prefWidth="1179.0" stylesheets="@Cadastro/ChangeTab.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="53.0" prefHeight="632.0" prefWidth="1179.0" stylesheets="@ChangeTab.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Geral">
             <content>
@@ -122,7 +122,7 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <TextField fx:id="txtNome" prefHeight="27.0" prefWidth="504.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1" />
+                                    <TextField fx:id="txtRazao" prefHeight="27.0" prefWidth="504.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1" />
                                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Razão Social" />
                                  </children>
                               </GridPane>
@@ -137,12 +137,12 @@
                                 </rowConstraints>
                                  <children>
                                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
-                                    <TextField fx:id="txtCnpj" onAction="#txtCnpj" prefHeight="27.0" prefWidth="249.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1">
+                                    <TextField fx:id="txtCnpj" prefHeight="27.0" prefWidth="249.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets right="5.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <SplitMenuButton mnemonicParsing="false" onAction="#inputCore" prefHeight="26.0" prefWidth="253.0" style="-fx-color: #21252a;" text="Segmento" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <SplitMenuButton mnemonicParsing="false" onAction="#inputSegmento" prefHeight="26.0" prefWidth="253.0" style="-fx-color: #21252a;" text="Segmento" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <items>
                                           <MenuItem mnemonicParsing="false" style="-fx-color: black; -fx-focused-color: black;" text="Industria" />
                                           <MenuItem mnemonicParsing="false" text="Comércio/Varejo" />
@@ -170,12 +170,12 @@
                                           <Insets right="5.0" />
                                        </GridPane.margin>
                                     </SplitMenuButton>
-                                    <SplitMenuButton layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#inputSolucao" prefHeight="26.0" prefWidth="272.0" style="-fx-color: #21252a;" text="Produto" GridPane.columnIndex="1">
+                                    <SplitMenuButton layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#inputProduto" prefHeight="26.0" prefWidth="272.0" style="-fx-color: #21252a;" text="Produto" GridPane.columnIndex="1">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
                                     </SplitMenuButton>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #1caacb;" GridPane.columnIndex="2">
+                                    <Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #1caacb;" GridPane.columnIndex="2">
                                        <GridPane.margin>
                                           <Insets />
                                        </GridPane.margin>
@@ -207,19 +207,19 @@
                           </rowConstraints>
                            <children>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Mínimos" />
-                              <TextArea fx:id="txtObjNegocio" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
+                              <TextArea fx:id="txtMinimo" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
-                              <TextArea fx:id="txteMinimos" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
+                              <TextArea fx:id="txtObjNegocio" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Possíveis" GridPane.rowIndex="4" />
                               <TextArea fx:id="txtePossiveis" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
-                        <TableView layoutX="34.0" layoutY="235.0" prefHeight="329.0" prefWidth="526.0" style="-fx-background-color: black; -fx-border-color: white;">
+                        <TableView fx:id="inputTable" layoutX="34.0" layoutY="235.0" prefHeight="329.0" prefWidth="526.0" style="-fx-background-color: black; -fx-border-color: white;">
                           <columns>
-                            <TableColumn minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-font-smoothing-type: white;" text="C1" />
-                              <TableColumn minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
-                              <TableColumn minWidth="100.0" prefWidth="100.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
-                              <TableColumn prefWidth="40.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
+                            <TableColumn fx:id="inputServicos" minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-font-smoothing-type: white;" text="C1" />
+                              <TableColumn fx:id="inputProdutos" minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
+                              <TableColumn fx:id="inputDado" minWidth="100.0" prefWidth="100.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
+                              <TableColumn fx:id="bntDlt" prefWidth="40.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C1" />
                           </columns>
                         </TableView>
                         <Label layoutX="613.0" layoutY="428.0" text="Core" textFill="WHITE" />
@@ -237,19 +237,19 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <CheckBox mnemonicParsing="false" text="WebApp" textFill="WHITE" />
-                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="API" textFill="WHITE" GridPane.columnIndex="1" />
-                              <CheckBox layoutX="123.0" layoutY="17.0" mnemonicParsing="false" text="Geteway" textFill="WHITE" GridPane.columnIndex="2" />
-                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Filas" textFill="WHITE" GridPane.rowIndex="1" />
-                              <CheckBox layoutX="10.0" layoutY="47.0" mnemonicParsing="false" text="StepFunction" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Fargate" textFill="WHITE" GridPane.rowIndex="2" />
-                              <CheckBox layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="Containers" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox layoutX="123.0" layoutY="77.0" mnemonicParsing="false" text="Lambda" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <CheckBox layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="S3" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="MongoDB" textFill="WHITE" GridPane.rowIndex="3" />
-                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Parquet" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox layoutX="250.0" layoutY="77.0" mnemonicParsing="false" text="Quicksight" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <CheckBox layoutX="250.0" layoutY="107.0" mnemonicParsing="false" text="CloudWatch" textFill="WHITE" GridPane.columnIndex="3" />
+                              <CheckBox mnemonicParsing="false" onAction="#inpuWeb" text="WebApp" textFill="WHITE" />
+                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputApi" text="API" textFill="WHITE" GridPane.columnIndex="1" />
+                              <CheckBox layoutX="123.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputGateway" text="Geteway" textFill="WHITE" GridPane.columnIndex="2" />
+                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputFilas" text="Filas" textFill="WHITE" GridPane.rowIndex="1" />
+                              <CheckBox layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#inputFunction" text="StepFunction" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputFargate" text="Fargate" textFill="WHITE" GridPane.rowIndex="2" />
+                              <CheckBox layoutX="236.0" layoutY="47.0" mnemonicParsing="false" onAction="#inputContainers" text="Containers" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox layoutX="123.0" layoutY="77.0" mnemonicParsing="false" onAction="#inputLambda" text="Lambda" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <CheckBox layoutX="236.0" layoutY="47.0" mnemonicParsing="false" onAction="#inputS3" text="S3" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputMongo" text="MongoDB" textFill="WHITE" GridPane.rowIndex="3" />
+                              <CheckBox layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#inputParquet" text="Parquet" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox layoutX="250.0" layoutY="77.0" mnemonicParsing="false" onAction="#inputQuick" text="Quicksight" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <CheckBox layoutX="250.0" layoutY="107.0" mnemonicParsing="false" onAction="#inputCloudWatch" text="CloudWatch" textFill="WHITE" GridPane.columnIndex="3" />
                            </children>
                         </GridPane>
                      </children>
