@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox blendMode="DARKEN" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar prefHeight="25.0" prefWidth="1300.0" style="-fx-background-color: #2d343a;">
+      <menus>
+        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Cliente">
+          <items>
+            <MenuItem mnemonicParsing="false" style="-fx-text-base-color: black;" text="Cadastrar Cliente" />
+                  <MenuItem mnemonicParsing="false" style="-fx-text-base-color: black;" text="Buscar Cliente" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Ajuda" />
+        <Menu mnemonicParsing="false" style="-fx-text-base-color: #ffffff;" text="Sair" />
+      </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+    </MenuBar>
+      <Pane prefHeight="860.0" prefWidth="1300.0" style="-fx-background-color: #21252a;">
+         <children>
+            <ImageView fitHeight="59.0" fitWidth="200.0" layoutX="1100.0" layoutY="606.0">
+               <image>
+                  <Image url="@../Downloads/domrockbranco.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D minX="1900.0" minY="150.0" />
+               </viewport>
+            </ImageView>
+         </children>
+      </Pane>
+  </children>
+</VBox>
