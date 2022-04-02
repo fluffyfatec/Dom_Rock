@@ -79,12 +79,12 @@ ALTER  -- EDITAR
 --------------------------------------
 ----------INSERT - INSERIR------------
 --------------------------------------
-
-INSERT INTO Cliente (nm_cliente, cnpj, nm_setor, dt_cadastro, dt_atualizacao)
-VALUES ('value1', 'value2', 'value3', 'value4', 'value5');
+select * from Cliente;
+INSERT INTO Cliente (razao_social, cnpj, segmento, objetivo_negocio, entregavel_min, entregavel_posseivel)
+VALUES ('value1', '12356789', 'value3', 'value4', 'value5', 'value6');
 
 INSERT INTO Funcionalidade (nm_cliente, cnpj, nm_setor, dt_cadastro, dt_atualizacao)
-VALUES ('value1', 'value2', 'value3', 'value4', 'value5');
+VALUES ('value1', 'value2', 'value3', 'value4', 'value5', 'value6', 'value', 'value5');
 
 INSERT INTO Core (recurso)
 VALUES ('value1');
