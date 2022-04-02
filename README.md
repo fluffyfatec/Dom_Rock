@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="./GIT/cabecario2" width="100%" height="100%">
+      <img src="./GIT/cabecario2.jpg" width="100%" height="100%">
 <p align="center">
 
 ## ⚙️ DESAFIO
