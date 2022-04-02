@@ -36,13 +36,13 @@ A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplica�
 
 | Avatar            							| Aluno         | Função           		| GitHub                                                      | LinkedIn                                              |
 | -------------------------------------------- | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
-| <img src = "./readme/julio.jpeg" width="60" >|__Victor Fernandes__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/DanielleBritoEvangelista)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2OCwbci) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
+| <img src = "./GIT/avatarvictor.png" width="60" >|__Victor Fernandes__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/DanielleBritoEvangelista)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2OCwbci) |
+| <img src = "./GIT/avatarana.png" width="60" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
+| <img src = "./GIT/avatarpatrick.png" width="60" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Ana Clara Leal__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://bit.ly/3skFVGG)      | [![](https://bit.ly/2P1ZogM)](https://bit.ly/397ULc3) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/mariana299)   | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3foKv3d) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Tiago Camillo__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Aldrik Álvaro__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
-| <img src = "./readme/julio.jpeg" width="40" >|__Emanuele__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
+| <img src = "./GIT/avatarana.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/mariana299)   | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3foKv3d) |
+| <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
+| <img src = "./GIT/avatarana.png" width="60" >|__Aldrik Álvaro__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
+| <img src = "./GIT/avatarana.png" width="60" >|__Emanuele__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 
 
