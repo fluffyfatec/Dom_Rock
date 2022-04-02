@@ -35,7 +35,7 @@ A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplica�
 ![](https://github.com/vinicius-hso/api-fatec-2s-gswatcher/blob/main/Docs/Images/cluster8_logo.png)
 
 | Avatar            							| Aluno         | Função           		| GitHub                                                      | LinkedIn                                              |
-| <--------------------------------------------| ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
+| -------------------------------------------- | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
 | <img src = "./readme/julio.jpeg" width="40" >|__Victor Fernandes__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/DanielleBritoEvangelista)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2OCwbci) |
 | <img src = "./readme/julio.jpeg" width="40" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
 | <img src = "./readme/julio.jpeg" width="40" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
