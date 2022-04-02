@@ -30,6 +30,11 @@ fatores.
 ## 💡 SOLUÇÃO
 A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o briefing dos clientes.
 
+##
+<p align="center">
+      <img src="./GIT/backlog.jpg" width="100%" height="100%">
+<p align="center">
+
 ## 👨‍💻 👩‍💻 EQUIPE
 
 ![](https://github.com/vinicius-hso/api-fatec-2s-gswatcher/blob/main/Docs/Images/cluster8_logo.png)
