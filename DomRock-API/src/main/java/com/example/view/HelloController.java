@@ -1,5 +1,9 @@
 package com.example.view;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 import DTO.ClienteDTO;
 import DTO.EntregavelDTO;
 import javafx.event.ActionEvent;
@@ -30,11 +34,14 @@ public class HelloController {
 
     @FXML
     private void btnCadastrar(ActionEvent event) {
+    	
         String nomeCliente = this.txtNome.getText();
         String cnpjCliente = this.txtCnpj.getText();
         String objCliente = this.txtObjNegocio.getText();
         String eMinimos = this.txtePossiveis.getText();
         String ePossiveis = this.txtePossiveis.getText();
+
+        
 
 // Metodos acessores do clienteDTO
         ClienteDTO objclienteDTO = new ClienteDTO();
@@ -43,6 +50,7 @@ public class HelloController {
         objclienteDTO.setEntregaMin(eMinimos);
         objclienteDTO.setEntregaPossivel(ePossiveis);
         objclienteDTO.setObjetivoNegocio(objCliente);
+
 
 
 // Metodos acessores do entregavelDTO
