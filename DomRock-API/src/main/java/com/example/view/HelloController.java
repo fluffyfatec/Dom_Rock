@@ -1,6 +1,6 @@
 package com.example.view;
 
-import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -8,6 +8,9 @@ import DTO.ClienteDTO;
 import DTO.EntregavelDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,6 +19,15 @@ public class HelloController {
 
     @FXML
     private Tab geral;
+    
+    @FXML
+    private MenuItem oi;
+
+    @FXML
+    private MenuItem sim;
+
+    @FXML
+    private SplitMenuButton splitSegmento;
 
     @FXML
     private TextField txtCnpj;
@@ -61,6 +73,23 @@ public class HelloController {
 
 
     }
+
+    @FXML
+    void btnSegmento(ActionEvent event) {
+
+	splitSegmento = new SplitMenuButton();
+	
+	 oi = new MenuItem();
+	 sim = new MenuItem();
+	
+	splitSegmento.getItems().addAll(oi, sim);    
+	
+	oi.setOnAction((e)->{
+		System.out.println("deu certo");
+	});
+
+    }
+    
 
 
 }
