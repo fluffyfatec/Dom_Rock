@@ -47,47 +47,43 @@ public class HelloController {
 
     @FXML
     private void btnCadastrar(ActionEvent event) {
-    	
-        String nomeCliente = this.txtNome.getText();
-        String cnpjCliente = this.txtCnpj.getText();
-        String objCliente = this.txtObjNegocio.getText();
-        String eMinimos = this.txtePossiveis.getText();
-        String ePossiveis = this.txtePossiveis.getText();
 
         if (txtNome.getText().length()==0) {
-            txtNome.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
-            Alerts.display("ERRO", "Por favor, insira uma Razão Social válida");
-        }
-        else {
-            txtNome.setStyle(null);
+            Alerts.display("ERRO", "Por favor, insira uma Razão Social");
         }
 
-        if (txtCnpj.getText().length()==0) {
-            txtCnpj.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
+        if (txtCnpj.getText().length()!=14 && txtNome.getText().length()!=0) {
             Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
         }
-        else {
-            txtNome.setStyle(null);
+
+        if (txtNome.getText().length()!=0 && txtCnpj.getText().length()==14) {
+
+            String nomeCliente = this.txtNome.getText();
+            String cnpjCliente = this.txtCnpj.getText();
+            String objCliente = this.txtObjNegocio.getText();
+            String eMinimos = this.txtePossiveis.getText();
+            String ePossiveis = this.txtePossiveis.getText();
+
+            System.out.println("Razao social: "+nomeCliente+ "\nCNPJ: "+cnpjCliente+"\nObjetivo do Negocio: "+objCliente+"\nEntregaveis Minimos: "+eMinimos+"\nEntregaveis Possiveis: "+ePossiveis+"\n\n");
+
+
+            // Metodos acessores do clienteDTO
+            ClienteDTO objclienteDTO = new ClienteDTO();
+            objclienteDTO.setCnpj(cnpjCliente);
+            objclienteDTO.setNomeCliente(nomeCliente);
+            objclienteDTO.setEntregaMin(eMinimos);
+            objclienteDTO.setEntregaPossivel(ePossiveis);
+            objclienteDTO.setObjetivoNegocio(objCliente);
+
+
+            // Metodos acessores do entregavelDTO
+            EntregavelDTO objentregavelDTO = new EntregavelDTO();
+            objentregavelDTO.setEntregaMin(eMinimos);
+            objentregavelDTO.setEntregaPossivel(ePossiveis);
+            objentregavelDTO.setObjetivoNegocio(objCliente);
+
+            Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
         }
-
-        
-
-// Metodos acessores do clienteDTO
-        ClienteDTO objclienteDTO = new ClienteDTO();
-        objclienteDTO.setCnpj(cnpjCliente);
-        objclienteDTO.setNomeCliente(nomeCliente);
-        objclienteDTO.setEntregaMin(eMinimos);
-        objclienteDTO.setEntregaPossivel(ePossiveis);
-        objclienteDTO.setObjetivoNegocio(objCliente);
-
-
-
-// Metodos acessores do entregavelDTO
-        EntregavelDTO objentregavelDTO = new EntregavelDTO();
-        objentregavelDTO.setEntregaMin(eMinimos);
-        objentregavelDTO.setEntregaPossivel(ePossiveis);
-        objentregavelDTO.setObjetivoNegocio(objCliente);
-
 
     }
 
