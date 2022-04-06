@@ -35,12 +35,12 @@ INNER JOIN Solucao soluc
 --CRIAÇÃO TABELA Cliente
 CREATE TABLE  Cliente (
 	id_cliente int identity(1,1) primary key,
-    razao_social varchar(40),
+    razao_social varchar(40) not null unique,
     cnpj varchar(14) not null unique,
 	segmento varchar(40),
-	objetivo_negocio varchar(70) not null,
-	entregavel_min varchar(60) not null,
-	entregavel_possivel varchar(60) not null,
+	objetivo_negocio varchar(70),
+	entregavel_min varchar(60),
+	entregavel_possivel varchar(60),
 	datahora_cadastro datetime not null,
 	datahora_atualizacao datetime  not null
 );
