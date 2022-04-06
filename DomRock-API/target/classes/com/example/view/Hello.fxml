@@ -30,7 +30,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-background-color: #1c1c1c;" styleClass="css_bt1" textAlignment="CENTER" GridPane.columnIndex="1">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLimpar" style="-fx-base: black;" textAlignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuscar" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -87,7 +97,7 @@
                                           <Insets right="5.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <SplitMenuButton fx:id="splitSegmento" mnemonicParsing="false" onAction="#btnSegmento" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <SplitMenuButton fx:id="splitSegmento" mnemonicParsing="false" onAction="#btnSegmento" style="-fx-color: #21252a; -fx-base: black;" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <items>
                                           <MenuItem fx:id="oi" mnemonicParsing="false" text="oi" />
                                           <MenuItem fx:id="sim" mnemonicParsing="false" text="sim" />

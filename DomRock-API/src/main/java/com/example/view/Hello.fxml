@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="62.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="1183.0" />
       <GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
@@ -30,17 +30,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="1">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnLimpar" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-base: black;" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLimpar" style="-fx-base: black;" textAlignment="CENTER">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnBuscar" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="2">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuscar" style="-fx-base: black;" textAlignment="CENTER" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>

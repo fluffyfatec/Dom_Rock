@@ -61,7 +61,7 @@ public class HelloController {
             String nomeCliente = this.txtNome.getText();
             String cnpjCliente = this.txtCnpj.getText();
             String objCliente = this.txtObjNegocio.getText();
-            String eMinimos = this.txtePossiveis.getText();
+            String eMinimos = this.txteMinimos.getText();
             String ePossiveis = this.txtePossiveis.getText();
 
             System.out.println("Razao social: "+nomeCliente+ "\nCNPJ: "+cnpjCliente+"\nObjetivo do Negocio: "+objCliente+"\nEntregaveis Minimos: "+eMinimos+"\nEntregaveis Possiveis: "+ePossiveis+"\n\n");
@@ -102,7 +102,23 @@ public class HelloController {
 	});
 
     }
-    
 
+    @FXML
+    void btnLimpar(ActionEvent event) {
+
+        txtNome.setText(null);
+        txtCnpj.setText(null);
+        txtObjNegocio.setText(null);
+        txteMinimos.setText(null);
+        txtePossiveis.setText(null);
+
+    }
+
+    @FXML
+    void btnBuscar(ActionEvent event) {
+
+
+
+    }
 
 }
