@@ -45,7 +45,7 @@ A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplica√
 | <img src = "./GIT/avatarana.png" width="60" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
 | <img src = "./GIT/avatarpatrick.png" width="60" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/HarielThums)  | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3f9bjUH) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Ana Clara Leal__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://bit.ly/3skFVGG)      | [![](https://bit.ly/2P1ZogM)](https://bit.ly/397ULc3) |
-| <img src = "./GIT/avatarluiz.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/mariana299)   | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3foKv3d) |
+| <img src = "./GIT/avatarluiz.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/luizborges17)   | [![](https://bit.ly/2P1ZogM)](www.linkedin.com/in/luizborges17) |
 | <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Aldrik √Ålvaro__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Emanuele__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
