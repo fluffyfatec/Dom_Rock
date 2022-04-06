@@ -15,6 +15,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+
 public class HelloController {
 
     @FXML
@@ -52,6 +53,22 @@ public class HelloController {
         String objCliente = this.txtObjNegocio.getText();
         String eMinimos = this.txtePossiveis.getText();
         String ePossiveis = this.txtePossiveis.getText();
+
+        if (txtNome.getText().length()==0) {
+            txtNome.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
+            Alerts.display("ERRO", "Por favor, insira uma Razão Social válida");
+        }
+        else {
+            txtNome.setStyle(null);
+        }
+
+        if (txtCnpj.getText().length()==0) {
+            txtCnpj.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
+            Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
+        }
+        else {
+            txtNome.setStyle(null);
+        }
 
         
 
