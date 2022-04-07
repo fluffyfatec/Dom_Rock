@@ -1,22 +1,66 @@
 package com.example.view;
 
 
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import DTO.ClienteDTO;
 import DTO.EntregavelDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.scene.control.Menu;
 
 
 public class HelloController {
+
+
+    //Janela Inicial
+
+    @FXML
+    private Menu bntClienteintro;
+
+    @FXML
+    private Menu inputAjudaintro;
+
+    @FXML
+    void inputBuscarintro(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputCadastrarintro(ActionEvent event) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Hello.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 1178, 681);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Cadastrar Cliente - DOM ROCK");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    void inputDesconectarintro(ActionEvent event) {
+
+    }
+
+
+
+    //Janela de Cadastro
 
     @FXML
     private Tab geral;
@@ -44,6 +88,7 @@ public class HelloController {
 
     @FXML
     private TextArea txtePossiveis;
+
 
     @FXML
     private void btnCadastrar(ActionEvent event) {
@@ -117,7 +162,50 @@ public class HelloController {
     @FXML
     void btnBuscar(ActionEvent event) {
 
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("TelaBusca.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 358, 432);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Pesquisar Cliente - DOM ROCK");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 
+
+    //Janela de Pesquisa
+
+    @FXML
+    private TableColumn<?, ?> colunaCnpj;
+
+    @FXML
+    private TableColumn<?, ?> colunaNome;
+
+    @FXML
+    private TableView<?> tabelaPesquisa;
+
+    @FXML
+    void btnBuscaconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtCnpjconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtRazaosocialconsulta(ActionEvent event) {
 
     }
 
