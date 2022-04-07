@@ -9,7 +9,7 @@ Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom 
 ## 🎯 OBJETIVO
 Requisitos Funcionais:
 <p>• Cadastros de Clientes
-<p.• Cadastro de módulos/soluções Dom Rock
+<p>• Cadastro de módulos/soluções Dom Rock
 <p>• Cadastro das etapas de ativação: bronze, silver, gold, distribuição, bp, core, segurança
 (cada etapa tem uma lista de recursos e definições associados – lista de itens e variáveis
 de ambiente que a plataforma usa – são todos fixos e pre-definidos)
@@ -21,7 +21,7 @@ cada cliente
 <p>• Cadastro de comentários/soluções/sugestão de melhorias para problemas conhecidos ou
 encontrados durante a ativação de cada cliente
 <p>• Consultas e relatórios por cliente, por solução Dom Rock ativada, etapa, dentre outros
-fatores.
+fatores.<p>
 
 <p><p>Requisitos Não Funcionais:
 <p>• Módulo de login/autenticação e perfil
