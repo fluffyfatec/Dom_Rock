@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Introdução.fxml"));
         Scene scene = new Scene((Parent) fxmlLoader.load(), 1400, 850);
-        stage.setTitle("Sistema de Gerencimaneto de Clientes - DOM ROCK");
+        stage.setTitle("Sistema de Gerenciamento de Clientes - DOM ROCK");
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
