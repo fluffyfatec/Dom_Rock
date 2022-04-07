@@ -11,12 +11,12 @@
         <menus>
           <Menu fx:id="bntClienteintro" mnemonicParsing="false" text="Cliente">
             <items>
-              <MenuItem fx:id="inputCadastrarintro" mnemonicParsing="false" text="Cadastrar Cliente" />
-                  <MenuItem fx:id="inputBuscarintro" mnemonicParsing="false" text="Buscar Cliente" />
+              <MenuItem mnemonicParsing="false" onAction="#inputCadastrarintro" text="Cadastrar Cliente" />
+                  <MenuItem mnemonicParsing="false" onAction="#inputBuscarintro" text="Buscar Cliente" />
             </items>
           </Menu>
           <Menu fx:id="inputAjudaintro" mnemonicParsing="false" text="Ajuda" />
-          <Menu fx:id="inputDesconectarintro" mnemonicParsing="false" text="Desconectar" />
+          <Menu mnemonicParsing="false" onAction="#inputDesconectarintro" text="Desconectar" />
         </menus>
       </MenuBar>
    </top>
