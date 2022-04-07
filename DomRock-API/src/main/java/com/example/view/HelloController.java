@@ -1,19 +1,20 @@
 package com.example.view;
 
 
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import DTO.ClienteDTO;
 import DTO.EntregavelDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 
 public class HelloController {
@@ -117,7 +118,46 @@ public class HelloController {
     @FXML
     void btnBuscar(ActionEvent event) {
 
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("TelaBusca.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 358, 432);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Pesquisar");
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    @FXML
+    private TableColumn<?, ?> colunaCnpj;
+
+    @FXML
+    private TableColumn<?, ?> colunaNome;
+
+    @FXML
+    private TableView<?> tabelaPesquisa;
+
+    @FXML
+    void btnBuscaconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtCnpjconsulta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtRazaosocialconsulta(ActionEvent event) {
 
     }
 
