@@ -41,8 +41,8 @@ CREATE TABLE  Cliente (
 	objetivo_negocio varchar(70),
 	entregavel_min varchar(60),
 	entregavel_possivel varchar(60),
-	datahora_cadastro datetime not null,
-	datahora_atualizacao datetime  not null
+	datahora_cadastro datetime,
+	datahora_atualizacao datetime 
 );
 
 --CRIAÇÃO TABELA Funcionalidade
@@ -97,6 +97,9 @@ CREATE TABLE Cliente_Produto(
 	cp_id_produto int foreign key references Produto(id_produto) not null,
 	primary key (cp_id_cliente, cp_id_produto)
 );
+
+
+select * from Cliente
 
 
 
