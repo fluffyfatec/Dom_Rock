@@ -15,9 +15,52 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.scene.control.Menu;
 
 
 public class HelloController {
+
+
+    //Janela Inicial
+
+    @FXML
+    private Menu bntClienteintro;
+
+    @FXML
+    private Menu inputAjudaintro;
+
+    @FXML
+    void inputBuscarintro(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputCadastrarintro(ActionEvent event) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Hello.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 1178, 681);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Cadastrar Cliente - DOM ROCK");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    void inputDesconectarintro(ActionEvent event) {
+
+    }
+
+
+
+    //Janela de Cadastro
 
     @FXML
     private Tab geral;
@@ -45,6 +88,7 @@ public class HelloController {
 
     @FXML
     private TextArea txtePossiveis;
+
 
     @FXML
     private void btnCadastrar(ActionEvent event) {
@@ -127,10 +171,14 @@ public class HelloController {
             ex.printStackTrace();
         }
         Stage stage = new Stage();
-        stage.setTitle("Pesquisar");
+        stage.setTitle("Pesquisar Cliente - DOM ROCK");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
+
+
+    //Janela de Pesquisa
 
     @FXML
     private TableColumn<?, ?> colunaCnpj;

@@ -11,11 +11,11 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Hello.fxml"));
-        Scene scene = new Scene((Parent) fxmlLoader.load(), 1178, 681);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Introdução.fxml"));
+        Scene scene = new Scene((Parent) fxmlLoader.load(), 1400, 850);
+        stage.setTitle("Sistema de Gerencimaneto de Clientes - DOM ROCK");
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
     }
 
