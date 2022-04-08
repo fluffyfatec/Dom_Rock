@@ -6,3 +6,8 @@
     -fx-text-fill: white;
     -fx-alignment: CENTER;
     }
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color:  #2d343a;
+}
+
