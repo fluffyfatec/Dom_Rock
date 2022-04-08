@@ -18,10 +18,8 @@ public class SolucaoDAO {
 	
 	
 	String sql = "inserir into Solucao(nm_solucao) valeus (?)";
-	conn= new ConexaoDAO().conectaBD();
-	
 
-	 try {
+	try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 		 
 		pstm= conn.prepareStatement(sql);
 	    pstm.setString(1,objSolucaoDTO.getNomeSolucao());

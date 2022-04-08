@@ -16,9 +16,8 @@ public class FuncionalidadeDAO {
 	 
 	 
 	 String sql = "inserir into Funcionalidade(nome_Funcionalidade) valeus (?)";
-		conn= new ConexaoDAO().conectaBD();
-		
-		 try {
+	 
+	 try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			 
 			pstm= conn.prepareStatement(sql);
 			pstm.setString(1, objFuncionalidadeDTO.getNomeFuncionalidade());

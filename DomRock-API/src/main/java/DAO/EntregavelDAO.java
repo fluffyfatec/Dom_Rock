@@ -18,8 +18,7 @@ public void cadastrarEntregavel( EntregavelDTO objEntregavelDTO) {
 	
 	String sql = "insert into Cliente (objetivo_negocio,entregavel_min,entregavel_posseivel) values (?,?,?)";
 
-	conn = new ConexaoDAO().conectaBD();
-	try {
+	try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 
 		pstm = conn.prepareStatement(sql);
 		pstm.setString(1,objEntregavelDTO.getObjetivoNegocio());

@@ -14,8 +14,8 @@ import java.net.URL;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Introdução.fxml"));
-        Scene scene = new Scene((Parent) fxmlLoader.load(), 1400, 850);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Introducao.fxml"));
+        Scene scene = new Scene((Parent) fxmlLoader.load(), 1200, 650);
         stage.setTitle("Sistema de Gerenciamento de Clientes - Dom Rock");
         stage.setScene(scene);
         stage.setResizable(true);
