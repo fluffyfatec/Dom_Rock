@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="358.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="358.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="62.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.4" style="fx-border-radius: 5;" width="358.0" />
       <GridPane layoutX="20.0" layoutY="63.0" prefHeight="110.0" prefWidth="316.0">
