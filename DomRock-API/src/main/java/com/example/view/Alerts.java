@@ -10,7 +10,7 @@ import javafx.geometry.*;
 public class Alerts {
 
         public static void display(String title, String message) {
-            Stage window = new Stage();
+            final Stage window = new Stage();
 
             window.initModality(Modality.APPLICATION_MODAL);
             window.setTitle(title);

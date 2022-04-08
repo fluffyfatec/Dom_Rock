@@ -4,6 +4,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="358.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="358.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="62.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.4" style="fx-border-radius: 5;" width="358.0" />
       <GridPane layoutX="20.0" layoutY="63.0" prefHeight="110.0" prefWidth="316.0">
@@ -39,7 +41,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="tabelaPesquisa" prefHeight="182.0" prefWidth="388.0" style="-fx-background-color: black; -fx-border-color: white;" >
+            <TableView fx:id="tabelaPesquisa" prefHeight="182.0" prefWidth="388.0" style="-fx-background-color: black; -fx-border-color: white;">
               <columns>
                 <TableColumn fx:id="colunaNome" prefWidth="153.60003280639648" style="-fx-border-color: #6c6c6c; -fx-color: #2d343a;;" text="C1" />
                 <TableColumn fx:id="colunaCnpj" prefWidth="171.2000274658203" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C2" />
@@ -55,7 +57,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuscaconsulta" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: #1c1c1c;" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuscaconsulta" prefHeight="50.0" prefWidth="85.0" style="-fx-base: black;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/search_left.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </GridPane>
       <GridPane layoutX="68.0" layoutY="7.0" prefHeight="47.0" prefWidth="47.0">
@@ -66,7 +75,14 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLimparconsulta" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: #1c1c1c;" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLimparconsulta" prefHeight="50.0" prefWidth="85.0" style="-fx-base: black;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </GridPane>
    </children>
