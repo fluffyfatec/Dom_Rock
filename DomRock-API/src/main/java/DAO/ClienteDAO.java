@@ -4,9 +4,9 @@ import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
-import javax.swing.JOptionPane;
 import DTO.ClienteDTO;
 
 public class ClienteDAO {
@@ -15,31 +15,22 @@ public class ClienteDAO {
 	PreparedStatement stm;
 
 	
-	public void cadastarCliente(ClienteDTO objClienteDTO) {
-
-		//String sql = "insert into Cliente (razao_social,cnpj) values (?,?)";
-
-		conn = new ConexaoDAO().conectaBD();
-
-		try {
-
-			String SQL = "insert into Cliente (razao_social,cnpj) values (?,?)";
+	public void cadastarCliente(ClienteDTO objClienteDTO){
+		String sql = "INSERT INTO Cliente (razao_social,cnpj,objetivo_negocio,entregavel_min,entregavel_possivel) values (?,?,?,?,?)";
+		try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			
-			stm = conn.prepareStatement(SQL);
+	   	 	
 			stm.setString(1, objClienteDTO.getNomeCliente());
 			stm.setString(2, objClienteDTO.getCnpj());
-		  /*pstm.setString(3, objClienteDTO.getObjetivoNegocio());
-			pstm.setString(4, objClienteDTO.getEntregaMin());
-			pstm.setString(5, objClienteDTO.getEntregaPossivel());
-	   	 	//Cadastrando Horario
-			Date date = new Date();
-	   	 	Object param = new java.sql.Timestamp(date.getTime());
-	   	 	pstm.setDate(6, (java.sql.Date) param);*/
+			stm.setString(3, objClienteDTO.getObjetivoNegocio());
+			stm.setString(4, objClienteDTO.getEntregaMin());
+			stm.setString(5, objClienteDTO.getEntregaPossivel());
 	   	 	
-			ResultSet rs = stm.executeQuery(SQL);
-
-		} catch (Exception erro) {
-			JOptionPane.showMessageDialog(null, "ClienteDAO" + erro);
+			stm.execute();	
+			
+		}catch (SQLException e) {
+			
+			throw new RuntimeException(e);
 		}
 	}
 }

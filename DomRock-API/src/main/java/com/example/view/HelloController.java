@@ -24,11 +24,15 @@ import javafx.scene.control.Menu;
 
 import javax.swing.*;
 
+import DAO.ClienteDAO;
+
 
 public class HelloController {
 
 
     //Janela Inicial
+	private ClienteDAO clientedao = new ClienteDAO();
+	
 
     @FXML
     private Menu bntClienteintro;
@@ -127,15 +131,21 @@ public class HelloController {
             objclienteDTO.setEntregaMin(eMinimos);
             objclienteDTO.setEntregaPossivel(ePossiveis);
             objclienteDTO.setObjetivoNegocio(objCliente);
+            
+            clientedao.cadastarCliente(objclienteDTO);
 
 
-            // Metodos acessores do entregavelDTO
+            /* Metodos acessores do entregavelDTO
             EntregavelDTO objentregavelDTO = new EntregavelDTO();
             objentregavelDTO.setEntregaMin(eMinimos);
             objentregavelDTO.setEntregaPossivel(ePossiveis);
-            objentregavelDTO.setObjetivoNegocio(objCliente);
+            objentregavelDTO.setObjetivoNegocio(objCliente);*/
 
+            
+            
+            
             Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
+            
         }
 
     }
@@ -156,6 +166,7 @@ public class HelloController {
 
     }
 
+    // Botão limpar
     @FXML
     void btnLimpar(ActionEvent event) {
 
