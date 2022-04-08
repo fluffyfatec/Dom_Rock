@@ -1,7 +1,9 @@
 package DAO;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -10,20 +12,22 @@ import DTO.ClienteDTO;
 public class ClienteDAO {
 
 	Connection conn;
-	PreparedStatement pstm;
+	PreparedStatement stm;
 
+	
 	public void cadastarCliente(ClienteDTO objClienteDTO) {
 
-		/*String sql = "insert into Cliente (razao_social,cnpj,"
-+ " objetivo_negocio, entregavel_min, entregavel_possivel, datahoracadastro) values (?,?,?,?,?,?)";*/
+		//String sql = "insert into Cliente (razao_social,cnpj) values (?,?)";
 
 		conn = new ConexaoDAO().conectaBD();
 
 		try {
 
-			pstm = conn.prepareStatement(sql);
-			pstm.setString(1, objClienteDTO.getNomeCliente());
-			pstm.setString(2, objClienteDTO.getCnpj());
+			String SQL = "insert into Cliente (razao_social,cnpj) values (?,?)";
+			
+			stm = conn.prepareStatement(SQL);
+			stm.setString(1, objClienteDTO.getNomeCliente());
+			stm.setString(2, objClienteDTO.getCnpj());
 		  /*pstm.setString(3, objClienteDTO.getObjetivoNegocio());
 			pstm.setString(4, objClienteDTO.getEntregaMin());
 			pstm.setString(5, objClienteDTO.getEntregaPossivel());
@@ -32,9 +36,7 @@ public class ClienteDAO {
 	   	 	Object param = new java.sql.Timestamp(date.getTime());
 	   	 	pstm.setDate(6, (java.sql.Date) param);*/
 	   	 	
-	   	 	
-			pstm.execute();
-			pstm.close();
+			ResultSet rs = stm.executeQuery(SQL);
 
 		} catch (Exception erro) {
 			JOptionPane.showMessageDialog(null, "ClienteDAO" + erro);
