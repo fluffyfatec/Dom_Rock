@@ -4,6 +4,7 @@ package com.example.view;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Menu;
+
+import javax.swing.*;
 
 
 public class HelloController {
@@ -175,6 +178,7 @@ public class HelloController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        scene.getStylesheets().add("https://github.com/fluffyfatec/Dom_Rock/blob/cce996222f745eeacf3e72becb231ffe8c58dae5/DomRock-API/src/main/java/com/example/view/tablecell.css");
     }
 
 

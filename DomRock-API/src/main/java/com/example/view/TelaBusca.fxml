@@ -39,7 +39,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="tabelaPesquisa" prefHeight="182.0" prefWidth="388.0" style="-fx-background-color: black; -fx-border-color: white;">
+            <TableView fx:id="tabelaPesquisa" prefHeight="182.0" prefWidth="388.0" style="-fx-background-color: black; -fx-border-color: white;" stylesheets="@tablecell.css">
               <columns>
                 <TableColumn fx:id="colunaNome" prefWidth="153.60003280639648" style="-fx-border-color: #6c6c6c; -fx-color: #2d343a;" text="C1" />
                 <TableColumn fx:id="colunaCnpj" prefWidth="171.2000274658203" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;" text="C2" />
