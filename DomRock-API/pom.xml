@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>abc</groupId>
-  <artifactId>abc</artifactId>
+  <groupId>Dom_Rock</groupId>
+  <artifactId>Dom_Rock</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
 	
@@ -19,13 +19,6 @@
     <artifactId>javafx-graphics</artifactId>
     <version>18</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>10.2.0.jre11</version>
-</dependency>
-
 <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
 <dependency>
     <groupId>org.openjfx</groupId>
@@ -58,11 +51,16 @@
     <type>pom</type>
 </dependency>
 
-
+<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+<dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>mssql-jdbc</artifactId>
+    <version>11.1.0.jre17-preview</version>
+</dependency>
 
 	</dependencies>
 <build>
-    <finalName>DomRock-API</finalName>
+    <finalName>Dom_Rock</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
