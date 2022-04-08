@@ -1,30 +1,23 @@
 package com.example.view;
 
 
-import java.awt.*;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import DAO.ClienteDAO;
 import DTO.ClienteDTO;
-import DTO.EntregavelDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.scene.control.Menu;
-
-import javax.swing.*;
-
-import DAO.ClienteDAO;
 
 
 public class HelloController {

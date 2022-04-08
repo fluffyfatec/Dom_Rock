@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
@@ -16,10 +17,10 @@ public class FuncionalidadeDAO {
 	 
 	 
 	 String sql = "inserir into Funcionalidade(nome_Funcionalidade) valeus (?)";
-	 
-	 try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+		
+		 try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);) {
 			 
-			pstm= conn.prepareStatement(sql);
+			
 			pstm.setString(1, objFuncionalidadeDTO.getNomeFuncionalidade());
 		    
 			 
@@ -27,9 +28,9 @@ public class FuncionalidadeDAO {
 			pstm.close();
 			
 			 
-		  }catch (Exception erro) {
-				 JOptionPane.showMessageDialog(null,"FuncionalidadeDAO" + erro);
-			 }
+		 }catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
 		}
  }
 	  

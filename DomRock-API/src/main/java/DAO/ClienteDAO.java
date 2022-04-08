@@ -27,6 +27,7 @@ public class ClienteDAO {
 			stm.setString(5, objClienteDTO.getEntregaPossivel());
 	   	 	
 			stm.execute();	
+			stm.close();
 			
 		}catch (SQLException e) {
 			
