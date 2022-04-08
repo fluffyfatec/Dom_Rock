@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class HelloApplication extends Application {
     @Override
@@ -17,6 +19,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
+
     }
 
     public static void main(String[] args) {

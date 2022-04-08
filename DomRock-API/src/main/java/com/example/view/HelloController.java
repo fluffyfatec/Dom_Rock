@@ -178,7 +178,6 @@ public class HelloController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        scene.getStylesheets().add("https://github.com/fluffyfatec/Dom_Rock/blob/cce996222f745eeacf3e72becb231ffe8c58dae5/DomRock-API/src/main/java/com/example/view/tablecell.css");
     }
 
 
