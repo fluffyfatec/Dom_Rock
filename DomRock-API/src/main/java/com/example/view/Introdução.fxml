@@ -5,9 +5,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1 " fx:controller="com.example.view.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
    <top>
-      <MenuBar style="-fx-text-base-color: white; -fx-background-color: #2d343a;" BorderPane.alignment="CENTER">
+      <MenuBar style="-fx-text-base-color: white; -fx-background-color: #2d343a; -fx-base: black;" BorderPane.alignment="CENTER">
         <menus>
           <Menu fx:id="bntClienteintro" mnemonicParsing="false" text="Cliente">
             <items>
