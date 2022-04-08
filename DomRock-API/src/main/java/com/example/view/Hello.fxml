@@ -37,7 +37,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
                <graphic>
-                  <ImageView fx:id="imgPlus" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgPlus" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/plus.png" />
                      </image>
@@ -49,7 +49,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
                <graphic>
-                  <ImageView fx:id="imgClose" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgClose" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/close.png" />
                      </image>
@@ -61,7 +61,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
                <graphic>
-                  <ImageView fx:id="imgSearch" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgSearch" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/search_left.png" />
                      </image>
