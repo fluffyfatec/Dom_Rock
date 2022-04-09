@@ -19,7 +19,7 @@ Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom 
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
 
 ## Objetivo
-Requisitos Funcionais:
+### Requisitos Funcionais:
 <p>• Cadastros de Clientes
 <p>• Cadastro de módulos/soluções Dom Rock
 <p>• Cadastro das etapas de ativação: bronze, silver, gold, distribuição, bp, core, segurança
@@ -35,7 +35,8 @@ encontrados durante a ativação de cada cliente
 <p>• Consultas e relatórios por cliente, por solução Dom Rock ativada, etapa, dentre outros
 fatores.<p>
 
-<p><p>Requisitos Não Funcionais:
+<p><p>
+### Requisitos Não Funcionais:
 <p>• Módulo de login/autenticação e perfil
 <p>• Utilizar em servidor/ambiente Linux<p>
 
