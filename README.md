@@ -41,7 +41,8 @@ fatores.
 <p>• Utilizar em servidor/ambiente Linux<p>
 
 ## Solução
-A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o briefing dos clientes.
+A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
+<p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios e logs. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
 
 ## Proposta do Projeto
 
