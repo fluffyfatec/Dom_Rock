@@ -14,11 +14,11 @@
   <a href="#license">TECNOLOGIA</a>
 </p>
 
-## ⚙️ DESAFIO
+## Desafio
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
 
-## 🎯 OBJETIVO
+## Objetivo
 Requisitos Funcionais:
 <p>• Cadastros de Clientes
 <p>• Cadastro de módulos/soluções Dom Rock
@@ -39,23 +39,21 @@ fatores.<p>
 <p>• Módulo de login/autenticação e perfil
 <p>• Utilizar em servidor/ambiente Linux<p>
 
-## 💡 SOLUÇÃO
+## Solução
 A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o briefing dos clientes.
 
-##
+## Backlog do Produto
 <p align="center">
       <img src="./GIT/backlog.jpg" width="100%" height="100%">
 <p align="center">
 
-##
+## Burndown 
 <p align="center">
       <img src="./GIT/burndown.jpg" width="100%" height="100%">
 <p align="center">
 
 
-## 👨‍💻 👩‍💻 EQUIPE
-
-![](https://github.com/vinicius-hso/api-fatec-2s-gswatcher/blob/main/Docs/Images/cluster8_logo.png)
+## Equipe
 
 | Avatar            							| Aluno         | Função           		| GitHub                                                      | LinkedIn                                              |
 | -------------------------------------------- | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
