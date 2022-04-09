@@ -33,9 +33,9 @@ cada cliente
 <p>• Cadastro de comentários/soluções/sugestão de melhorias para problemas conhecidos ou
 encontrados durante a ativação de cada cliente
 <p>• Consultas e relatórios por cliente, por solução Dom Rock ativada, etapa, dentre outros
-fatores.<p>
+fatores.
 
-<p><p>
+
 ### Requisitos Não Funcionais:
 <p>• Módulo de login/autenticação e perfil
 <p>• Utilizar em servidor/ambiente Linux<p>
