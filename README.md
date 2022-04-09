@@ -4,11 +4,16 @@
 
 <p align="center">
   <a href="https://github.com/fluffyfatec/Dom_Rock#%EF%B8%8F-desafio">DESAFIO</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="#how-to-use">OBJETIVO</a> •
+  <a href="#download">SOLUÇÃO</a> •
+  <a href="#credits">CRONOGRAMA</a> •
+  <a href="#related">PROPOSTA</a> •
+  <a href="#license">BACKLOG</a> •
+  <a href="#license">METAS</a> •
+  <a href="#license">BURNDOWN</a> •
+  <a href="#license">WIREFRAME</a> •
+  <a href="#license">EQUIPE</a> •
+  <a href="#license">TECNOLOGIA</a>
 </p>
 
 ## ⚙️ DESAFIO
