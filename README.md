@@ -3,9 +3,7 @@
 <p align="center">
 
 <p align="center">
-  <a href="https://github.com/fluffyfatec/Dom_Rock#%EF%B8%8F-desafio">DESAFIO</a> •
-  <a href="#how-to-use">OBJETIVO</a> •
-  <a href="#download">SOLUÇÃO</a> •
+  <a href="https://github.com/fluffyfatec/Dom_Rock#%EF%B8%8F-desafio">SOBRE</a> •
   <a href="#credits">CRONOGRAMA</a> •
   <a href="#related">PROPOSTA</a> •
   <a href="#license">BACKLOG</a> •
