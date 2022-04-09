@@ -3,7 +3,7 @@
 <p align="center">
 
 <p align="center">
-  <a href="#⚙️ DESAFIO">DESAFIO</a> •
+  <a href="https://github.com/fluffyfatec/Dom_Rock#%EF%B8%8F-desafio">DESAFIO</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
