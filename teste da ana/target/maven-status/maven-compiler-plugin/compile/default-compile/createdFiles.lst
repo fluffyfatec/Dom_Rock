@@ -1,0 +1,14 @@
+DTO\ClienteDTO.class
+DTO\CoreDTO.class
+DAO\ProdutoDAO.class
+DAO\FuncionalidadeDAO.class
+DAO\CoreDAO.class
+DAO\ConexaoDAO.class
+com\example\view\Alerts.class
+DTO\ProdutoDTO.class
+DTO\SolucaoDTO.class
+DAO\SolucaoDAO.class
+com\example\view\HelloApplication.class
+com\example\view\HelloController.class
+DAO\ClienteDAO.class
+DTO\FuncionalidadeDTO.class
