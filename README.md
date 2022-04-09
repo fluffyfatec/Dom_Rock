@@ -42,16 +42,21 @@ fatores.<p>
 ## Solução
 A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o briefing dos clientes.
 
+## Proposta do Projeto
+
 ## Backlog do Produto
 <p align="center">
       <img src="./GIT/backlog.jpg" width="100%" height="100%">
 <p align="center">
+
+## Metas das Sprints
 
 ## Burndown 
 <p align="center">
       <img src="./GIT/burndown.jpg" width="100%" height="100%">
 <p align="center">
 
+## Wireframe
 
 ## Equipe
 
@@ -66,4 +71,4 @@ A Fluffy API desenvolveu o Sistema Gerenciador de Clientes Dom Rock, uma aplica�
 | <img src = "./GIT/avatarana.png" width="60" >|__Aldrik Álvaro__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Emanuele__| *Developer Team**| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 
-
+## Tecnologias Utilizadas
