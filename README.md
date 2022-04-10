@@ -82,19 +82,25 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Tecnologias Utilizadas
 <details>
 <summary>Front-End</summary>
+
 * [Figma](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
+
 * [JavaFX Scene Builder 3](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
 </details>
 
 <details>
 <summary>Back-End</summary>
+
 * [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
+
 * [Eclipse IDE](https://www.eclipse.org/downloads/)
+
 * [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
 </details>
 
 <details>
 <summary>Banco de Dados</summary>
+
 * [SQL Server Nuvem Azure](https://azure.microsoft.com/pt-br/services/sql-database/campaign/)
 </details>
 
@@ -111,5 +117,3 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 * [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
 </details>
-
-* [Github](https://github.com/)
