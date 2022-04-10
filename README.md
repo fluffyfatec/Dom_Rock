@@ -54,6 +54,13 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
+## Cronograma
+<p align="center">
+      <img src="./GIT/cronograma.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Proposta do Projeto
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
