@@ -1,3 +1,4 @@
+<div id="top"></div>
 <p align="center">
       <img src="./GIT/cabecario2.jpg" width="100%" height="100%">
 <p align="center">
@@ -17,6 +18,8 @@
 ## Desafio
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Objetivo
 <details>
@@ -43,28 +46,42 @@ fatores.
 <p>• Utilizar em servidor/ambiente Linux<p>
 </details>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Solução
 A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
 <p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios e logs. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Proposta do Projeto
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Backlog do Produto
 <p align="center">
       <img src="./GIT/backlog.jpg" width="100%" height="100%">
 <p align="center">
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Metas das Sprints
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Burndown 
 <p align="center">
       <img src="./GIT/burndown.jpg" width="100%" height="100%">
 <p align="center">
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Wireframe
 <p align="center">
       <img src="./GIT/wireframe.jpg" width="100%" height="100%">
 <p align="center">
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Equipe
 
@@ -78,6 +95,8 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 | <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 | <img src = "./GIT/avataraldrik.png" width="60" >|__Aldrik Álvaro__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Aldrik-Alvaro) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/aldrik-alvaro-0bb952180/) |
 | <img src = "./GIT/avatarmanu.png" width="60" >|__Emanuele Diniz__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/ecampos14) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/emanuele-diniz-campos-b14699181) |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Tecnologias Utilizadas
 <details>
@@ -117,6 +136,8 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 * [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
 </details>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <p align="center">
       <img src="./GIT/rodape.jpg" width="100%" height="100%">
