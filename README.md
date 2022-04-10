@@ -122,4 +122,4 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
       <img src="./GIT/rodape.jpg" width="100%" height="100%">
 <p align="center">
 
-[Github](https://github.com/)		[Github](https://github.com/)
+[Github](https://github.com/fluffyfatec)		[fluffyfatec@gmail.com](fluffyfatec@gmail.com)
