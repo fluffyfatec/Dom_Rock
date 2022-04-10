@@ -41,7 +41,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="https://https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png/fluffyfatec/Front-/main/plus.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -148,9 +148,9 @@
                                  <children>
                                     <TextField fx:id="txtDadosmin" maxWidth="200.0" prefHeight="26.0" prefWidth="116.0" style="-fx-background-color: #21252a; -fx-text-fill: White; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                                     <Button minHeight="0.0" mnemonicParsing="false" onAction="#btnTabela" prefHeight="26.0" prefWidth="34.0" style="-fx-base: #1caacb;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                                    <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
                                        <GridPane.margin>
-                                          <Insets left="3.0" top="0.5" />
+                                          <Insets left="6.5" top="0.5" />
                                        </GridPane.margin>
                                        <image>
                                           <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
