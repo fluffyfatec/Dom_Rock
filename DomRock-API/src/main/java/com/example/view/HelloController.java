@@ -46,7 +46,7 @@ public class HelloController {
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 1178, 681);
-            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css?token=GHSAT0AAAAAABSFU5ET3YLNMQRFQ6HTMN34YSQUNZQ");
+            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -71,13 +71,19 @@ public class HelloController {
     private Tab geral;
     
     @FXML
-    private MenuItem oi;
+    private MenuItem governo;
 
     @FXML
-    private MenuItem sim;
+    private MenuItem industria;
+    
+    @FXML
+    private MenuItem atacado;
 
     @FXML
-    private SplitMenuButton splitSegmento;
+    private MenuItem comercio;
+    
+    @FXML
+    private TextField txtDadosmin;
 
     @FXML
     private TextField txtCnpj;
@@ -113,6 +119,7 @@ public class HelloController {
             String objCliente = this.txtObjNegocio.getText();
             String eMinimos = this.txteMinimos.getText();
             String ePossiveis = this.txtePossiveis.getText();
+            String dadosMin = this.txtDadosmin.getText();
 
             System.out.println("Razao social: "+nomeCliente+ "\nCNPJ: "+cnpjCliente+"\nObjetivo do Negocio: "+objCliente+"\nEntregaveis Minimos: "+eMinimos+"\nEntregaveis Possiveis: "+ePossiveis+"\n\n");
 
@@ -124,38 +131,54 @@ public class HelloController {
             objclienteDTO.setEntregaMin(eMinimos);
             objclienteDTO.setEntregaPossivel(ePossiveis);
             objclienteDTO.setObjetivoNegocio(objCliente);
+            objclienteDTO.setDadosMin(dadosMin);
+            
+            
             
             clientedao.cadastarCliente(objclienteDTO);
 
-
-            /* Metodos acessores do entregavelDTO
-            EntregavelDTO objentregavelDTO = new EntregavelDTO();
-            objentregavelDTO.setEntregaMin(eMinimos);
-            objentregavelDTO.setEntregaPossivel(ePossiveis);
-            objentregavelDTO.setObjetivoNegocio(objCliente);*/
-
-            
-            
-            
             Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
+
+            
             
         }
 
     }
+    
+    // Definindo o split segmento 
+    
+    @FXML
+    void itemComercio(ActionEvent event) {
+    	ClienteDTO objclienteDTO = new ClienteDTO();
+    	String nomeSetor = "comercio";
+    	objclienteDTO.setNomeSetor(nomeSetor);
+    	System.out.println(nomeSetor);
+    }
 
     @FXML
-    void btnSegmento(ActionEvent event) {
+    void itemGoverno(ActionEvent event) {
+    	ClienteDTO objclienteDTO = new ClienteDTO();
+    	String nomeSetor = "governo";
+    	objclienteDTO.setNomeSetor(nomeSetor);
+    	System.out.println(nomeSetor);
+    }
 
-	splitSegmento = new SplitMenuButton();
-	
-	 oi = new MenuItem();
-	 sim = new MenuItem();
-	
-	splitSegmento.getItems().addAll(oi, sim);    
-	
-	oi.setOnAction((e)->{
-		System.out.println("deu certo");
-	});
+    @FXML
+    void itemIndustria(ActionEvent event) {
+    	ClienteDTO objclienteDTO = new ClienteDTO();
+    	String nomeSetor = "industria";
+    	objclienteDTO.setNomeSetor(nomeSetor);
+    	System.out.println(nomeSetor);
+
+    }
+    
+    @FXML
+    void itemAtatacado(ActionEvent event) {
+    	ClienteDTO objclienteDTO = new ClienteDTO();
+    	String nomeSetor = "atacado";
+    	objclienteDTO.setNomeSetor(nomeSetor);
+    	System.out.println(nomeSetor);
+
 
     }
 
@@ -179,7 +202,7 @@ public class HelloController {
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 358, 432);
-            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css?token=GHSAT0AAAAAABSFU5ET3YLNMQRFQ6HTMN34YSQUNZQ");
+            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -189,6 +212,20 @@ public class HelloController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+    @FXML
+    void btnTabela(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputProduto(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputSolucao(ActionEvent event) {
+
     }
 
 
