@@ -46,7 +46,7 @@ public class HelloController {
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 1178, 681);
-            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css");
+            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -202,7 +202,7 @@ public class HelloController {
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 358, 432);
-            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Dom_Rock/main/DomRock-API/src/main/java/com/example/view/style.css");
+            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -40,7 +40,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/plus.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -52,7 +52,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/close.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -64,7 +64,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/search_left.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/search_left.png" />
 							</image>
 						</ImageView>
 					</graphic>
