@@ -9,9 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,10 +22,11 @@ import javafx.stage.Stage;
 
 public class HelloController {
 
-
     //Janela Inicial
 	private ClienteDAO clientedao = new ClienteDAO();
 	
+    @FXML
+    private ComboBox<String> boxSegmento;
 
     @FXML
     private Menu bntClienteintro;
@@ -137,48 +138,9 @@ public class HelloController {
             
             clientedao.cadastarCliente(objclienteDTO);
 
-            Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
-
-            
+            Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");    
             
         }
-
-    }
-    
-    // Definindo o split segmento 
-    
-    @FXML
-    void itemComercio(ActionEvent event) {
-    	ClienteDTO objclienteDTO = new ClienteDTO();
-    	String nomeSetor = "comercio";
-    	objclienteDTO.setNomeSetor(nomeSetor);
-    	System.out.println(nomeSetor);
-    }
-
-    @FXML
-    void itemGoverno(ActionEvent event) {
-    	ClienteDTO objclienteDTO = new ClienteDTO();
-    	String nomeSetor = "governo";
-    	objclienteDTO.setNomeSetor(nomeSetor);
-    	System.out.println(nomeSetor);
-    }
-
-    @FXML
-    void itemIndustria(ActionEvent event) {
-    	ClienteDTO objclienteDTO = new ClienteDTO();
-    	String nomeSetor = "industria";
-    	objclienteDTO.setNomeSetor(nomeSetor);
-    	System.out.println(nomeSetor);
-
-    }
-    
-    @FXML
-    void itemAtatacado(ActionEvent event) {
-    	ClienteDTO objclienteDTO = new ClienteDTO();
-    	String nomeSetor = "atacado";
-    	objclienteDTO.setNomeSetor(nomeSetor);
-    	System.out.println(nomeSetor);
-
 
     }
 
@@ -259,6 +221,13 @@ public class HelloController {
     @FXML
     void txtRazaosocialconsulta(ActionEvent event) {
 
+    }
+    public void start (Stage stage) {
+    	boxSegmento.getItems().add("Atacado");
+        boxSegmento.getItems().add("Industria");
+        boxSegmento.getItems().add("Comércio/Varejo");
+        boxSegmento.getItems().add("Governo");
+        stage.show(); 	
     }
 
 }
