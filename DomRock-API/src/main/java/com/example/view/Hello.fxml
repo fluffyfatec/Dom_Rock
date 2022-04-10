@@ -2,11 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="62.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="1183.0" />
 		<GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
@@ -40,7 +41,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+								<Image url="https://https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png/fluffyfatec/Front-/main/plus.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -52,7 +53,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -64,7 +65,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/search_left.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -76,11 +77,11 @@
 		</GridPane>
 		<TabPane layoutY="53.0" prefHeight="632.0" prefWidth="1179.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
-				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Geral">
+				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
 						<AnchorPane maxHeight="600.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1181.0" style="-fx-background-color: #21252a;">
 							<children>
-								<GridPane layoutX="30.0" layoutY="18.0" prefHeight="208.0" prefWidth="528.0">
+								<GridPane layoutX="30.0" layoutY="37.0" prefHeight="208.0" prefWidth="528.0">
 									<columnConstraints>
 										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 									</columnConstraints>
@@ -88,7 +89,8 @@
 										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 										<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
 										<GridPane prefHeight="60.0" prefWidth="481.0">
@@ -97,42 +99,39 @@
 											</columnConstraints>
 											<rowConstraints>
 												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
 												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 											</rowConstraints>
 											<children>
-												<TextField fx:id="txtNome" prefHeight="27.0" prefWidth="504.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1" />
+												<TextField fx:id="txtNome" prefHeight="27.0" prefWidth="504.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="2" />
 												<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Razão Social" />
 											</children>
 										</GridPane>
 										<GridPane prefHeight="64.0" prefWidth="495.0" GridPane.rowIndex="1">
 											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+												<ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
 												<ColumnConstraints hgrow="SOMETIMES" maxWidth="240.33331298828125" minWidth="10.0" prefWidth="195.0" />
 											</columnConstraints>
 											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="12.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="12.0" prefHeight="30.0" vgrow="SOMETIMES" />
+												<RowConstraints minHeight="12.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="12.0" prefHeight="30.0" vgrow="SOMETIMES" />
+												<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
 												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 											</rowConstraints>
 											<children>
-												<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
-												<TextField fx:id="txtCnpj" prefHeight="27.0" prefWidth="249.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1">
+												<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" GridPane.rowIndex="2" />
+												<TextField fx:id="txtCnpj" prefHeight="27.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="5">
 													<GridPane.margin>
 														<Insets right="5.0" />
 													</GridPane.margin>
 												</TextField>
-                                    <MenuButton mnemonicParsing="false" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                      <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#itemComercio" text="Comercio" />
-                                        <MenuItem mnemonicParsing="false" onAction="#itemAtatacado" text="Atacado" />
-                                          <MenuItem mnemonicParsing="false" onAction="#itemGoverno" text="Governo" />
-                                          <MenuItem mnemonicParsing="false" onAction="#itemIndustria" text="Industria" />
-                                      </items>
-                                    </MenuButton>
+                                    <ComboBox prefHeight="25.0" prefWidth="203.0" promptText="Segmento" style="-fx-base: #21252a;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 											</children>
 										</GridPane>
-                              <GridPane prefHeight="58.0" prefWidth="515.0" GridPane.rowIndex="3">
+                              <GridPane prefHeight="57.0" prefWidth="512.0" GridPane.rowIndex="4">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.60001220703126" minWidth="180.0" prefWidth="26.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.60001220703126" minWidth="0.0" prefWidth="8.0" />
@@ -140,16 +139,26 @@
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.59996337890624" minWidth="0.0" prefWidth="8.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.59996337890624" minWidth="80.0" prefWidth="92.39996337890625" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.59996337890624" minWidth="0.0" prefWidth="8.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.5999755859375" minWidth="6.2000000000000455" prefWidth="39.60001220703123" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.5999755859375" minWidth="6.2000000000000455" prefWidth="25.0" />
                                  </columnConstraints>
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <TextField fx:id="txtDadosmin" maxWidth="200.0" prefHeight="26.0" prefWidth="116.0" style="-fx-background-color: #21252a; -fx-text-fill: White; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.columnIndex="4" />
-                                    <SplitMenuButton mnemonicParsing="false" onAction="#inputSolucao" prefHeight="26.0" prefWidth="260.0" style="-fx-color: #21252a;" text="Solução" />
-                                    <SplitMenuButton mnemonicParsing="false" onAction="#inputProduto" prefHeight="26.0" prefWidth="260.0" style="-fx-color: #21252a;" text="Produto" GridPane.columnIndex="2" />
-                                    <Button minHeight="0.0" mnemonicParsing="false" onAction="#btnTabela" prefHeight="26.0" prefWidth="34.0" style="-fx-background-color: #1caacb;" GridPane.columnIndex="6" />
+                                    <TextField fx:id="txtDadosmin" maxWidth="200.0" prefHeight="26.0" prefWidth="116.0" style="-fx-background-color: #21252a; -fx-text-fill: White; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <Button minHeight="0.0" mnemonicParsing="false" onAction="#btnTabela" prefHeight="26.0" prefWidth="34.0" style="-fx-base: #1caacb;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                    <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="3.0" top="0.5" />
+                                       </GridPane.margin>
+                                       <image>
+                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ComboBox prefHeight="25.0" prefWidth="183.0" promptText="Serviço" style="-fx-base: #21252a;" GridPane.rowIndex="1" />
+                                    <ComboBox prefHeight="25.0" prefWidth="203.0" promptText="Produto" style="-fx-base: #21252a;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Dados Min." textFill="WHITE" GridPane.columnIndex="4" />
                                  </children>
                               </GridPane>
 									</children>
@@ -175,6 +184,14 @@
 										<TextArea fx:id="txtePossiveis" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
+                        <TableView accessibleRole="IMAGE_VIEW" layoutX="30.0" layoutY="250.0" prefHeight="316.0" prefWidth="528.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c;">
+                          <columns>
+                              <TableColumn editable="false" minWidth="170.0" prefWidth="75.0" resizable="false" sortable="false" style="-fx-base: #2d343a;" text="Serviço" />
+                            <TableColumn editable="false" minWidth="170.0" prefWidth="75.0" resizable="false" sortable="false" style="-fx-base: #2d343a;" text="Produto" />
+                            <TableColumn editable="false" minWidth="156.0" prefWidth="75.0" resizable="false" sortable="false" style="-fx-base: #2d343a;" text="Dados Min." />
+                              <TableColumn editable="false" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" style="-fx-base: #2d343a;" />
+                          </columns>
+                        </TableView>
 							</children>
 						</AnchorPane>
 					</content>
