@@ -20,7 +20,7 @@ Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom 
 
 ## Objetivo
 <details>
-<summary>### Requisitos Funcionais</summary>
+<summary>Requisitos Funcionais</summary>
 <p>• Cadastros de Clientes
 <p>• Cadastro de módulos/soluções Dom Rock
 <p>• Cadastro das etapas de ativação: bronze, silver, gold, distribuição, bp, core, segurança
@@ -37,11 +37,11 @@ encontrados durante a ativação de cada cliente
 fatores.
 </details>
 
-
-### Requisitos Não Funcionais:
+<details>
+<summary>Requisitos Não Funcionais</summary>
 <p>• Módulo de login/autenticação e perfil
 <p>• Utilizar em servidor/ambiente Linux<p>
-
+</details>
 ## Solução
 A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
 <p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios e logs. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
