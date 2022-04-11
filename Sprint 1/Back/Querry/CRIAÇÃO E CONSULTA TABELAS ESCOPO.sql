@@ -68,7 +68,6 @@ CREATE TABLE  Solucao (
 CREATE TABLE  Produto (
 	id_produto int identity(1,1) primary key,
     nm_produto varchar(30) not null unique,
-	dado_min varchar(30) not null,
 	id_solucao int foreign key references Solucao(id_solucao) not null
 );
 
@@ -95,6 +94,7 @@ CREATE TABLE Cliente_Solucao(
 CREATE TABLE Cliente_Produto(
 	cp_id_cliente int foreign key references Cliente(id_cliente) not null,
 	cp_id_produto int foreign key references Produto(id_produto) not null,
+	dado_min varchar(30),
 	primary key (cp_id_cliente, cp_id_produto)
 );
 
