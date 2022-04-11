@@ -1,3 +1,4 @@
+<div id="top"></div>
 <p align="center">
       <img src="./GIT/cabecario2.jpg" width="100%" height="100%">
 <p align="center">
@@ -17,6 +18,8 @@
 ## Desafio
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Objetivo
 <details>
@@ -43,28 +46,49 @@ fatores.
 <p>• Utilizar em servidor/ambiente Linux<p>
 </details>
 
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Solução
 A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
 <p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios e logs. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
 
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Cronograma
+<p align="center">
+      <img src="./GIT/cronograma.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Proposta do Projeto
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Backlog do Produto
 <p align="center">
       <img src="./GIT/backlog.jpg" width="100%" height="100%">
 <p align="center">
 
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Metas das Sprints
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Burndown 
 <p align="center">
       <img src="./GIT/burndown.jpg" width="100%" height="100%">
 <p align="center">
 
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Wireframe
 <p align="center">
       <img src="./GIT/wireframe.jpg" width="100%" height="100%">
 <p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Equipe
 
@@ -79,4 +103,51 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 | <img src = "./GIT/avataraldrik.png" width="60" >|__Aldrik Álvaro__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Aldrik-Alvaro) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/aldrik-alvaro-0bb952180/) |
 | <img src = "./GIT/avatarmanu.png" width="60" >|__Emanuele Diniz__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/ecampos14) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/emanuele-diniz-campos-b14699181) |
 
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Tecnologias Utilizadas
+<details>
+<summary>Front-End</summary>
+
+* [Figma](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
+
+* [JavaFX Scene Builder 3](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
+</details>
+
+<details>
+<summary>Back-End</summary>
+
+* [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
+
+* [Eclipse IDE](https://www.eclipse.org/downloads/)
+
+* [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
+</details>
+
+<details>
+<summary>Banco de Dados</summary>
+
+* [SQL Server Nuvem Azure](https://azure.microsoft.com/pt-br/services/sql-database/campaign/)
+</details>
+
+<details>
+<summary>Outros</summary>
+
+* [Github](https://github.com/)
+
+* [Discord](https://discord.com/?msclkid=b4f5af84b8f811ecbd81c127a0ae68a7)
+
+* [Slack](https://slack.com/intl/pt-br/?msclkid=c00e628eb8f811ecaef374bb86d7f056)
+
+* [Jira](https://www.atlassian.com/br/software/jira?msclkid=c8e971f7b8f811ec957d13ca3bfc6c1b)
+
+* [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
+</details>
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+<p align="center">
+      <img src="./GIT/rodape.jpg" width="100%" height="100%">
+<p align="center">
+
+[Github](https://github.com/fluffyfatec)		[fluffyfatec@gmail.com](fluffyfatec@gmail.com)
