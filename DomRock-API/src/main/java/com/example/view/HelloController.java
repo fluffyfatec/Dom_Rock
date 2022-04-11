@@ -2,21 +2,18 @@ package com.example.view;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import DAO.ClienteDAO;
 import DTO.ClienteDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
@@ -24,7 +21,7 @@ public class HelloController {
 
     //Janela Inicial
 	private ClienteDAO clientedao = new ClienteDAO();
-	
+
     @FXML
     private ComboBox<String> boxSegmento;
 
@@ -51,6 +48,7 @@ public class HelloController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
         Stage stage = new Stage();
         stage.setTitle("Cadastrar Cliente - Dom Rock");
         stage.setResizable(false);
