@@ -233,7 +233,7 @@ public class HelloController implements Initializable{
     
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-	   	ObservableList<String> list = FXCollections.observableArrayList("Varejo/Atacado","Governo","esqueci o resto");
+	   	ObservableList<String> list = FXCollections.observableArrayList("Comercio/Varejo","Governo","Industria");
 	   	boxSegmento.setItems(list);
 		
 	}
