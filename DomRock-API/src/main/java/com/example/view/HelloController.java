@@ -226,9 +226,15 @@ public class HelloController implements Initializable{
             Statement stm = conn.createStatement();
 
             ResultSet resultado = stm.executeQuery(sql);
-            while(resultado.next()){
-                System.out.println(resultado.getString("razao_social"));
+
+            if (!resultado.isBeforeFirst() ) {
+                System.out.println("NENHUM RESULTADO ENCONTRADO");
+            } else {
+                while(resultado.next()) {
+                    System.out.println(resultado.getString("razao_social"));
+                }
             }
+
         } if (Objects.equals(this.razaosocialconsulta.getText(), "")) {
             String sql = "select * from Cliente where cnpj like '%" + this.cnpjconsulta.getText() + "%'";
 
@@ -236,9 +242,15 @@ public class HelloController implements Initializable{
             Statement stm = conn.createStatement();
 
             ResultSet resultado = stm.executeQuery(sql);
-            while(resultado.next()){
-                System.out.println(resultado.getString("razao_social"));
+
+            if (!resultado.isBeforeFirst() ) {
+                System.out.println("NENHUM RESULTADO ENCONTRADO");
+            } else {
+                while(resultado.next()) {
+                    System.out.println(resultado.getString("razao_social"));
+                }
             }
+
         } if ((!Objects.equals(this.razaosocialconsulta.getText(), "")) && (!Objects.equals(this.cnpjconsulta.getText(), ""))) {
             String sql = "select * from Cliente where razao_social like '%"+this.razaosocialconsulta.getText()+"%' and cnpj like '%"+this.cnpjconsulta.getText()+"%'";
 
@@ -246,10 +258,14 @@ public class HelloController implements Initializable{
             Statement stm = conn.createStatement();
 
             ResultSet resultado = stm.executeQuery(sql);
-            while(resultado.next()){
-                System.out.println(resultado.getString("razao_social"));
-            }
 
+            if (!resultado.isBeforeFirst() ) {
+                System.out.println("NENHUM RESULTADO ENCONTRADO");
+            } else {
+                while(resultado.next()) {
+                    System.out.println(resultado.getString("razao_social"));
+                }
+            }
 
         }
 
