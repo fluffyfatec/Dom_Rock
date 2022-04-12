@@ -227,11 +227,13 @@ public class HelloController implements Initializable{
     	ClienteDTO objclieClienteDTO = new ClienteDTO();
     	String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
     	objclieClienteDTO.setNomeSetor(nomeSetor);
+    	
+
     }
     
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-	   	ObservableList<String> list = FXCollections.observableArrayList("teste","teste2");
+	   	ObservableList<String> list = FXCollections.observableArrayList("Varejo/Atacado","Governo","esqueci o resto");
 	   	boxSegmento.setItems(list);
 		
 	}
