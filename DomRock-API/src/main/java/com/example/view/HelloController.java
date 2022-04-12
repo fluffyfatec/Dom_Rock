@@ -13,7 +13,10 @@ import java.util.ResourceBundle;
 
 import DAO.ClienteDAO;
 import DAO.ConexaoDAO;
+import DAO.DadosDAO;
 import DTO.ClienteDTO;
+import DTO.ProdutoDTO;
+import DTO.SolucaoDTO;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,9 +35,16 @@ public class HelloController implements Initializable{
 
     //Janela Inicial
 	private ClienteDAO clientedao = new ClienteDAO();
+    private DadosDAO  dadosdao= new DadosDAO();
 
 	@FXML
     private ComboBox<String> boxSegmento = new ComboBox<String>();
+	
+	@FXML 
+	private ComboBox<String> boxProduto = new ComboBox<String>();
+	
+	@FXML 
+	private ComboBox<String> boxServico = new ComboBox<String>();
 
     @FXML
     private Menu bntClienteintro;
@@ -110,7 +120,6 @@ public class HelloController implements Initializable{
     @FXML
     private TextArea txtePossiveis;
 
-
     @FXML
     private void btnCadastrar(ActionEvent event) {
 
@@ -146,7 +155,7 @@ public class HelloController implements Initializable{
             objclienteDTO.setNomeSetor(selectnomeSetor);
             
             
-           
+            dadosdao.cadastarDados(objclienteDTO);
             clientedao.cadastarCliente(objclienteDTO);
 
             Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");    
@@ -207,7 +216,29 @@ public class HelloController implements Initializable{
         txtObjNegocio.setText(null);
         txteMinimos.setText(null);
         txtePossiveis.setText(null);
-
+        
+        //boxSegmento.getSelectionModel().clearSelection();
+        //boxServico.getSelectionModel().clearSelection();
+        //boxProduto.getSelectionModel().clearSelection();
+        
+        System.out.println(boxSegmento.getValue());
+        boxSegmento.setValue("Segmento");
+        System.out.println(boxSegmento.getPromptText());
+        
+        
+        coreWeb.setSelected(false);
+        coreFilas.setSelected(false);
+        coreFargate.setSelected(false);
+        coreMongo.setSelected(false);
+        coreParquet.setSelected(false);
+        coreApi.setSelected(false);
+        coreStep.setSelected(false);
+        coreContainers.setSelected(false);
+        coreQuick.setSelected(false);
+        coreS3.setSelected(false);
+        coreLambda.setSelected(false);
+        coreCloud.setSelected(false);
+        coreGateway.setSelected(false);
     }
 
     @FXML
@@ -229,18 +260,23 @@ public class HelloController implements Initializable{
         stage.setResizable(false);
         stage.show();
     }
+    
+    @FXML
+    void bntProduto(ActionEvent event) {
+		ProdutoDTO objProdutoDto = new ProdutoDTO();
+    	String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
+    	objProdutoDto.setNomeProduto(nomeProduto);
+    }
+    @FXML
+	void bntServico(ActionEvent event) {
+    	SolucaoDTO objSolucaoDTO = new SolucaoDTO();
+    	String nomeSolucao = boxProduto.getSelectionModel().getSelectedItem().toString();
+    	objSolucaoDTO.setNomeSolucao(nomeSolucao);
+
+	}
+    
     @FXML
     void btnTabela(ActionEvent event) {
-
-    }
-
-    @FXML
-    void inputProduto(ActionEvent event) {
-
-    }
-
-    @FXML
-    void inputSolucao(ActionEvent event) {
 
     }
 
@@ -342,9 +378,12 @@ public class HelloController implements Initializable{
     
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-	   	ObservableList<String> list = FXCollections.observableArrayList("Comercio/Varejo","Governo","Industria");
+	   	ObservableList<String> list = FXCollections.observableArrayList("Industria","Atacado","Comercio/Varejo","Governo");
 	   	boxSegmento.setItems(list);
-		
+	   	ObservableList<String> list1 = FXCollections.observableArrayList("Vox", "Marketing & Planning", "Sales & Distribution", "Pricing","Optimization","Matching & Risk");
+	   	boxProduto.setItems(list1);
+	   	ObservableList<String> list2 = FXCollections.observableArrayList("Demand", "Operations");
+	   	boxServico.setItems(list2);
 	}
  
 }
