@@ -3,9 +3,15 @@ package com.example.view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import DAO.ClienteDAO;
+import DAO.ConexaoDAO;
 import DTO.ClienteDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -205,7 +211,49 @@ public class HelloController implements Initializable{
     private TableView<?> tabelaPesquisa;
 
     @FXML
-    void btnBuscaconsulta(ActionEvent event) {
+    private TextField razaosocialconsulta;
+
+    @FXML
+    private TextField cnpjconsulta;
+
+    @FXML
+    private void btnBuscaconsulta(ActionEvent event) throws ClassNotFoundException, SQLException {
+
+        if (Objects.equals(this.cnpjconsulta.getText(), "")) {
+            String sql = "select * from Cliente where razao_social like '%"+this.razaosocialconsulta.getText()+"%'";
+
+            Connection conn = new ConexaoDAO().conectaBD();
+            Statement stm = conn.createStatement();
+
+            ResultSet resultado = stm.executeQuery(sql);
+            while(resultado.next()){
+                System.out.println(resultado.getString("razao_social"));
+            }
+        } if (Objects.equals(this.razaosocialconsulta.getText(), "")) {
+            String sql = "select * from Cliente where cnpj like '%" + this.cnpjconsulta.getText() + "%'";
+
+            Connection conn = new ConexaoDAO().conectaBD();
+            Statement stm = conn.createStatement();
+
+            ResultSet resultado = stm.executeQuery(sql);
+            while(resultado.next()){
+                System.out.println(resultado.getString("razao_social"));
+            }
+        } if ((!Objects.equals(this.razaosocialconsulta.getText(), "")) && (!Objects.equals(this.cnpjconsulta.getText(), ""))) {
+            String sql = "select * from Cliente where razao_social like '%"+this.razaosocialconsulta.getText()+"%' and cnpj like '%"+this.cnpjconsulta.getText()+"%'";
+
+            Connection conn = new ConexaoDAO().conectaBD();
+            Statement stm = conn.createStatement();
+
+            ResultSet resultado = stm.executeQuery(sql);
+            while(resultado.next()){
+                System.out.println(resultado.getString("razao_social"));
+            }
+
+
+        }
+
+
 
     }
 
