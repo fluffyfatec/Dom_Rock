@@ -120,7 +120,8 @@ public class HelloController implements Initializable{
             String eMinimos = this.txteMinimos.getText();
             String ePossiveis = this.txtePossiveis.getText();
             String dadosMin = this.txtDadosmin.getText();
-
+            String selectnomeSetor = this.boxSegmento.getSelectionModel().getSelectedItem().toString();
+            
             System.out.println("Razao social: "+nomeCliente+ "\nCNPJ: "+cnpjCliente+"\nObjetivo do Negocio: "+objCliente+"\nEntregaveis Minimos: "+eMinimos+"\nEntregaveis Possiveis: "+ePossiveis+"\n\n");
 
 
@@ -132,9 +133,10 @@ public class HelloController implements Initializable{
             objclienteDTO.setEntregaPossivel(ePossiveis);
             objclienteDTO.setObjetivoNegocio(objCliente);
             objclienteDTO.setDadosMin(dadosMin);
+            objclienteDTO.setNomeSetor(selectnomeSetor);
             
             
-            
+           
             clientedao.cadastarCliente(objclienteDTO);
 
             Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");    
@@ -227,8 +229,6 @@ public class HelloController implements Initializable{
     	ClienteDTO objclieClienteDTO = new ClienteDTO();
     	String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
     	objclieClienteDTO.setNomeSetor(nomeSetor);
-    	
-
     }
     
 	@Override
