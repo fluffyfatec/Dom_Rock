@@ -234,9 +234,11 @@ public class HelloController implements Initializable{
         
         //boxSegmento.getSelectionModel().clearSelection();
         //Limpar ComboBox
-        boxSegmento.getSelectionModel().selectFirst();
-        boxServico.getSelectionModel().selectFirst();
-        boxProduto.getSelectionModel().selectFirst();
+        boxSegmento.getSelectionModel().clearSelection();
+        boxServico.getSelectionModel().clearSelection();
+        boxProduto.getSelectionModel().clearSelection();
+        
+        txtDadosmin.setText(null);
         
         //Limpar Funcionalidades
         funcaoPainel.setSelected(false);
