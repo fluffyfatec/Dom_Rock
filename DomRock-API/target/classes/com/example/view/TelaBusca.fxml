@@ -61,7 +61,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/search_left.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
 							</image>
 						</ImageView>
 					</graphic>
@@ -80,7 +80,7 @@
 					<graphic>
 						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@img/close.png" />
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
 							</image>
 						</ImageView>
 					</graphic>

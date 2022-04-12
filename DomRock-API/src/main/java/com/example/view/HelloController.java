@@ -276,6 +276,9 @@ public class HelloController implements Initializable{
     @FXML
     void btnLimparconsulta(ActionEvent event) {
 
+        razaosocialconsulta.setText(null);
+        cnpjconsulta.setText(null);
+
     }
 
     @FXML
