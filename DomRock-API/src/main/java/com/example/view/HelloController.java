@@ -7,12 +7,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 import DAO.ClienteDAO;
 import DAO.ConexaoDAO;
 import DTO.ClienteDTO;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -219,6 +223,9 @@ public class HelloController implements Initializable{
     @FXML
     private void btnBuscaconsulta(ActionEvent event) throws ClassNotFoundException, SQLException {
 
+        ObservableList<String> nomes = FXCollections.observableArrayList();
+        ObservableList<String> cnpjs = FXCollections.observableArrayList();
+
         if (Objects.equals(this.cnpjconsulta.getText(), "")) {
             String sql = "select * from Cliente where razao_social like '%"+this.razaosocialconsulta.getText()+"%'";
 
@@ -232,6 +239,8 @@ public class HelloController implements Initializable{
             } else {
                 while(resultado.next()) {
                     System.out.println(resultado.getString("razao_social"));
+                    nomes.add(resultado.getString("razao_social"));
+                    System.out.println("Lista: "+nomes);
                 }
             }
 
@@ -278,16 +287,6 @@ public class HelloController implements Initializable{
 
         razaosocialconsulta.setText(null);
         cnpjconsulta.setText(null);
-
-    }
-
-    @FXML
-    void txtCnpjconsulta(ActionEvent event) {
-
-    }
-
-    @FXML
-    void txtRazaosocialconsulta(ActionEvent event) {
 
     }
 
