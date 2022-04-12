@@ -154,6 +154,49 @@ public class HelloController implements Initializable{
         }
 
     }
+    
+    // CheckBox CORE
+    
+    @FXML
+    private CheckBox coreApi;
+
+    @FXML
+    private CheckBox coreCloud;
+
+    @FXML
+    private CheckBox coreContainers;
+
+    @FXML
+    private CheckBox coreFargate;
+
+    @FXML
+    private CheckBox coreFilas;
+
+    @FXML
+    private CheckBox coreGateway;
+
+    @FXML
+    private CheckBox coreLambda;
+
+    @FXML
+    private CheckBox coreMongo;
+
+    @FXML
+    private CheckBox coreParquet;
+
+    @FXML
+    private CheckBox coreQuick;
+
+    @FXML
+    private CheckBox coreS3;
+
+    @FXML
+    private CheckBox coreStep;
+
+    @FXML
+    private CheckBox coreWeb;
+    
+    
 
     // Botão limpar
     @FXML
