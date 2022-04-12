@@ -1,12 +1,12 @@
 package DAO;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import DTO.ClienteDTO;
+import javafx.collections.ObservableList;
 
 public class ClienteDAO {
 
