@@ -12,18 +12,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
-public class HelloController {
+public class HelloController implements Initializable{
 
     //Janela Inicial
 	private ClienteDAO clientedao = new ClienteDAO();
 
-    @FXML
-    private ComboBox<String> boxSegmento;
+	@FXML
+    private ComboBox<String> boxSegmento = new ComboBox<String>();
 
     @FXML
     private Menu bntClienteintro;
@@ -220,12 +221,19 @@ public class HelloController {
     void txtRazaosocialconsulta(ActionEvent event) {
 
     }
-    public void start (Stage stage) {
-    	boxSegmento.getItems().add("Atacado");
-        boxSegmento.getItems().add("Industria");
-        boxSegmento.getItems().add("Comércio/Varejo");
-        boxSegmento.getItems().add("Governo");
-        stage.show(); 	
-    }
 
+    @FXML
+    void btnSegmento(ActionEvent event) {
+    	ClienteDTO objclieClienteDTO = new ClienteDTO();
+    	String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
+    	objclieClienteDTO.setNomeSetor(nomeSetor);
+    }
+    
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+	   	ObservableList<String> list = FXCollections.observableArrayList("teste","teste2");
+	   	boxSegmento.setItems(list);
+		
+	}
+ 
 }

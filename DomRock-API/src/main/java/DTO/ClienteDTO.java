@@ -9,6 +9,7 @@ public class ClienteDTO {
 	private String entregaMin;
 	private String entregaPossivel;
 	private String dadosMin;
+	
 
 
 	public String getDadosMin() {
@@ -66,7 +67,6 @@ public class ClienteDTO {
 	public void setNomeSetor(String nomeSetor) {
 		this.nomeSetor = nomeSetor;
 	}
-	
 
 
 
