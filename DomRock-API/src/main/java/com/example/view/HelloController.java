@@ -205,12 +205,27 @@ public class HelloController implements Initializable{
     @FXML
     private CheckBox coreWeb;
     
+    //Check Box Funcionalidades
+
+
+    @FXML
+    private CheckBox funcaoPainel;
+   
+    @FXML
+    private CheckBox funcaoBusca;
+   
+    @FXML
+    private CheckBox funcaoGeradorRelatorio;
+     
+    @FXML
+    private CheckBox FuncaoGeradorData;
+    
     
 
     // Botão limpar
     @FXML
     void btnLimpar(ActionEvent event) {
-
+    	
         txtNome.setText(null);
         txtCnpj.setText(null);
         txtObjNegocio.setText(null);
@@ -218,14 +233,18 @@ public class HelloController implements Initializable{
         txtePossiveis.setText(null);
         
         //boxSegmento.getSelectionModel().clearSelection();
-        //boxServico.getSelectionModel().clearSelection();
-        //boxProduto.getSelectionModel().clearSelection();
+        //Limpar ComboBox
+        boxSegmento.getSelectionModel().selectFirst();
+        boxServico.getSelectionModel().selectFirst();
+        boxProduto.getSelectionModel().selectFirst();
         
-        System.out.println(boxSegmento.getValue());
-        boxSegmento.setValue("Segmento");
-        System.out.println(boxSegmento.getPromptText());
+        //Limpar Funcionalidades
+        funcaoPainel.setSelected(false);
+        funcaoBusca.setSelected(false);
+        funcaoGeradorRelatorio.setSelected(false);
+        FuncaoGeradorData.setSelected(false);
         
-        
+        //Limpar Core
         coreWeb.setSelected(false);
         coreFilas.setSelected(false);
         coreFargate.setSelected(false);
