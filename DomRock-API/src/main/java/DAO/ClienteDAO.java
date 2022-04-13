@@ -29,7 +29,7 @@ public class ClienteDAO {
 			// Puxando a data e hora e formatando
 			Calendar cal = Calendar.getInstance();  
 			java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
-			String date = new SimpleDateFormat("MM/dd/yyyy HH:mm").format(timestamp);
+			String date = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(timestamp);
 			
 			stm.setString(1, objClienteDTO.getNomeCliente());
 			stm.setString(2, objClienteDTO.getCnpj());
