@@ -159,7 +159,7 @@ public class HelloController implements Initializable {
 
 			clientedao.cadastarCliente(objclienteDTO);
 			// TimeUnit.SECONDS.sleep(15);
-			// dadosdao.cadastarDados(objclienteDTO);
+			dadosdao.cadastarDados(objclienteDTO);
 
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
 
