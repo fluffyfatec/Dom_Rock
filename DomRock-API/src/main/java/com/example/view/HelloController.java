@@ -1,15 +1,16 @@
 package com.example.view;
 
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import DAO.ClienteDAO;
 import DAO.ConexaoDAO;
@@ -26,9 +27,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 
 public class HelloController implements Initializable{
@@ -121,7 +127,7 @@ public class HelloController implements Initializable{
     private TextArea txtePossiveis;
 
     @FXML
-    private void btnCadastrar(ActionEvent event) {
+    private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
         if (txtNome.getText().length()==0) {
             Alerts.display("ERRO", "Por favor, insira uma Razão Social");
@@ -154,9 +160,10 @@ public class HelloController implements Initializable{
             objclienteDTO.setDadosMin(dadosMin);
             objclienteDTO.setNomeSetor(selectnomeSetor);
             
-            
-            dadosdao.cadastarDados(objclienteDTO);
+
             clientedao.cadastarCliente(objclienteDTO);
+            //TimeUnit.SECONDS.sleep(15);
+            dadosdao.cadastarDados(objclienteDTO);
 
             Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");    
             
@@ -306,13 +313,15 @@ public class HelloController implements Initializable{
     //Janela de Pesquisa
 
     @FXML
-    private TableColumn<?, ?> colunaCnpj;
+    private TableColumn<ClienteDTO, String> colunaCnpj;
 
     @FXML
-    private TableColumn<?, ?> colunaNome;
+    private TableColumn<ClienteDTO, String> colunaNome;
 
     @FXML
-    private TableView<?> tabelaPesquisa;
+    private TableView<ClienteDTO> tabelaPesquisa;
+
+    public ObservableList<ClienteDTO> data;
 
     @FXML
     private TextField razaosocialconsulta;
