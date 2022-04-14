@@ -8,17 +8,7 @@ public class ClienteDTO {
 	private String objetivoNegocio;
 	private String entregaMin;
 	private String entregaPossivel;
-	private String dadosMin;
-	
 
-
-	public String getDadosMin() {
-		return dadosMin;
-	}
-
-	public void setDadosMin(String dadosMin) {
-		this.dadosMin = dadosMin;
-	}
 
 	public String getObjetivoNegocio() {
 		return objetivoNegocio;
@@ -68,13 +58,5 @@ public class ClienteDTO {
 		this.nomeSetor = nomeSetor;
 	}
 
-
-
-
-
-
-
-
-	
 
 }
