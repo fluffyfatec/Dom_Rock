@@ -554,13 +554,13 @@ public class HelloController implements Initializable {
 	// Janela de Pesquisa
 
 	@FXML
-	private TableColumn<ClienteDTO, String> colunaCnpj;
+	private TableColumn<?, ?> colunaCnpj;
 
 	@FXML
-	private TableColumn<ClienteDTO, String> colunaNome;
+	private TableColumn<?, ?> colunaNome;
 
 	@FXML
-	private TableView<ClienteDTO> tabelaPesquisa;
+	private TableView<?> tabelaPesquisa;
 
 	public ObservableList<ClienteDTO> data;
 
@@ -576,8 +576,13 @@ public class HelloController implements Initializable {
 		ObservableList<String> nomes = FXCollections.observableArrayList();
 		ObservableList<String> cnpjs = FXCollections.observableArrayList();
 
-		if (Objects.equals(this.cnpjconsulta.getText(), "")) {
-			String sql = "select * from Cliente where razao_social like '%" + this.razaosocialconsulta.getText() + "%'";
+
+		if ((Objects.equals(cnpjconsulta.getText(), "")) && (Objects.equals(razaosocialconsulta.getText(), ""))) {
+			Alerts.display("Erro", "Insira pelo menos um dos parâmetros");
+		}
+
+		if ((Objects.equals(cnpjconsulta.getText(), "")) && (!Objects.equals(razaosocialconsulta.getText(), ""))) {
+			String sql = "select * from Cliente where razao_social like '%" + razaosocialconsulta.getText() + "%'";
 
 			Connection conn = new ConexaoDAO().conectaBD();
 			Statement stm = conn.createStatement();
@@ -585,18 +590,17 @@ public class HelloController implements Initializable {
 			ResultSet resultado = stm.executeQuery(sql);
 
 			if (!resultado.isBeforeFirst()) {
-				System.out.println("NENHUM RESULTADO ENCONTRADO");
+				Alerts.display("Info", "Nenhum resultado encontrado");
 			} else {
 				while (resultado.next()) {
-					System.out.println(resultado.getString("razao_social"));
 					nomes.add(resultado.getString("razao_social"));
-					System.out.println("Lista: " + nomes);
 				}
+				System.out.println("Lista: " + nomes);
 			}
 
 		}
-		if (Objects.equals(this.razaosocialconsulta.getText(), "")) {
-			String sql = "select * from Cliente where cnpj like '%" + this.cnpjconsulta.getText() + "%'";
+		if ((Objects.equals(razaosocialconsulta.getText(), "")) && (!Objects.equals(cnpjconsulta.getText(), ""))) {
+			String sql = "select * from Cliente where cnpj like '%" + cnpjconsulta.getText() + "%'";
 
 			Connection conn = new ConexaoDAO().conectaBD();
 			Statement stm = conn.createStatement();
@@ -604,18 +608,19 @@ public class HelloController implements Initializable {
 			ResultSet resultado = stm.executeQuery(sql);
 
 			if (!resultado.isBeforeFirst()) {
-				System.out.println("NENHUM RESULTADO ENCONTRADO");
+				Alerts.display("Info", "Nenhum resultado encontrado");
 			} else {
 				while (resultado.next()) {
-					System.out.println(resultado.getString("razao_social"));
+					nomes.add(resultado.getString("razao_social"));
 				}
+				System.out.println("Lista: " + nomes);
 			}
 
 		}
-		if ((!Objects.equals(this.razaosocialconsulta.getText(), ""))
-				&& (!Objects.equals(this.cnpjconsulta.getText(), ""))) {
-			String sql = "select * from Cliente where razao_social like '%" + this.razaosocialconsulta.getText()
-					+ "%' and cnpj like '%" + this.cnpjconsulta.getText() + "%'";
+		if ((!Objects.equals(razaosocialconsulta.getText(), ""))
+				&& (!Objects.equals(cnpjconsulta.getText(), ""))) {
+			String sql = "select * from Cliente where razao_social like '%" + razaosocialconsulta.getText()
+					+ "%' and cnpj like '%" + cnpjconsulta.getText() + "%'";
 
 			Connection conn = new ConexaoDAO().conectaBD();
 			Statement stm = conn.createStatement();
@@ -623,11 +628,12 @@ public class HelloController implements Initializable {
 			ResultSet resultado = stm.executeQuery(sql);
 
 			if (!resultado.isBeforeFirst()) {
-				System.out.println("NENHUM RESULTADO ENCONTRADO");
+				Alerts.display("Info", "Nenhum resultado encontrado");
 			} else {
 				while (resultado.next()) {
-					System.out.println(resultado.getString("razao_social"));
+					nomes.add(resultado.getString("razao_social"));
 				}
+				System.out.println("Lista: " + nomes);
 			}
 
 		}
