@@ -67,7 +67,7 @@ public class HelloController implements Initializable {
 		fxmlLoader.setLocation(getClass().getResource("Hello.fxml"));
 		Scene scene = null;
 		try {
-			scene = new Scene(fxmlLoader.load(), 1178, 681);
+			scene = new Scene(fxmlLoader.load(), 980, 580);
 			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
 		} catch (IOException ex) {
 			ex.printStackTrace();
