@@ -212,11 +212,11 @@ public class HelloController implements Initializable {
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
 		if (txtNome.getText().length() == 0) {
-			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
+			Alerts.display("ERRO", "Por favor, insira uma Raz�o Social");
 		}
 
 		if (txtCnpj.getText().length() != 14 && txtNome.getText().length() != 0) {
-			Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
+			Alerts.display("ERRO", "Por favor, insira um CNPJ v�lido");
 		}
 
 		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
@@ -426,7 +426,60 @@ public class HelloController implements Initializable {
 
 
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
+			
+			txtNome.setText(null);
+			txtCnpj.setText(null);
+			txtObjNegocio.setText(null);
+			txteMinimos.setText(null);
+			txtePossiveis.setText(null);
 
+			// Limpar ComboBox
+			boxSegmento.getSelectionModel().clearSelection();
+
+			// Limpar Funcionalidades
+			funcaoPainel.setSelected(false);
+			funcaoBusca.setSelected(false);
+			funcaoGeradorRelatorio.setSelected(false);
+			funcaoGeradorData.setSelected(false);
+
+			// Limpar Core
+			coreWeb.setSelected(false);
+			coreFilas.setSelected(false);
+			coreFargate.setSelected(false);
+			coreMongo.setSelected(false);
+			coreParquet.setSelected(false);
+			coreStep.setSelected(false);
+			coreContainers.setSelected(false);
+			coreQuick.setSelected(false);
+			coreS3.setSelected(false);
+			coreLambda.setSelected(false);
+			coreCloud.setSelected(false);
+			coreGateway.setSelected(false);
+
+			// Limpar Produto
+			produtoMatching.setSelected(false);
+			produtoOptimization.setSelected(false);
+			produtoPricing.setSelected(false);
+			produtoSales.setSelected(false);
+			produtoMarketing.setSelected(false);
+			produtoVox.setSelected(false);
+
+			// Limpar Dados Mínimos
+			dmPricing.setText(null);
+			dmSales.setText(null);
+			dmOptimization.setText(null);
+			dmMatching.setText(null);
+			dmMarketing.setText(null);
+			dmVox.setText(null);
+			
+			// Desativar DADOS M�NIMOS
+			dmOptimization.setDisable(true);
+			dmMatching.setDisable(true);
+			dmVox.setDisable(true);
+			dmMarketing.setDisable(true);
+			dmSales.setDisable(true);
+			dmPricing.setDisable(true);
+			
 		}
 
 	}
@@ -439,16 +492,16 @@ public class HelloController implements Initializable {
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Confirmação");
+		window.setTitle("Confirma��o");
 		window.setMinWidth(500);
 		window.setHeight(200);
 
 		Label label = new Label();
-		label.setText("Confirmar a limpeza? Todos os campos serão resetados");
+		label.setText("Todos os campos ser�o limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
-		Button closeButtom = new Button("Limpar");
+		Button closeButtom = new Button("Confirmar");
 		closeButtom.setOnAction(e -> {window.close();
 
 			txtNome.setText(null);
@@ -495,6 +548,15 @@ public class HelloController implements Initializable {
 			dmMatching.setText(null);
 			dmMarketing.setText(null);
 			dmVox.setText(null);
+			
+			// Desativar DADOS MÍNIMOS
+			dmOptimization.setDisable(true);
+			dmMatching.setDisable(true);
+			dmVox.setDisable(true);
+			dmMarketing.setDisable(true);
+			dmSales.setDisable(true);
+			dmPricing.setDisable(true);
+			
 		});
 
 		closeButtom.setMinWidth(50);
@@ -522,6 +584,7 @@ public class HelloController implements Initializable {
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
+		
 
 	}
 
@@ -664,5 +727,63 @@ public class HelloController implements Initializable {
         boxSegmento.setItems(list);
 
 	}
+	
+	// A��o de habilitar de dasabilitar DADOS M�NIMOS (TextFields)
+	
+	@FXML
+    void produtoOptimization(ActionEvent event) {
+		
+		if (produtoOptimization.isSelected()) {
+        	dmOptimization.setDisable(false);
+        }else {
+        	dmOptimization.setDisable(true);
+        }
+    }
+	
+	@FXML
+    void produtoMatching(ActionEvent event) {
+		if (produtoMatching.isSelected()) {
+        	dmMatching.setDisable(false);
+        }else {
+        	dmMatching.setDisable(true);
+        }
+    }
+
+	@FXML
+    void produtoVox(ActionEvent event) {
+		if (produtoVox.isSelected()) {
+        	dmVox.setDisable(false);
+        }else {
+        	dmVox.setDisable(true);
+        }
+    }
+	
+	@FXML
+    void produtoMarketing(ActionEvent event) {
+		if (produtoMarketing.isSelected()) {
+        	dmMarketing.setDisable(false);
+        }else {
+        	dmMarketing.setDisable(true);
+        }
+    }
+
+	@FXML
+    void produtoSales(ActionEvent event) {
+		if (produtoSales.isSelected()) {
+        	dmSales.setDisable(false);
+        }else {
+        	dmSales.setDisable(true);
+        }
+    }
+    
+    @FXML
+    void produtoPricing(ActionEvent event) {
+    	if (produtoPricing.isSelected()) {
+        	dmPricing.setDisable(false);
+        }else {
+        	dmPricing.setDisable(true);
+        }
+    }
+
 
 }
