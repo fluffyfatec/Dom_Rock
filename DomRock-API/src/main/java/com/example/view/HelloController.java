@@ -11,12 +11,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
-import DAO.ClienteDAO;
-import DAO.ConexaoDAO;
-import DAO.DadosDAO;
-import DTO.ClienteDTO;
-import DTO.ProdutoDTO;
-import DTO.SolucaoDTO;
+import DAO.*;
+import DTO.*;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,15 +36,11 @@ public class HelloController implements Initializable {
 	// Janela Inicial
 	private ClienteDAO clientedao = new ClienteDAO();
 	private DadosDAO dadosdao = new DadosDAO();
+	private CoreDAO coredao = new CoreDAO();
+	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
 
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
-
-	@FXML
-	private ComboBox<String> boxProduto = new ComboBox<String>();
-
-	@FXML
-	private ComboBox<String> boxServico = new ComboBox<String>();
 
 	@FXML
 	private Menu bntClienteintro;
@@ -105,9 +97,6 @@ public class HelloController implements Initializable {
 	private MenuItem comercio;
 
 	@FXML
-	private TextField txtDadosmin;
-
-	@FXML
 	private TextField txtCnpj;
 
 	@FXML
@@ -122,6 +111,107 @@ public class HelloController implements Initializable {
 	@FXML
 	private TextArea txtePossiveis;
 
+    // CheckBox CORE
+
+    @FXML
+    private CheckBox coreCloud;
+
+    @FXML
+    private CheckBox coreContainers;
+
+    @FXML
+    private CheckBox coreFargate;
+
+    @FXML
+    private CheckBox coreFilas;
+
+    @FXML
+    private CheckBox coreGateway;
+
+    @FXML
+    private CheckBox coreLambda;
+
+    @FXML
+    private CheckBox coreMongo;
+
+    @FXML
+    private CheckBox coreParquet;
+
+    @FXML
+    private CheckBox coreQuick;
+
+    @FXML
+    private CheckBox coreS3;
+
+    @FXML
+    private CheckBox coreStep;
+
+    @FXML
+    private CheckBox coreWeb;
+
+
+    // Check Box Funcionalidades
+
+	@FXML
+    private CheckBox funcaoPainel;
+
+    @FXML
+    private CheckBox funcaoBusca;
+
+    @FXML
+    private CheckBox funcaoGeradorRelatorio;
+
+    @FXML
+    private CheckBox funcaoGeradorData;
+
+
+	// Campos de Dados Mínimos
+
+	@FXML
+	private TextField dmMarketing;
+
+	@FXML
+	private TextField dmMatching;
+
+	@FXML
+	private TextField dmOptimization;
+
+	@FXML
+	private TextField dmPricing;
+
+	@FXML
+	private TextField dmSales;
+
+	@FXML
+	private TextField dmVox;
+
+
+	// Check Box Produto/Operations
+
+	@FXML
+	private CheckBox produtoOptimization;
+
+	@FXML
+	private CheckBox produtoMatching;
+
+
+	// Check Box Produto/Demand
+
+	@FXML
+	private CheckBox produtoMarketing;
+
+	@FXML
+	private CheckBox produtoPricing;
+
+	@FXML
+	private CheckBox produtoSales;
+
+	@FXML
+	private CheckBox produtoVox;
+
+
+	// Botão Cadastrar
+
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
@@ -135,89 +225,216 @@ public class HelloController implements Initializable {
 
 		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
 
+			// Metodos acessores do clienteDTO
 			String nomeCliente = this.txtNome.getText();
 			String cnpjCliente = this.txtCnpj.getText();
 			String objCliente = this.txtObjNegocio.getText();
 			String eMinimos = this.txteMinimos.getText();
 			String ePossiveis = this.txtePossiveis.getText();
-			String dadosMin = this.txtDadosmin.getText();
 			String selectnomeSetor = this.boxSegmento.getSelectionModel().getSelectedItem().toString();
 
-
-			// Metodos acessores do clienteDTO
 			ClienteDTO objclienteDTO = new ClienteDTO();
+
 			objclienteDTO.setCnpj(cnpjCliente);
 			objclienteDTO.setNomeCliente(nomeCliente);
 			objclienteDTO.setEntregaMin(eMinimos);
 			objclienteDTO.setEntregaPossivel(ePossiveis);
 			objclienteDTO.setObjetivoNegocio(objCliente);
-			objclienteDTO.setDadosMin(dadosMin);
 			objclienteDTO.setNomeSetor(selectnomeSetor);
 
 			clientedao.cadastarCliente(objclienteDTO);
-			// TimeUnit.SECONDS.sleep(15);
-			 dadosdao.cadastarDados(objclienteDTO);
+
+			// Metodos acesssores do ProdutoDTO
+
+			String marketing = this.dmMarketing.getText();
+			String matching = this.dmMatching.getText();
+			String optimzation = this.dmOptimization.getText();
+			String sales = this.dmSales.getText();
+			String vox = this.dmVox.getText();
+			String pricing = this.dmPricing.getText();
+
+			ProdutoDTO objprodutoDTO = new ProdutoDTO();
+
+			objprodutoDTO.setMarketingPlanning(marketing);
+			objprodutoDTO.setMatchingRisk(matching);
+			objprodutoDTO.setOptimization(optimzation);
+			objprodutoDTO.setSalesDistribution(sales);
+			objprodutoDTO.setVox(vox);
+			objprodutoDTO.setPricing(pricing);
+
+			if (produtoVox.isSelected()) {
+				int id_produto = 1;
+				objprodutoDTO.setCheckvox(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+			if (produtoMarketing.isSelected()) {
+				int id_produto = 2;
+				objprodutoDTO.setCheckmarketing(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+			if (produtoSales.isSelected()) {
+				int id_produto = 3;
+				objprodutoDTO.setChecksales(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+			if (produtoPricing.isSelected()) {
+				int id_produto = 4;
+				objprodutoDTO.setCheckpricing(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+			if (produtoOptimization.isSelected()) {
+				int id_produto = 5;
+				objprodutoDTO.setCheckoptimization(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+			if (produtoMatching.isSelected()) {
+				int id_produto = 6;
+				objprodutoDTO.setCheckmarketing(id_produto);
+
+				dadosdao.cadastrarDados(objprodutoDTO);
+			}
+
+
+			// Metodos acessores do CoreDAO
+
+			if (coreWeb.isSelected()) {
+				int id_core = 1;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setWeb(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreGateway.isSelected()) {
+				int id_core = 2;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setGateway(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreFilas.isSelected()) {
+				int id_core = 3;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setFilas(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreStep.isSelected()) {
+				int id_core = 4;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setStepfunction(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreLambda.isSelected()) {
+				int id_core = 5;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setLambda(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreFargate.isSelected()) {
+				int id_core = 6;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setFargate(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreContainers.isSelected()) {
+				int id_core = 7;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setContainers(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreS3.isSelected()) {
+				int id_core = 8;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setS3(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreMongo.isSelected()) {
+				int id_core = 9;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setMongodb(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreParquet.isSelected()) {
+				int id_core = 10;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setParquet(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreQuick.isSelected()) {
+				int id_core = 11;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setQuicksight(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			if (coreCloud.isSelected()) {
+				int id_core = 12;
+				CoreDTO objcoreDTO = new CoreDTO();
+				objcoreDTO.setCloudwatch(id_core);
+
+				coredao.cadastrarCore(objcoreDTO);
+			}
+
+			// Metodos acessores do FuncionalidadeDAO
+
+			if (funcaoGeradorRelatorio.isSelected()) {
+				int id_funcionalidade = 1;
+				FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
+				objfuncionalidadeDTO.setGeradorRelat(id_funcionalidade);
+
+				funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
+			}
+			if (funcaoPainel.isSelected()) {
+				int id_funcionalidade = 2;
+				FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
+				objfuncionalidadeDTO.setPaineis(id_funcionalidade);
+
+				funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
+			}
+			if (funcaoBusca.isSelected()) {
+				int id_funcionalidade = 3;
+				FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
+				objfuncionalidadeDTO.setBuscaNlp(id_funcionalidade);
+
+				funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
+			}
+			if (funcaoGeradorData.isSelected()) {
+				int id_funcionalidade = 4;
+				FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
+				objfuncionalidadeDTO.setGeradorData(id_funcionalidade);
+
+				funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
+			}
+
 
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
 
 		}
 
 	}
-
-	// CheckBox CORE
-
-	@FXML
-	private CheckBox coreApi;
-
-	@FXML
-	private CheckBox coreCloud;
-
-	@FXML
-	private CheckBox coreContainers;
-
-	@FXML
-	private CheckBox coreFargate;
-
-	@FXML
-	private CheckBox coreFilas;
-
-	@FXML
-	private CheckBox coreGateway;
-
-	@FXML
-	private CheckBox coreLambda;
-
-	@FXML
-	private CheckBox coreMongo;
-
-	@FXML
-	private CheckBox coreParquet;
-
-	@FXML
-	private CheckBox coreQuick;
-
-	@FXML
-	private CheckBox coreS3;
-
-	@FXML
-	private CheckBox coreStep;
-
-	@FXML
-	private CheckBox coreWeb;
-
-	// Check Box Funcionalidades
-
-	@FXML
-	private CheckBox funcaoPainel;
-
-	@FXML
-	private CheckBox funcaoBusca;
-
-	@FXML
-	private CheckBox funcaoGeradorRelatorio;
-
-	@FXML
-	private CheckBox FuncaoGeradorData;
 
 	// Botão limpar
 	@FXML
@@ -232,16 +449,12 @@ public class HelloController implements Initializable {
 		// boxSegmento.getSelectionModel().clearSelection();
 		// Limpar ComboBox
 		boxSegmento.getSelectionModel().clearSelection();
-		boxServico.getSelectionModel().clearSelection();
-		boxProduto.getSelectionModel().clearSelection();
-
-		txtDadosmin.setText(null);
 
 		// Limpar Funcionalidades
 		funcaoPainel.setSelected(false);
 		funcaoBusca.setSelected(false);
 		funcaoGeradorRelatorio.setSelected(false);
-		FuncaoGeradorData.setSelected(false);
+		funcaoGeradorData.setSelected(false);
 
 		// Limpar Core
 		coreWeb.setSelected(false);
@@ -249,7 +462,6 @@ public class HelloController implements Initializable {
 		coreFargate.setSelected(false);
 		coreMongo.setSelected(false);
 		coreParquet.setSelected(false);
-		coreApi.setSelected(false);
 		coreStep.setSelected(false);
 		coreContainers.setSelected(false);
 		coreQuick.setSelected(false);
@@ -277,31 +489,6 @@ public class HelloController implements Initializable {
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
-	}
-
-	@FXML
-	void bntProduto(ActionEvent event) {
-		ProdutoDTO objProdutoDto = new ProdutoDTO();
-		String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
-		objProdutoDto.setNomeProduto(nomeProduto);
-	}
-
-	@FXML
-	void bntServico(ActionEvent event) {
-		SolucaoDTO objSolucaoDTO = new SolucaoDTO();
-		String nomeSolucao = boxServico.getSelectionModel().getSelectedItem().toString();
-		objSolucaoDTO.setNomeSolucao(nomeSolucao);
-		if (nomeSolucao.equals("Demand")) {
-			ObservableList<String> list1 = FXCollections.observableArrayList("Vox", "Marketing & Planning",
-					"Sales & Distribution", "Pricing");
-			boxProduto.setItems(list1);
-		} else if (nomeSolucao.equals("Operations")) {
-			ObservableList<String> list3 = FXCollections.observableArrayList("Optimization", "Matching & Risk");
-			boxProduto.setItems(list3);
-		}
-		else if (nomeSolucao.equals(null)) {
-			
-		}
 	}
 
 	@FXML
@@ -403,8 +590,10 @@ public class HelloController implements Initializable {
 	@FXML
 	void btnSegmento(ActionEvent event) {
 		ClienteDTO objclieClienteDTO = new ClienteDTO();
-		String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
-		objclieClienteDTO.setNomeSetor(nomeSetor);
+		if (boxSegmento.getSelectionModel().getSelectedItem() != null) {
+			String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
+			objclieClienteDTO.setNomeSetor(nomeSetor);
+		}
 	}
 
 	@Override
@@ -413,8 +602,6 @@ public class HelloController implements Initializable {
                 "Governo");
         boxSegmento.setItems(list);
 
-        ObservableList<String> list2 = FXCollections.observableArrayList("Demand", "Operations");
-        boxServico.setItems(list2);
 	}
 
 }
