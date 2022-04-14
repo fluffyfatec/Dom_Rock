@@ -446,7 +446,6 @@ public class HelloController implements Initializable {
 		txteMinimos.setText(null);
 		txtePossiveis.setText(null);
 
-		// boxSegmento.getSelectionModel().clearSelection();
 		// Limpar ComboBox
 		boxSegmento.getSelectionModel().clearSelection();
 
@@ -469,6 +468,22 @@ public class HelloController implements Initializable {
 		coreLambda.setSelected(false);
 		coreCloud.setSelected(false);
 		coreGateway.setSelected(false);
+
+		// Limpar Produto
+		produtoMatching.setSelected(false);
+		produtoOptimization.setSelected(false);
+		produtoPricing.setSelected(false);
+		produtoSales.setSelected(false);
+		produtoMarketing.setSelected(false);
+		produtoVox.setSelected(false);
+
+		// Limpar Dados Mínimos
+		dmPricing.setText(null);
+		dmSales.setText(null);
+		dmOptimization.setText(null);
+		dmMatching.setText(null);
+		dmMarketing.setText(null);
+		dmVox.setText(null);
 	}
 
 	@FXML
