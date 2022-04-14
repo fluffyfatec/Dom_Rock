@@ -1,6 +1,7 @@
 package com.example.view;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -617,13 +618,7 @@ public class HelloController implements Initializable {
 	// Janela de Pesquisa
 
 	@FXML
-	private TableColumn<?, ?> colunaCnpj;
-
-	@FXML
-	private TableColumn<?, ?> colunaNome;
-
-	@FXML
-	private TableView<?> tabelaPesquisa;
+	private ListView<String> listaBusca;
 
 	public ObservableList<ClienteDTO> data;
 
@@ -658,6 +653,7 @@ public class HelloController implements Initializable {
 				while (resultado.next()) {
 					nomes.add(resultado.getString("razao_social"));
 				}
+				listaBusca.setItems(nomes);
 				System.out.println("Lista: " + nomes);
 			}
 
@@ -676,6 +672,7 @@ public class HelloController implements Initializable {
 				while (resultado.next()) {
 					nomes.add(resultado.getString("razao_social"));
 				}
+				listaBusca.setItems(nomes);
 				System.out.println("Lista: " + nomes);
 			}
 
@@ -696,6 +693,7 @@ public class HelloController implements Initializable {
 				while (resultado.next()) {
 					nomes.add(resultado.getString("razao_social"));
 				}
+				listaBusca.setItems(nomes);
 				System.out.println("Lista: " + nomes);
 			}
 
