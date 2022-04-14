@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -20,8 +21,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -29,6 +33,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -429,50 +435,94 @@ public class HelloController implements Initializable {
 	@FXML
 	void btnLimpar(ActionEvent event) {
 
-		txtNome.setText(null);
-		txtCnpj.setText(null);
-		txtObjNegocio.setText(null);
-		txteMinimos.setText(null);
-		txtePossiveis.setText(null);
+		// Botão de alerta
+		final Stage window = new Stage();
 
-		// Limpar ComboBox
-		boxSegmento.getSelectionModel().clearSelection();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("AVISO");
+		window.setMinWidth(500);
+		window.setHeight(200);
 
-		// Limpar Funcionalidades
-		funcaoPainel.setSelected(false);
-		funcaoBusca.setSelected(false);
-		funcaoGeradorRelatorio.setSelected(false);
-		funcaoGeradorData.setSelected(false);
+		Label label = new Label();
+		label.setText("Confirmar a limpeza? Todos os campos seram resetados");
+		label.setAlignment(Pos.CENTER);
+		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
-		// Limpar Core
-		coreWeb.setSelected(false);
-		coreFilas.setSelected(false);
-		coreFargate.setSelected(false);
-		coreMongo.setSelected(false);
-		coreParquet.setSelected(false);
-		coreStep.setSelected(false);
-		coreContainers.setSelected(false);
-		coreQuick.setSelected(false);
-		coreS3.setSelected(false);
-		coreLambda.setSelected(false);
-		coreCloud.setSelected(false);
-		coreGateway.setSelected(false);
+		Button closeButtom = new Button("Limpar");
+		closeButtom.setOnAction(e -> {window.close();
 
-		// Limpar Produto
-		produtoMatching.setSelected(false);
-		produtoOptimization.setSelected(false);
-		produtoPricing.setSelected(false);
-		produtoSales.setSelected(false);
-		produtoMarketing.setSelected(false);
-		produtoVox.setSelected(false);
+			txtNome.setText(null);
+			txtCnpj.setText(null);
+			txtObjNegocio.setText(null);
+			txteMinimos.setText(null);
+			txtePossiveis.setText(null);
 
-		// Limpar Dados Mínimos
-		dmPricing.setText(null);
-		dmSales.setText(null);
-		dmOptimization.setText(null);
-		dmMatching.setText(null);
-		dmMarketing.setText(null);
-		dmVox.setText(null);
+			// Limpar ComboBox
+			boxSegmento.getSelectionModel().clearSelection();
+
+			// Limpar Funcionalidades
+			funcaoPainel.setSelected(false);
+			funcaoBusca.setSelected(false);
+			funcaoGeradorRelatorio.setSelected(false);
+			funcaoGeradorData.setSelected(false);
+
+			// Limpar Core
+			coreWeb.setSelected(false);
+			coreFilas.setSelected(false);
+			coreFargate.setSelected(false);
+			coreMongo.setSelected(false);
+			coreParquet.setSelected(false);
+			coreStep.setSelected(false);
+			coreContainers.setSelected(false);
+			coreQuick.setSelected(false);
+			coreS3.setSelected(false);
+			coreLambda.setSelected(false);
+			coreCloud.setSelected(false);
+			coreGateway.setSelected(false);
+
+			// Limpar Produto
+			produtoMatching.setSelected(false);
+			produtoOptimization.setSelected(false);
+			produtoPricing.setSelected(false);
+			produtoSales.setSelected(false);
+			produtoMarketing.setSelected(false);
+			produtoVox.setSelected(false);
+
+			// Limpar Dados Mínimos
+			dmPricing.setText(null);
+			dmSales.setText(null);
+			dmOptimization.setText(null);
+			dmMatching.setText(null);
+			dmMarketing.setText(null);
+			dmVox.setText(null);
+		});
+
+		closeButtom.setMinWidth(50);
+		closeButtom.setMaxHeight(100);
+		closeButtom.setAlignment(Pos.BOTTOM_LEFT);
+		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: black ; -fx-border-radius: 5px ;" +
+				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;");
+
+		Button cancelButtom = new Button("Cancelar");
+		cancelButtom.setOnAction(e -> {
+				event.consume();
+		 		window.close();
+				});
+		cancelButtom.setMinWidth(50);
+		cancelButtom.setMaxHeight(100);
+		cancelButtom.setAlignment(Pos.BOTTOM_RIGHT);
+		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: black ; -fx-border-radius: 5px ;" +
+				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;");
+
+		VBox layout = new VBox(10);
+		layout.getChildren().addAll(label, closeButtom, cancelButtom);
+		layout.setAlignment(Pos.CENTER);
+		layout.setStyle("-fx-background-color: #2d343a ;");
+
+		Scene scene = new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
+
 	}
 
 	@FXML
