@@ -243,46 +243,45 @@ public class HelloController implements Initializable {
 
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
 
-			objprodutoDTO.setMarketingPlanning(marketing);
-			objprodutoDTO.setMatchingRisk(matching);
-			objprodutoDTO.setOptimization(optimzation);
-			objprodutoDTO.setSalesDistribution(sales);
-			objprodutoDTO.setVox(vox);
-			objprodutoDTO.setPricing(pricing);
-
 			if (produtoVox.isSelected()) {
 				int id_produto = 1;
 				objprodutoDTO.setCheckvox(id_produto);
+				objprodutoDTO.setVox(vox);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoMarketing.isSelected()) {
 				int id_produto = 2;
 				objprodutoDTO.setCheckmarketing(id_produto);
+				objprodutoDTO.setMarketingPlanning(marketing);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoSales.isSelected()) {
 				int id_produto = 3;
 				objprodutoDTO.setChecksales(id_produto);
+				objprodutoDTO.setSalesDistribution(sales);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoPricing.isSelected()) {
 				int id_produto = 4;
 				objprodutoDTO.setCheckpricing(id_produto);
+				objprodutoDTO.setPricing(pricing);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoOptimization.isSelected()) {
 				int id_produto = 5;
 				objprodutoDTO.setCheckoptimization(id_produto);
+				objprodutoDTO.setOptimization(optimzation);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoMatching.isSelected()) {
 				int id_produto = 6;
 				objprodutoDTO.setCheckmarketing(id_produto);
+				objprodutoDTO.setMatchingRisk(matching);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}

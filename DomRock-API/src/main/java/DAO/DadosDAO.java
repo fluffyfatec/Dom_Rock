@@ -22,39 +22,39 @@ public class DadosDAO {
 		while (result_id_cliente.next()) {
 			int id_cliente = result_id_cliente.getInt("id_cliente");
 
-			String sql = "INSERT INTO Cliente_Produto (cp_id_cliente, dado_min, cp_id_produto) values ("
-						+ id_cliente + ", ?, ?)";
+			String sql = "INSERT INTO Cliente_Produto (cp_id_cliente, cp_id_produto, dado_min) values ("
+						+id_cliente+", ?, ?)";
 				try (Connection conn = new ConexaoDAO().conectaBD();
 						PreparedStatement pstm = conn.prepareStatement(sql);) {
 
 					if (objProdutoDTO.getCheckvox() == 1) {
-						pstm.setString(1, objProdutoDTO.getVox());
-						pstm.setInt(2, objProdutoDTO.getCheckvox());
+						pstm.setString(2, objProdutoDTO.getVox());
+						pstm.setInt(1, objProdutoDTO.getCheckvox());
 						pstm.execute();
 					}
 					if (objProdutoDTO.getCheckmarketing() == 2) {
-						pstm.setString(1, objProdutoDTO.getMarketingPlanning());
-						pstm.setInt(2, objProdutoDTO.getCheckmarketing());
+						pstm.setString(2, objProdutoDTO.getMarketingPlanning());
+						pstm.setInt(1, objProdutoDTO.getCheckmarketing());
 						pstm.execute();
 					}
 					if (objProdutoDTO.getChecksales() == 3) {
-						pstm.setString(1, objProdutoDTO.getSalesDistribution());
-						pstm.setInt(2, objProdutoDTO.getChecksales());
+						pstm.setString(2, objProdutoDTO.getSalesDistribution());
+						pstm.setInt(1, objProdutoDTO.getChecksales());
 						pstm.execute();
 					}
 					if (objProdutoDTO.getCheckpricing() == 4) {
-						pstm.setString(1, objProdutoDTO.getPricing());
-						pstm.setInt(2, objProdutoDTO.getCheckpricing());
+						pstm.setString(2, objProdutoDTO.getPricing());
+						pstm.setInt(1, objProdutoDTO.getCheckpricing());
 						pstm.execute();
 					}
 					if (objProdutoDTO.getCheckoptimization() == 5) {
-						pstm.setString(1, objProdutoDTO.getOptimization());
-						pstm.setInt(2, objProdutoDTO.getCheckoptimization());
+						pstm.setString(2, objProdutoDTO.getOptimization());
+						pstm.setInt(1, objProdutoDTO.getCheckoptimization());
 						pstm.execute();
 					}
 					if (objProdutoDTO.getCheckmatching() == 6) {
-						pstm.setString(1, objProdutoDTO.getMatchingRisk());
-						pstm.setInt(2, objProdutoDTO.getCheckmatching());
+						pstm.setString(2, objProdutoDTO.getMatchingRisk());
+						pstm.setInt(1, objProdutoDTO.getCheckmatching());
 						pstm.execute();
 					}
 
