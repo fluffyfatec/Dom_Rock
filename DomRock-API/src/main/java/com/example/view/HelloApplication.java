@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,6 +20,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Sistema de Gerenciamento de Clientes - Dom Rock");
         stage.setScene(scene);
         stage.setResizable(true);
+        stage.setMaximized(true);
         stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
         scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
         stage.show();
