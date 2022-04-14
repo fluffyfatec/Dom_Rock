@@ -157,11 +157,11 @@
 									</rowConstraints>
 									<children>
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Mínimos" />
-										<TextArea fx:id="txtObjNegocio" editable="false" prefHeight="120.0" prefWidth="650.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
+										<TextArea fx:id="txtObjNegocio" editable="true" prefHeight="120.0" prefWidth="650.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
-										<TextArea fx:id="txteMinimos" editable="false" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
+										<TextArea fx:id="txteMinimos" editable="true" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Possíveis" GridPane.rowIndex="4" />
-										<TextArea fx:id="txtePossiveis" editable="false" prefHeight="64.0" prefWidth="532.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
+										<TextArea fx:id="txtePossiveis" editable="true" prefHeight="64.0" prefWidth="532.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
 								<GridPane layoutX="740.0" layoutY="35.0" prefHeight="174.0" prefWidth="222.0">

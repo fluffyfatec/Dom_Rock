@@ -85,18 +85,6 @@ public class HelloController implements Initializable {
 	private Tab geral;
 
 	@FXML
-	private MenuItem governo;
-
-	@FXML
-	private MenuItem industria;
-
-	@FXML
-	private MenuItem atacado;
-
-	@FXML
-	private MenuItem comercio;
-
-	@FXML
 	private TextField txtCnpj;
 
 	@FXML
