@@ -14,14 +14,13 @@ public class ProdutoDAO {
 	  
 public void cadastrarproduto (ProdutoDTO objProdutoDTO) {
 	
-	String sql = "inserir into Produto ( nm_produto, dado_min) valeus (?,?)";
+	String sql = "inserir into Produto (id_produto, nm_produto, ) valeus (?,?)";
 	
 
 	
 	 try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 
-	     pstm.setString(1, objProdutoDTO.getNomeProduto());
-		 pstm.setString(2, objProdutoDTO.getDadoMinimo());
+
 		 
 		 pstm.execute();
 		 pstm.close();
