@@ -143,9 +143,6 @@ public class HelloController implements Initializable {
 			String dadosMin = this.txtDadosmin.getText();
 			String selectnomeSetor = this.boxSegmento.getSelectionModel().getSelectedItem().toString();
 
-			System.out.println(
-					"Razao social: " + nomeCliente + "\nCNPJ: " + cnpjCliente + "\nObjetivo do Negocio: " + objCliente
-							+ "\nEntregaveis Minimos: " + eMinimos + "\nEntregaveis Possiveis: " + ePossiveis + "\n\n");
 
 			// Metodos acessores do clienteDTO
 			ClienteDTO objclienteDTO = new ClienteDTO();
@@ -159,7 +156,7 @@ public class HelloController implements Initializable {
 
 			clientedao.cadastarCliente(objclienteDTO);
 			// TimeUnit.SECONDS.sleep(15);
-			dadosdao.cadastarDados(objclienteDTO);
+			 dadosdao.cadastarDados(objclienteDTO);
 
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
 
@@ -301,6 +298,9 @@ public class HelloController implements Initializable {
 		} else if (nomeSolucao.equals("Operations")) {
 			ObservableList<String> list3 = FXCollections.observableArrayList("Optimization", "Matching & Risk");
 			boxProduto.setItems(list3);
+		}
+		else if (nomeSolucao.equals(null)) {
+			
 		}
 	}
 
