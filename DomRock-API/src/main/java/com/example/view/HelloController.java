@@ -28,6 +28,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -69,6 +70,7 @@ public class HelloController implements Initializable {
 		Stage stage = new Stage();
 		stage.setTitle("Cadastrar Cliente - Dom Rock");
 		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
 		stage.show();
 
@@ -490,6 +492,7 @@ public class HelloController implements Initializable {
 		stage.setTitle("Pesquisar Cliente - Dom Rock");
 		stage.setScene(scene);
 		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.show();
 	}
 
