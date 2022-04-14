@@ -439,12 +439,12 @@ public class HelloController implements Initializable {
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("AVISO");
+		window.setTitle("Confirmação");
 		window.setMinWidth(500);
 		window.setHeight(200);
 
 		Label label = new Label();
-		label.setText("Confirmar a limpeza? Todos os campos seram resetados");
+		label.setText("Confirmar a limpeza? Todos os campos serão resetados");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
