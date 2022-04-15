@@ -90,6 +90,11 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
+## DER - Escopo
+<p align="center">
+      <img src="./GIT/DEREscopo.jpg" width="100%" height="100%">
+<p align="center">
+
 ## Equipe
 
 | Avatar            							| Aluno         | Função           		| GitHub                                                      | LinkedIn                                              |
@@ -98,7 +103,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 | <img src = "./GIT/avatarfelipe.png" width="60" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/deborafaria01)| [![](https://bit.ly/2P1ZogM)](https://bit.ly/2QwcT8R) |
 | <img src = "./GIT/avatarpatrick.png" width="60" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/PatrickSouzza)  | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/patrick-g-souza/) |
 | <img src = "./GIT/avatarana.png" width="60" >|__Ana Clara Leal__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/heyanaleal)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/ana-clara-oliveira-leal-723169220/) |
-| <img src = "./GIT/avatarluiz.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/mariana299)   | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3foKv3d) |
+| <img src = "./GIT/avatarluiz.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/luizborges17)   | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/luizborges17/) |
 | <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/vinicius-hso) | [![](https://bit.ly/2P1ZogM)](https://bit.ly/3fdl0BE) |
 | <img src = "./GIT/avataraldrik.png" width="60" >|__Aldrik Álvaro__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Aldrik-Alvaro) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/aldrik-alvaro-0bb952180/) |
 | <img src = "./GIT/avatarmanu.png" width="60" >|__Emanuele Diniz__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/ecampos14) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/emanuele-diniz-campos-b14699181) |
@@ -109,7 +114,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 <details>
 <summary>Front-End</summary>
 
-* [Figma](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
+* [Figma](https://www.figma.com/)
 
 * [JavaFX Scene Builder 3](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
 </details>
