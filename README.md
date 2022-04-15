@@ -4,18 +4,18 @@
 <p align="center">
 
 <p align="center">
-  <a href="#desafio">SOBRE O PROJETO</a> •
-  <a href="#cronograma">CRONOGRAMA</a> •
-  <a href="#proposta-do-projeto">PROPOSTA</a> •
-  <a href="#burndown">BURNDOWN</a> •
-  <a href="#equipe">EQUIPE</a> •
-  <a href="#como-instalar-o-programa">INSTALAR</a> •
-  <a href="#tecnologias-utilizadas">TECNOLOGIA UTILIZADA</a>
+  <a href="#desafio">Sobre o Projeto</a> •
+  <a href="#cronograma">Cronograma</a> •
+  <a href="#proposta-do-projeto">Proposta do Projeto</a> •
+  <a href="#burndown">Burndown</a> •
+  <a href="#equipe">Equipe</a> •
+  <a href="#como-instalar-o-programa">Instalar</a> •
+  <a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a>
 </p>
 
 ## Desafio
 
-Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
+O **desafio** consiste em desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -24,6 +24,7 @@ Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom 
 
 <details>
 <summary>Requisitos Funcionais</summary>
+
 <p>• Cadastros de Clientes
 <p>• Cadastro de módulos/soluções Dom Rock
 <p>• Cadastro das etapas de ativação: bronze, silver, gold, distribuição, bp, core, segurança
@@ -42,6 +43,7 @@ fatores.
 
 <details>
 <summary>Requisitos Não Funcionais</summary>
+
 <p>• Módulo de login/autenticação e perfil
 <p>• Utilizar em servidor/ambiente Linux<p>
 </details>
