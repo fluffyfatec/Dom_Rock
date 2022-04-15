@@ -6,8 +6,8 @@
 <p align="center"> 
  <img src="https://img.shields.io/badge/Status%3A-PROGRESS-yellow"/>
  <a href="https://www.java.com/pt-BR/"><img src="https://img.shields.io/badge/Language%3A-JAVA-orange"/></a>
- <a href="http://necto.com.br/pt/"><img src="https://img.shields.io/badge/Client%3A-DOM%20ROCK-blue"/></a>
- <a href="http://fatecsjc-prd.azurewebsites.net/"><img src="https://img.shields.io/badge/Institution-FATEC-red"/></a>
+ <a href="https://www.domrock.net/"><img src="https://img.shields.io/badge/Client%3A-DOM%20ROCK-blue"/></a>
+ <a href="http://fatecsjc-prd.azurewebsites.net/"><img src="https://img.shields.io/badge/Institution%3A-FATEC-red"/></a>
 </p>
 
 <p align="center">
