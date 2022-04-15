@@ -50,7 +50,7 @@ fatores.
 
 ## Solução
 A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
-<p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios e logs. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
+<p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios, logs e exportação. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
@@ -94,6 +94,10 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 <p align="center">
       <img src="./GIT/DEREscopo.jpg" width="100%" height="100%">
 <p align="center">
+
+## Como instalar o programa?
+
+Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de segurança pedimos para enviar um email com o seu [IP Externo](http://www.meuip.com/) para o nosso email fluffyapi@gmail.com (enviar nome e IP) que iremos liberar o acesso para a utilização da aplicação.
 
 ## Equipe
 
