@@ -162,7 +162,7 @@ public class HelloController implements Initializable {
     private CheckBox funcaoGeradorData;
 
 
-	// Campos de Dados Mínimos
+	// Campos de Dados Minimos 
 
 	@FXML
 	private TextField dmMarketing;
@@ -205,6 +205,19 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private CheckBox produtoVox;
+	
+	
+	// Tooltip botões
+    
+	@FXML
+    private Tooltip toolCadastrar;
+
+    @FXML
+    private Tooltip toolConsultar;
+
+    @FXML
+    private Tooltip toolLimpar;
+
 
 
 	// Botão Cadastrar
@@ -213,11 +226,11 @@ public class HelloController implements Initializable {
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
 		if (txtNome.getText().length() == 0) {
-			Alerts.display("ERRO", "Por favor, insira uma Raz�o Social");
+			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
 		}
 
 		if (txtCnpj.getText().length() != 14 && txtNome.getText().length() != 0) {
-			Alerts.display("ERRO", "Por favor, insira um CNPJ v�lido");
+			Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
 		}
 
 		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
@@ -471,7 +484,7 @@ public class HelloController implements Initializable {
 			produtoMarketing.setSelected(false);
 			produtoVox.setSelected(false);
 
-			// Limpar Dados Mínimos
+			// Limpar Dados Minimos
 			dmPricing.setText(null);
 			dmSales.setText(null);
 			dmOptimization.setText(null);
@@ -479,7 +492,7 @@ public class HelloController implements Initializable {
 			dmMarketing.setText(null);
 			dmVox.setText(null);
 			
-			// Desativar DADOS M�NIMOS
+			// Desativar DADOS Minimos
 			dmOptimization.setDisable(true);
 			dmMatching.setDisable(true);
 			dmVox.setDisable(true);
@@ -499,12 +512,12 @@ public class HelloController implements Initializable {
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Confirma��o");
+		window.setTitle("Confirmaï¿½ï¿½o");
 		window.setMinWidth(500);
 		window.setHeight(200);
 
 		Label label = new Label();
-		label.setText("Todos os campos ser�o limpos. Confirmar?");
+		label.setText("Todos os campos serão limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
@@ -548,7 +561,7 @@ public class HelloController implements Initializable {
 			produtoMarketing.setSelected(false);
 			produtoVox.setSelected(false);
 
-			// Limpar Dados Mínimos
+			// Limpar Dados Minimos
 			dmPricing.setText(null);
 			dmSales.setText(null);
 			dmOptimization.setText(null);
@@ -556,7 +569,7 @@ public class HelloController implements Initializable {
 			dmMarketing.setText(null);
 			dmVox.setText(null);
 			
-			// Desativar DADOS MÍNIMOS
+			// Desativar DADOS MINIMOS
 			dmOptimization.setDisable(true);
 			dmMatching.setDisable(true);
 			dmVox.setDisable(true);
@@ -732,7 +745,7 @@ public class HelloController implements Initializable {
 
 	}
 	
-	// A��o de habilitar de dasabilitar DADOS M�NIMOS (TextFields)
+	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
 	
 	@FXML
     void produtoOptimization(ActionEvent event) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,18 +35,6 @@
 				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-base: #1b1e22;" textAlignment="CENTER" GridPane.columnIndex="1">
-					<GridPane.margin>
-						<Insets left="5.0" />
-					</GridPane.margin>
-					<graphic>
-						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-							<image>
-								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
-							</image>
-						</ImageView>
-					</graphic>
-				</Button>
 				<Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLimpar" style="-fx-base: #1b1e22;" textAlignment="CENTER">
 					<GridPane.margin>
 						<Insets left="5.0" />
@@ -56,6 +46,30 @@
 							</image>
 						</ImageView>
 					</graphic>
+               <tooltip>
+                  <Tooltip fx:id="toolLimpar" style="-fx-text-fill: white;" text="Limpar " />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+				</Button>
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-base: #1b1e22;" textAlignment="CENTER" GridPane.columnIndex="1">
+					<GridPane.margin>
+						<Insets left="5.0" />
+					</GridPane.margin>
+					<graphic>
+						<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+							</image>
+						</ImageView>
+					</graphic>
+               <tooltip>
+                  <Tooltip fx:id="toolCadastrar" text="Cadastrar " />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
 				</Button>
 				<Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuscar" style="-fx-base: #1b1e22;" textAlignment="CENTER" GridPane.columnIndex="2">
 					<GridPane.margin>
@@ -68,6 +82,12 @@
 							</image>
 						</ImageView>
 					</graphic>
+               <tooltip>
+                  <Tooltip fx:id="toolConsultar" text="Consultar " />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
 				</Button>
 			</children>
 			<padding>
@@ -126,7 +146,10 @@
       														<Insets right="5.0" />
       													</GridPane.margin>
       												</TextField>
-                                    <ComboBox fx:id="boxSegmento" onAction="#btnSegmento" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="boxSegmento" onAction="#btnSegmento" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></ComboBox>
                                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Segmento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       											</children>
       										</GridPane>
@@ -180,18 +203,54 @@
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <CheckBox fx:id="coreWeb" mnemonicParsing="false" text="WebApp" textFill="WHITE" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="coreGateway" layoutX="123.0" layoutY="17.0" mnemonicParsing="false" text="API Gateway" textFill="WHITE" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="coreFilas" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Filas" textFill="WHITE" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="coreStep" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" text="StepFunction" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="coreFargate" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Fargate" textFill="WHITE" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="coreContainers" layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="Containers" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="coreLambda" layoutX="123.0" layoutY="77.0" mnemonicParsing="false" text="Lambda" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="coreS3" layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="S3" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="coreMongo" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="MongoDB" textFill="WHITE" GridPane.rowIndex="4" />
-                              <CheckBox fx:id="coreParquet" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Parquet" textFill="WHITE" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="coreQuick" layoutX="250.0" layoutY="77.0" mnemonicParsing="false" text="Quicksight" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox fx:id="coreCloud" layoutX="250.0" layoutY="107.0" mnemonicParsing="false" text="CloudWatch" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="coreWeb" mnemonicParsing="false" text="WebApp" textFill="WHITE" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreGateway" layoutX="123.0" layoutY="17.0" mnemonicParsing="false" text="API Gateway" textFill="WHITE" GridPane.rowIndex="6">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreFilas" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Filas" textFill="WHITE" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreStep" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" text="StepFunction" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreFargate" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Fargate" textFill="WHITE" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreContainers" layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="Containers" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreLambda" layoutX="123.0" layoutY="77.0" mnemonicParsing="false" text="Lambda" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreS3" layoutX="236.0" layoutY="47.0" mnemonicParsing="false" text="S3" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreMongo" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="MongoDB" textFill="WHITE" GridPane.rowIndex="4">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreParquet" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" text="Parquet" textFill="WHITE" GridPane.rowIndex="5">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreQuick" layoutX="250.0" layoutY="77.0" mnemonicParsing="false" text="Quicksight" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="coreCloud" layoutX="250.0" layoutY="107.0" mnemonicParsing="false" text="CloudWatch" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Core" />
                            </children>
                         </GridPane>
@@ -207,17 +266,30 @@
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <CheckBox fx:id="funcaoPainel" mnemonicParsing="false" text="Painéis por Solução" textFill="WHITE" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="funcaoBusca" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" text="Busca (NLP)" textFill="WHITE" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="funcaoGeradorRelatorio" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="124.0" text="Gerador de Relatório " textFill="WHITE" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="funcaoGeradorData" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="138.0" text="Gerador de Data Lake" textFill="WHITE" GridPane.rowIndex="4" />
+                              <CheckBox fx:id="funcaoPainel" mnemonicParsing="false" text="Painéis por Solução" textFill="WHITE" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="funcaoBusca" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" text="Busca (NLP)" textFill="WHITE" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="funcaoGeradorRelatorio" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="124.0" text="Gerador de Relatório " textFill="WHITE" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="funcaoGeradorData" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="138.0" text="Gerador de Data Lake" textFill="WHITE" GridPane.rowIndex="4">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionalidades" />
                            </children>
                         </GridPane>
                         <GridPane layoutX="40.0" layoutY="172.0" prefHeight="267.0" prefWidth="293.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="147.99998474121094" />
-                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="0.0" prefWidth="327.8000152587891" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="0.0" prefWidth="126.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="26.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
@@ -231,12 +303,30 @@
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="produtoOptimization" mnemonicParsing="false" onAction="#produtoOptimization" prefHeight="38.0" prefWidth="138.0" text="Optimization" textFill="WHITE" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="produtoMatching" mnemonicParsing="false" onAction="#produtoMatching" prefHeight="38.0" prefWidth="138.0" text="Matching &amp; Risk" textFill="WHITE" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="5">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.rowIndex="6">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="7">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.rowIndex="8">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="produtoOptimization" mnemonicParsing="false" onAction="#produtoOptimization" prefHeight="38.0" prefWidth="138.0" text="Optimization" textFill="WHITE" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
+                              <CheckBox fx:id="produtoMatching" mnemonicParsing="false" onAction="#produtoMatching" prefHeight="38.0" prefWidth="138.0" text="Matching &amp; Risk" textFill="WHITE" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <Label text="Produto/Demand" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
@@ -250,6 +340,12 @@
                               <TextField fx:id="dmMarketing" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-background-color: #21252a; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <TextField fx:id="dmSales" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <TextField fx:id="dmPricing" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
 							</children>
