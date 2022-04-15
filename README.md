@@ -4,24 +4,24 @@
 <p align="center">
 
 <p align="center">
-  <a href="https://github.com/fluffyfatec/Dom_Rock#%EF%B8%8F-desafio">SOBRE</a> •
-  <a href="#credits">CRONOGRAMA</a> •
-  <a href="#related">PROPOSTA</a> •
-  <a href="#license">BACKLOG</a> •
-  <a href="#license">METAS</a> •
-  <a href="#license">BURNDOWN</a> •
-  <a href="#license">WIREFRAME</a> •
-  <a href="#license">EQUIPE</a> •
-  <a href="#license">TECNOLOGIA</a>
+  <a href="#desafio">SOBRE O PROJETO</a> •
+  <a href="#cronograma">CRONOGRAMA</a> •
+  <a href="#proposta-do-projeto">PROPOSTA</a> •
+  <a href="#burndown">BURNDOWN</a> •
+  <a href="#equipe">EQUIPE</a> •
+  <a href="#como-instalar-o-programa">INSTALAR</a> •
+  <a href="#tecnologias-utilizadas">TECNOLOGIA UTILIZADA</a>
 </p>
 
 ## Desafio
+
 Desenvolver uma solução na gestão de ativação do cliente na plataforma Dom Rock.
 <p>A empresa busca uma solução que seja orientada a entrada de dados de parâmetros e variáveis de cada cliente para alocar recursos na plataforma Dom Rock, entrada de dados e estimativa de consumo de recursos (baseado em volume de dados de cliente, quantidade de usuários e outros) e gere relatórios e consultas, mas, principalmente, tenha a base de dados modelada adequadamente para futuras integrações com outros sistemas.
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Objetivo
+
 <details>
 <summary>Requisitos Funcionais</summary>
 <p>• Cadastros de Clientes
@@ -49,12 +49,14 @@ fatores.
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Solução
+
 A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma aplicação desktop desenvolvida em Java utilizando um banco relacional para cadastrar e armazenar o dados do briefing dos clientes.
 <p>Além de cadastrar, também ira possuir a função de consulta, edição, relatórios, logs e exportação. Não esquecendo dos usuários com níveis de acessos definidos para maior segurança dos dados na plataforma.
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Cronograma
+
 <p align="center">
       <img src="./GIT/cronograma.jpg" width="100%" height="100%">
 <p align="center">
@@ -66,6 +68,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Backlog do Produto
+
 <p align="center">
       <img src="./GIT/backlog.jpg" width="100%" height="100%">
 <p align="center">
@@ -76,14 +79,8 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## Burndown 
-<p align="center">
-      <img src="./GIT/burndown.jpg" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
 ## Wireframe
+
 <p align="center">
       <img src="./GIT/wireframe.jpg" width="100%" height="100%">
 <p align="center">
@@ -91,8 +88,17 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## DER - Escopo
+
 <p align="center">
       <img src="./GIT/DEREscopo.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Burndown
+ 
+<p align="center">
+      <img src="./GIT/burndown.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
