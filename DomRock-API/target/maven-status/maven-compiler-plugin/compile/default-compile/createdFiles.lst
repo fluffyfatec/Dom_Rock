@@ -12,3 +12,4 @@ com\example\view\HelloApplication.class
 com\example\view\HelloController.class
 DAO\ClienteDAO.class
 DTO\FuncionalidadeDTO.class
+ 
