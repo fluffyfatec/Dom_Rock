@@ -99,7 +99,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 ## Como instalar o programa?
 
-Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de segurança pedimos para enviar um email com o seu [IP Externo](http://www.meuip.com/) para o nosso email fluffyapi@gmail.com (enviar nome e IP) que iremos liberar o acesso para a utilização da aplicação.
+Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de segurança pedimos para enviar um email com o seu [IP Externo](http://www.meuip.com/) para o nosso email [fluffyapi@gmail.com](https://is.gd/fluffyfatec) (enviar nome e IP) que iremos liberar o acesso para a utilização da aplicação.
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
@@ -165,5 +165,5 @@ Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de 
 
 ---
 
-> GitHub [@amitmerchant1990](https://github.com/fluffyfatec) &nbsp;&middot;&nbsp;
-> Gmail [@amit_merchant](https://is.gd/fluffyfatec)
+> GitHub [@fluffyfatec](https://github.com/fluffyfatec) &nbsp;&middot;&nbsp;
+> Gmail [fluffyfatec@gmail.com](https://is.gd/fluffyfatec)
