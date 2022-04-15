@@ -250,10 +250,11 @@ public class HelloController implements Initializable {
 			String vox = this.dmVox.getText();
 			String pricing = this.dmPricing.getText();
 
-			ProdutoDTO objprodutoDTO = new ProdutoDTO();
+			
 
 			if (produtoVox.isSelected()) {
 				int id_produto = 1;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setCheckvox(id_produto);
 				objprodutoDTO.setVox(vox);
 
@@ -261,6 +262,7 @@ public class HelloController implements Initializable {
 			}
 			if (produtoMarketing.isSelected()) {
 				int id_produto = 2;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setCheckmarketing(id_produto);
 				objprodutoDTO.setMarketingPlanning(marketing);
 
@@ -268,6 +270,7 @@ public class HelloController implements Initializable {
 			}
 			if (produtoSales.isSelected()) {
 				int id_produto = 3;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setChecksales(id_produto);
 				objprodutoDTO.setSalesDistribution(sales);
 
@@ -275,6 +278,7 @@ public class HelloController implements Initializable {
 			}
 			if (produtoPricing.isSelected()) {
 				int id_produto = 4;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setCheckpricing(id_produto);
 				objprodutoDTO.setPricing(pricing);
 
@@ -282,6 +286,7 @@ public class HelloController implements Initializable {
 			}
 			if (produtoOptimization.isSelected()) {
 				int id_produto = 5;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setCheckoptimization(id_produto);
 				objprodutoDTO.setOptimization(optimzation);
 
@@ -289,6 +294,7 @@ public class HelloController implements Initializable {
 			}
 			if (produtoMatching.isSelected()) {
 				int id_produto = 6;
+				ProdutoDTO objprodutoDTO = new ProdutoDTO();
 				objprodutoDTO.setCheckmarketing(id_produto);
 				objprodutoDTO.setMatchingRisk(matching);
 
