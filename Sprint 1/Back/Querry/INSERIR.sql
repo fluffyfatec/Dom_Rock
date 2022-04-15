@@ -40,8 +40,9 @@ VALUES ('Vox', 1),
 INSERT INTO Cliente (razao_social, cnpj, segmento, objetivo_negocio, entregavel_min, entregavel_possivel, datahora_cadastro, datahora_atualizacao)
 VALUES ('vitor bumbum guloso','147852','COMPRAS','PAO','OITO','NOVE','10/10/2021 12:00','09/12/2021 18:00');
 
-INSERT INTO Cliente_Funcionalidade (cf_id_cliente, cf_id_funcionalidade)
-VALUES ('1', '1');
+
+
+
 
 	
 

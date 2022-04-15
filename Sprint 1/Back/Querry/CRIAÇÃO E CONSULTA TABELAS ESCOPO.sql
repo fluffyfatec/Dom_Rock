@@ -1,16 +1,4 @@
 USE API_Dom_Rock
-/*
-DROP TABLE Cliente_Funcionalidade;
-DROP TABLE Cliente_Core;
-DROP TABLE Cliente_Solucao;
-DROP TABLE Cliente_Produto;
-
-DROP TABLE Cliente;
-DROP TABLE Produto;
-DROP TABLE Funcionalidade;
-DROP TABLE Core;
-DROP TABLE Solucao;
-*/
 
 SELECT * FROM Cliente_Funcionalidade;
 SELECT * FROM Cliente_Core;
@@ -19,45 +7,7 @@ SELECT * FROM Cliente_Produto;
 SELECT * FROM Funcionalidade;
 SELECT * FROM Cliente_Core
 SELECT * FROM Produto;
-SELECT * FROM Cliente_Core
-
-SELECT nm_produto, nm_solucao 
-FROM Produto prod
-INNER JOIN Solucao soluc
- ON soluc.id_solucao = prod.id_solucao
-
-SELECT * 
-FROM Produto prod
-INNER JOIN Solucao soluc
-  ON soluc.id_solucao = prod.id_solucao
-
-  SELECT client.razao_social, cor.recurso 
-FROM Cliente client
-INNER JOIN Cliente_Core client_cor
-  ON client_cor.cc_id_cliente = client.id_cliente
-INNER JOIN Core cor
-  ON cor.id_core = client_cor.cc_id_core
-WHERE client.id_cliente = 92
-
-----------------------------------------------------------------------------------
-
-SELECT client.razao_social, prod.nm_produto, client_prod.dado_min
-FROM Cliente client
-INNER JOIN Cliente_Produto client_prod
-  ON client_prod.cp_id_cliente = client.id_cliente
-INNER JOIN Produto prod
-  ON prod.id_produto = client_prod.cp_id_produto
-WHERE client.id_cliente = 00
-
----------------------------------------------------------------------------------
-
-SELECT client.razao_social, func.nm_funcionalidade
-FROM Cliente client
-INNER JOIN Cliente_Funcionalidade client_func
-  ON client_func.cf_id_cliente = client.id_cliente
-INNER JOIN Funcionalidade func
-  ON func.id_funcionalidade = client_func.cf_id_funcionalidade
-WHERE client.id_cliente = 00
+SELECT * FROM Cliente_Solucao;
 
 --------------------------------------
 ----------CRIAÇÃO TABELAS-------------
@@ -102,8 +52,8 @@ CREATE TABLE  Produto (
 	id_solucao int foreign key references Solucao(id_solucao) not null
 );
 
-----------------------------------------------------------------------------------------------------
-----FK's
+
+-----FK's
 CREATE TABLE Cliente_Funcionalidade(
 	cf_id_cliente int foreign key references Cliente(id_cliente) not null,
 	cf_id_funcionalidade int foreign key references Funcionalidade(id_funcionalidade) not null,
@@ -116,12 +66,6 @@ CREATE TABLE Cliente_Core(
 	primary key (cc_id_cliente, cc_id_core)
 );
 
-CREATE TABLE Cliente_Solucao(
-	cs_id_cliente int foreign key references Cliente(id_cliente) not null,
-	cs_id_solucao int foreign key references Solucao(id_solucao) not null,
-	primary key (cs_id_cliente, cs_id_solucao)
-);
-
 CREATE TABLE Cliente_Produto(
 	cp_id_cliente int foreign key references Cliente(id_cliente) not null,
 	cp_id_produto int foreign key references Produto(id_produto) not null,
@@ -130,7 +74,18 @@ CREATE TABLE Cliente_Produto(
 );
 
 
-select * from Cliente
+/*
+DROP TABLE Cliente;
+DROP TABLE Produto;
+DROP TABLE Funcionalidade;
+DROP TABLE Core;
+DROP TABLE Solucao;
+
+DROP TABLE Cliente_Funcionalidade;
+DROP TABLE Cliente_Core;
+DROP TABLE Cliente_Produto;
+*/
+
 
 
 
