@@ -7,9 +7,10 @@ DAO\ConexaoDAO.class
 com\example\view\Alerts.class
 DTO\ProdutoDTO.class
 DTO\SolucaoDTO.class
+com\example\view\Main.class
 DAO\SolucaoDAO.class
 com\example\view\HelloApplication.class
 com\example\view\HelloController.class
 DAO\ClienteDAO.class
 DTO\FuncionalidadeDTO.class
- 
+DAO\DadosDAO.class

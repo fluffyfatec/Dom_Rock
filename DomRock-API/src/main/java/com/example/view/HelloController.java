@@ -207,7 +207,7 @@ public class HelloController implements Initializable {
 	private CheckBox produtoVox;
 	
 	
-	// Tooltip botÃµes
+	// Tooltip botões
     
 	@FXML
     private Tooltip toolCadastrar;
@@ -220,17 +220,17 @@ public class HelloController implements Initializable {
 
 
 
-	// BotÃ£o Cadastrar
+	// Botão Cadastrar
 
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
 		if (txtNome.getText().length() == 0) {
-			Alerts.display("ERRO", "Por favor, insira uma RazÃ£o Social");
+			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
 		}
 
 		if (txtCnpj.getText().length() != 14 && txtNome.getText().length() != 0) {
-			Alerts.display("ERRO", "Por favor, insira um CNPJ vÃ¡lido");
+			Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
 		}
 
 		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
@@ -308,7 +308,7 @@ public class HelloController implements Initializable {
 			if (produtoMatching.isSelected()) {
 				int id_produto = 6;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckmarketing(id_produto);
+				objprodutoDTO.setCheckmatching(id_produto);
 				objprodutoDTO.setMatchingRisk(matching);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
@@ -504,20 +504,20 @@ public class HelloController implements Initializable {
 
 	}
 
-	// BotÃ£o limpar
+	// Botão limpar
 	@FXML
 	void btnLimpar(ActionEvent event) {
 
-		// BotÃ£o de alerta
+		// Botão de alerta
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("ConfirmaÃ¯Â¿Â½Ã¯Â¿Â½o");
+		window.setTitle("Confirmação");
 		window.setMinWidth(500);
 		window.setHeight(200);
 
 		Label label = new Label();
-		label.setText("Todos os campos serÃ£o limpos. Confirmar?");
+		label.setText("Todos os campos serão limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
@@ -745,7 +745,7 @@ public class HelloController implements Initializable {
 
 	}
 	
-	// FunÃ§Ã£o de habilitar de dasabilitar DADOS Minimos (TextFields)
+	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
 	
 	@FXML
     void produtoOptimization(ActionEvent event) {

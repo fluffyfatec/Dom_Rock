@@ -17,12 +17,13 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
-		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="58.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="1183.0" />
+		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="74.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="988.0" />
 		<GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="40.0" prefWidth="40.0" />
@@ -94,7 +95,7 @@
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 			</padding>
 		</GridPane>
-		<TabPane layoutY="51.0" prefHeight="634.0" prefWidth="1179.0" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="-2.0" layoutY="51.0" prefHeight="634.0" prefWidth="988.0" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
@@ -354,5 +355,6 @@
 				</Tab>
 			</tabs>
 		</TabPane>
+      <Line endX="100.0" layoutX="879.0" layoutY="48.0" startX="-881.0" stroke="#b5b5b5" />
 	</children>
 </AnchorPane>

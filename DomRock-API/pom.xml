@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>Dom_Rock-API</groupId>
-	<artifactId>Dom_Rock-API</artifactId>
+	<groupId>DomRock-API</groupId>
+	<artifactId>DomRock-API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	<packaging>jar</packaging>
 
 
 	<dependencies>
@@ -62,7 +62,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>Dom_Rock-API</finalName>
+		<finalName>DomRock-API</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -78,7 +78,7 @@
 				<artifactId>javafx-maven-plugin</artifactId>
 				<version>0.0.4</version>
 				<configuration>
-					<mainClass>com.example.view.HelloApplication</mainClass>
+					<mainClass>com.example.view.Main</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -94,7 +94,7 @@
 							<archive>
 								<manifest>
 									<mainClass>
-										com.example.view.HelloApplication
+										com.example.view.Main
 									</mainClass>
 								</manifest>
 							</archive>
