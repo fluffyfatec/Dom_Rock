@@ -454,7 +454,7 @@ public class HelloController implements Initializable {
 			txtePossiveis.setText(null);
 
 			// Limpar ComboBox
-			boxSegmento.getSelectionModel().clearSelection();
+			boxSegmento.getSelectionModel().selectFirst();
 
 			// Limpar Funcionalidades
 			funcaoPainel.setSelected(false);
