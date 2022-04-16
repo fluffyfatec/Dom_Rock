@@ -207,7 +207,7 @@ public class HelloController implements Initializable {
 	private CheckBox produtoVox;
 	
 	
-	// Tooltip botıes
+	// Tooltip bot√µes
     
 	@FXML
     private Tooltip toolCadastrar;
@@ -220,17 +220,17 @@ public class HelloController implements Initializable {
 
 
 
-	// Bot„o Cadastrar
+	// Bot√£o Cadastrar
 
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
 		if (txtNome.getText().length() == 0) {
-			Alerts.display("ERRO", "Por favor, insira uma Raz„o Social");
+			Alerts.display("ERRO", "Por favor, insira uma Raz√£o Social");
 		}
 
 		if (txtCnpj.getText().length() != 14 && txtNome.getText().length() != 0) {
-			Alerts.display("ERRO", "Por favor, insira um CNPJ v·lido");
+			Alerts.display("ERRO", "Por favor, insira um CNPJ v√°lido");
 		}
 
 		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
@@ -454,7 +454,7 @@ public class HelloController implements Initializable {
 			txtePossiveis.setText(null);
 
 			// Limpar ComboBox
-			boxSegmento.getSelectionModel().selectFirst();
+			boxSegmento.getSelectionModel().clearSelection();
 
 			// Limpar Funcionalidades
 			funcaoPainel.setSelected(false);
@@ -504,20 +504,20 @@ public class HelloController implements Initializable {
 
 	}
 
-	// Bot„o limpar
+	// Bot√£o limpar
 	@FXML
 	void btnLimpar(ActionEvent event) {
 
-		// Bot„o de alerta
+		// Bot√£o de alerta
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("ConfirmaÁ„o");
+		window.setTitle("Confirma√ß√£o");
 		window.setMinWidth(500);
 		window.setHeight(200);
 
 		Label label = new Label();
-		label.setText("Todos os campos ser„o limpos. Confirmar?");
+		label.setText("Todos os campos ser√£o limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
@@ -655,7 +655,7 @@ public class HelloController implements Initializable {
 
 
 		if ((Objects.equals(cnpjconsulta.getText(), "")) && (Objects.equals(razaosocialconsulta.getText(), ""))) {
-			Alerts.display("Erro", "Insira pelo menos um dos par√¢metros");
+			Alerts.display("Erro", "Insira pelo menos um dos par√É¬¢metros");
 		}
 
 		if ((Objects.equals(cnpjconsulta.getText(), "")) && (!Objects.equals(razaosocialconsulta.getText(), ""))) {
@@ -741,11 +741,15 @@ public class HelloController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> list = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo",
                 "Governo");
+        
         boxSegmento.setItems(list);
+        boxSegmento.getSelectionModel().selectFirst();
+        
+  
 
 	}
 	
-	// FunÁ„o de habilitar de dasabilitar DADOS Minimos (TextFields)
+	// Fun√ß√£o de habilitar de dasabilitar DADOS Minimos (TextFields)
 	
 	@FXML
     void produtoOptimization(ActionEvent event) {
