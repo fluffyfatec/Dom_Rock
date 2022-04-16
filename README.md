@@ -91,7 +91,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Metas das Sprints
 
 <p align="center">
-      <img src="./GIT/CARDS.jpg" width="100%" height="100%">
+      <img src="./GIT/CARDs.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -123,8 +123,8 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Como instalar o programa?
 
 **1ª Etapa:** Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de segurança pedimos para enviar um email com o seu [IP Externo](http://www.meuip.com/) para o nosso email fluffyapi@gmail.com (enviar nome e IP) que iremos liberar o acesso para a utilização da aplicação.
-**2ª Etapa:** Baixe e instale o [Java](https://java.com/en/download/?msclkid=6c19507ebdc911ecaa1ff0138a6a5ab9) em sua máquina.
-**3ª Etapa:** Baixe nossa [aplicação](https://drive.google.com/file/d/1WUoQI_oOh1PF6P1YDhclT-Rlh2nmvurB/view?usp=sharing) execute e aproveite!
+<p> **2ª Etapa:** Baixe e instale o [Java](https://java.com/en/download/?msclkid=6c19507ebdc911ecaa1ff0138a6a5ab9) em sua máquina.
+<p> **3ª Etapa:** Baixe nossa [aplicação](https://drive.google.com/file/d/1WUoQI_oOh1PF6P1YDhclT-Rlh2nmvurB/view?usp=sharing) execute e aproveite!
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
