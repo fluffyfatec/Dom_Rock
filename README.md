@@ -137,8 +137,6 @@ Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de 
 <details>
 <summary>Front-End</summary>
 
-* [Figma](https://www.figma.com/)
-
 * [JavaFX Scene Builder 3](https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html)
 </details>
 
@@ -147,9 +145,6 @@ Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de 
 
 * [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
 
-* [Eclipse IDE](https://www.eclipse.org/downloads/)
-
-* [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
 </details>
 
 <details>
@@ -159,15 +154,27 @@ Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de 
 </details>
 
 <details>
-<summary>Outros</summary>
-
-* [Github](https://github.com/)
+<summary>Reuniões e Comunicação</summary>
 
 * [Discord](https://discord.com/?msclkid=b4f5af84b8f811ecbd81c127a0ae68a7)
 
+* [Whatsapp](https://www.whatsapp.com/)
+
 * [Slack](https://slack.com/intl/pt-br/?msclkid=c00e628eb8f811ecaef374bb86d7f056)
+</details>
+
+<details>
+<summary>Outras Ferramentas</summary>
+
+* [Github](https://github.com/)
+
+* [Eclipse IDE](https://www.eclipse.org/downloads/)
+
+* [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
 
 * [Jira](https://www.atlassian.com/br/software/jira?msclkid=c8e971f7b8f811ec957d13ca3bfc6c1b)
+
+* [Figma](https://www.figma.com/)
 
 * [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
 </details>
