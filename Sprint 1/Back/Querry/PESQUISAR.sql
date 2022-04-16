@@ -27,7 +27,7 @@ INNER JOIN Cliente_Core client_cor
   ON client_cor.cc_id_cliente = client.id_cliente
 INNER JOIN Core cor
   ON cor.id_core = client_cor.cc_id_core
-WHERE client.id_cliente = 150;
+WHERE client.id_cliente = 155;
 
 
 --------------------PESQUISA CLIENTE_PRODUTO------------------------- 
@@ -37,7 +37,7 @@ INNER JOIN Cliente_Produto client_prod
   ON client_prod.cp_id_cliente = client.id_cliente
 INNER JOIN Produto prod
   ON prod.id_produto = client_prod.cp_id_produto
-WHERE client.id_cliente = 150;
+WHERE client.id_cliente = 155;
 
 
 --------------------PESQUISA CLIENTE_FUNCIONALIDADE-------------------
@@ -47,7 +47,5 @@ INNER JOIN Cliente_Funcionalidade client_func
   ON client_func.cf_id_cliente = client.id_cliente
 INNER JOIN Funcionalidade func
   ON func.id_funcionalidade = client_func.cf_id_funcionalidade
-WHERE client.id_cliente = 150;
-
-
+WHERE client.id_cliente = 155;
 
