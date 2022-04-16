@@ -4,6 +4,7 @@ import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.geometry.*;
 
 
@@ -16,6 +17,7 @@ public class Alerts {
             window.setTitle(title);
             window.setMinWidth(400);
             window.setHeight(150);
+            window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 
             Label label = new Label();
             label.setText(message);
@@ -26,18 +28,17 @@ public class Alerts {
             closeButtom.setOnAction(e -> window.close());
             closeButtom.setMinWidth(50);
             closeButtom.setMaxHeight(100);
-            closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: black ; -fx-border-radius: 5px ;" +
+            closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: #1BB2CF ; -fx-border-radius: 5px ;" +
                                  "-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;");
 
             VBox layout = new VBox(10);
             layout.getChildren().addAll(label, closeButtom);
             layout.setAlignment(Pos.CENTER);
             layout.setStyle("-fx-background-color: #2d343a ;");
-
+            
             Scene scene = new Scene(layout);
             window.setScene(scene);
             window.showAndWait();
-
         }
 
 }

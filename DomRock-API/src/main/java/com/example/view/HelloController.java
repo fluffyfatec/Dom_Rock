@@ -515,7 +515,9 @@ public class HelloController implements Initializable {
 		window.setTitle("Confirmação");
 		window.setMinWidth(500);
 		window.setHeight(200);
+		window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 
+		
 		Label label = new Label();
 		label.setText("Todos os campos serão limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
@@ -581,9 +583,8 @@ public class HelloController implements Initializable {
 
 		closeButtom.setMinWidth(50);
 		closeButtom.setMaxHeight(100);
-		closeButtom.setAlignment(Pos.BOTTOM_LEFT);
-		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: black ; -fx-border-radius: 5px ;" +
-				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;");
+		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: #1BB2CF; -fx-border-radius: 5px ;" +
+				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ; -fx-display: inline-block;");
 
 		Button cancelButtom = new Button("Cancelar");
 		cancelButtom.setOnAction(e -> {
@@ -592,9 +593,8 @@ public class HelloController implements Initializable {
 				});
 		cancelButtom.setMinWidth(50);
 		cancelButtom.setMaxHeight(100);
-		cancelButtom.setAlignment(Pos.BOTTOM_RIGHT);
-		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: black ; -fx-border-radius: 5px ;" +
-				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;");
+		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: transparent ; -fx-border-radius: 5px ;" +
+				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;-fx-display: inline-block;");
 
 		VBox layout = new VBox(10);
 		layout.getChildren().addAll(label, closeButtom, cancelButtom);
@@ -655,7 +655,7 @@ public class HelloController implements Initializable {
 
 
 		if ((Objects.equals(cnpjconsulta.getText(), "")) && (Objects.equals(razaosocialconsulta.getText(), ""))) {
-			Alerts.display("Erro", "Insira pelo menos um dos parÃ¢metros");
+			Alerts.display("Erro", "Insira pelo menos um dos parâmetros");
 		}
 
 		if ((Objects.equals(cnpjconsulta.getText(), "")) && (!Objects.equals(razaosocialconsulta.getText(), ""))) {
