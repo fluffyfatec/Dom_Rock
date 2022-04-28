@@ -806,6 +806,53 @@ public class HelloController implements Initializable {
         	dmPricing.setDisable(true);
         }
     }
+  //Bronze
 
+    @FXML
+    private ComboBox<?> boxProduto;
+    
+    @FXML
+    void boxProduto(ActionEvent event) {
+
+    }
+
+    @FXML
+    private ComboBox<?> boxOrigem;
+   
+    @FXML
+    void boxOrigem(ActionEvent event) {
+
+    }
+
+    @FXML
+    private ComboBox<?> boxFormato;
+    
+    @FXML
+    void boxFormato(ActionEvent event) {
+
+    }
+
+    @FXML
+    private ComboBox<?> boxFrequencia;
+
+    @FXML
+    void boxFrequencia(ActionEvent event) {
+
+    }
+    @FXML
+    private ComboBox<?> boxSistema;
+   
+    @FXML
+    void boxSistema(ActionEvent event) {
+
+    }
+
+    @FXML
+    private TextField txtVolume;
+
+    @FXML
+    void btnAdc(ActionEvent event) {
+
+    }
 
 }
