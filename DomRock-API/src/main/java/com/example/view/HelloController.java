@@ -47,9 +47,11 @@ public class HelloController implements Initializable {
 	private CoreDAO coredao = new CoreDAO();
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
 
+	private ObservableList<String> list2 = FXCollections.observableArrayList();
+	
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
-
+	
 	@FXML
 	private Menu bntClienteintro;
 
@@ -747,6 +749,8 @@ public class HelloController implements Initializable {
         boxSegmento.getSelectionModel().selectFirst();
         
   
+        boxProduto.setItems(list2); 
+		boxProduto.getSelectionModel().selectFirst();
 
 	}
 	
@@ -757,8 +761,10 @@ public class HelloController implements Initializable {
 		
 		if (produtoOptimization.isSelected()) {
         	dmOptimization.setDisable(false);
+        	list2.add("Optimization");
         }else {
         	dmOptimization.setDisable(true);
+        	list2.removeAll("Optimization");
         }
     }
 	
@@ -766,8 +772,10 @@ public class HelloController implements Initializable {
     void produtoMatching(ActionEvent event) {
 		if (produtoMatching.isSelected()) {
         	dmMatching.setDisable(false);
+        	list2.add("Matching & Risk");
         }else {
         	dmMatching.setDisable(true);
+        	list2.removeAll("Matching & Risk");
         }
     }
 
@@ -775,8 +783,10 @@ public class HelloController implements Initializable {
     void produtoVox(ActionEvent event) {
 		if (produtoVox.isSelected()) {
         	dmVox.setDisable(false);
+        	list2.add("Vox");
         }else {
         	dmVox.setDisable(true);
+        	list2.removeAll("Vox");
         }
     }
 	
@@ -784,8 +794,10 @@ public class HelloController implements Initializable {
     void produtoMarketing(ActionEvent event) {
 		if (produtoMarketing.isSelected()) {
         	dmMarketing.setDisable(false);
+        	list2.add("Marketing & Planning");
         }else {
         	dmMarketing.setDisable(true);
+        	list2.removeAll("Marketing & Planning");
         }
     }
 
@@ -793,8 +805,10 @@ public class HelloController implements Initializable {
     void produtoSales(ActionEvent event) {
 		if (produtoSales.isSelected()) {
         	dmSales.setDisable(false);
+        	list2.add("Sales & Distributions");
         }else {
         	dmSales.setDisable(true);
+        	list2.removeAll("Sales & Distributions");
         }
     }
     
@@ -802,17 +816,24 @@ public class HelloController implements Initializable {
     void produtoPricing(ActionEvent event) {
     	if (produtoPricing.isSelected()) {
         	dmPricing.setDisable(false);
+        	list2.add("Pricing");
         }else {
         	dmPricing.setDisable(true);
+        	list2.removeAll("Pricing");
         }
     }
   //Bronze
 
     @FXML
-    private ComboBox<?> boxProduto;
+    private ComboBox<String> boxProduto = new ComboBox<String>();
     
     @FXML
     void boxProduto(ActionEvent event) {
+    	ProdutoDTO objProdutoDTO = new ProdutoDTO();
+		if (boxProduto.getSelectionModel().getSelectedItem() != null) {
+			String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
+			objProdutoDTO.setNomeProduto(nomeProduto);
+		}		
 
     }
 
