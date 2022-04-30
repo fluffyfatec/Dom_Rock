@@ -502,6 +502,14 @@ public class HelloController implements Initializable {
 			dmSales.setDisable(true);
 			dmPricing.setDisable(true);
 			
+			// Limpar ComboBox Produto
+			list2.removeAll("Optimization");
+			list2.removeAll("Matching & Risk");
+			list2.removeAll("Vox");
+			list2.removeAll("Marketing & Planning");
+			list2.removeAll("Sales & Distributions");
+			list2.removeAll("Pricing");
+			
 		}
 
 	}
@@ -509,7 +517,7 @@ public class HelloController implements Initializable {
 	// Botão limpar
 	@FXML
 	void btnLimpar(ActionEvent event) {
-
+		
 		// Botão de alerta
 		final Stage window = new Stage();
 
@@ -580,6 +588,14 @@ public class HelloController implements Initializable {
 			dmMarketing.setDisable(true);
 			dmSales.setDisable(true);
 			dmPricing.setDisable(true);
+			
+			// Limpar ComboBox Produto
+			list2.removeAll("Optimization");
+			list2.removeAll("Matching & Risk");
+			list2.removeAll("Vox");
+			list2.removeAll("Marketing & Planning");
+			list2.removeAll("Sales & Distributions");
+			list2.removeAll("Pricing");
 			
 		});
 
