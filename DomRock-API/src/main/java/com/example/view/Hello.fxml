@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="74.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="988.0" />
 		<GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
@@ -97,7 +97,7 @@
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 			</padding>
 		</GridPane>
-		<TabPane layoutX="-2.0" layoutY="51.0" prefHeight="634.0" prefWidth="988.0" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="-2.0" layoutY="51.0" prefHeight="634.0" prefWidth="988.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
@@ -387,7 +387,7 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" wrappingWidth="76.00003051757812" GridPane.columnIndex="6" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frequência" wrappingWidth="76.00003051757812" GridPane.columnIndex="8" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema" wrappingWidth="76.00003051757812" GridPane.columnIndex="10" />
-                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-background-color: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1" />
                               <ComboBox fx:id="boxProduto" onAction="#boxProduto" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -414,9 +414,14 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
+                              <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;">
+                        <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;" stylesheets="@Styles.css">
                           <columns>
                             <TableColumn fx:id="colProduto" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna1" />
                             <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Coluna 2" />
