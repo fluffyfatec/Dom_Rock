@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -48,10 +50,10 @@ public class HelloController implements Initializable {
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
 
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
-	
+
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
-	
+
 	@FXML
 	private Menu bntClienteintro;
 
@@ -110,61 +112,59 @@ public class HelloController implements Initializable {
 	@FXML
 	private TextArea txtePossiveis;
 
-    // CheckBox CORE
-
-    @FXML
-    private CheckBox coreCloud;
-
-    @FXML
-    private CheckBox coreContainers;
-
-    @FXML
-    private CheckBox coreFargate;
-
-    @FXML
-    private CheckBox coreFilas;
-
-    @FXML
-    private CheckBox coreGateway;
-
-    @FXML
-    private CheckBox coreLambda;
-
-    @FXML
-    private CheckBox coreMongo;
-
-    @FXML
-    private CheckBox coreParquet;
-
-    @FXML
-    private CheckBox coreQuick;
-
-    @FXML
-    private CheckBox coreS3;
-
-    @FXML
-    private CheckBox coreStep;
-
-    @FXML
-    private CheckBox coreWeb;
-
-
-    // Check Box Funcionalidades
+	// CheckBox CORE
 
 	@FXML
-    private CheckBox funcaoPainel;
+	private CheckBox coreCloud;
 
-    @FXML
-    private CheckBox funcaoBusca;
+	@FXML
+	private CheckBox coreContainers;
 
-    @FXML
-    private CheckBox funcaoGeradorRelatorio;
+	@FXML
+	private CheckBox coreFargate;
 
-    @FXML
-    private CheckBox funcaoGeradorData;
+	@FXML
+	private CheckBox coreFilas;
 
+	@FXML
+	private CheckBox coreGateway;
 
-	// Campos de Dados Minimos 
+	@FXML
+	private CheckBox coreLambda;
+
+	@FXML
+	private CheckBox coreMongo;
+
+	@FXML
+	private CheckBox coreParquet;
+
+	@FXML
+	private CheckBox coreQuick;
+
+	@FXML
+	private CheckBox coreS3;
+
+	@FXML
+	private CheckBox coreStep;
+
+	@FXML
+	private CheckBox coreWeb;
+
+	// Check Box Funcionalidades
+
+	@FXML
+	private CheckBox funcaoPainel;
+
+	@FXML
+	private CheckBox funcaoBusca;
+
+	@FXML
+	private CheckBox funcaoGeradorRelatorio;
+
+	@FXML
+	private CheckBox funcaoGeradorData;
+
+	// Campos de Dados Minimos
 
 	@FXML
 	private TextField dmMarketing;
@@ -184,7 +184,6 @@ public class HelloController implements Initializable {
 	@FXML
 	private TextField dmVox;
 
-
 	// Check Box Produto/Operations
 
 	@FXML
@@ -192,7 +191,6 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private CheckBox produtoMatching;
-
 
 	// Check Box Produto/Demand
 
@@ -207,20 +205,17 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private CheckBox produtoVox;
-	
-	
+
 	// Tooltip botões
-    
+
 	@FXML
-    private Tooltip toolCadastrar;
+	private Tooltip toolCadastrar;
 
-    @FXML
-    private Tooltip toolConsultar;
+	@FXML
+	private Tooltip toolConsultar;
 
-    @FXML
-    private Tooltip toolLimpar;
-
-
+	@FXML
+	private Tooltip toolLimpar;
 
 	// Botão Cadastrar
 
@@ -264,8 +259,6 @@ public class HelloController implements Initializable {
 			String sales = this.dmSales.getText();
 			String vox = this.dmVox.getText();
 			String pricing = this.dmPricing.getText();
-
-			
 
 			if (produtoVox.isSelected()) {
 				int id_produto = 1;
@@ -315,7 +308,6 @@ public class HelloController implements Initializable {
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
-
 
 			// Metodos acessores do CoreDAO
 
@@ -446,9 +438,8 @@ public class HelloController implements Initializable {
 				funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
 			}
 
-
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
-			
+
 			txtNome.setText(null);
 			txtCnpj.setText(null);
 			txtObjNegocio.setText(null);
@@ -493,7 +484,7 @@ public class HelloController implements Initializable {
 			dmMatching.setText(null);
 			dmMarketing.setText(null);
 			dmVox.setText(null);
-			
+
 			// Desativar DADOS Minimos
 			dmOptimization.setDisable(true);
 			dmMatching.setDisable(true);
@@ -501,7 +492,7 @@ public class HelloController implements Initializable {
 			dmMarketing.setDisable(true);
 			dmSales.setDisable(true);
 			dmPricing.setDisable(true);
-			
+
 			// Limpar ComboBox Produto
 			list2.removeAll("Optimization");
 			list2.removeAll("Matching & Risk");
@@ -509,7 +500,7 @@ public class HelloController implements Initializable {
 			list2.removeAll("Marketing & Planning");
 			list2.removeAll("Sales & Distributions");
 			list2.removeAll("Pricing");
-			
+
 		}
 
 	}
@@ -517,7 +508,7 @@ public class HelloController implements Initializable {
 	// Botão limpar
 	@FXML
 	void btnLimpar(ActionEvent event) {
-		
+
 		// Botão de alerta
 		final Stage window = new Stage();
 
@@ -527,14 +518,14 @@ public class HelloController implements Initializable {
 		window.setHeight(200);
 		window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 
-		
 		Label label = new Label();
 		label.setText("Todos os campos serão limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
 		Button closeButtom = new Button("Confirmar");
-		closeButtom.setOnAction(e -> {window.close();
+		closeButtom.setOnAction(e -> {
+			window.close();
 
 			txtNome.setText(null);
 			txtCnpj.setText(null);
@@ -580,7 +571,7 @@ public class HelloController implements Initializable {
 			dmMatching.setText(null);
 			dmMarketing.setText(null);
 			dmVox.setText(null);
-			
+
 			// Desativar DADOS MINIMOS
 			dmOptimization.setDisable(true);
 			dmMatching.setDisable(true);
@@ -588,7 +579,7 @@ public class HelloController implements Initializable {
 			dmMarketing.setDisable(true);
 			dmSales.setDisable(true);
 			dmPricing.setDisable(true);
-			
+
 			// Limpar ComboBox Produto
 			list2.removeAll("Optimization");
 			list2.removeAll("Matching & Risk");
@@ -596,23 +587,23 @@ public class HelloController implements Initializable {
 			list2.removeAll("Marketing & Planning");
 			list2.removeAll("Sales & Distributions");
 			list2.removeAll("Pricing");
-			
+
 		});
 
 		closeButtom.setMinWidth(50);
 		closeButtom.setMaxHeight(100);
-		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: #1BB2CF; -fx-border-radius: 5px ;" +
-				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ; -fx-display: inline-block;");
+		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: #1BB2CF; -fx-border-radius: 5px ;"
+				+ "-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ; -fx-display: inline-block;");
 
 		Button cancelButtom = new Button("Cancelar");
 		cancelButtom.setOnAction(e -> {
-				event.consume();
-		 		window.close();
-				});
+			event.consume();
+			window.close();
+		});
 		cancelButtom.setMinWidth(50);
 		cancelButtom.setMaxHeight(100);
-		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: transparent ; -fx-border-radius: 5px ;" +
-				"-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;-fx-display: inline-block;");
+		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: transparent ; -fx-border-radius: 5px ;"
+				+ "-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;-fx-display: inline-block;");
 
 		VBox layout = new VBox(10);
 		layout.getChildren().addAll(label, closeButtom, cancelButtom);
@@ -622,7 +613,6 @@ public class HelloController implements Initializable {
 		Scene scene = new Scene(layout);
 		window.setScene(scene);
 		window.showAndWait();
-		
 
 	}
 
@@ -671,7 +661,6 @@ public class HelloController implements Initializable {
 		ObservableList<String> nomes = FXCollections.observableArrayList();
 		ObservableList<String> cnpjs = FXCollections.observableArrayList();
 
-
 		if ((Objects.equals(cnpjconsulta.getText(), "")) && (Objects.equals(razaosocialconsulta.getText(), ""))) {
 			Alerts.display("Erro", "Insira pelo menos um dos parâmetros");
 		}
@@ -714,8 +703,7 @@ public class HelloController implements Initializable {
 			}
 
 		}
-		if ((!Objects.equals(razaosocialconsulta.getText(), ""))
-				&& (!Objects.equals(cnpjconsulta.getText(), ""))) {
+		if ((!Objects.equals(razaosocialconsulta.getText(), "")) && (!Objects.equals(cnpjconsulta.getText(), ""))) {
 			String sql = "select * from Cliente where razao_social like '%" + razaosocialconsulta.getText()
 					+ "%' and cnpj like '%" + cnpjconsulta.getText() + "%'";
 
@@ -757,139 +745,241 @@ public class HelloController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo",
-                "Governo");
-        
-        boxSegmento.setItems(list);
-        
-        boxSegmento.getSelectionModel().selectFirst();
-        
-  
-        boxProduto.setItems(list2); 
+		ObservableList<String> list = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo",
+				"Governo");
+
+		boxSegmento.setItems(list);
+
+		boxSegmento.getSelectionModel().selectFirst();
+
+		boxProduto.setItems(list2);
 		boxProduto.getSelectionModel().selectFirst();
 
-	}
-	
-	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
-	
-	@FXML
-    void produtoOptimization(ActionEvent event) {
+		// Populando o boxOrigem
+
+		ObservableList<String> listOrigem = FXCollections.observableArrayList("API", "SFTP", "Upload");
+
+		boxOrigem.setItems(listOrigem);
+
+		boxOrigem.getSelectionModel().selectFirst();
+
+		// Populando o boxFormato
+
+		ObservableList<String> listFormato = FXCollections.observableArrayList("JSON", "CSV", "Planilhas", "Tabela",
+				"PDF", "Audio", "Texto");
+
+		boxFormato.setItems(listFormato);
+
+		boxFormato.getSelectionModel().selectFirst();
+
+		// Populando o boxFrequencia
+
+		ObservableList<String> listFrequencia = FXCollections.observableArrayList("Diariamente", "7 dias", "15 dias",
+				"30 dias", "45 dias", "60 dias");
+
+		boxFrequencia.setItems(listFrequencia);
+
+		boxFrequencia.getSelectionModel().selectFirst();
+
+		// Populando o boxSistema
+
+		ObservableList<String> listSistema = FXCollections.observableArrayList("ERP", "Vendas", "Outros");
+
+		boxSistema.setItems(listSistema);
+
+		boxSistema.getSelectionModel().selectFirst();
 		
+		//
+		List<ProdutoAtivacaoDTO> ativacaoDTOs = new ArrayList<ProdutoAtivacaoDTO>();
+		produtoAtivacaoObservableList = FXCollections.observableList(ativacaoDTOs);
+
+		colProduto.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("nomeProduto"));
+		colFormato.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("formato"));
+		colSistema.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("frequencia"));
+		colFrequencia.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("origenDado"));
+		colOrigem.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("sistema"));
+		colVolume.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("volume"));
+		tabelaBronze.setItems(produtoAtivacaoObservableList);
+		
+		
+	}
+
+	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
+
+	@FXML
+	void produtoOptimization(ActionEvent event) {
+
 		if (produtoOptimization.isSelected()) {
-        	dmOptimization.setDisable(false);
-        	list2.add("Optimization");
-        }else {
-        	dmOptimization.setDisable(true);
-        	list2.removeAll("Optimization");
-        }
-    }
-	
+			dmOptimization.setDisable(false);
+			list2.add("Optimization");
+		} else {
+			dmOptimization.setDisable(true);
+			list2.removeAll("Optimization");
+		}
+	}
+
 	@FXML
-    void produtoMatching(ActionEvent event) {
+	void produtoMatching(ActionEvent event) {
 		if (produtoMatching.isSelected()) {
-        	dmMatching.setDisable(false);
-        	list2.add("Matching & Risk");
-        }else {
-        	dmMatching.setDisable(true);
-        	list2.removeAll("Matching & Risk");
-        }
-    }
+			dmMatching.setDisable(false);
+			list2.add("Matching & Risk");
+		} else {
+			dmMatching.setDisable(true);
+			list2.removeAll("Matching & Risk");
+		}
+	}
 
 	@FXML
-    void produtoVox(ActionEvent event) {
+	void produtoVox(ActionEvent event) {
 		if (produtoVox.isSelected()) {
-        	dmVox.setDisable(false);
-        	list2.add("Vox");
-        }else {
-        	dmVox.setDisable(true);
-        	list2.removeAll("Vox");
-        }
-    }
-	
+			dmVox.setDisable(false);
+			list2.add("Vox");
+		} else {
+			dmVox.setDisable(true);
+			list2.removeAll("Vox");
+		}
+	}
+
 	@FXML
-    void produtoMarketing(ActionEvent event) {
+	void produtoMarketing(ActionEvent event) {
 		if (produtoMarketing.isSelected()) {
-        	dmMarketing.setDisable(false);
-        	list2.add("Marketing & Planning");
-        }else {
-        	dmMarketing.setDisable(true);
-        	list2.removeAll("Marketing & Planning");
-        }
-    }
+			dmMarketing.setDisable(false);
+			list2.add("Marketing & Planning");
+		} else {
+			dmMarketing.setDisable(true);
+			list2.removeAll("Marketing & Planning");
+		}
+	}
 
 	@FXML
-    void produtoSales(ActionEvent event) {
+	void produtoSales(ActionEvent event) {
 		if (produtoSales.isSelected()) {
-        	dmSales.setDisable(false);
-        	list2.add("Sales & Distributions");
-        }else {
-        	dmSales.setDisable(true);
-        	list2.removeAll("Sales & Distributions");
-        }
-    }
-    
-    @FXML
-    void produtoPricing(ActionEvent event) {
-    	if (produtoPricing.isSelected()) {
-        	dmPricing.setDisable(false);
-        	list2.add("Pricing");
-        }else {
-        	dmPricing.setDisable(true);
-        	list2.removeAll("Pricing");
-        }
-    }
-  //Bronze
+			dmSales.setDisable(false);
+			list2.add("Sales & Distributions");
+		} else {
+			dmSales.setDisable(true);
+			list2.removeAll("Sales & Distributions");
+		}
+	}
 
-    @FXML
-    private ComboBox<String> boxProduto = new ComboBox<String>();
-    
-    @FXML
-    void boxProduto(ActionEvent event) {
-    	ProdutoDTO objProdutoDTO = new ProdutoDTO();
+	@FXML
+	void produtoPricing(ActionEvent event) {
+		if (produtoPricing.isSelected()) {
+			dmPricing.setDisable(false);
+			list2.add("Pricing");
+		} else {
+			dmPricing.setDisable(true);
+			list2.removeAll("Pricing");
+		}
+	}
+	// Bronze
+
+	@FXML
+	private ComboBox<String> boxProduto = new ComboBox<String>();
+
+	@FXML
+	void boxProduto(ActionEvent event) {
+		ProdutoDTO objProdutoDTO = new ProdutoDTO();
 		if (boxProduto.getSelectionModel().getSelectedItem() != null) {
 			String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
 			objProdutoDTO.setNomeProduto(nomeProduto);
-		}		
+		}
 
-    }
+	}
 
-    @FXML
-    private ComboBox<?> boxOrigem;
-   
-    @FXML
-    void boxOrigem(ActionEvent event) {
+	@FXML
+	private ComboBox<String> boxOrigem = new ComboBox<String>();
 
-    }
+	@FXML
+	void boxOrigem(ActionEvent event) {
 
-    @FXML
-    private ComboBox<?> boxFormato;
-    
-    @FXML
-    void boxFormato(ActionEvent event) {
+		BronzeDTO objbronzeDTO = new BronzeDTO();
+		if (boxOrigem.getSelectionModel().getSelectedItem() != null) {
+			String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
+			objbronzeDTO.setOrigenDado(nomeOrigem);
 
-    }
+		}
+	}
 
-    @FXML
-    private ComboBox<?> boxFrequencia;
+	@FXML
+	private ComboBox<String> boxFormato = new ComboBox<String>();
 
-    @FXML
-    void boxFrequencia(ActionEvent event) {
+	@FXML
+	void boxFormato(ActionEvent event) {
 
-    }
-    @FXML
-    private ComboBox<?> boxSistema;
-   
-    @FXML
-    void boxSistema(ActionEvent event) {
+		BronzeDTO objbronzeDTO = new BronzeDTO();
+		if (boxFormato.getSelectionModel().getSelectedItem() != null) {
+			String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+			objbronzeDTO.setFormato(nomeFormato);
+		}
+	}
 
-    }
+	@FXML
+	private ComboBox<String> boxFrequencia = new ComboBox<String>();
 
-    @FXML
-    private TextField txtVolume;
+	@FXML
+	void boxFrequencia(ActionEvent event) {
 
-    @FXML
-    void btnAdc(ActionEvent event) {
+		BronzeDTO objbronzeDTO = new BronzeDTO();
+		if (boxFrequencia.getSelectionModel().getSelectedItem() != null) {
+			String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
+			objbronzeDTO.setFrequencia(nomeFrequencia);
+		}
+	}
 
-    }
+	@FXML
+	private ComboBox<String> boxSistema = new ComboBox<String>();
 
+	@FXML
+	void boxSistema(ActionEvent event) {
+
+		BronzeDTO objbronzeDTO = new BronzeDTO();
+		if (boxSistema.getSelectionModel().getSelectedItem() != null) {
+			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
+			objbronzeDTO.setSistema(nomeSistema);
+		}
+	}
+
+	@FXML
+	private TableView<ProdutoAtivacaoDTO> tabelaBronze = new TableView<ProdutoAtivacaoDTO>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colOrigem = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colFormato = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colVolume = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colFrequencia = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colSistema = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TableColumn<ProdutoAtivacaoDTO, String> colProduto = new TableColumn<ProdutoAtivacaoDTO, String>();
+
+	@FXML
+	private TextField txtVolume;
+ 
+	private ObservableList<ProdutoAtivacaoDTO> produtoAtivacaoObservableList;
+
+	@FXML
+	void btnAdc(ActionEvent event) {
+		String volume = this.txtVolume.getText();
+		String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
+		String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
+		String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
+		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+
+		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume);
+
+		ProdutoAtivacaoDTO produtoAtivacaoDTO = new ProdutoAtivacaoDTO(
+				boxProduto.getSelectionModel().getSelectedItem().toString(), objtesteDTO);
+
+		produtoAtivacaoObservableList.add(produtoAtivacaoDTO);
+
+	}
 }
