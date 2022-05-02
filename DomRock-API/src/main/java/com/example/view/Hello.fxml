@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="74.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="988.0" />
 		<GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
@@ -414,7 +414,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                              <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="12" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
                                  </image>
@@ -423,12 +423,12 @@
                         </GridPane>
                         <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;" stylesheets="@Styles.css">
                           <columns>
-                            <TableColumn fx:id="colProduto" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna1" />
-                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Coluna 2" />
-                              <TableColumn fx:id="colFormato" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna3" />
-                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Coluna 4" />
-                              <TableColumn fx:id="colFrequencia" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna5" />
-                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="155.0" style="-fx-background-color: #21252a;" text="Coluna 6" />
+                            <TableColumn fx:id="colProduto" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Produto" />
+                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Origem do dado" />
+                              <TableColumn fx:id="colFormato" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Formato" />
+                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Volume" />
+                              <TableColumn fx:id="colFrequencia" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Frequência" />
+                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="155.0" style="-fx-background-color: #21252a;" text="Sistema" />
                           </columns>
                         </TableView>
                      </children>
