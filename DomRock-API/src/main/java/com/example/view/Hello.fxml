@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d343a" height="74.0" layoutX="-2.0" layoutY="-8.0" stroke="WHITE" strokeType="INSIDE" style="-fx-border-color: white;" width="988.0" />
 		<GridPane layoutY="1.0" prefHeight="50.0" prefWidth="230.0">
@@ -183,11 +183,11 @@
 										<RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Mínimos" />
+										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Mínimos" />
 										<TextArea fx:id="txtObjNegocio" prefHeight="120.0" prefWidth="650.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
 										<TextArea fx:id="txteMinimos" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
-										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Possíveis" GridPane.rowIndex="4" />
+										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Possíveis" GridPane.rowIndex="4" />
 										<TextArea fx:id="txtePossiveis" prefHeight="64.0" prefWidth="532.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
@@ -387,7 +387,17 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" wrappingWidth="76.00003051757812" GridPane.columnIndex="6" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frequência" wrappingWidth="76.00003051757812" GridPane.columnIndex="8" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema" wrappingWidth="76.00003051757812" GridPane.columnIndex="10" />
-                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                               <ComboBox fx:id="boxProduto" onAction="#boxProduto" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -414,11 +424,6 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="12" GridPane.rowIndex="1">
-                                 <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </GridPane>
                         <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;" stylesheets="@Styles.css">
