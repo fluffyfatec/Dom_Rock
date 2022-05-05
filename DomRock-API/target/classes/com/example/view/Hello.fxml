@@ -183,11 +183,11 @@
 										<RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Mínimos" />
+										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Mínimos" />
 										<TextArea fx:id="txtObjNegocio" prefHeight="120.0" prefWidth="650.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
 										<TextArea fx:id="txteMinimos" prefHeight="121.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
-										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregaveis Possíveis" GridPane.rowIndex="4" />
+										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Possíveis" GridPane.rowIndex="4" />
 										<TextArea fx:id="txtePossiveis" prefHeight="64.0" prefWidth="532.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
@@ -387,7 +387,17 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" wrappingWidth="76.00003051757812" GridPane.columnIndex="6" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frequência" wrappingWidth="76.00003051757812" GridPane.columnIndex="8" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema" wrappingWidth="76.00003051757812" GridPane.columnIndex="10" />
-                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnAdc" prefWidth="30.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                               <ComboBox fx:id="boxProduto" onAction="#boxProduto" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -414,21 +424,16 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <ImageView fitHeight="23.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="12" GridPane.rowIndex="1">
-                                 <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </GridPane>
                         <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;" stylesheets="@Styles.css">
                           <columns>
-                            <TableColumn fx:id="colProduto" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna1" />
-                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Coluna 2" />
-                              <TableColumn fx:id="colFormato" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna3" />
-                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Coluna 4" />
-                              <TableColumn fx:id="colFrequencia" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Coluna5" />
-                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="155.0" style="-fx-background-color: #21252a;" text="Coluna 6" />
+                            <TableColumn fx:id="colProduto" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Produto" />
+                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Origem do dado" />
+                              <TableColumn fx:id="colFormato" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Formato" />
+                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="166.0" style="-fx-background-color: #21252a;" text="Volume" />
+                              <TableColumn fx:id="colFrequencia" prefWidth="130.0" style="-fx-text-fill: white; -fx-background-color: #21252a;" text="Frequência" />
+                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="155.0" style="-fx-background-color: #21252a;" text="Sistema" />
                           </columns>
                         </TableView>
                      </children>

@@ -982,4 +982,13 @@ public class HelloController implements Initializable {
 		produtoAtivacaoObservableList.add(produtoAtivacaoDTO);
 
 	}
+	// Silver
+	  @FXML
+	    private TextArea txtValidador;
+	   
+	  @FXML
+	    void btnObrigatorio(ActionEvent event) {
+
+	    }
+	
 }
