@@ -10,10 +10,10 @@ SELECT * FROM Produto;
 SELECT * FROM Cliente_Solucao;
 
 --------------------------------------
-----------CRIAÇÃO TABELAS-------------
+----------CRIAï¿½ï¿½O TABELAS-------------
 --------------------------------------
 
---CRIAÇÃO TABELA Cliente
+--CRIAï¿½ï¿½O TABELA Cliente
 CREATE TABLE  Cliente (
 	id_cliente int identity(1,1) primary key,
     razao_social varchar(40) not null unique,
@@ -26,26 +26,27 @@ CREATE TABLE  Cliente (
 	datahora_atualizacao datetime 
 );
 
---CRIAÇÃO TABELA Funcionalidade
+--CRIAï¿½ï¿½O TABELA Funcionalidade
 CREATE TABLE  Funcionalidade (
 	id_funcionalidade int identity(1,1) primary key,
     nm_funcionalidade varchar(50) not null unique
 );
 
---CRIAÇÃO TABELA Core
+--CRIAï¿½ï¿½O TABELA Core
 CREATE TABLE  Core (
 	id_core int identity(1,1) primary key,
     recurso varchar(50) not null unique
 );
 
---CRIAÇÃO TABELA Solucao
+--CRIAï¿½ï¿½O TABELA Solucao
+--CRIAï¿½ï¿½O TABELA Solucao
 CREATE TABLE  Solucao (
 	id_solucao int identity(1,1) primary key,
     nm_solucao varchar(30)  not null unique
 );
 
 
---CRIAÇÃO TABELA Produto
+--CRIAï¿½ï¿½O TABELA Produto
 CREATE TABLE  Produto (
 	id_produto int identity(1,1) primary key,
     nm_produto varchar(30) not null unique,
@@ -72,6 +73,56 @@ CREATE TABLE Cliente_Produto(
 	dado_min varchar(30),
 	primary key (cp_id_cliente, cp_id_produto)
 );
+
+----------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE  Origem_dado (
+	id_origem_dado int identity(1,1) primary key,
+    desc_origem varchar(40)  not null unique
+);
+
+CREATE TABLE  Formato (
+	id_formato int identity(1,1) primary key,
+    formato varchar(40)  not null unique
+);
+
+CREATE TABLE  Sistema (
+	id_sistema int identity(1,1) primary key,
+    sistema varchar(40)  not null unique
+);
+
+CREATE TABLE Fonte_dado(
+
+	id_fonte_dado int identity(1,1) primary key,
+	volume varchar(40)  not null,
+	frequencia varchar(40)  not null,
+	id_cliente int foreign key references Cliente(id_cliente) not null,
+	id_produto int foreign key references Produto(id_produto) not null,
+
+	id_origem_dado int foreign key references Origem_dado(id_origem_dado) not null,
+	id_formato int foreign key references Formato(id_formato) not null,
+	id_sistema int foreign key references Sistema(id_sistema) not null
+	
+	unique (id_cliente, id_produto),
+	unique (id_origem_dado, id_formato, id_sistema)
+);
+
+CREATE TABLE  Validador (
+	id_validador int identity(1,1) primary key,
+    desc_regra varchar(40)  not null unique,
+	obrigatorio varchar(40)  not null unique,
+	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado) not null
+	
+);
+
+DROP TABLE Origem_dado;
+DROP TABLE Formato;
+DROP TABLE Sistema;
+DROP TABLE Fonte_dado;
+
+DROP TABLE Validador;
+
 
 
 /*
