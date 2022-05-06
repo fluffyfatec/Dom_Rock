@@ -15,6 +15,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JTable;
+
 import DAO.*;
 import DTO.*;
 import javafx.beans.property.StringProperty;
@@ -48,6 +50,7 @@ public class HelloController implements Initializable {
 	private DadosDAO dadosdao = new DadosDAO();
 	private CoreDAO coredao = new CoreDAO();
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
+	private ProdutoAtivacaoDAO ativacaoDAO = new ProdutoAtivacaoDAO();
 
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
@@ -799,6 +802,7 @@ public class HelloController implements Initializable {
 		colFrequencia.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("origenDado"));
 		colOrigem.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("sistema"));
 		colVolume.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("volume"));
+
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
 		
 		
@@ -961,18 +965,99 @@ public class HelloController implements Initializable {
 	@FXML
 	private TableColumn<ProdutoAtivacaoDTO, String> colProduto = new TableColumn<ProdutoAtivacaoDTO, String>();
 
+    
+
+    @FXML
+    private TableColumn<ProdutoAtivacaoDTO, String> colDelete = new TableColumn<ProdutoAtivacaoDTO, String>();
+	
 	@FXML
 	private TextField txtVolume;
  
 	private ObservableList<ProdutoAtivacaoDTO> produtoAtivacaoObservableList;
 
 	@FXML
-	void btnAdc(ActionEvent event) {
+	void btnAdc(ActionEvent event) throws SQLException {
 		String volume = this.txtVolume.getText();
 		String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
 		String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
 		String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
 		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+		
+		// Estrutura de controle para definir o ID da origem
+		if (nomeOrigem == "API") {
+			int idOrigem = 1;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdOrigem(idOrigem);
+		}
+		else if (nomeOrigem == "SFTP") {
+			int idOrigem = 2;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdOrigem(idOrigem);
+		}
+		else if (nomeOrigem == "Upload") {
+			int idOrigem = 3;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdOrigem(idOrigem);
+		}
+		
+		// Estrutura de controle para definir o ID do formato
+		if (nomeFormato == "JSON") {
+			int idformato = 1;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "CSV") {
+			int idformato = 2;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "Planilhas") {
+			int idformato = 3;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "Tabela") {
+			int idformato = 4;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "PDF") {
+			int idformato = 5;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "Audio") {
+			int idformato = 6;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		else if (nomeFormato == "Texto") {
+			int idformato = 7;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdFormato(idformato);
+		}
+		
+		// Estrutura de controle para definir o ID do sistema
+		
+		if (nomeSistema == "ERP") {
+			int idSistema = 1;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdSistema(idSistema);
+		}
+		if (nomeSistema == "Vendas") {
+			int idSistema = 2;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdSistema(idSistema);
+		}
+		if (nomeSistema == "Outros") {
+			int idSistema = 3;
+			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
+			produtoativacaoDTO.setIdSistema(idSistema);
+			
+			
+		}
+		
+		
 
 		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume);
 
@@ -980,15 +1065,43 @@ public class HelloController implements Initializable {
 				boxProduto.getSelectionModel().getSelectedItem().toString(), objtesteDTO);
 
 		produtoAtivacaoObservableList.add(produtoAtivacaoDTO);
+		
 
-	}
-	// Silver
-	  @FXML
+	  
+	}	
+	    // TELA SILVER - (Apenas para não dar erro) ///////////////////////////////
+		@FXML
 	    private TextArea txtValidador;
-	   
-	  @FXML
+		
+		@FXML
 	    void btnObrigatorio(ActionEvent event) {
 
 	    }
-	
+		//////////////////////////////////////////////////////////////////////////
+	   @FXML
+	    void btnExcluir(ActionEvent event) {
+			  tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
+
+	    }
+	   @FXML
+	    void btnSilver(ActionEvent event) {
+
+		    FXMLLoader fxmlLoader = new FXMLLoader();
+			fxmlLoader.setLocation(getClass().getResource("Silver.fxml"));
+			Scene scene = null;
+			try {
+				scene = new Scene(fxmlLoader.load(), 485, 348);
+				//scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+
+			Stage stage = new Stage();
+			stage.setTitle("Pesquisar Cliente - Dom Rock");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			//stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+			stage.show();
+		   
+	    }
 }
