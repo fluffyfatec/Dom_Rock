@@ -426,7 +426,17 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnExcluir" prefWidth="30.0" style="-fx-background-color: red; -fx-border-radius: 10;" textFill="WHITE" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+                              <Button minHeight="10.0" mnemonicParsing="false" onAction="#btnExcluir" prefWidth="30.0" style="-fx-base: red; -fx-border-radius: 10;" textFill="WHITE" GridPane.columnIndex="14" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                 </graphic></Button>
                            </children>
                         </GridPane>
                         <TableView fx:id="tabelaBronze" layoutX="54.0" layoutY="136.0" prefHeight="340.0" prefWidth="879.0" style="-fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-text-fill: white;" stylesheets="@Styles.css">
@@ -439,7 +449,10 @@
                               <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="177.0" style="-fx-background-color: #21252a;" text="Sistema" />
                           </columns>
                         </TableView>
-                        <Button layoutX="933.0" layoutY="83.0" mnemonicParsing="false" onAction="#btnSilver" style="-fx-background-color: silver;" text="Silver" textFill="WHITE" />
+                        <Button layoutX="933.0" layoutY="83.0" mnemonicParsing="false" onAction="#btnSilver" style="-fx-base: silver;" text="Silver" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </AnchorPane>
               </content>
