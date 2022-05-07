@@ -111,10 +111,15 @@ CREATE TABLE Fonte_dado(
 CREATE TABLE  Validador (
 	id_validador int identity(1,1) primary key,
     desc_regra varchar(40)  not null unique,
-	obrigatorio varchar(40)  not null unique,
+	obrigatorio varchar(1)  not null unique,
 	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado) not null
 	
 );
+
+
+
+
+
 
 DROP TABLE Origem_dado;
 DROP TABLE Formato;
@@ -143,3 +148,47 @@ DROP TABLE Cliente_Produto;
 
 
 
+SELECT * FROM Sys.tables
+ORDER BY 1 ASC
+
+
+
+CREATE TABLE  Origem_dado (
+	id_origem_dado int identity(1,1) primary key,
+    desc_origem varchar(40)  
+);
+
+CREATE TABLE  Formato (
+	id_formato int identity(1,1) primary key,
+    formato varchar(40)  
+);
+
+CREATE TABLE  Sistema (
+	id_sistema int identity(1,1) primary key,
+    sistema varchar(40) 
+);
+
+CREATE TABLE Fonte_dado(
+
+	id_fonte_dado int identity(1,1) primary key,
+	volume varchar(40),  
+	frequencia varchar(40),
+	id_cliente int foreign key references Cliente(id_cliente),
+	id_produto int foreign key references Produto(id_produto),
+
+	id_origem_dado int foreign key references Origem_dado(id_origem_dado),
+	id_formato int foreign key references Formato(id_formato)  ,
+	id_sistema int foreign key references Sistema(id_sistema)  
+	
+	
+);
+
+CREATE TABLE  Validador (
+	id_validador int identity(1,1) primary key,
+    desc_regra varchar(40)    ,
+	obrigatorio varchar(1)    ,
+	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)  
+	
+);
+
+select * from Fonte_dado
