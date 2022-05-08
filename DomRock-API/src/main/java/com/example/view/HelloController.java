@@ -741,7 +741,6 @@ public class HelloController implements Initializable {
 		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("sistema"));
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
-
 	}
 
 	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
@@ -947,13 +946,10 @@ public class HelloController implements Initializable {
 		
 		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
 		prods.add(objtesteDTO);
-		
+	
 		while (prods.add(objtesteDTO)) {
 			bronze.cadastarBronze(prods);
 			break;
 		}
-
 	}
-
-	
 }
