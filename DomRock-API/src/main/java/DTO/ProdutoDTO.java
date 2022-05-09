@@ -16,7 +16,7 @@ public class ProdutoDTO {
 	private int checksales;
 	private int checkvox;
 
-	private String nomeProduto;
+
 
 	public String getVox() {
 		return vox;
@@ -93,12 +93,6 @@ public class ProdutoDTO {
 		this.checkvox = checkvox;
 	}
 
-	public String getNomeProduto() {
-		return nomeProduto;
-	}
-
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
-	}
+	
 	
 }

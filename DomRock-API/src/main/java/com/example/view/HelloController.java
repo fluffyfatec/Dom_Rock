@@ -9,13 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
-
-import javax.swing.JTable;
 
 import DAO.*;
 import DTO.*;
@@ -50,50 +49,15 @@ public class HelloController implements Initializable {
 	private DadosDAO dadosdao = new DadosDAO();
 	private CoreDAO coredao = new CoreDAO();
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
-	private ProdutoAtivacaoDAO ativacaoDAO = new ProdutoAtivacaoDAO();
-
+	private BronzeDAO bronze = new BronzeDAO();
+	
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
 
-	@FXML
-	private Menu bntClienteintro;
-
-	@FXML
-	private Menu inputAjudaintro;
-
-	@FXML
-	void inputBuscarintro(ActionEvent event) {
-
-	}
-
-	@FXML
-	void inputCadastrarintro(ActionEvent event) {
-
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("Hello.fxml"));
-		Scene scene = null;
-		try {
-			scene = new Scene(fxmlLoader.load(), 980, 580);
-			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-
-		Stage stage = new Stage();
-		stage.setTitle("Cadastrar Cliente - Dom Rock");
-		stage.setResizable(false);
-		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
-		stage.setScene(scene);
-		stage.show();
-
-	}
-
-	@FXML
-	void inputDesconectarintro(ActionEvent event) {
-
-	}
+	
+	
 
 	// Janela de Cadastro
 
@@ -504,8 +468,75 @@ public class HelloController implements Initializable {
 			list2.removeAll("Sales & Distributions");
 			list2.removeAll("Pricing");
 
-		}
+			// Teste
 
+			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
+			String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
+			String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+			
+			// Estrutura de controle para definir o ID da origem
+			if (nomeOrigem == "API") {
+				int idOrigem = 1;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdOrigem(idOrigem);
+			} else if (nomeOrigem == "SFTP") {
+				int idOrigem = 2;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdOrigem(idOrigem);
+			} else if (nomeOrigem == "Upload") {
+				int idOrigem = 3;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdOrigem(idOrigem);
+			}
+
+			// Estrutura de controle para definir o ID do formato
+			if (nomeFormato == "JSON") {
+				int idformato = 1;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "CSV") {
+				int idformato = 2;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "Planilhas") {
+				int idformato = 3;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "Tabela") {
+				int idformato = 4;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "PDF") {
+				int idformato = 5;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "Audio") {
+				int idformato = 6;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			} else if (nomeFormato == "Texto") {
+				int idformato = 7;
+				BronzeDTO BronzeDTO = new BronzeDTO();
+				BronzeDTO.setIdFormato(idformato);
+			}
+
+			// Estrutura de controle para definir o ID do sistema
+
+			if (nomeSistema == "ERP") {
+				int idSistema = 1;
+				BronzeDTO BronzeDTO1 = new BronzeDTO();
+				BronzeDTO1.setIdSistema(idSistema);
+			} else if (nomeSistema == "Vendas") {
+				int idSistema = 2;
+				BronzeDTO BronzeDTO1 = new BronzeDTO();
+				BronzeDTO1.setIdSistema(idSistema);
+			} else if (nomeSistema == "Outros") {
+				int idSistema = 3;
+				BronzeDTO BronzeDTO1 = new BronzeDTO();
+				BronzeDTO1.setIdSistema(idSistema);
+			}
+			
+		}
 	}
 
 	// Botão limpar
@@ -639,101 +670,8 @@ public class HelloController implements Initializable {
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.show();
 	}
-
 	@FXML
 	void btnTabela(ActionEvent event) {
-
-	}
-
-	// Janela de Pesquisa
-
-	@FXML
-	private ListView<String> listaBusca;
-
-	public ObservableList<ClienteDTO> data;
-
-	@FXML
-	private TextField razaosocialconsulta;
-
-	@FXML
-	private TextField cnpjconsulta;
-
-	@FXML
-	private void btnBuscaconsulta(ActionEvent event) throws ClassNotFoundException, SQLException {
-
-		ObservableList<String> nomes = FXCollections.observableArrayList();
-		ObservableList<String> cnpjs = FXCollections.observableArrayList();
-
-		if ((Objects.equals(cnpjconsulta.getText(), "")) && (Objects.equals(razaosocialconsulta.getText(), ""))) {
-			Alerts.display("Erro", "Insira pelo menos um dos parâmetros");
-		}
-
-		if ((Objects.equals(cnpjconsulta.getText(), "")) && (!Objects.equals(razaosocialconsulta.getText(), ""))) {
-			String sql = "select * from Cliente where razao_social like '%" + razaosocialconsulta.getText() + "%'";
-
-			Connection conn = new ConexaoDAO().conectaBD();
-			Statement stm = conn.createStatement();
-
-			ResultSet resultado = stm.executeQuery(sql);
-
-			if (!resultado.isBeforeFirst()) {
-				Alerts.display("Info", "Nenhum resultado encontrado");
-			} else {
-				while (resultado.next()) {
-					nomes.add(resultado.getString("razao_social"));
-				}
-				listaBusca.setItems(nomes);
-				System.out.println("Lista: " + nomes);
-			}
-
-		}
-		if ((Objects.equals(razaosocialconsulta.getText(), "")) && (!Objects.equals(cnpjconsulta.getText(), ""))) {
-			String sql = "select * from Cliente where cnpj like '%" + cnpjconsulta.getText() + "%'";
-
-			Connection conn = new ConexaoDAO().conectaBD();
-			Statement stm = conn.createStatement();
-
-			ResultSet resultado = stm.executeQuery(sql);
-
-			if (!resultado.isBeforeFirst()) {
-				Alerts.display("Info", "Nenhum resultado encontrado");
-			} else {
-				while (resultado.next()) {
-					nomes.add(resultado.getString("razao_social"));
-				}
-				listaBusca.setItems(nomes);
-				System.out.println("Lista: " + nomes);
-			}
-
-		}
-		if ((!Objects.equals(razaosocialconsulta.getText(), "")) && (!Objects.equals(cnpjconsulta.getText(), ""))) {
-			String sql = "select * from Cliente where razao_social like '%" + razaosocialconsulta.getText()
-					+ "%' and cnpj like '%" + cnpjconsulta.getText() + "%'";
-
-			Connection conn = new ConexaoDAO().conectaBD();
-			Statement stm = conn.createStatement();
-
-			ResultSet resultado = stm.executeQuery(sql);
-
-			if (!resultado.isBeforeFirst()) {
-				Alerts.display("Info", "Nenhum resultado encontrado");
-			} else {
-				while (resultado.next()) {
-					nomes.add(resultado.getString("razao_social"));
-				}
-				listaBusca.setItems(nomes);
-				System.out.println("Lista: " + nomes);
-			}
-
-		}
-
-	}
-
-	@FXML
-	void btnLimparconsulta(ActionEvent event) {
-
-		razaosocialconsulta.setText(null);
-		cnpjconsulta.setText(null);
 
 	}
 
@@ -791,21 +729,18 @@ public class HelloController implements Initializable {
 		boxSistema.setItems(listSistema);
 
 		boxSistema.getSelectionModel().selectFirst();
-		
+
 		//
-		List<ProdutoAtivacaoDTO> ativacaoDTOs = new ArrayList<ProdutoAtivacaoDTO>();
+		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
 		produtoAtivacaoObservableList = FXCollections.observableList(ativacaoDTOs);
 
-		colProduto.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("nomeProduto"));
-		colFormato.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("formato"));
-		colSistema.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("frequencia"));
-		colFrequencia.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("origenDado"));
-		colOrigem.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("sistema"));
-		colVolume.setCellValueFactory(new PropertyValueFactory<ProdutoAtivacaoDTO, String>("volume"));
-
+		colProduto.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("nomeProduto"));
+		colFormato.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("formato"));
+		colSistema.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("frequencia"));
+		colFrequencia.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("origenDado"));
+		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("sistema"));
+		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
-		
-		
 	}
 
 	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
@@ -883,10 +818,10 @@ public class HelloController implements Initializable {
 
 	@FXML
 	void boxProduto(ActionEvent event) {
-		ProdutoDTO objProdutoDTO = new ProdutoDTO();
+		BronzeDTO objbronzeDTO = new BronzeDTO();
 		if (boxProduto.getSelectionModel().getSelectedItem() != null) {
 			String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
-			objProdutoDTO.setNomeProduto(nomeProduto);
+			objbronzeDTO.setNomeProduto(nomeProduto);
 		}
 
 	}
@@ -943,37 +878,58 @@ public class HelloController implements Initializable {
 			objbronzeDTO.setSistema(nomeSistema);
 		}
 	}
-
 	@FXML
-	private TableView<ProdutoAtivacaoDTO> tabelaBronze = new TableView<ProdutoAtivacaoDTO>();
+    void btnExcluir(ActionEvent event) {
+          tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
 
+    }
 	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colOrigem = new TableColumn<ProdutoAtivacaoDTO, String>();
+    void btnSilver(ActionEvent event) {
 
-	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colFormato = new TableColumn<ProdutoAtivacaoDTO, String>();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Silver.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 485, 348);
+            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css%22");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
-	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colVolume = new TableColumn<ProdutoAtivacaoDTO, String>();
+        Stage stage = new Stage();
+        stage.setTitle("Silver - Dom Rock");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png%22"));
+        stage.show();
 
-	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colFrequencia = new TableColumn<ProdutoAtivacaoDTO, String>();
-
-	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colSistema = new TableColumn<ProdutoAtivacaoDTO, String>();
-
-	@FXML
-	private TableColumn<ProdutoAtivacaoDTO, String> colProduto = new TableColumn<ProdutoAtivacaoDTO, String>();
-
-    
-
-    @FXML
-    private TableColumn<ProdutoAtivacaoDTO, String> colDelete = new TableColumn<ProdutoAtivacaoDTO, String>();
+    }
 	
 	@FXML
+	private TableView<BronzeDTO> tabelaBronze = new TableView<BronzeDTO>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colOrigem = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colFormato = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colVolume = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colFrequencia = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colSistema = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colProduto = new TableColumn<BronzeDTO, String>();
+
+	@FXML
 	private TextField txtVolume;
- 
-	private ObservableList<ProdutoAtivacaoDTO> produtoAtivacaoObservableList;
+
+	private ObservableList<BronzeDTO> produtoAtivacaoObservableList;
 
 	@FXML
 	void btnAdc(ActionEvent event) throws SQLException {
@@ -982,126 +938,18 @@ public class HelloController implements Initializable {
 		String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
 		String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
 		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
-		
-		// Estrutura de controle para definir o ID da origem
-		if (nomeOrigem == "API") {
-			int idOrigem = 1;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdOrigem(idOrigem);
-		}
-		else if (nomeOrigem == "SFTP") {
-			int idOrigem = 2;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdOrigem(idOrigem);
-		}
-		else if (nomeOrigem == "Upload") {
-			int idOrigem = 3;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdOrigem(idOrigem);
-		}
-		
-		// Estrutura de controle para definir o ID do formato
-		if (nomeFormato == "JSON") {
-			int idformato = 1;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "CSV") {
-			int idformato = 2;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "Planilhas") {
-			int idformato = 3;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "Tabela") {
-			int idformato = 4;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "PDF") {
-			int idformato = 5;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "Audio") {
-			int idformato = 6;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		else if (nomeFormato == "Texto") {
-			int idformato = 7;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdFormato(idformato);
-		}
-		
-		// Estrutura de controle para definir o ID do sistema
-		
-		if (nomeSistema == "ERP") {
-			int idSistema = 1;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdSistema(idSistema);
-		}
-		if (nomeSistema == "Vendas") {
-			int idSistema = 2;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdSistema(idSistema);
-		}
-		if (nomeSistema == "Outros") {
-			int idSistema = 3;
-			ProdutoAtivacaoDTO produtoativacaoDTO = new ProdutoAtivacaoDTO();
-			produtoativacaoDTO.setIdSistema(idSistema);
-			
-			
-		}
-		
-		
+		String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
 
-		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume);
+		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto, null);
 
-		ProdutoAtivacaoDTO produtoAtivacaoDTO = new ProdutoAtivacaoDTO(
-				boxProduto.getSelectionModel().getSelectedItem().toString(), objtesteDTO);
-
-		produtoAtivacaoObservableList.add(produtoAtivacaoDTO);
+		produtoAtivacaoObservableList.add(objtesteDTO);
 		
-
-	  
-	}	
-	    // TELA SILVER - (Apenas para não dar erro) ///////////////////////////////
-		@FXML
-	    private TextArea txtValidador;
-		
-		@FXML
-	    void btnObrigatorio(ActionEvent event) {
-
-	    }
-		//////////////////////////////////////////////////////////////////////////
-	   @FXML
-	    void btnExcluir(ActionEvent event) {
-			  tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
-
-	    }
-	   @FXML
-	    void btnSilver(ActionEvent event) {
-
-		    FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("Silver.fxml"));
-			Scene scene = null;
-			try {
-				scene = new Scene(fxmlLoader.load(), 485, 348);
-				//scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-
-			Stage stage = new Stage();
-			stage.setTitle("Pesquisar Cliente - Dom Rock");
-			stage.setScene(scene);
-			stage.setResizable(false);
-			//stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
-			stage.show();
-		   
-	    }
+		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
+		prods.add(objtesteDTO);
+	
+		while (prods.add(objtesteDTO)) {
+			bronze.cadastarBronze(prods);
+			break;
+		}
+	}
 }
