@@ -43,14 +43,24 @@ VALUES ('Vox', 1),
 	   ('Matching & Risk', 2);
 
 --INSERIR DADOS NA TABELA Cliente
-INSERT INTO Cliente (razao_social, cnpj, segmento, objetivo_negocio, entregavel_min, entregavel_possivel, datahora_cadastro, datahora_atualizacao)
-VALUES ('vitor bumbum guloso','147852','COMPRAS','PAO','OITO','NOVE','10/10/2021 12:00','09/12/2021 18:00');
+INSERT INTO Cliente (razao_social, cnpj, segmento, datahora_cadastro)
+VALUES ('vitor bumbum guloso','0000000000000','BUMBUM', '10/10/2021 12:00');
+
+--CRIAÇÃO TABELA Cliente
+CREATE TABLE  Cliente (
+	id_cliente int identity(1,1) primary key,
+    razao_social varchar(40) not null,
+    cnpj varchar(14) not null,
+	segmento varchar(40),
+	datahora_cadastro datetime,
+	unique(razao_social, cnpj)
+);
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SELECT * FROM Cliente
-SELECT * FROM Produto
+SELECT * FROM Discritivo
 
 SELECT * FROM Origem_dado
 SELECT * FROM Formato
