@@ -212,7 +212,7 @@
                               <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -227,7 +227,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -347,7 +347,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -362,7 +362,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -410,7 +410,7 @@
                </GridPane.margin>
             </Label>
             <TextField maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnBuscarCliente" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
 					<GridPane.margin>
 						<Insets left="5.0" />
 					</GridPane.margin>

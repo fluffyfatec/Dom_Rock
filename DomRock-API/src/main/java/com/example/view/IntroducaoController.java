@@ -21,6 +21,8 @@ public class IntroducaoController implements Initializable {
 	@FXML
 	private Menu bntClienteintro;
 	@FXML
+	private Menu inputCadastrarintro;
+	@FXML
 	private Menu inputAjudaintro;
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
