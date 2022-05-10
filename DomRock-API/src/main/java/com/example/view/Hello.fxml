@@ -393,6 +393,7 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -434,6 +435,21 @@
                </GridPane.margin>
             </Label>
             <TextField style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png/fluffyfatec/Front-/main/magnifying-glass.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="toolConsultar2" text="Consultar " />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21252a" height="28.0" layoutX="-11.0" layoutY="17.0" opacity="0.65" stroke="#b5b5b5" strokeType="INSIDE" strokeWidth="2.0" style="-fx-arc-width: 30; -fx-arc-height: 30;" width="114.0" />
