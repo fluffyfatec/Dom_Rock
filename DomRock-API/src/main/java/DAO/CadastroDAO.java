@@ -1,27 +1,24 @@
 package DAO;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import DTO.ClienteDTO;
+import DTO.CadastroDTO;
 
-public class ClienteDAO {
-
+public class CadastroDAO {
+	
 	Connection conn;
 	PreparedStatement stm;
-
 	
-	public void cadastarCliente(ClienteDTO objClienteDTO){
-		String sql = "INSERT INTO Cliente (objetivo_negocio,"
-										+ "entregavel_min,"
-										+ "entregavel_possivel,"
-										+ "datahora_cadastro,"
-										+ "datahora_atualizacao) "
-					+ "values (?,?,?,?,?,?,?,?)";
+	public void cadastroCliente(CadastroDTO objcadastroDTO){
+		String sql = "INSERT INTO Cliente (razao_social,"
+										+ "cnpj,"
+										+ "segmento,"
+										+ "datahora_cadastro) "
+					+ "values (?,?,?,?)";
 		try(Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			
 			// Puxando a data e hora e formatando
@@ -29,18 +26,16 @@ public class ClienteDAO {
 			java.sql.Timestamp timestamp = new java.sql.Timestamp(cal.getTimeInMillis());
 			String date = new SimpleDateFormat("MM/dd/yyyy HH:mm").format(timestamp);
 			
-			stm.setString(1, objClienteDTO.getObjetivoNegocio());
-			stm.setString(2, objClienteDTO.getEntregaMin());
-			stm.setString(3, objClienteDTO.getEntregaPossivel());
+			stm.setString(1, objcadastroDTO.getNomeCliente());
+			stm.setString(2, objcadastroDTO.getCnpj());
+			stm.setString(3, objcadastroDTO.getNomeSetor());
 			stm.setString(4, date);
-			stm.setString(5, date);
 	   	 	
 			stm.execute();	
 			stm.close();
 			
 		}catch (SQLException e) {
 			
-			throw new RuntimeException(e);
 		}
 	}
 }
