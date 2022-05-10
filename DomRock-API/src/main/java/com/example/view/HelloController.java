@@ -45,6 +45,7 @@ import javafx.util.Callback;
 public class HelloController implements Initializable {
 
 	// Janela Inicial
+	private CadastroDAO cadastrodao = new CadastroDAO();
 	private ClienteDAO clientedao = new ClienteDAO();
 	private DadosDAO dadosdao = new DadosDAO();
 	private CoreDAO coredao = new CoreDAO();
@@ -60,14 +61,24 @@ public class HelloController implements Initializable {
 
 	// Janela de Cadastro
 
-	@FXML
-	private Tab geral;
+	
+///// Cadastro
 
 	@FXML
 	private TextField txtCnpj;
 
 	@FXML
 	private TextField txtNome;
+   
+	@FXML
+    private TextField txtIdCliente = new TextField();
+	
+  //// Tab
+
+
+
+    @FXML
+	private Tab geral;
 
 	@FXML
 	private TextArea txtObjNegocio;
@@ -183,7 +194,18 @@ public class HelloController implements Initializable {
 	@FXML
 	private Tooltip toolLimpar;
 
+	CadastroDTO objcadastroDTO = new CadastroDTO();
+
+	  @FXML
+	    void btnBuscaCliente(ActionEvent event) {	    
+		  txtIdCliente.setText(consultaid.getSql_id_cliente());
+		  	//txtIdCliente.setText(null);
+			//txtNome.setText(objcadastroDTO.getNomeCliente());
+			//txtCnpj.setText(objcadastroDTO.getCnpj());
+
+	    }
 	// Botão Cadastrar
+	
 
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
@@ -195,15 +217,17 @@ public class HelloController implements Initializable {
 			String eMinimos = this.txteMinimos.getText();
 			String ePossiveis = this.txtePossiveis.getText();
 			
-			ClienteDTO objclienteDTO = new ClienteDTO();
+			CadastroDTO objcadastroDTO = new CadastroDTO();
+			ClienteDTO objclienteDTO = ClienteDTO();
 
 			objclienteDTO.setEntregaMin(eMinimos);
 			objclienteDTO.setEntregaPossivel(ePossiveis);
 			objclienteDTO.setObjetivoNegocio(objCliente);
-
+			
+			cadastrodao.cadastroCliente(objcadastroDTO);
 			clientedao.cadastarCliente(objclienteDTO);
 			descritivodao.cadastrarDescritivo(objclienteDTO);
-			consultaid.consultarID(objclienteDTO);
+			consultaid.consultarID(objcadastroDTO);
 
 			// Metodos acesssores do ProdutoDTO
 
@@ -393,12 +417,15 @@ public class HelloController implements Initializable {
 			}
 
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
-
-			txtNome.setText(null);
-			txtCnpj.setText(null);
+            
+			txtIdCliente.setText(consultaid.getSql_id_cliente());
+			txtNome.setText(objcadastroDTO.getNomeCliente());
+			txtCnpj.setText(objcadastroDTO.getCnpj());
 			txtObjNegocio.setText(null);
 			txteMinimos.setText(null);
 			txtePossiveis.setText(null);
+			
+			
 
 			// Limpar ComboBox
 			boxSegmento.getSelectionModel().selectFirst();
@@ -524,6 +551,11 @@ public class HelloController implements Initializable {
 			}
 
 		}
+
+	private ClienteDTO ClienteDTO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	private ConsultaId ConsultaId() {
 		// TODO Auto-generated method stub
