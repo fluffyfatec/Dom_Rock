@@ -1,6 +1,5 @@
 com\example\view\BuscaController.class
 DTO\CoreDTO.class
-DAO\ProdutoAtivacaoDAO.class
 DAO\ProdutoDAO.class
 DAO\BronzeDAO.class
 com\example\view\SilverController.class
@@ -17,7 +16,6 @@ DTO\ClienteDTO.class
 com\example\view\IntroducaoController.class
 DAO\FuncionalidadeDAO.class
 DAO\ConexaoDAO.class
-DTO\ProdutoAtivacaoDTO.class
 com\example\view\Main.class
 DTO\ValidadorDTO.class
 DTO\SimNao.class

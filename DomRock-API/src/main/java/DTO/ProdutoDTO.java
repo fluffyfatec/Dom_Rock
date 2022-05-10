@@ -2,21 +2,30 @@ package DTO;
 
 public class ProdutoDTO {
 
+	public String getIdProduto1() {
+		return idProduto1;
+	}
+	public void setIdProduto1(String idProduto1) {
+		this.idProduto1 = idProduto1;
+	}
+
+
 	private String vox;
 	private String marketingPlanning;
 	private String salesDistribution;
 	private String pricing;
 	private String optimization;
 	private String matchingRisk;
-
-	private int checkoptimization;
-	private int checkmatching;
-	private int checkmarketing;
-	private int checkpricing;
-	private int checksales;
-	private int checkvox;
+	private String idProduto1;
+	private int idProduto;
 
 
+	public int getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
 
 	public String getVox() {
 		return vox;
@@ -56,43 +65,10 @@ public class ProdutoDTO {
 	}
 
 
-	public int getCheckoptimization() {
-		return checkoptimization;
-	}
-	public void setCheckoptimization(int checkoptimization) {
-		this.checkoptimization = checkoptimization;
-	}
-	public int getCheckmatching() {
-		return checkmatching;
-	}
-	public void setCheckmatching(int checkmatching) {
-		this.checkmatching = checkmatching;
-	}
-	public int getCheckmarketing() {
-		return checkmarketing;
-	}
-	public void setCheckmarketing(int checkmarketing) {
-		this.checkmarketing = checkmarketing;
-	}
-	public int getCheckpricing() {
-		return checkpricing;
-	}
-	public void setCheckpricing(int checkpricing) {
-		this.checkpricing = checkpricing;
-	}
-	public int getChecksales() {
-		return checksales;
-	}
-	public void setChecksales(int checksales) {
-		this.checksales = checksales;
-	}
-	public int getCheckvox() {
-		return checkvox;
-	}
-	public void setCheckvox(int checkvox) {
-		this.checkvox = checkvox;
-	}
-
+	public String toString() {
+	// TODO Auto-generated method stub
+	return idProduto1;
+}
 	
 	
 }

@@ -3,6 +3,16 @@ package DTO;
 import javafx.beans.property.SimpleStringProperty;
 
 public class BronzeDTO {
+	private String formato;
+	private String frequencia;
+	private String origenDado;
+	private String sistema;
+	private String volume;
+	private String nomeProduto;
+	private int idOrigem;	
+	private int idFormato;
+	private int idSistema;
+	private ProdutoDTO produto;
 	
 	public ProdutoDTO getProduto() {
 		return produto;
@@ -40,27 +50,6 @@ public class BronzeDTO {
 		
 	}
 	
-	public BronzeDTO(String formato, String frequencia, String origenDado, String sistema, String volume, String nomeProduto, ProdutoDTO produto) {
-		this.formato = formato;
-		this.frequencia = frequencia;
-		this.origenDado = origenDado;
-		this.sistema = sistema;
-		this.volume = volume;
-		this.nomeProduto = nomeProduto;
-		this.produto = produto;
-	}
-
-	private String formato;
-	private String frequencia;
-	private String origenDado;
-	private String sistema;
-	private String volume;
-	private String nomeProduto;
-	private int idOrigem;	
-	private int idFormato;
-	private int idSistema;
-	private ProdutoDTO produto;
-
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
@@ -109,7 +98,16 @@ public class BronzeDTO {
 		this.volume = volume;
 	}
 
-	
+	public BronzeDTO(String formato, String frequencia, String origenDado, String sistema, String volume, String nomeProduto, ProdutoDTO produto) {
+		this.formato = formato;
+		this.frequencia = frequencia;
+		this.origenDado = origenDado;
+		this.sistema = sistema;
+		this.volume = volume;
+		this.nomeProduto = nomeProduto;
+		this.produto = produto;
+	}
+
 		
 
 }

@@ -16,7 +16,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class BronzeDAO {
-
+    
+	BronzeDTO idProduto;
 	Connection conn;
 	PreparedStatement stm;
 
@@ -37,7 +38,7 @@ public class BronzeDAO {
 					PreparedStatement stm = conn.prepareStatement(cadastro);) {
 				for (BronzeDTO bronze : bronzes) {
 					
-						//stm.set(1,bronze.getProduto());
+						stm.setInt(1,idProduto.getProduto().getIdProduto());
 						stm.setInt(2,bronze.getIdOrigem());
 						stm.setInt(3,bronze.getIdFormato());
 						stm.setInt(4,bronze.getIdSistema());

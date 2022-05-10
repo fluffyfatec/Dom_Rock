@@ -50,14 +50,13 @@ public class HelloController implements Initializable {
 	private CoreDAO coredao = new CoreDAO();
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
 	private BronzeDAO bronze = new BronzeDAO();
-	
+	private DescritivoDAO descritivodao = new DescritivoDAO();
+	private ConsultaId consultaid = ConsultaId();
+
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
-
-	
-	
 
 	// Janela de Cadastro
 
@@ -189,34 +188,22 @@ public class HelloController implements Initializable {
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
 
-		if (txtNome.getText().length() == 0) {
-			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
-		}
-
-		if (txtCnpj.getText().length() != 14 && txtNome.getText().length() != 0) {
-			Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
-		}
-
-		if (txtNome.getText().length() != 0 && txtCnpj.getText().length() == 14) {
 
 			// Metodos acessores do clienteDTO
-			String nomeCliente = this.txtNome.getText();
-			String cnpjCliente = this.txtCnpj.getText();
+		
 			String objCliente = this.txtObjNegocio.getText();
 			String eMinimos = this.txteMinimos.getText();
 			String ePossiveis = this.txtePossiveis.getText();
-			String selectnomeSetor = this.boxSegmento.getSelectionModel().getSelectedItem().toString();
-
+			
 			ClienteDTO objclienteDTO = new ClienteDTO();
 
-			objclienteDTO.setCnpj(cnpjCliente);
-			objclienteDTO.setNomeCliente(nomeCliente);
 			objclienteDTO.setEntregaMin(eMinimos);
 			objclienteDTO.setEntregaPossivel(ePossiveis);
 			objclienteDTO.setObjetivoNegocio(objCliente);
-			objclienteDTO.setNomeSetor(selectnomeSetor);
 
 			clientedao.cadastarCliente(objclienteDTO);
+			descritivodao.cadastrarDescritivo(objclienteDTO);
+			consultaid.consultarID(objclienteDTO);
 
 			// Metodos acesssores do ProdutoDTO
 
@@ -230,48 +217,48 @@ public class HelloController implements Initializable {
 			if (produtoVox.isSelected()) {
 				int id_produto = 1;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckvox(id_produto);
-				objprodutoDTO.setVox(vox);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(vox);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoMarketing.isSelected()) {
 				int id_produto = 2;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckmarketing(id_produto);
-				objprodutoDTO.setMarketingPlanning(marketing);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(marketing);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoSales.isSelected()) {
 				int id_produto = 3;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setChecksales(id_produto);
-				objprodutoDTO.setSalesDistribution(sales);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(sales);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoPricing.isSelected()) {
 				int id_produto = 4;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckpricing(id_produto);
-				objprodutoDTO.setPricing(pricing);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(pricing);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoOptimization.isSelected()) {
 				int id_produto = 5;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckoptimization(id_produto);
-				objprodutoDTO.setOptimization(optimzation);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(optimzation);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
 			if (produtoMatching.isSelected()) {
 				int id_produto = 6;
 				ProdutoDTO objprodutoDTO = new ProdutoDTO();
-				objprodutoDTO.setCheckmatching(id_produto);
-				objprodutoDTO.setMatchingRisk(matching);
+				objprodutoDTO.setIdProduto(id_produto);
+				objprodutoDTO.setIdProduto1(matching);
 
 				dadosdao.cadastrarDados(objprodutoDTO);
 			}
@@ -473,7 +460,7 @@ public class HelloController implements Initializable {
 			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
 			String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
 			String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
-			
+
 			// Estrutura de controle para definir o ID da origem
 			if (nomeOrigem == "API") {
 				int idOrigem = 1;
@@ -535,8 +522,12 @@ public class HelloController implements Initializable {
 				BronzeDTO BronzeDTO1 = new BronzeDTO();
 				BronzeDTO1.setIdSistema(idSistema);
 			}
-			
+
 		}
+
+	private ConsultaId ConsultaId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	// Botão limpar
@@ -670,29 +661,16 @@ public class HelloController implements Initializable {
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.show();
 	}
+
 	@FXML
 	void btnTabela(ActionEvent event) {
 
 	}
 
-	@FXML
-	void btnSegmento(ActionEvent event) {
-		ClienteDTO objclieClienteDTO = new ClienteDTO();
-		if (boxSegmento.getSelectionModel().getSelectedItem() != null) {
-			String nomeSetor = boxSegmento.getSelectionModel().getSelectedItem().toString();
-			objclieClienteDTO.setNomeSetor(nomeSetor);
-		}
-	}
-
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		ObservableList<String> list = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo",
-				"Governo");
-
-		boxSegmento.setItems(list);
-
-		boxSegmento.getSelectionModel().selectFirst();
-
+		
 		boxProduto.setItems(list2);
 		boxProduto.getSelectionModel().selectFirst();
 
@@ -878,33 +856,35 @@ public class HelloController implements Initializable {
 			objbronzeDTO.setSistema(nomeSistema);
 		}
 	}
+
 	@FXML
-    void btnExcluir(ActionEvent event) {
-          tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
+	void btnExcluir(ActionEvent event) {
+		tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
 
-    }
+	}
+
 	@FXML
-    void btnSilver(ActionEvent event) {
+	void btnSilver(ActionEvent event) {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("Silver.fxml"));
-        Scene scene = null;
-        try {
-            scene = new Scene(fxmlLoader.load(), 485, 348);
-            scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css%22");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("Silver.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 485, 348);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css%22");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 
-        Stage stage = new Stage();
-        stage.setTitle("Silver - Dom Rock");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png%22"));
-        stage.show();
+		Stage stage = new Stage();
+		stage.setTitle("Silver - Dom Rock");
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png%22"));
+		stage.show();
 
-    }
-	
+	}
+
 	@FXML
 	private TableView<BronzeDTO> tabelaBronze = new TableView<BronzeDTO>();
 
@@ -940,13 +920,14 @@ public class HelloController implements Initializable {
 		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
 		String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
 
-		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto, null);
+		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
+				null);
 
 		produtoAtivacaoObservableList.add(objtesteDTO);
-		
+
 		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
 		prods.add(objtesteDTO);
-	
+
 		while (prods.add(objtesteDTO)) {
 			bronze.cadastarBronze(prods);
 			break;
