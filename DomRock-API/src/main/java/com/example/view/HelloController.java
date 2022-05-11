@@ -1,24 +1,26 @@
 package com.example.view;
 
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
-import DAO.*;
-import DTO.*;
-import javafx.beans.property.StringProperty;
+import DAO.BronzeDAO;
+import DAO.CadastroDAO;
+import DAO.ConsultaId;
+import DAO.CoreDAO;
+import DAO.DadosDAO;
+import DAO.DescritivoDAO;
+import DAO.FuncionalidadeDAO;
+import DTO.BronzeDTO;
+import DTO.CadastroDTO;
+import DTO.ClienteDTO;
+import DTO.CoreDTO;
+import DTO.FuncionalidadeDTO;
+import DTO.ProdutoDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,26 +29,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 public class HelloController implements Initializable {
 
 	// Janela Inicial
 	private CadastroDAO cadastrodao = new CadastroDAO();
-	private ClienteDAO clientedao = new ClienteDAO();
 	private DadosDAO dadosdao = new DadosDAO();
 	private CoreDAO coredao = new CoreDAO();
 	private FuncionalidadeDAO funcionalidadedao = new FuncionalidadeDAO();
@@ -195,10 +197,10 @@ public class HelloController implements Initializable {
 	private Tooltip toolLimpar;
 
 	CadastroDTO objcadastroDTO = new CadastroDTO();
-
+// Botão consulta
 	  @FXML
-	    void btnBuscaCliente(ActionEvent event) {	    
-		  txtIdCliente.setText(consultaid.getSql_id_cliente());
+	    void btnBuscaCliente(ActionEvent event) throws ClassNotFoundException, SQLException {	    
+		
 		  	//txtIdCliente.setText(null);
 			//txtNome.setText(objcadastroDTO.getNomeCliente());
 			//txtCnpj.setText(objcadastroDTO.getCnpj());
@@ -209,7 +211,6 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
-
 
 			// Metodos acessores do clienteDTO
 		
@@ -225,7 +226,6 @@ public class HelloController implements Initializable {
 			objclienteDTO.setObjetivoNegocio(objCliente);
 			
 			cadastrodao.cadastroCliente(objcadastroDTO);
-			clientedao.cadastarCliente(objclienteDTO);
 			descritivodao.cadastrarDescritivo(objclienteDTO);
 			consultaid.consultarID(objcadastroDTO);
 
