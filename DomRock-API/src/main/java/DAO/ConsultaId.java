@@ -7,32 +7,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import DTO.CadastroDTO;
+import DTO.ClienteDTO;
 
 public class ConsultaId {
 
-	public String getSql_id_cliente() {
-		return result_id_cliente;
-	}
-
-	Connection conn;
+	Connection conn; 
 	PreparedStatement stm;
-	String result_id_cliente;
+	ResultSet rs;
 
-	public void consultarID(CadastroDTO objCadastroDTO) {
-		String sql_id_cliente = "Select id_cliente from Cliente Where cnpj =" + objCadastroDTO.getCnpj();
-		try (Connection conn = new ConexaoDAO().conectaBD();
-				PreparedStatement stm = conn.prepareStatement(sql_id_cliente);) {
 
-			Statement stm1 = conn.createStatement();
-			ResultSet result_id_cliente = stm1.executeQuery(sql_id_cliente);
+	public ClienteDTO consultarid (String cnpj){ 
+		 try (Connection  conn = new ConexaoDAO().conectaBD(); ){ 
+			 ClienteDTO objclienteDTO =new ClienteDTO();
+			 stm = conn.prepareStatement("Select * from Cliente Where cnpj  = ?");
+	         stm.setString(1, cnpj); rs = stm.executeQuery(); // verifica se a consulta encontrou o cliente com a cnpj informado
+	            if(rs.next()){ // se encontrou o
 
-			stm.execute();
-			stm.close();
-
-		} catch (SQLException e) {
-
-			throw new RuntimeException(e);
-		}
-
-	}
+	      objclienteDTO.setCnpj(rs.getString("cnpj"));
+	      objclienteDTO.setNomeCliente(rs.getString("razao_social"));
+	      objclienteDTO.setIdCliente(rs.getString("id_cliente"));
+	      return objclienteDTO; 
+	            } else {
+	                return null;
+	            }
+	        } catch (SQLException ex) {
+	            return null;
+	        }
+	    }
 }

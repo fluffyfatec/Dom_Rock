@@ -14,7 +14,7 @@ public class ProdutoDTO {
 	private String marketingPlanning;
 	private String salesDistribution;
 	private String pricing;
-	private int optimization;
+	private String optimization;
 	private String matchingRisk;
 	private String idProduto1;
 	private int idProduto;
@@ -51,10 +51,10 @@ public class ProdutoDTO {
 	public void setPricing(String pricing) {
 		this.pricing = pricing;
 	}
-	public int getOptimization() {
+	public String getOptimization() {
 		return optimization;
 	}
-	public void setOptimization(int optimization) {
+	public void setOptimization(String optimization) {
 		this.optimization = optimization;
 	}
 	public String getMatchingRisk() {
@@ -69,10 +69,6 @@ public class ProdutoDTO {
 	// TODO Auto-generated method stub
 	return idProduto1;
 }
-	public int getIdOrigem() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	
 }

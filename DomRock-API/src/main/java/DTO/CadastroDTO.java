@@ -6,6 +6,7 @@ public class CadastroDTO {
 	private String nomeSetor;
 	
 	
+	
 	public String getCnpj() {
 		return cnpj;
 	}

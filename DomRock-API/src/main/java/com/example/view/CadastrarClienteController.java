@@ -26,6 +26,7 @@ public class CadastrarClienteController implements Initializable {
 	@FXML
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
 	private CadastroDAO cadastroCliente = new CadastroDAO();
+	private ConsultaId consultaId = new ConsultaId();
 
 	public void initialize(URL url, ResourceBundle rb) {
 		ObservableList<String> list = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo",
@@ -73,18 +74,19 @@ public class CadastrarClienteController implements Initializable {
 			System.out.println(nomeCliente);
 			System.out.println(cnpjCliente);
 			
+			
+			
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
+			
 		}
 		
-		txtNome.setText(null);
-		txtCnpj.setText(null);
+		
 	}
 
 	@FXML
 	void btnLimparCliente(ActionEvent event) {
-		
-		txtNome.setText(null);
-        txtCnpj.setText(null);
+		CadastroDTO objcadastroDTO = new CadastroDTO();
+		//consultaId.consultarID(objcadastroDTO);
         boxSegmento.getSelectionModel().selectFirst();
 	}
 

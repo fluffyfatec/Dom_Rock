@@ -1,14 +1,22 @@
 package DTO;
 
 public class ClienteDTO {
-
+	
 	private String cnpj;
 	private String nomeCliente;
 	private String nomeSetor;
 	private String objetivoNegocio;
 	private String entregaMin;
 	private String entregaPossivel;
+	private String idCliente;
 
+	public String getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
 
 	public String getObjetivoNegocio() {
 		return objetivoNegocio;
@@ -57,6 +65,5 @@ public class ClienteDTO {
 	public void setNomeSetor(String nomeSetor) {
 		this.nomeSetor = nomeSetor;
 	}
-
 
 }
