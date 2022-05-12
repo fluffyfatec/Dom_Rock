@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="527.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -212,7 +212,7 @@
                               <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLimparEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -221,13 +221,13 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar1" text="Consultar " />
+                              <Tooltip fx:id="toolConsultar1" text="Apagar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -236,7 +236,7 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar11" text="Consultar " />
+                              <Tooltip fx:id="toolConsultar11" text="Cadastrar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -289,7 +289,10 @@
                                           <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
                                        </image>
                                     </ImageView>
-                                 </graphic></Button>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Adicionar a Tabela" />
+                                 </tooltip></Button>
                               <ComboBox fx:id="boxProduto" onAction="#boxProduto" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -327,6 +330,9 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
+                                 <tooltip>
+                                    <Tooltip text="Remover da Tabela" />
+                                 </tooltip>
                               </Button>
                            </children>
                         </GridPane>
@@ -346,8 +352,11 @@
                         <Button layoutX="915.0" layoutY="85.0" mnemonicParsing="false" onAction="#btnSilver" style="-fx-base: silver;" text="Silver" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button fx:id="btnLimparBronze" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           </cursor>
+                           <tooltip>
+                              <Tooltip text="Etapa Silver" />
+                           </tooltip></Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -356,13 +365,13 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar12" text="Consultar " />
+                              <Tooltip fx:id="toolConsultar12" text="Apagar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarBronze" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -371,7 +380,7 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar111" text="Consultar " />
+                              <Tooltip fx:id="toolConsultar111" text="Cadastrar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -399,7 +408,7 @@
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtCnpj" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="3" />
+            <TextField style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="3" />
             <Label text="CNPJ" textFill="WHITE" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="4.0" />
@@ -410,8 +419,8 @@
                   <Insets left="4.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="txtNome" editable="false" maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnBuscaCliente" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
+            <TextField maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
 					<GridPane.margin>
 						<Insets left="5.0" />
 					</GridPane.margin>
@@ -423,7 +432,7 @@
 						</ImageView>
 					</graphic>
                <tooltip>
-                  <Tooltip fx:id="toolConsultar" text="Consultar " />
+                  <Tooltip fx:id="toolConsultar" text="Buscar" />
                </tooltip>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -434,17 +443,17 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="txtIdCliente" editable="false" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
+            <TextField style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
             <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png/fluffyfatec/Front-/main/magnifying-glass.png" />
+                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
                      </image>
                   </ImageView>
                </graphic>
                <tooltip>
-                  <Tooltip fx:id="toolConsultar2" text="Consultar " />
+                  <Tooltip fx:id="toolConsultar2" text="Remover" />
                </tooltip>
                <cursor>
                   <Cursor fx:constant="HAND" />
