@@ -1013,5 +1013,12 @@ public class HelloController implements Initializable {
 		}
 	}
 	
+	@FXML
+    void btnLimparCliente(ActionEvent event) {
+		txtIdCliente.setText(null);
+		txtCnpj.setText(null);
+		txtNome.setText(null);
+    }
+	
 	
 }

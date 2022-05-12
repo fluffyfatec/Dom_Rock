@@ -17,8 +17,6 @@ import javafx.scene.control.TextField;
 
 public class CadastrarClienteController implements Initializable {
 	
-	
-	
 	@FXML
 	private TextField txtCnpj;
 	@FXML
@@ -45,6 +43,13 @@ public class CadastrarClienteController implements Initializable {
 			objcadastroDTO.setNomeSetor(nomeSetor);
 		}
 	}
+	
+	@FXML
+	void btnLimparCliente(ActionEvent event) {
+		txtNome.setText(null);
+		txtCnpj.setText(null);
+        boxSegmento.getSelectionModel().selectFirst();
+	}
 
 	@FXML
 	void btnCadastrarCliente(ActionEvent event) {
@@ -52,14 +57,6 @@ public class CadastrarClienteController implements Initializable {
 		String selectnomeSetor = this.boxSegmento.getSelectionModel().getSelectedItem().toString();
 		String nomeCliente = this.txtNome.getText();
 		String cnpjCliente = this.txtCnpj.getText();
-		
-		CadastroDTO objcadastroDTO = new CadastroDTO();
-		
-		objcadastroDTO.setCnpj(cnpjCliente);
-		objcadastroDTO.setNomeCliente(nomeCliente);
-		objcadastroDTO.setNomeSetor(selectnomeSetor);
-		
-		cadastroCliente.cadastroCliente(objcadastroDTO);
 		
 		if (selectnomeSetor.length() == 0) {
 			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
@@ -70,24 +67,24 @@ public class CadastrarClienteController implements Initializable {
 		}
 
 		if (selectnomeSetor.length() != 0 && cnpjCliente.length() == 14) {
-			System.out.println(selectnomeSetor);
-			System.out.println(nomeCliente);
-			System.out.println(cnpjCliente);
 			
+			CadastroDTO objcadastroDTO = new CadastroDTO();
 			
+			objcadastroDTO.setCnpj(cnpjCliente);
+			objcadastroDTO.setNomeCliente(nomeCliente);
+			objcadastroDTO.setNomeSetor(selectnomeSetor);
+			
+			cadastroCliente.cadastroCliente(objcadastroDTO);
 			
 			Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
+			
+			txtNome.setText(null);
+			txtCnpj.setText(null);
+	        boxSegmento.getSelectionModel().selectFirst();
 			
 		}
 		
 		
-	}
-
-	@FXML
-	void btnLimparCliente(ActionEvent event) {
-		CadastroDTO objcadastroDTO = new CadastroDTO();
-		//consultaId.consultarID(objcadastroDTO);
-        boxSegmento.getSelectionModel().selectFirst();
 	}
 
 }
