@@ -149,22 +149,22 @@ public class HelloController implements Initializable {
 	// Campos de Dados Minimos
 
 	@FXML
-	private TextField dmMarketing;
+	private TextArea dmMarketing;
 
 	@FXML
-	private TextField dmMatching;
+	private TextArea dmMatching;
 
 	@FXML
-	private TextField dmOptimization;
+	private TextArea dmOptimization;
 
 	@FXML
-	private TextField dmPricing;
+	private TextArea dmPricing;
 
 	@FXML
-	private TextField dmSales;
+	private TextArea dmSales;
 
 	@FXML
-	private TextField dmVox;
+	private TextArea dmVox;
 
 	// Check Box Produto/Operations
 

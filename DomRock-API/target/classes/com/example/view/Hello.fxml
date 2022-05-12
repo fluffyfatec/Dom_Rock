@@ -23,21 +23,21 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
-		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="527.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="459.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
-						<AnchorPane maxHeight="641.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="999.0" style="-fx-background-color: #21252a;">
+						<AnchorPane maxHeight="430.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
 							<children>
-								<GridPane layoutX="383.0" layoutY="61.0" prefHeight="368.0" prefWidth="304.0">
+								<GridPane layoutX="428.0" layoutY="58.0" prefHeight="332.0" prefWidth="260.0">
 									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="105.0" />
 									</columnConstraints>
 									<rowConstraints>
 										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
 										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
 										<RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
 										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
@@ -45,20 +45,20 @@
 									</rowConstraints>
 									<children>
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Mínimos" />
-										<TextArea fx:id="txtObjNegocio" maxHeight="80.0" maxWidth="650.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="304.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
+										<TextArea fx:id="txtObjNegocio" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" minWidth="80.0" prefHeight="81.0" prefWidth="304.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
-										<TextArea fx:id="txteMinimos" maxHeight="80.0" maxWidth="650.0" minHeight="80.0" prefHeight="80.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
+										<TextArea fx:id="txteMinimos" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" prefHeight="81.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Possíveis" GridPane.rowIndex="4" />
-      										<TextArea fx:id="txtePossiveis" maxHeight="80.0" prefHeight="80.0" prefWidth="304.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
+      										<TextArea fx:id="txtePossiveis" maxHeight="81.0" minHeight="81.0" prefHeight="81.0" prefWidth="260.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
-                        <GridPane layoutX="732.0" layoutY="64.0" prefHeight="174.0" prefWidth="222.0">
+                        <GridPane layoutX="724.0" layoutY="64.0" prefHeight="174.0" prefWidth="222.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -118,12 +118,12 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Core" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="730.0" layoutY="248.0" prefHeight="156.0" prefWidth="211.0">
+                        <GridPane layoutX="724.0" layoutY="254.0" prefHeight="140.0" prefWidth="228.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -142,44 +142,49 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="funcaoGeradorData" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="138.0" text="Gerador de Data Lake" textFill="WHITE" GridPane.rowIndex="4">
+                              <CheckBox fx:id="funcaoGeradorData" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="159.0" text="Gerador de Data Lake" textFill="WHITE" GridPane.rowIndex="4">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionalidades" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="40.0" layoutY="62.0" prefHeight="267.0" prefWidth="293.0">
+                        <GridPane layoutX="32.0" layoutY="64.0" prefHeight="329.0" prefWidth="367.0">
                            <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="147.99998474121094" />
-                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="0.0" prefWidth="126.0" />
-                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="26.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="30.0" minWidth="0.0" prefWidth="126.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="12.0" minHeight="12.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="5">
+                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="7">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.rowIndex="6">
+                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="7">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="7">
+                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="11">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.rowIndex="8">
+                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="11">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
@@ -187,29 +192,25 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoMatching" mnemonicParsing="false" onAction="#produtoMatching" prefHeight="38.0" prefWidth="138.0" text="Matching &amp; Risk" textFill="WHITE" GridPane.rowIndex="2">
+                              <CheckBox fx:id="produtoMatching" mnemonicParsing="false" onAction="#produtoMatching" prefHeight="38.0" prefWidth="138.0" text="Matching &amp; Risk" textFill="WHITE" textOverrun="LEADING_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
-                                 </cursor></CheckBox>
-                              <Label text="Produto/Demand" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 </cursor>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin></CheckBox>
+                              <Label text="Produto/Demand" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </Label>
                               <Label text="Produto/Operations" textFill="WHITE" />
-                              <Label text="Dados Minímos" textFill="WHITE" GridPane.columnIndex="1" />
-                              <TextField fx:id="dmOptimization" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="dmMatching" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-border-color: #6c6c6c; -fx-background-color: #21252a; -fx-text-fill: white; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="dmVox" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-text-fill: white; -fx-border-radius: 5; -fx-background-color: #21252a; -fx-border-color: #6c6c6c;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField fx:id="dmMarketing" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-background-color: #21252a; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <TextField fx:id="dmSales" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <TextField fx:id="dmPricing" disable="true" maxWidth="85.0" minWidth="85.0" prefWidth="85.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                              <Label alignment="CENTER" text="MB" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextArea fx:id="dmOptimization" disable="true" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
+                              <TextArea fx:id="dmMatching" layoutX="10.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextArea fx:id="dmVox" layoutX="191.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="9" />
+                              <TextArea fx:id="dmMarketing" layoutX="10.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextArea fx:id="dmSales" layoutX="191.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="13" />
+                              <TextArea fx:id="dmPricing" layoutX="10.0" layoutY="316.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13" />
                            </children>
                         </GridPane>
                         <Button fx:id="btnLimparEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
