@@ -330,9 +330,9 @@ public class HelloController implements Initializable {
 
 		colProduto.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("nomeProduto"));
 		colFormato.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("formato"));
-		colSistema.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("frequencia"));
-		colFrequencia.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("origenDado"));
-		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("sistema"));
+		colSistema.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("sistema"));
+		colFrequencia.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("frequencia"));
+		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("origenDado"));
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
 	}
@@ -575,9 +575,9 @@ public class HelloController implements Initializable {
 
 			//txtNome.setText(null);
 			//txtCnpj.setText(null);
-			//txtObjNegocio.setText(null);
-			//txteMinimos.setText(null);
-			//txtePossiveis.setText(null);
+			txtObjNegocio.setText(null);
+			txteMinimos.setText(null);
+			txtePossiveis.setText(null);
 			
 	
 			// Limpar Funcionalidades
@@ -939,7 +939,14 @@ public class HelloController implements Initializable {
 	
 	@FXML
 	void btnLimparBronze(ActionEvent event) {
+		tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
 		
+		boxProduto.getSelectionModel().clearSelection();
+		boxOrigem.getSelectionModel().selectFirst();
+		boxFormato.getSelectionModel().selectFirst();
+		txtVolume.setText(null);
+		boxFrequencia.getSelectionModel().selectFirst();
+		boxSistema.getSelectionModel().selectFirst();
 	}
 
 	@FXML

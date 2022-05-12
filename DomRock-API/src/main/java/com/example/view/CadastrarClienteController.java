@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 public class CadastrarClienteController implements Initializable {
 	
 	@FXML
-	private TextField txtCnpj;
+	private TextField txtCnpj = new TextField();
 	@FXML
 	private TextField txtNome;
 	@FXML
@@ -58,15 +58,15 @@ public class CadastrarClienteController implements Initializable {
 		String nomeCliente = this.txtNome.getText();
 		String cnpjCliente = this.txtCnpj.getText();
 		
-		if (selectnomeSetor.length() == 0) {
+		if (nomeCliente.length() == 0) {
 			Alerts.display("ERRO", "Por favor, insira uma Razão Social");
 		}
 
-		if (cnpjCliente.length() != 14 && selectnomeSetor.length() != 0) {
+		if (cnpjCliente.length() != 14) {
 			Alerts.display("ERRO", "Por favor, insira um CNPJ válido");
 		}
 
-		if (selectnomeSetor.length() != 0 && cnpjCliente.length() == 14) {
+		if (nomeCliente.length() != 0 && cnpjCliente.length() == 14) {
 			
 			CadastroDTO objcadastroDTO = new CadastroDTO();
 			
