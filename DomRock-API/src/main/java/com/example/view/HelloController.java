@@ -67,7 +67,7 @@ public class HelloController implements Initializable {
 
 	// Janela de Cadastro
 	
-///// Cadastro
+	///// Cadastro
 
 	@FXML
 	private TextField txtCnpj;
@@ -233,19 +233,7 @@ public class HelloController implements Initializable {
 
 	    }
 	  
-	// Botão Cadastrar
 	 
-
-	@FXML
-	private void btnCadastrar(ActionEvent event) throws InterruptedException, SQLException {
-
-
-			
-
-			
-
-		}
-
 	private ClienteDTO ClienteDTO() {
 		// TODO Auto-generated method stub
 		return null;
@@ -278,12 +266,6 @@ public class HelloController implements Initializable {
 		stage.show();
 	}
 
-	@FXML
-	void btnTabela(ActionEvent event) {
-
-	}
-
-	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
@@ -939,14 +921,55 @@ public class HelloController implements Initializable {
 	
 	@FXML
 	void btnLimparBronze(ActionEvent event) {
+		// Botão de alerta
+		final Stage window = new Stage();
+
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Confirmação");
+		window.setMinWidth(500);
+		window.setHeight(200);
+		window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+
+		Label label = new Label();
+		label.setText("Todos os campos e a tabela serão limpos. Confirmar?");
+		label.setAlignment(Pos.CENTER);
+		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
+
+		Button closeButtom = new Button("Confirmar");
+		closeButtom.setOnAction(e -> {
+			window.close();
+			
 		tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
-		
 		boxProduto.getSelectionModel().clearSelection();
 		boxOrigem.getSelectionModel().selectFirst();
 		boxFormato.getSelectionModel().selectFirst();
 		txtVolume.setText(null);
 		boxFrequencia.getSelectionModel().selectFirst();
 		boxSistema.getSelectionModel().selectFirst();
+		});
+		closeButtom.setMinWidth(50);
+		closeButtom.setMaxHeight(100);
+		closeButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: #1BB2CF; -fx-border-radius: 5px ;"
+				+ "-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ; -fx-display: inline-block;");
+
+		Button cancelButtom = new Button("Cancelar");
+		cancelButtom.setOnAction(e -> {
+			event.consume();
+			window.close();
+		});
+		cancelButtom.setMinWidth(50);
+		cancelButtom.setMaxHeight(100);
+		cancelButtom.setStyle("-fx-font-size: 16px ; -fx-background-color: transparent ; -fx-border-radius: 5px ;"
+				+ "-fx-border-color: white ; -fx-border-width: 0.5px ; -fx-text-fill: white ;-fx-display: inline-block;");
+
+		VBox layout = new VBox(10);
+		layout.getChildren().addAll(label, closeButtom, cancelButtom);
+		layout.setAlignment(Pos.CENTER);
+		layout.setStyle("-fx-background-color: #2d343a ;");
+
+		Scene scene = new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
 	}
 
 	@FXML

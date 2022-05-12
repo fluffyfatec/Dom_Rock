@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import DTO.ClienteDTO;
-import DTO.ConsultaIdDTO;
 
 public class DescritivoDAO {
 	Connection conn;

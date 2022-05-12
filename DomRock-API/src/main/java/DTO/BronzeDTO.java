@@ -1,7 +1,5 @@
 package DTO;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class BronzeDTO {
 	private String formato;
 	private String frequencia;

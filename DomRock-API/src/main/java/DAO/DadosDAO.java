@@ -1,12 +1,12 @@
 package DAO;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import DTO.ClienteDTO;
 import DTO.ProdutoDTO;
-
-import com.example.view.HelloController;
-import javafx.fxml.FXML;
 
 public class DadosDAO {
 	Connection conn;

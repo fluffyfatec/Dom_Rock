@@ -5,15 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 
 import DTO.BronzeDTO;
-import DTO.ClienteDTO;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class BronzeDAO {
     
