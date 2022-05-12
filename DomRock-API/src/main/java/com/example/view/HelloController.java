@@ -226,6 +226,7 @@ public class HelloController implements Initializable {
 	        cnpj = txtCnpj.getText();
 	        ConsultaId dao = new ConsultaId();
 	        ClienteDTO objclienteDTO = dao.consultarid(cnpj);
+
 	        txtIdCliente.setText(objclienteDTO.getIdCliente());
 	        txtNome.setText(objclienteDTO.getNomeCliente());
 
@@ -574,9 +575,9 @@ public class HelloController implements Initializable {
 
 			//txtNome.setText(null);
 			//txtCnpj.setText(null);
-			txtObjNegocio.setText(null);
-			txteMinimos.setText(null);
-			txtePossiveis.setText(null);
+			//txtObjNegocio.setText(null);
+			//txteMinimos.setText(null);
+			//txtePossiveis.setText(null);
 			
 	
 			// Limpar Funcionalidades
@@ -665,18 +666,21 @@ public class HelloController implements Initializable {
 		String objCliente = this.txtObjNegocio.getText();
 		String eMinimos = this.txteMinimos.getText();
 		String ePossiveis = this.txtePossiveis.getText();
+		String idCliente = this.txtIdCliente.getText();
 		
 		CadastroDTO objcadastroDTO = new CadastroDTO();
-		ClienteDTO objclienteDTO = ClienteDTO();
-
+		ClienteDTO objclienteDTO = new ClienteDTO();
+		
 		objclienteDTO.setEntregaMin(eMinimos);
 		objclienteDTO.setEntregaPossivel(ePossiveis);
 		objclienteDTO.setObjetivoNegocio(objCliente);
+		objclienteDTO.setIdCliente(idCliente);
+		//System.out.println(eMinimos + ePossiveis + objCliente);
 		
 		cadastrodao.cadastroCliente(objcadastroDTO);
-		clientedao.cadastarCliente(objclienteDTO);
+		//clientedao.cadastarCliente(objclienteDTO);
 		descritivodao.cadastrarDescritivo(objclienteDTO);
-	    //consultaid
+	    
 
 		// Metodos acesssores do ProdutoDTO
 
