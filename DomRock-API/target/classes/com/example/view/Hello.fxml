@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="459.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -31,28 +31,28 @@
 					<content>
 						<AnchorPane maxHeight="430.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
 							<children>
-								<GridPane layoutX="428.0" layoutY="58.0" prefHeight="332.0" prefWidth="260.0">
+								<GridPane layoutX="428.0" layoutY="64.0" prefHeight="329.0" prefWidth="260.0">
 									<columnConstraints>
 										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="105.0" />
 									</columnConstraints>
 									<rowConstraints>
-										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-										<RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="19.0" minHeight="19.0" prefHeight="19.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="19.0" minHeight="19.0" prefHeight="19.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="19.0" minHeight="19.0" prefHeight="19.0" vgrow="SOMETIMES" />
+										<RowConstraints maxHeight="90.0" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Mínimos" />
-										<TextArea fx:id="txtObjNegocio" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" minWidth="80.0" prefHeight="81.0" prefWidth="304.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="1" />
+										<TextArea fx:id="txtObjNegocio" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" minWidth="80.0" prefHeight="81.0" prefWidth="304.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="1" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Negócio" GridPane.rowIndex="2" />
-										<TextArea fx:id="txteMinimos" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" prefHeight="81.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
+										<TextArea fx:id="txteMinimos" maxHeight="81.0" maxWidth="650.0" minHeight="81.0" prefHeight="81.0" prefWidth="514.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="3" />
 										<Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entregáveis Possíveis" GridPane.rowIndex="4" />
-      										<TextArea fx:id="txtePossiveis" maxHeight="81.0" minHeight="81.0" prefHeight="81.0" prefWidth="260.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="5" />
+      										<TextArea fx:id="txtePossiveis" maxHeight="81.0" minHeight="81.0" prefHeight="81.0" prefWidth="260.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="5" />
 									</children>
 								</GridPane>
-                        <GridPane layoutX="724.0" layoutY="64.0" prefHeight="174.0" prefWidth="222.0">
+                        <GridPane layoutX="724.0" layoutY="66.0" prefHeight="174.0" prefWidth="222.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -205,12 +205,12 @@
                                  </GridPane.margin>
                               </Label>
                               <Label text="Produto/Operations" textFill="WHITE" />
-                              <TextArea fx:id="dmOptimization" disable="true" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="3" />
-                              <TextArea fx:id="dmMatching" layoutX="10.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <TextArea fx:id="dmVox" layoutX="191.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="9" />
-                              <TextArea fx:id="dmMarketing" layoutX="10.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                              <TextArea fx:id="dmSales" layoutX="191.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.rowIndex="13" />
-                              <TextArea fx:id="dmPricing" layoutX="10.0" layoutY="316.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                              <TextArea fx:id="dmOptimization" disable="true" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="3" />
+                              <TextArea fx:id="dmMatching" disable="true" layoutX="10.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextArea fx:id="dmVox" disable="true" layoutX="191.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-prompt-text-fill: gray; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="9" />
+                              <TextArea fx:id="dmMarketing" disable="true" layoutX="10.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-base: #21252a; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextArea fx:id="dmSales" disable="true" layoutX="191.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="13" />
+                              <TextArea fx:id="dmPricing" disable="true" layoutX="10.0" layoutY="316.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13" />
                            </children>
                         </GridPane>
                         <Button fx:id="btnLimparEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
@@ -280,7 +280,7 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" wrappingWidth="76.00003051757812" GridPane.columnIndex="6" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Frequência" wrappingWidth="76.00003051757812" GridPane.columnIndex="8" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema" wrappingWidth="76.00003051757812" GridPane.columnIndex="10" />
-                              <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdc" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                              <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdc" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="12" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -314,13 +314,13 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <TextField fx:id="txtVolume" prefHeight="27.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtVolume" prefHeight="27.0" prefWidth="314.0" promptText="Vol. de Dados " style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-prompt-text-fill: gray;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                               <ComboBox fx:id="boxSistema" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.columnIndex="10" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <Button layoutX="806.0" layoutY="44.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnExcluir" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: red;" GridPane.columnIndex="13" GridPane.rowIndex="1">
+                              <Button layoutX="806.0" layoutY="44.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnExcluir" opacity="0.69" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: red;" GridPane.columnIndex="13" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -421,7 +421,7 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtNome" editable="false" maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnBuscaCliente" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnBuscaCliente" opacity="0.89" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
 					<GridPane.margin>
 						<Insets left="5.0" />
 					</GridPane.margin>
@@ -445,7 +445,7 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtIdCliente" editable="false" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnLimparCliente" prefHeight="30.0" prefWidth="30.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnLimparCliente" opacity="0.69" prefHeight="30.0" prefWidth="30.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
