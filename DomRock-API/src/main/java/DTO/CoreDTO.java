@@ -14,6 +14,24 @@ public class CoreDTO {
 	private int parquet;
 	private int quicksight;
 	private int cloudwatch;
+	private String idCliente;
+	
+	public int getCoreweb() {
+		return coreweb;
+	}
+
+	public void setCoreweb(int coreweb) {
+		this.coreweb = coreweb;
+	}
+
+	public String getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
+
 
 	public int getWeb() {
 		return coreweb;
@@ -112,4 +130,3 @@ public class CoreDTO {
 	}
 	
 }
-

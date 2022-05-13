@@ -1,45 +1,49 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
+
+import DTO.ClienteDTO;
 import DTO.FuncionalidadeDTO;
+
 
 public class FuncionalidadeDAO {
 
 	Connection conn;
 	PreparedStatement pstm;
+	ClienteDTO idCliente;
 
 	public void cadastrarFuncionalidade(FuncionalidadeDTO objFuncionalidadeDTO) throws SQLException {
-		String sql_id_cliente = "SELECT TOP 1 * FROM Cliente ORDER BY id_cliente DESC;";
-		Connection conn1 = new ConexaoDAO().conectaBD();
-		Statement stm1 = conn1.createStatement();
-		ResultSet result_id_cliente = stm1.executeQuery(sql_id_cliente);
-
-		while (result_id_cliente.next()) {
-			int id_cliente = result_id_cliente.getInt("id_cliente");
-
-			String sql = "insert into Cliente_Funcionalidade (cf_id_cliente, cf_id_funcionalidade) values (" + id_cliente + ", ?)";
+				
+		
+			String sql = "insert into Cliente_Funcionalidade (id_funcionalidade, id_cliente) values (?, ?)";
 
 			try (Connection conn = new ConexaoDAO().conectaBD(); PreparedStatement pstm = conn.prepareStatement(sql);) {
 
 				if (objFuncionalidadeDTO.getGeradorRelat() == 1) {
 					pstm.setInt(1, objFuncionalidadeDTO.getGeradorRelat());
+					pstm.setString(2, objFuncionalidadeDTO.getIdCliente());
+					
+					
 					pstm.execute();
 				}
 				if (objFuncionalidadeDTO.getPaineis() == 2) {
 					pstm.setInt(1, objFuncionalidadeDTO.getPaineis());
+					pstm.setString(2, objFuncionalidadeDTO.getIdCliente());
+					
+					
 					pstm.execute();
 				}
 				if (objFuncionalidadeDTO.getBuscaNlp() == 3) {
 					pstm.setInt(1, objFuncionalidadeDTO.getBuscaNlp());
+					pstm.setString(2, objFuncionalidadeDTO.getIdCliente());
+					
 					pstm.execute();
 				}
 				if (objFuncionalidadeDTO.getGeradorData() == 4) {
 					pstm.setInt(1, objFuncionalidadeDTO.getGeradorData());
+					pstm.setString(2, objFuncionalidadeDTO.getIdCliente());
+					
 					pstm.execute();
 				}
 
@@ -53,6 +57,6 @@ public class FuncionalidadeDAO {
 
 
 	}
-}
+
 	  
 

@@ -409,7 +409,7 @@
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtCnpj" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="3" />
+            <TextField fx:id="txtCnpj" promptText="Somente números" style="-fx-prompt-text-fill: gray; -fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="3" />
             <Label text="CNPJ" textFill="WHITE" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="4.0" />

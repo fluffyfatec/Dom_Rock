@@ -87,7 +87,7 @@
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Segmento" GridPane.columnIndex="1" />
-                  <TextField fx:id="txtCnpj" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtCnpj" promptText="Somente números" style="-fx-prompt-text-fill: gray; -fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5;" GridPane.rowIndex="1" />
                   <ComboBox fx:id="boxSegmento" onAction="#boxSegmento" prefWidth="150.0" style="-fx-base: #21252a;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />

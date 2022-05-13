@@ -58,7 +58,6 @@ public class HelloController implements Initializable {
 	private DescritivoDAO descritivodao = new DescritivoDAO();
 	private ConsultaId consultaid = ConsultaId();
 
-	
 	// List2 - LISTA BRONZE
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
@@ -66,7 +65,7 @@ public class HelloController implements Initializable {
 	private ComboBox<String> boxSegmento = new ComboBox<String>();
 
 	// Janela de Cadastro
-	
+
 	///// Cadastro
 
 	@FXML
@@ -74,15 +73,13 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private TextField txtNome;
-   
+
 	@FXML
-    private TextField txtIdCliente = new TextField();
-	
-  //// Tab
+	private TextField txtIdCliente = new TextField();
 
+	//// Tab
 
-
-    @FXML
+	@FXML
 	private Tab geral;
 
 	@FXML
@@ -198,42 +195,39 @@ public class HelloController implements Initializable {
 
 	@FXML
 	private Tooltip toolLimpar;
-	
-	// Janela Escopo 
-	// Botões 
-	
+
+	// Janela Escopo
+	// Botões
+
 	@FXML
 	private Button btnLimparEscopo;
-	
+
 	@FXML
 	private Button btnCadastrarEscopo;
-	
-	// Janela Bronze 
-	// Botões 
+
+	// Janela Bronze
+	// Botões
 
 	@FXML
 	private Button btnLimparBronze;
-	
+
 	@FXML
 	private Button btnCadastrarBronze;
-	
-	
+
 	CadastroDTO objcadastroDTO = new CadastroDTO();
 
-	  @FXML
-	    void btnBuscaCliente(ActionEvent event) {	    
-		   String cnpj;
-	        cnpj = txtCnpj.getText();
-	        ConsultaId dao = new ConsultaId();
-	        ClienteDTO objclienteDTO = dao.consultarid(cnpj);
+	@FXML
+	void btnBuscaCliente(ActionEvent event) {
+		String cnpj;
+		cnpj = txtCnpj.getText();
+		ConsultaId dao = new ConsultaId();
+		ClienteDTO objclienteDTO = dao.consultarid(cnpj);
 
-	        txtIdCliente.setText(objclienteDTO.getIdCliente());
-	        txtNome.setText(objclienteDTO.getNomeCliente());
+		txtIdCliente.setText(objclienteDTO.getIdCliente());
+		txtNome.setText(objclienteDTO.getNomeCliente());
 
+	}
 
-	    }
-	  
-	 
 	private ClienteDTO ClienteDTO() {
 		// TODO Auto-generated method stub
 		return null;
@@ -243,7 +237,6 @@ public class HelloController implements Initializable {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@FXML
 	void btnBuscar(ActionEvent event) {
@@ -268,7 +261,7 @@ public class HelloController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
+
 		boxProduto.setItems(list2);
 		boxProduto.getSelectionModel().selectFirst();
 
@@ -531,10 +524,10 @@ public class HelloController implements Initializable {
 			break;
 		}
 	}
-	
-	// Janela Escopo 
-	// Métodos Botões LIMPAR/CADASTRAR 
-	
+
+	// Janela Escopo
+	// Métodos Botões LIMPAR/CADASTRAR
+
 	@FXML
 	void btnLimparEscopo(ActionEvent event) {
 		// Botão de alerta
@@ -555,19 +548,18 @@ public class HelloController implements Initializable {
 		closeButtom.setOnAction(e -> {
 			window.close();
 
-			//txtNome.setText(null);
-			//txtCnpj.setText(null);
+			// txtNome.setText(null);
+			// txtCnpj.setText(null);
 			txtObjNegocio.setText(null);
 			txteMinimos.setText(null);
 			txtePossiveis.setText(null);
-			
-	
+
 			// Limpar Funcionalidades
 			funcaoPainel.setSelected(false);
 			funcaoBusca.setSelected(false);
 			funcaoGeradorRelatorio.setSelected(false);
 			funcaoGeradorData.setSelected(false);
-	
+
 			// Limpar Core
 			coreWeb.setSelected(false);
 			coreFilas.setSelected(false);
@@ -581,7 +573,7 @@ public class HelloController implements Initializable {
 			coreLambda.setSelected(false);
 			coreCloud.setSelected(false);
 			coreGateway.setSelected(false);
-	
+
 			// Limpar Produto
 			produtoMatching.setSelected(false);
 			produtoOptimization.setSelected(false);
@@ -589,7 +581,7 @@ public class HelloController implements Initializable {
 			produtoSales.setSelected(false);
 			produtoMarketing.setSelected(false);
 			produtoVox.setSelected(false);
-	
+
 			// Limpar Dados Minimos
 			dmPricing.setText(null);
 			dmSales.setText(null);
@@ -597,7 +589,7 @@ public class HelloController implements Initializable {
 			dmMatching.setText(null);
 			dmMarketing.setText(null);
 			dmVox.setText(null);
-	
+
 			// Desativar DADOS MINIMOS
 			dmOptimization.setDisable(true);
 			dmMatching.setDisable(true);
@@ -605,7 +597,7 @@ public class HelloController implements Initializable {
 			dmMarketing.setDisable(true);
 			dmSales.setDisable(true);
 			dmPricing.setDisable(true);
-	
+
 			// Limpar ComboBox Produto
 			list2.removeAll("Optimization");
 			list2.removeAll("Matching & Risk");
@@ -640,29 +632,26 @@ public class HelloController implements Initializable {
 		window.setScene(scene);
 		window.showAndWait();
 	}
-	
+
 	@FXML
 	void btnCadastrarEscopo(ActionEvent event) throws InterruptedException, SQLException {
 		// Metodos acessores do clienteDTO
-		
+
 		String objCliente = this.txtObjNegocio.getText();
 		String eMinimos = this.txteMinimos.getText();
 		String ePossiveis = this.txtePossiveis.getText();
 		String idCliente = this.txtIdCliente.getText();
-		
+
 		CadastroDTO objcadastroDTO = new CadastroDTO();
 		ClienteDTO objclienteDTO = new ClienteDTO();
-		
+
 		objclienteDTO.setEntregaMin(eMinimos);
 		objclienteDTO.setEntregaPossivel(ePossiveis);
 		objclienteDTO.setObjetivoNegocio(objCliente);
 		objclienteDTO.setIdCliente(idCliente);
-		//System.out.println(eMinimos + ePossiveis + objCliente);
 		
 		cadastrodao.cadastroCliente(objcadastroDTO);
-		//clientedao.cadastarCliente(objclienteDTO);
 		descritivodao.cadastrarDescritivo(objclienteDTO);
-	    
 
 		// Metodos acesssores do ProdutoDTO
 
@@ -676,48 +665,60 @@ public class HelloController implements Initializable {
 		if (produtoVox.isSelected()) {
 			int id_produto = 1;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(vox);
+			objprodutoDTO.setCheckvox(id_produto);
+			objprodutoDTO.setVox(vox);
+			String clienteproduto = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
 		if (produtoMarketing.isSelected()) {
 			int id_produto = 2;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(marketing);
+			objprodutoDTO.setCheckmarketing(id_produto);
+			objprodutoDTO.setMarketingPlanning(marketing);
+			String clienteproduto2 = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto2);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
 		if (produtoSales.isSelected()) {
 			int id_produto = 3;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(sales);
+			objprodutoDTO.setChecksales(id_produto);
+			objprodutoDTO.setSalesDistribution(sales);
+			String clienteproduto3 = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto3);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
 		if (produtoPricing.isSelected()) {
 			int id_produto = 4;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(pricing);
+			objprodutoDTO.setCheckpricing(id_produto);
+			objprodutoDTO.setPricing(pricing);
+			String clienteproduto4 = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto4);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
 		if (produtoOptimization.isSelected()) {
 			int id_produto = 5;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(optimzation);
+			objprodutoDTO.setCheckoptimization(id_produto);
+			objprodutoDTO.setOptimization(optimzation);
+			String clienteproduto5 = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto5);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
 		if (produtoMatching.isSelected()) {
 			int id_produto = 6;
 			ProdutoDTO objprodutoDTO = new ProdutoDTO();
-			objprodutoDTO.setIdProduto(id_produto);
-			objprodutoDTO.setIdProduto1(matching);
+			objprodutoDTO.setCheckmatching(id_produto);
+			objprodutoDTO.setMatchingRisk(matching);
+			String clienteproduto6 = this.txtIdCliente.getText();
+			objprodutoDTO.setIdCliente(clienteproduto6);
 
 			dadosdao.cadastrarDados(objprodutoDTO);
 		}
@@ -728,7 +729,8 @@ public class HelloController implements Initializable {
 			int id_core = 1;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setWeb(id_core);
-
+			String clientecore = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -736,7 +738,8 @@ public class HelloController implements Initializable {
 			int id_core = 2;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setGateway(id_core);
-
+			String clientecore2 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore2);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -744,7 +747,8 @@ public class HelloController implements Initializable {
 			int id_core = 3;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setFilas(id_core);
-
+			String clientecore3 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore3);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -752,7 +756,8 @@ public class HelloController implements Initializable {
 			int id_core = 4;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setStepfunction(id_core);
-
+			String clientecore4 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore4);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -760,7 +765,8 @@ public class HelloController implements Initializable {
 			int id_core = 5;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setLambda(id_core);
-
+			String clientecore5 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore5);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -768,7 +774,8 @@ public class HelloController implements Initializable {
 			int id_core = 6;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setFargate(id_core);
-
+			String clientecore6 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore6);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -776,7 +783,8 @@ public class HelloController implements Initializable {
 			int id_core = 7;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setContainers(id_core);
-
+			String clientecore7 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore7);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -784,7 +792,8 @@ public class HelloController implements Initializable {
 			int id_core = 8;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setS3(id_core);
-
+			String clientecore8 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore8);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -792,6 +801,8 @@ public class HelloController implements Initializable {
 			int id_core = 9;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setMongodb(id_core);
+			String clientecore9 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore9);
 
 			coredao.cadastrarCore(objcoreDTO);
 		}
@@ -800,6 +811,8 @@ public class HelloController implements Initializable {
 			int id_core = 10;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setParquet(id_core);
+			String clientecore10 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore10);
 
 			coredao.cadastrarCore(objcoreDTO);
 		}
@@ -808,7 +821,8 @@ public class HelloController implements Initializable {
 			int id_core = 11;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setQuicksight(id_core);
-
+			String clientecore11 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore11);
 			coredao.cadastrarCore(objcoreDTO);
 		}
 
@@ -816,6 +830,8 @@ public class HelloController implements Initializable {
 			int id_core = 12;
 			CoreDTO objcoreDTO = new CoreDTO();
 			objcoreDTO.setCloudwatch(id_core);
+			String clientecore12 = this.txtIdCliente.getText();
+			objcoreDTO.setIdCliente(clientecore12);
 
 			coredao.cadastrarCore(objcoreDTO);
 		}
@@ -826,6 +842,8 @@ public class HelloController implements Initializable {
 			int id_funcionalidade = 1;
 			FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
 			objfuncionalidadeDTO.setGeradorRelat(id_funcionalidade);
+			String clienteFunc = this.txtIdCliente.getText();
+			objfuncionalidadeDTO.setIdCliente(clienteFunc);
 
 			funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
 		}
@@ -833,6 +851,8 @@ public class HelloController implements Initializable {
 			int id_funcionalidade = 2;
 			FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
 			objfuncionalidadeDTO.setPaineis(id_funcionalidade);
+			String clienteFunc2 = this.txtIdCliente.getText();
+			objfuncionalidadeDTO.setIdCliente(clienteFunc2);
 
 			funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
 		}
@@ -840,6 +860,8 @@ public class HelloController implements Initializable {
 			int id_funcionalidade = 3;
 			FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
 			objfuncionalidadeDTO.setBuscaNlp(id_funcionalidade);
+			String clienteFunc3 = this.txtIdCliente.getText();
+			objfuncionalidadeDTO.setIdCliente(clienteFunc3);
 
 			funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
 		}
@@ -847,12 +869,14 @@ public class HelloController implements Initializable {
 			int id_funcionalidade = 4;
 			FuncionalidadeDTO objfuncionalidadeDTO = new FuncionalidadeDTO();
 			objfuncionalidadeDTO.setGeradorData(id_funcionalidade);
+			String clienteFunc4 = this.txtIdCliente.getText();
+			objfuncionalidadeDTO.setIdCliente(clienteFunc4);
 
 			funcionalidadedao.cadastrarFuncionalidade(objfuncionalidadeDTO);
 		}
 
 		Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
-        
+
 		txtIdCliente.setText((null));
 		txtNome.setText(null);
 		txtCnpj.setText(null);
@@ -915,10 +939,10 @@ public class HelloController implements Initializable {
 		list2.removeAll("Sales & Distributions");
 		list2.removeAll("Pricing");
 	}
-	
-	// Janela Bronze 
-	// Métodos Botões LIMPAR/CADASTRAR 
-	
+
+	// Janela Bronze
+	// Métodos Botões LIMPAR/CADASTRAR
+
 	@FXML
 	void btnLimparBronze(ActionEvent event) {
 		// Botão de alerta
@@ -938,14 +962,14 @@ public class HelloController implements Initializable {
 		Button closeButtom = new Button("Confirmar");
 		closeButtom.setOnAction(e -> {
 			window.close();
-			
-		tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
-		boxProduto.getSelectionModel().clearSelection();
-		boxOrigem.getSelectionModel().selectFirst();
-		boxFormato.getSelectionModel().selectFirst();
-		txtVolume.setText(null);
-		boxFrequencia.getSelectionModel().selectFirst();
-		boxSistema.getSelectionModel().selectFirst();
+
+			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
+			boxProduto.getSelectionModel().clearSelection();
+			boxOrigem.getSelectionModel().selectFirst();
+			boxFormato.getSelectionModel().selectFirst();
+			txtVolume.setText(null);
+			boxFrequencia.getSelectionModel().selectFirst();
+			boxSistema.getSelectionModel().selectFirst();
 		});
 		closeButtom.setMinWidth(50);
 		closeButtom.setMaxHeight(100);
@@ -976,9 +1000,11 @@ public class HelloController implements Initializable {
 	void btnCadastrarBronze(ActionEvent event) throws InterruptedException, SQLException {
 		// Teste
 
+
 		String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
 		String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
 		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+		String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
 
 		// Estrutura de controle para definir o ID da origem
 		if (nomeOrigem == "API") {
@@ -1042,13 +1068,13 @@ public class HelloController implements Initializable {
 			BronzeDTO1.setIdSistema(idSistema);
 		}
 	}
-	
+
+
 	@FXML
-    void btnLimparCliente(ActionEvent event) {
+	void btnLimparCliente(ActionEvent event) {
 		txtIdCliente.setText(null);
 		txtCnpj.setText(null);
 		txtNome.setText(null);
-    }
-	
-	
+	}
+
 }

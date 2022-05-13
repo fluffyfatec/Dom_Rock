@@ -1,12 +1,9 @@
 com\example\view\BuscaController.class
 DTO\CoreDTO.class
-DAO\ProdutoDAO.class
 DAO\BronzeDAO.class
 DAO\CoreDAO.class
 com\example\view\Alerts.class
 DTO\ProdutoDTO.class
-DTO\SolucaoDTO.class
-DAO\SolucaoDAO.class
 DTO\BronzeDTO.class
 DAO\DadosDAO.class
 DTO\ClienteDTO.class
