@@ -22,6 +22,7 @@ import DTO.ClienteDTO;
 import DTO.CoreDTO;
 import DTO.FuncionalidadeDTO;
 import DTO.ProdutoDTO;
+import DTO.SilverDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,7 +58,7 @@ public class HelloController implements Initializable {
 	private BronzeDAO bronze = new BronzeDAO();
 	private DescritivoDAO descritivodao = new DescritivoDAO();
 	private ConsultaId consultaid = ConsultaId();
-
+    private SilverDTO silver = new SilverDTO();
 	// List2 - LISTA BRONZE
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
@@ -228,6 +229,11 @@ public class HelloController implements Initializable {
 
 	}
 
+	private SilverDTO SilverDTO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	private ClienteDTO ClienteDTO() {
 		// TODO Auto-generated method stub
 		return null;
@@ -297,7 +303,14 @@ public class HelloController implements Initializable {
 
 		boxSistema.setItems(listSistema);
 
+		// Populando o boxOrigem
 		boxSistema.getSelectionModel().selectFirst();
+		
+		ObservableList<String> listObrigatorio = FXCollections.observableArrayList("Sim", "Não");
+
+		boxObrigatorio.setItems(listObrigatorio);
+
+		boxObrigatorio.getSelectionModel().selectFirst();
 
 		//
 		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
@@ -310,8 +323,15 @@ public class HelloController implements Initializable {
 		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("origenDado"));
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
+		
+		List<SilverDTO> ativacaoDTO = new ArrayList<SilverDTO>();
+		produtoAtivacao2ObservableList = FXCollections.observableList(ativacaoDTO);
+		colvalidador.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("validador"));
+		colobrigatorio.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("obrigatorio"));
+		tabelaSilver.setItems(produtoAtivacao2ObservableList);
 	}
-
+		
+       
 	// Função de habilitar de dasabilitar DADOS Minimos (TextFields)
 
 	@FXML
@@ -446,8 +466,23 @@ public class HelloController implements Initializable {
 			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
 			objbronzeDTO.setSistema(nomeSistema);
 		}
+		
 	}
+	
+		
+// Box silver
+		@FXML
+		private ComboBox<String> boxObrigatorio = new ComboBox<String>();
+		
+		
+		void boxObrigatorio(ActionEvent event) {
 
+			SilverDTO objsilverDTO = new SilverDTO();
+			if (boxObrigatorio.getSelectionModel().getSelectedItem() != null) {
+				String obrigatorio = boxObrigatorio.getSelectionModel().getSelectedItem().toString();
+				objsilverDTO.setObrigatorio(obrigatorio);
+			}
+		}
 	@FXML
 	void btnExcluir(ActionEvent event) {
 		tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
@@ -501,7 +536,22 @@ public class HelloController implements Initializable {
 	private TextField txtVolume;
 
 	private ObservableList<BronzeDTO> produtoAtivacaoObservableList;
+	
+// tabela silver
+	@FXML
+	private TableView<SilverDTO> tabelaSilver = new TableView<SilverDTO>();
+	@FXML
+	private TableColumn<SilverDTO, String> colvalidador = new TableColumn<SilverDTO, String>();
 
+	@FXML
+	private TableColumn<SilverDTO, String> colobrigatorio = new TableColumn<SilverDTO, String>();
+
+	private ObservableList<SilverDTO> produtoAtivacao2ObservableList;
+
+    @FXML
+	private TextField txtvalidador;
+
+    
 	@FXML
 	void btnAdc(ActionEvent event) throws SQLException {
 		String volume = this.txtVolume.getText();
@@ -514,15 +564,24 @@ public class HelloController implements Initializable {
 		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
 				null);
 
+		String validador = this.txtvalidador.getText();
+		String obrigatorio = boxObrigatorio.getSelectionModel().getSelectedItem().toString();
+		
+		SilverDTO objsilverDTO = new SilverDTO(validador, obrigatorio);
+		
 		produtoAtivacaoObservableList.add(objtesteDTO);
+		produtoAtivacao2ObservableList.add(objsilverDTO);
 
 		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
 		prods.add(objtesteDTO);
+		
+
 
 		while (prods.add(objtesteDTO)) {
 			bronze.cadastarBronze(prods);
 			break;
 		}
+	
 	}
 
 	// Janela Escopo
