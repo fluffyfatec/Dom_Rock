@@ -1029,6 +1029,9 @@ public class HelloController implements Initializable {
 			txtVolume.setText(null);
 			boxFrequencia.getSelectionModel().selectFirst();
 			boxSistema.getSelectionModel().selectFirst();
+
+			txtvalidador.setText(null);
+			boxObrigatorio.getSelectionModel().selectFirst();
 		});
 		closeButtom.setMinWidth(50);
 		closeButtom.setMaxHeight(100);
