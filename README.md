@@ -75,7 +75,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Proposta do Projeto
 
 <p align="center">
-      <img src="./GIT/proposta.jpg" width="100%" height="100%">
+      <img src="./GIT/proposta2.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -83,7 +83,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Backlog do Produto
 
 <p align="center">
-      <img src="./GIT/backlog.jpg" width="100%" height="100%">
+      <img src="./GIT/backlog2.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -91,7 +91,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Metas das Sprints
 
 <p align="center">
-      <img src="./GIT/CARDs.jpg" width="100%" height="100%">
+      <img src="./GIT/CARD2.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -107,7 +107,15 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## DER - Escopo
 
 <p align="center">
-      <img src="./GIT/DEREscopo.jpg" width="100%" height="100%">
+      <img src="./GIT/DEREscopo2.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## DER - Bronze/ Silver
+
+<p align="center">
+      <img src="./GIT/DEREscopo2bronze_prata.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -115,7 +123,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Burndown
  
 <p align="center">
-      <img src="./GIT/burndown.jpg" width="100%" height="100%">
+      <img src="./GIT/burndown2.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -133,9 +141,9 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 | Avatar            							| Aluno         | Função           		| GitHub                                                      | LinkedIn                                              |
 | -------------------------------------------- | ---------------- | ---------------- | -------------------------------------------------------------- | ----------------------------------------------------- |
 | <img src = "./GIT/avatarvictor.png" width="60" >|__Victor Fernandes__  | *Scrum Master*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/victornaca)| [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/victor-fernandes-1a61a917b/) |
-| <img src = "./GIT/avatarfelipe.png" width="60" >|__Felipe Sobral__  | *Product Owner*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/SoSoJigsaw)| [![](https://bit.ly/2P1ZogM)]() |
+| <img src = "./GIT/avatarana.png" width="60" >|__Ana Clara Leal__| *Product Owner* | [![](https://bit.ly/3f9Xo0P)](https://github.com/heyanaleal)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/ana-clara-oliveira-leal-723169220/) |
+| <img src = "./GIT/avatarfelipe.png" width="60" >|__Felipe Sobral__  | *Developer Team*  | [![](https://bit.ly/3f9Xo0P)](https://github.com/SoSoJigsaw)| [![](https://bit.ly/2P1ZogM)]() |
 | <img src = "./GIT/avatarpatrick.png" width="60" >|__Patrick Souza__  | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/PatrickSouzza)  | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/patrick-g-souza/) |
-| <img src = "./GIT/avatarana.png" width="60" >|__Ana Clara Leal__| *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/heyanaleal)      | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/ana-clara-oliveira-leal-723169220/) |
 | <img src = "./GIT/avatarluiz.png" width="60" >|__Luiz Felipe Borges__ | *Developer Team* | [![](https://bit.ly/3f9Xo0P)](https://github.com/luizborges17)   | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/luizborges17/) |
 | <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/tcamillo4-ctrlz) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/tiago-camillo-277257192/) |
 | <img src = "./GIT/avataraldrik.png" width="60" >|__Aldrik Álvaro__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Aldrik-Alvaro) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/aldrik-alvaro-0bb952180/) |
