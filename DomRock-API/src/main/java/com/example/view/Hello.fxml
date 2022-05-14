@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
 		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="459.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -248,13 +248,13 @@
 					</content>
 				</Tab>
             <Tab style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Bronze">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="41.0" layoutY="53.0" prefHeight="91.0" prefWidth="873.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
+                        <GridPane layoutX="53.0" layoutY="65.0" prefHeight="50.0" prefWidth="874.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
@@ -267,13 +267,11 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto" wrappingWidth="76.00003051757812" />
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Origem do dado" wrappingWidth="95.19998168945312" GridPane.columnIndex="2" />
@@ -294,7 +292,8 @@
                                  </graphic>
                                  <tooltip>
                                     <Tooltip text="Adicionar á Tabela" />
-                                 </tooltip></Button>
+                                 </tooltip>
+                              </Button>
                               <ComboBox fx:id="boxProduto" onAction="#boxProduto" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -321,39 +320,100 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
-                              <Button layoutX="806.0" layoutY="44.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnExcluir" opacity="0.69" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: red;" GridPane.columnIndex="13" GridPane.rowIndex="1">
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="tabelaBronze" layoutX="45.0" layoutY="154.0" prefHeight="222.0" prefWidth="880.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
+                           <columns>
+                              <TableColumn fx:id="colProduto" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
+                              <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem do dado" />
+                              <TableColumn fx:id="colFormato" prefWidth="151.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Formato" />
+                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="122.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Volume" />
+                              <TableColumn fx:id="colFrequencia" prefWidth="123.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Frequência" />
+                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="177.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Sistema" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button fx:id="btnLimparBronze1" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar121" text="Apagar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar1111" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Silver">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
+                     <children>
+                        <GridPane layoutX="77.0" layoutY="320.0" prefHeight="50.0" prefWidth="314.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdc" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                  <graphic>
                                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                                  <tooltip>
-                                    <Tooltip text="Remover da Tabela" />
-                                 </tooltip>
-                              </Button>
-                              <TextField fx:id="txtvalidador" prefHeight="27.0" prefWidth="314.0" promptText="Validador" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-prompt-text-fill: gray;" GridPane.rowIndex="3" />
-                              <ComboBox fx:id="boxObrigatorio" layoutX="593.0" layoutY="24.0" prefHeight="25.0" prefWidth="203.0" style="-fx-base: #21252a;" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ComboBox>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Validador" wrappingWidth="76.00003051757812" GridPane.rowIndex="2" />
-                              <Text fill="WHITE" layoutX="10.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obrigatório" wrappingWidth="76.00003051757812" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Tooltip text="Adicionar á Tabela" />
+                                 </tooltip></Button>
+                              <TextField fx:id="txtvalidador" prefHeight="27.0" prefWidth="314.0" promptText="Validador" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-prompt-text-fill: gray;" GridPane.rowIndex="1" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Validador" wrappingWidth="76.00003051757812" />
+                              <CheckBox mnemonicParsing="false" text="Obrigatório" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaBronze" layoutX="43.0" layoutY="180.0" prefHeight="221.0" prefWidth="556.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
+                        <TableView fx:id="tabelaBronze" layoutX="57.0" layoutY="76.0" prefHeight="222.0" prefWidth="866.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
                           <columns>
-                            <TableColumn fx:id="colProduto" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50;" text="Produto" />
-                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Origem do dado" />
-                              <TableColumn fx:id="colFormato" prefWidth="151.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Formato" />
-                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="122.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Volume" />
-                              <TableColumn fx:id="colFrequencia" prefWidth="123.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Frequência" />
-                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="177.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Sistema" />
+                              <TableColumn fx:id="colProduto2" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text=" Id Fonte de dados" />
+                            <TableColumn fx:id="colProduto" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
+                            <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem do dado" />
+                              <TableColumn fx:id="colFormato" prefWidth="151.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Formato" />
+                              <TableColumn fx:id="colVolume" minWidth="0.0" prefWidth="122.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Volume" />
+                              <TableColumn fx:id="colFrequencia" prefWidth="123.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Frequência" />
+                              <TableColumn fx:id="colSistema" minWidth="0.0" prefWidth="177.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Sistema" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -389,15 +449,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <TableView fx:id="tabelaSilver" layoutX="657.0" layoutY="180.0" prefHeight="215.0" prefWidth="266.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
-                           <columns>
-                              <TableColumn fx:id="colvalidador" prefWidth="123.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Validador" />
-                              <TableColumn fx:id="colobrigatorio" minWidth="0.0" prefWidth="177.0" style="-fx-base: #21252a; -fx-border-color: transparent;" text="Obrigatório" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
                      </children>
                   </AnchorPane>
               </content>
