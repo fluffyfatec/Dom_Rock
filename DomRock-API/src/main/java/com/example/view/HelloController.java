@@ -58,7 +58,8 @@ public class HelloController implements Initializable {
 	private BronzeDAO bronze = new BronzeDAO();
 	private DescritivoDAO descritivodao = new DescritivoDAO();
 	private ConsultaId consultaid = ConsultaId();
-    private SilverDTO silver = new SilverDTO();
+	private SilverDTO objSilver = new SilverDTO();
+
 	// List2 - LISTA BRONZE
 	private ObservableList<String> list2 = FXCollections.observableArrayList();
 
@@ -186,7 +187,7 @@ public class HelloController implements Initializable {
 	@FXML
 	private CheckBox produtoVox;
 
-	// Tooltip bot√µes
+	// Tooltip botıes
 
 	@FXML
 	private Tooltip toolCadastrar;
@@ -198,7 +199,7 @@ public class HelloController implements Initializable {
 	private Tooltip toolLimpar;
 
 	// Janela Escopo
-	// Bot√µes
+	// Botıes
 
 	@FXML
 	private Button btnLimparEscopo;
@@ -207,7 +208,7 @@ public class HelloController implements Initializable {
 	private Button btnCadastrarEscopo;
 
 	// Janela Bronze
-	// Bot√µes
+	// Botıes
 
 	@FXML
 	private Button btnLimparBronze;
@@ -227,11 +228,6 @@ public class HelloController implements Initializable {
 		txtIdCliente.setText(objclienteDTO.getIdCliente());
 		txtNome.setText(objclienteDTO.getNomeCliente());
 
-	}
-
-	private SilverDTO SilverDTO() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private ClienteDTO ClienteDTO() {
@@ -303,14 +299,8 @@ public class HelloController implements Initializable {
 
 		boxSistema.setItems(listSistema);
 
-		// Populando o boxOrigem
 		boxSistema.getSelectionModel().selectFirst();
-		
-		ObservableList<String> listObrigatorio = FXCollections.observableArrayList("Sim", "N√£o");
 
-		boxObrigatorio.setItems(listObrigatorio);
-
-		boxObrigatorio.getSelectionModel().selectFirst();
 
 		//
 		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
@@ -322,17 +312,11 @@ public class HelloController implements Initializable {
 		colFrequencia.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("frequencia"));
 		colOrigem.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("origenDado"));
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
+
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
-		
-		List<SilverDTO> ativacaoDTO = new ArrayList<SilverDTO>();
-		produtoAtivacao2ObservableList = FXCollections.observableList(ativacaoDTO);
-		colvalidador.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("validador"));
-		colobrigatorio.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("obrigatorio"));
-		tabelaSilver.setItems(produtoAtivacao2ObservableList);
 	}
-		
-       
-	// Fun√ß√£o de habilitar de dasabilitar DADOS Minimos (TextFields)
+
+	// FunÁ„o de habilitar de dasabilitar DADOS Minimos (TextFields)
 
 	@FXML
 	void produtoOptimization(ActionEvent event) {
@@ -467,22 +451,9 @@ public class HelloController implements Initializable {
 			objbronzeDTO.setSistema(nomeSistema);
 		}
 		
+		
 	}
-	
-		
-// Box silver
-		@FXML
-		private ComboBox<String> boxObrigatorio = new ComboBox<String>();
-		
-		
-		void boxObrigatorio(ActionEvent event) {
 
-			SilverDTO objsilverDTO = new SilverDTO();
-			if (boxObrigatorio.getSelectionModel().getSelectedItem() != null) {
-				String obrigatorio = boxObrigatorio.getSelectionModel().getSelectedItem().toString();
-				objsilverDTO.setObrigatorio(obrigatorio);
-			}
-		}
 	@FXML
 	void btnExcluir(ActionEvent event) {
 		tabelaBronze.getItems().removeAll(tabelaBronze.getSelectionModel().getSelectedItems());
@@ -535,23 +506,14 @@ public class HelloController implements Initializable {
 	@FXML
 	private TextField txtVolume;
 
-	private ObservableList<BronzeDTO> produtoAtivacaoObservableList;
 	
-// tabela silver
-	@FXML
-	private TableView<SilverDTO> tabelaSilver = new TableView<SilverDTO>();
-	@FXML
-	private TableColumn<SilverDTO, String> colvalidador = new TableColumn<SilverDTO, String>();
+	
 
-	@FXML
-	private TableColumn<SilverDTO, String> colobrigatorio = new TableColumn<SilverDTO, String>();
 
-	private ObservableList<SilverDTO> produtoAtivacao2ObservableList;
 
-    @FXML
-	private TextField txtvalidador;
 
-    
+	private ObservableList<BronzeDTO> produtoAtivacaoObservableList;
+
 	@FXML
 	void btnAdc(ActionEvent event) throws SQLException {
 		String volume = this.txtVolume.getText();
@@ -564,42 +526,33 @@ public class HelloController implements Initializable {
 		BronzeDTO objtesteDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
 				null);
 
-		String validador = this.txtvalidador.getText();
-		String obrigatorio = boxObrigatorio.getSelectionModel().getSelectedItem().toString();
-		
-		SilverDTO objsilverDTO = new SilverDTO(validador, obrigatorio);
-		
 		produtoAtivacaoObservableList.add(objtesteDTO);
-		produtoAtivacao2ObservableList.add(objsilverDTO);
 
 		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
 		prods.add(objtesteDTO);
-		
-
 
 		while (prods.add(objtesteDTO)) {
 			bronze.cadastarBronze(prods);
 			break;
 		}
-	
 	}
 
 	// Janela Escopo
-	// M√©todos Bot√µes LIMPAR/CADASTRAR
+	// MÈtodos Botıes LIMPAR/CADASTRAR
 
 	@FXML
 	void btnLimparEscopo(ActionEvent event) {
-		// Bot√£o de alerta
+		// Bot„o de alerta
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Confirma√ß√£o");
+		window.setTitle("ConfirmaÁ„o");
 		window.setMinWidth(500);
 		window.setHeight(200);
 		window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 
 		Label label = new Label();
-		label.setText("Todos os campos ser√£o limpos. Confirmar?");
+		label.setText("Todos os campos ser„o limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
@@ -936,7 +889,7 @@ public class HelloController implements Initializable {
 
 		Alerts.display("SUCESSO", "Cliente cadastrado com sucesso");
 
-		txtIdCliente.setText((null));
+		/*txtIdCliente.setText((null));
 		txtNome.setText(null);
 		txtCnpj.setText(null);
 		txtObjNegocio.setText(null);
@@ -996,25 +949,25 @@ public class HelloController implements Initializable {
 		list2.removeAll("Vox");
 		list2.removeAll("Marketing & Planning");
 		list2.removeAll("Sales & Distributions");
-		list2.removeAll("Pricing");
+		list2.removeAll("Pricing");*/
 	}
-
+	
 	// Janela Bronze
-	// M√©todos Bot√µes LIMPAR/CADASTRAR
+	// MÈtodos Botıes LIMPAR/CADASTRAR
 
 	@FXML
 	void btnLimparBronze(ActionEvent event) {
-		// Bot√£o de alerta
+		// Bot„o de alerta
 		final Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Confirma√ß√£o");
+		window.setTitle("ConfirmaÁ„o");
 		window.setMinWidth(500);
 		window.setHeight(200);
 		window.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 
 		Label label = new Label();
-		label.setText("Todos os campos e a tabela ser√£o limpos. Confirmar?");
+		label.setText("Todos os campos e a tabela ser„o limpos. Confirmar?");
 		label.setAlignment(Pos.CENTER);
 		label.setStyle("-fx-font-size: 18px ; -fx-background-color: transparent ; -fx-text-fill: white; ");
 
@@ -1029,9 +982,6 @@ public class HelloController implements Initializable {
 			txtVolume.setText(null);
 			boxFrequencia.getSelectionModel().selectFirst();
 			boxSistema.getSelectionModel().selectFirst();
-
-			txtvalidador.setText(null);
-			boxObrigatorio.getSelectionModel().selectFirst();
 		});
 		closeButtom.setMinWidth(50);
 		closeButtom.setMaxHeight(100);
@@ -1137,6 +1087,79 @@ public class HelloController implements Initializable {
 		txtIdCliente.setText(null);
 		txtCnpj.setText(null);
 		txtNome.setText(null);
+	}
+	
+	// SILVER //////////////////////////////////
+	
+	@FXML
+	private TableView<BronzeDTO> tabelaSilver = new TableView<BronzeDTO>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colOrigemSilver = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colFormatoSilver = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colVolumeSilver = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colFrequenciaSilver = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colSistemaSilver = new TableColumn<BronzeDTO, String>();
+
+	@FXML
+	private TableColumn<BronzeDTO, String> colProdutoSilver = new TableColumn<BronzeDTO, String>();
+	
+	@FXML
+	private TableColumn<SilverDTO, String> colIdFonteSilver = new TableColumn<SilverDTO, String>();
+	
+	@FXML
+	private TextField txtIdFonteDados = new TextField();
+	
+	@FXML
+	private TextField txtValidador = new TextField();
+	
+	@FXML
+    private Button btnCadastrarSilver;
+	
+	@FXML
+    private Button btnLimparSilver;
+	
+	@FXML
+    private CheckBox ckbObrigatorio;
+	
+	@FXML
+    void btnLimparSilver(ActionEvent event) {
+		txtIdFonteDados.setText(null);
+		txtValidador.setText(null);
+		ckbObrigatorio.setSelected(false);
+    }
+	
+	@FXML
+    void btnCadastrarSilver(ActionEvent event) {
+
+    }
+	
+	@FXML
+    void btnAdcSilver(ActionEvent event) {
+
+		String idfontedados = this.txtIdFonteDados.getText();
+		String validador = this.txtValidador.getText();
+
+		System.out.println(idfontedados);
+		System.out.println(validador);
+		System.out.println(objSilver.getObrigatorio());
+    }
+	
+	@FXML
+    void ckbObrigatorio(ActionEvent event) {
+		if (ckbObrigatorio.isSelected()) {
+			objSilver.setObrigatorio("Sim");
+		}else {
+			objSilver.setObrigatorio("N„o");
+		}
 	}
 
 }

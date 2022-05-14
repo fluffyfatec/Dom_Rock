@@ -1,9 +1,16 @@
 package DTO;
 
 public class SilverDTO {
+	private String idfontedados;
 	private String validador;
 	private String obrigatorio;
 	
+	public String getIdfontedados() {
+		return idfontedados;
+	}
+	public void setIdfontedados(String idfontedados) {
+		this.idfontedados = idfontedados;
+	}
 	
 	public String getValidador() {
 		return validador;
@@ -23,8 +30,11 @@ public class SilverDTO {
 public SilverDTO() {
 	
 }
-public SilverDTO(String validador, String obrigatorio) {
+
+public SilverDTO(String idfontedados, String validador, String obrigatorio) {
+	this.idfontedados = idfontedados;
 	this.validador = validador;
 	this.obrigatorio = obrigatorio;
 }
+
 }
