@@ -48,7 +48,7 @@
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="2.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
