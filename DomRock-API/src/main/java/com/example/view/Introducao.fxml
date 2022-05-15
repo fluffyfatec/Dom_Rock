@@ -25,7 +25,7 @@
         </MenuBar>
     </top>
    <bottom>
-      <ImageView fitHeight="85.0" fitWidth="601.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT">
+      <ImageView fitHeight="85.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT">
          <image>
             <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrockbranco.png" />
          </image>
