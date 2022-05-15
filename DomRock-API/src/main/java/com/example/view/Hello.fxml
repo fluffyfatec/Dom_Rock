@@ -23,13 +23,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
-		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="459.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="1.0" layoutY="107.0" prefHeight="492.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
-						<AnchorPane maxHeight="430.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
+						<AnchorPane maxHeight="496.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
 							<children>
 								<GridPane layoutX="428.0" layoutY="64.0" prefHeight="329.0" prefWidth="260.0">
 									<columnConstraints>
@@ -515,7 +515,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                      </image>
                   </ImageView>
                </graphic>

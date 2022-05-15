@@ -23,13 +23,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="980.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.view.HelloController">
 	<children>
-		<TabPane layoutX="1.0" layoutY="110.0" prefHeight="459.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutX="1.0" layoutY="107.0" prefHeight="492.0" prefWidth="980.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
-						<AnchorPane maxHeight="430.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
+						<AnchorPane maxHeight="496.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
 							<children>
 								<GridPane layoutX="428.0" layoutY="64.0" prefHeight="329.0" prefWidth="260.0">
 									<columnConstraints>
@@ -350,9 +350,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" opacity="0.0" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="15.0" fitWidth="15.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
                                  </image>
@@ -468,8 +468,8 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="30.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -487,9 +487,9 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtNome" editable="false" maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnBuscaCliente" opacity="0.89" prefHeight="30.0" prefWidth="30.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnBuscaCliente" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
 					<GridPane.margin>
-						<Insets left="5.0" />
+						<Insets left="3.0" />
 					</GridPane.margin>
 					<graphic>
 						<ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -511,11 +511,11 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtIdCliente" editable="false" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#btnLimparCliente" opacity="0.69" prefHeight="30.0" prefWidth="30.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnLimparCliente" opacity="0.69" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -525,6 +525,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <GridPane.margin>
+                  <Insets left="4.0" />
+               </GridPane.margin>
             </Button>
          </children>
       </GridPane>
