@@ -149,7 +149,7 @@
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionalidades" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="32.0" layoutY="64.0" prefHeight="329.0" prefWidth="367.0">
+                        <GridPane layoutX="29.0" layoutY="64.0" prefHeight="329.0" prefWidth="367.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
                               <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="30.0" minWidth="0.0" prefWidth="126.0" />
@@ -160,31 +160,30 @@
                               <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="12.0" minHeight="12.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="7">
+                              <CheckBox fx:id="produtoVox" mnemonicParsing="false" onAction="#produtoVox" text="Vox" textFill="WHITE" GridPane.rowIndex="6">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="7">
+                              <CheckBox fx:id="produtoMarketing" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#produtoMarketing" text="Marketing &amp; Planning" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="6">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="11">
+                              <CheckBox fx:id="produtoSales" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#produtoSales" text="Sales &amp; Distributions" textFill="WHITE" GridPane.rowIndex="10">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="11">
+                              <CheckBox fx:id="produtoPricing" layoutX="10.0" layoutY="77.0" mnemonicParsing="false" onAction="#produtoPricing" prefHeight="26.0" prefWidth="146.0" text="Pricing" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="10">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
@@ -207,13 +206,13 @@
                               <Label text="Produto/Operations" textFill="WHITE" />
                               <TextArea fx:id="dmOptimization" disable="true" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="3" />
                               <TextArea fx:id="dmMatching" disable="true" layoutX="10.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <TextArea fx:id="dmVox" disable="true" layoutX="191.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-prompt-text-fill: gray; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="9" />
-                              <TextArea fx:id="dmMarketing" disable="true" layoutX="10.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-base: #21252a; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                              <TextArea fx:id="dmSales" disable="true" layoutX="191.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="13" />
-                              <TextArea fx:id="dmPricing" disable="true" layoutX="10.0" layoutY="316.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                              <TextArea fx:id="dmVox" disable="true" layoutX="191.0" layoutY="68.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-prompt-text-fill: gray; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="8" />
+                              <TextArea fx:id="dmMarketing" disable="true" layoutX="10.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-base: #21252a; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextArea fx:id="dmSales" disable="true" layoutX="191.0" layoutY="204.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.rowIndex="12" />
+                              <TextArea fx:id="dmPricing" disable="true" layoutX="10.0" layoutY="316.0" maxHeight="80.0" maxWidth="650.0" minHeight="51.0" minWidth="80.0" prefHeight="51.0" prefWidth="150.0" promptText="Dados Mínimos" style="-fx-prompt-text-fill: gray; -fx-control-inner-background: #21252a; -fx-border-radius: 10; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-base: #21252a;" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="12" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLimparEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="17.0">
+                        <Button fx:id="btnLimparEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopo" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="17.0">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -228,7 +227,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnCadastrarEscopo" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -251,7 +250,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="53.0" layoutY="65.0" prefHeight="50.0" prefWidth="874.0">
+                        <GridPane layoutX="28.0" layoutY="65.0" prefHeight="50.0" prefWidth="919.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
@@ -322,7 +321,7 @@
                               </ComboBox>
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaBronze" layoutX="45.0" layoutY="154.0" prefHeight="222.0" prefWidth="880.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
+                        <TableView fx:id="tabelaBronze" layoutX="28.0" layoutY="154.0" prefHeight="222.0" prefWidth="920.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
                            <columns>
                               <TableColumn fx:id="colProduto" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
                               <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem do dado" />
@@ -335,7 +334,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="btnLimparBronze1" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnLimparBronze1" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -350,9 +349,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" opacity="0.0" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="68.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
                                  </image>
@@ -373,9 +372,9 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="77.0" layoutY="320.0" prefHeight="50.0" prefWidth="409.0">
+                        <GridPane layoutX="28.0" layoutY="320.0" prefHeight="50.0" prefWidth="409.0">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="202.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
@@ -409,7 +408,7 @@
                               <Text fill="WHITE" layoutX="111.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Fonte de dados" wrappingWidth="122.00003051757812" />
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaSilver" layoutX="57.0" layoutY="76.0" prefHeight="222.0" prefWidth="866.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
+                        <TableView fx:id="tabelaSilver" layoutX="28.0" layoutY="76.0" prefHeight="222.0" prefWidth="920.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-position-shape: blue; -fx-base: #2d343a; -fx-opacity: 50;" stylesheets="@Styles.css">
                           <columns>
                               <TableColumn fx:id="colIdFonteSilver" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text=" ID Fonte de dados" />
                             <TableColumn fx:id="colProdutoSilver" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
@@ -423,7 +422,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="btnLimparSilver" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparSilver" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnLimparSilver" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparSilver" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -438,7 +437,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarSilver" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnCadastrarSilver" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="17.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -460,39 +459,42 @@
 			</tabs>
 		</TabPane>
       <Line endX="100.0" layoutX="881.0" layoutY="98.0" startX="-881.0" stroke="#b5b5b5" />
-      <GridPane layoutX="14.0" layoutY="47.0" prefHeight="40.0" prefWidth="791.0">
+      <GridPane layoutX="14.0" layoutY="47.0" prefHeight="40.0" prefWidth="862.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="80.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="30.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="8.0" minWidth="8.0" prefWidth="8.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtCnpj" promptText="Somente números" style="-fx-prompt-text-fill: gray; -fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="3" />
-            <Label text="CNPJ" textFill="WHITE" GridPane.columnIndex="2">
+            <TextField fx:id="txtCnpj" promptText="Ex.: 00000000000000" style="-fx-prompt-text-fill: gray; -fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="4" />
+            <Label text="CNPJ" textFill="WHITE" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets left="4.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Razão Social" textFill="WHITE" GridPane.columnIndex="4">
+            <Label text="Razão Social" textFill="WHITE" GridPane.columnIndex="6">
                <GridPane.margin>
                   <Insets left="4.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="txtNome" editable="false" maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="5" />
-				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnBuscaCliente" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="6">
+            <TextField fx:id="txtNome" editable="false" maxWidth="250.0" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="7" />
+				<Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnBuscaCliente" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;" textAlignment="CENTER" GridPane.columnIndex="9">
 					<GridPane.margin>
 						<Insets left="3.0" />
 					</GridPane.margin>
 					<graphic>
-						<ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
 							</image>
@@ -511,9 +513,9 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtIdCliente" editable="false" style="-fx-background-color: #2d343a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" GridPane.columnIndex="1" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnLimparCliente" opacity="0.69" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="7">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnLimparCliente" opacity="0.7" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="10">
                <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                      </image>
