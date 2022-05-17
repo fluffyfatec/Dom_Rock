@@ -61,10 +61,10 @@ public class IntroducaoController implements Initializable {
 	void inputCadastrarCliente(ActionEvent event) {
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("Cadastro.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("CrudDomRock.fxml"));
 		Scene scene = null;
 		try {
-			scene = new Scene(fxmlLoader.load(), 380, 254);
+			scene = new Scene(fxmlLoader.load(), 679, 400);
 			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
 		} catch (IOException ex) {
 			ex.printStackTrace();
