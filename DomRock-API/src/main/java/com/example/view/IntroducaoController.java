@@ -45,15 +45,12 @@ public class IntroducaoController implements Initializable {
 	@FXML
 	private Menu inputCadastrarcliente;
 	@FXML
+	private Menu inputBuscarintro;
+	@FXML
 	void inputAjudaintro (ActionEvent event) {
 	}
 	@FXML
 	void inputDesconectarintro(ActionEvent event) {
-
-	}
-
-	@FXML
-	void inputBuscarintro(ActionEvent event) {
 
 	}
 
@@ -78,7 +75,27 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 
 	}
+	@FXML
+	void inputBuscarintro(ActionEvent event) {
 
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("TelaBusca.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 980, 580 );
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Buscar Cliente - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
