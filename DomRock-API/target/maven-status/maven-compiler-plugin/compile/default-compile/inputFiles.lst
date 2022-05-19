@@ -1,3 +1,4 @@
+C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\ConnectionFactory.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\SolucaoDTO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\ConsultaIdDTO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\CadastroDAO.java
@@ -14,6 +15,7 @@ C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\ValidadorDTO.ja
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\ConsultaId.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\CoreDAO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\SolucaoDAO.java
+C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\com\example\view\CrudDomRockController.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\ProdutoDTO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\com\example\view\BuscaController.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DAO\IdClienteProduto.java
@@ -28,3 +30,4 @@ C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\com\example\view\Ma
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\ClienteDTO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\BronzeDTO.java
 C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\com\example\view\CadastrarClienteController.java
+C:\Users\loja1367\Desktop\Dom_Rock\DomRock-API\src\main\java\DTO\Cliente.java

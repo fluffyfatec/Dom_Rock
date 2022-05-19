@@ -126,6 +126,7 @@
 				<directory>src/main/java</directory>
 				<includes>
 					<include>**/*.fxml</include>
+					<include>**/*.css</include>
 					<include>**/*.properties</include>
 				</includes>
 			</resource>

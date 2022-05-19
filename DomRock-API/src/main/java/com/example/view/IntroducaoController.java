@@ -34,17 +34,25 @@ public class IntroducaoController implements Initializable {
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
 		stage.show();
-
 	}
+	
 	@FXML
 	private Menu bntClienteintro;
 	@FXML
 	private Menu inputCadastrarintro;
 	@FXML
-	private Menu inputAjudaintro;
-	@FXML
 	private Menu inputCadastrarcliente;
 	@FXML
+	private Menu btnUsuarioIntro;
+	@FXML
+	private Menu inputNovoUsuario;
+	@FXML
+	private Menu inputBuscarintro;
+	@FXML
+	private Menu inputAjudaintro;
+	@FXML
+	
+	
 	void inputAjudaintro (ActionEvent event) {
 	}
 	@FXML
@@ -53,18 +61,13 @@ public class IntroducaoController implements Initializable {
 	}
 
 	@FXML
-	void inputBuscarintro(ActionEvent event) {
-
-	}
-
-	@FXML
 	void inputCadastrarCliente(ActionEvent event) {
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("Cadastro.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("CrudDomRock.fxml"));
 		Scene scene = null;
 		try {
-			scene = new Scene(fxmlLoader.load(), 380, 254);
+			scene = new Scene(fxmlLoader.load(), 679, 400);
 			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -78,7 +81,46 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 
 	}
+	@FXML
+	void inputBuscarintro(ActionEvent event) {
 
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("TelaBusca.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 980, 580 );
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Buscar Cliente - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	@FXML
+	void inputNovoUsuario(ActionEvent event) {
+
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("TelaUsuario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 367, 403 );
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Novo Usuario - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
