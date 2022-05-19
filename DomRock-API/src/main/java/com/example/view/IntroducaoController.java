@@ -41,7 +41,7 @@ public class IntroducaoController implements Initializable {
 	@FXML
 	private Menu inputCadastrarintro;
 	@FXML
-	private Menu inputCadastrarcliente;
+	private Menu inputCadastrarCliente;
 	@FXML
 	private Menu btnUsuarioIntro;
 	@FXML

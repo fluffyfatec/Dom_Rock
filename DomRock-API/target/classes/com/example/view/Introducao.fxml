@@ -14,6 +14,7 @@
             <menus>
                 <Menu fx:id="bntClienteintro" mnemonicParsing="false" text="Cliente">
                     <items>
+                  <MenuItem mnemonicParsing="false" onAction="#inputCadastrarCliente" text="Cadastro Cliente" />
                         <MenuItem mnemonicParsing="false" onAction="#inputCadastrarintro" text="Ativação Cliente" />
                         <MenuItem mnemonicParsing="false" onAction="#inputBuscarintro" text="Buscar Cliente" />
                     </items>
