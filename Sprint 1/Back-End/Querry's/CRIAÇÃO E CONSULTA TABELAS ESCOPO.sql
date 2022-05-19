@@ -1,58 +1,4 @@
 
---////////////--
------ESCOPO-----
---////////////--
-
-
-
-
-
-SELECT * FROM Cliente
-WHERE cnpj = 147852
-
-SELECT * FROM Core;
-SELECT * FROM Funcionalidade;
-SELECT * FROM Produto;
-SELECT * FROM Solucao;
-
---TABELAS RELAÇÕES--
-SELECT * FROM Cliente_Core;
-SELECT * FROM Cliente_Funcionalidade;
-SELECT * FROM Cliente_Produto;
-
-
-SELECT * FROM Origem_dado;
-SELECT * FROM Formato;
-SELECT * FROM Sistema;
-SELECT * FROM Fonte_dado;
-
-
-DROP TABLE Cliente;
-DROP TABLE Core;
-DROP TABLE Funcionalidade;
-DROP TABLE Produto;
-DROP TABLE Solucao;
-DROP TABLE Descrivo;
-DROP TABLE Cliente_Core;
-DROP TABLE Cliente_Funcionalidade;
-DROP TABLE Cliente_Produto;
-
-SELECT * FROM sys.tables
-
-
-SELECT * FROM sys.all_columns
-WHERE object_id = 692197516
-
-DROP TABLE Formato;
-DROP TABLE Sistema;
-DROP TABLE Fonte_dado;
-
---////////////--
------BRONZE-----
---////////////--
-
-
-
 --------------------------------------
 ----------CRIAÇÃO TABELAS-------------
 --------------------------------------
@@ -66,7 +12,7 @@ CREATE TABLE  Cliente (
 	datahora_cadastro datetime,
 	unique(razao_social, cnpj)
 );
-SELECT * FROM Descritivo
+
 --CRIAÇÃO TABELA Descrivo
 CREATE TABLE  Descritivo (
 	id_descritivo int identity(1,1) primary key,
@@ -103,7 +49,8 @@ CREATE TABLE  Solucao (
 CREATE TABLE  Produto (
 	id_produto int identity(1,1) primary key,
     nm_produto varchar(30) not null,
-	id_solucao int foreign key references Solucao(id_solucao) not null
+	id_solucao int foreign key references Solucao(id_solucao) not null,
+	dado_min varchar(30)
 	unique(nm_produto)
 );
 
@@ -124,8 +71,7 @@ CREATE TABLE Cliente_Core(
 CREATE TABLE Cliente_Produto(
 	id_cliente_produto int identity(1,1) primary key,
 	id_cliente int foreign key references Cliente(id_cliente) not null,
-	id_produto int foreign key references Produto(id_produto) not null,
-	dado_min varchar(30)
+	id_produto int foreign key references Produto(id_produto) not null
 );
 
 ----------------------------------------------------------------------------------------------------------
@@ -167,7 +113,6 @@ CREATE TABLE  Validador (
     desc_regra varchar(40)  not null unique,
 	obrigatorio varchar(1)  not null unique,
 	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado) not null
-	
 );
 
 
