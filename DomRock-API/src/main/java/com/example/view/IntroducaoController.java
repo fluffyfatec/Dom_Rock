@@ -34,19 +34,25 @@ public class IntroducaoController implements Initializable {
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
 		stage.show();
-
 	}
+	
 	@FXML
 	private Menu bntClienteintro;
 	@FXML
 	private Menu inputCadastrarintro;
 	@FXML
-	private Menu inputAjudaintro;
-	@FXML
 	private Menu inputCadastrarcliente;
+	@FXML
+	private Menu btnUsuarioIntro;
+	@FXML
+	private Menu inputNovoUsuario;
 	@FXML
 	private Menu inputBuscarintro;
 	@FXML
+	private Menu inputAjudaintro;
+	@FXML
+	
+	
 	void inputAjudaintro (ActionEvent event) {
 	}
 	@FXML
@@ -94,7 +100,26 @@ public class IntroducaoController implements Initializable {
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	@FXML
+	void inputNovoUsuario(ActionEvent event) {
 
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("TelaUsuario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 367, 403 );
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Novo Usuario - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
