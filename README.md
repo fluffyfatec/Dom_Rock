@@ -142,7 +142,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 **1ª Etapa:** Nosso banco de dados se encontra na nuvem da Azure (SQL Server) e como forma de segurança pedimos para enviar um email com o seu [IP Externo](http://www.meuip.com/) para o nosso email fluffyapi@gmail.com (enviar nome e IP) que iremos liberar o acesso para a utilização da aplicação.<p>
 **2ª Etapa:** Baixe e instale o [Java](https://download.oracle.com/java/17/archive/jdk-17.0.3_windows-x64_bin.exe) em sua máquina.<p>
-**3ª Etapa:** [Baixe](https://drive.google.com/file/d/1WUoQI_oOh1PF6P1YDhclT-Rlh2nmvurB/view?usp=sharing) nossa aplicação, execute e aproveite!
+**3ª Etapa:** [Baixe](https://drive.google.com/file/d/13-TSoRkpUGPqTWf5RT1VQ9l_jElu75xX/view?usp=sharing) nossa aplicação, execute e aproveite!
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
