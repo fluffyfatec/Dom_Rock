@@ -2,6 +2,8 @@ package modal;
 
 import java.sql.Date;
 
+import javafx.collections.ObservableList;
+
 public class EscopoDTO {
 	
 	private String idCliente;
@@ -21,6 +23,9 @@ public class EscopoDTO {
 	private Integer idclienteproduto;
 	private String core;
 	private String funcionalidades;
+	public ObservableList<String> boxprodutocliente;
+	public ObservableList<String> boxprodutoclientedois;
+
 
 
 	public String getIdCliente() {
@@ -125,6 +130,5 @@ public class EscopoDTO {
 	public void setFuncionalidades(String funcionalidades) {
 		this.funcionalidades = funcionalidades;
 	}
-
 	
 }

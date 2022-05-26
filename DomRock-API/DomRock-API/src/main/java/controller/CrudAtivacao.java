@@ -33,6 +33,8 @@ import modal.BronzeDTO;
 import modal.ClienteDTO;
 import modal.EscopoDAO;
 import modal.EscopoDTO;
+import modal.EscopoTabelaCore;
+import modal.EscopoTabelaFuncionalidades;
 
 public class CrudAtivacao implements Initializable {
 
@@ -62,20 +64,21 @@ public class CrudAtivacao implements Initializable {
 	private ComboBox<String> boxFuncionalidadeEscopo = new ComboBox<String>();
 
 	@FXML
-	private TableView<EscopoDTO> TabelaCore;
+	private TableView<EscopoTabelaCore> TabelaCore;
+	@FXML
+	private TableColumn<EscopoTabelaCore, String> colCore;
+	@FXML
+	private TableColumn<EscopoTabelaCore, String> colNomeProduto;
+
+	
+	@FXML
+	private TableView<EscopoTabelaFuncionalidades> TabelaFuncionalidade;
 
 	@FXML
-	private TableView<EscopoDTO> TabelaFuncionalidade;
-
+	private TableColumn<EscopoTabelaFuncionalidades, String> colIdProdutoFuncionalidade;
+	
 	@FXML
-	private TableColumn<EscopoDTO, String> colCore;
-
-	@FXML
-	private TableColumn<EscopoDTO, String> colIdProdutoFuncionalidade;
-	@FXML
-	private TableColumn<EscopoDTO, String> colIdProduto;
-	@FXML
-	private TableColumn<EscopoDTO, String> colFuncionalidade;
+	private TableColumn<EscopoTabelaFuncionalidades, String> colFuncionalidade;
 	@FXML
 	private Tab escopo;
 
@@ -278,7 +281,8 @@ public class CrudAtivacao implements Initializable {
 		boxFuncionalidadeEscopo.setItems(listfuncionalidades);
 
 		boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
-		//
+		
+		// Tabela bronze
 		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
 		produtoAtivacaoObservableList = FXCollections.observableList(ativacaoDTOs);
 
@@ -290,28 +294,46 @@ public class CrudAtivacao implements Initializable {
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
-
-		List<EscopoDTO> addcore = new ArrayList<EscopoDTO>();
+	   // Tabela Core
+		List<EscopoTabelaCore> addcore = new ArrayList<EscopoTabelaCore>();
 		addcoreativacao = FXCollections.observableList(addcore);
-		colIdProduto.setCellValueFactory(new PropertyValueFactory<>("idProduto"));
+		
+		colNomeProduto.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colCore.setCellValueFactory(new PropertyValueFactory<>("core"));
+		
 		TabelaCore.setItems(addcoreativacao);
-
-		colIdProdutoFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("idProduto"));
+		// Tabela Funcionalidades
+		List<EscopoTabelaFuncionalidades> addfun = new ArrayList<EscopoTabelaFuncionalidades>();
+		addfunativacao = FXCollections.observableList(addfun);
+		
+		colIdProdutoFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("funcionalidades"));
-
+		
+		TabelaFuncionalidade.setItems(addfunativacao);
 	}
 
 	@FXML
 	void btnAddTabelaCore() {
+	
+		String nmproduto = boxProdutoIdEscopo.getSelectionModel().getSelectedItem().toString();
 		String core = boxCore.getSelectionModel().getSelectedItem().toString();
-		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
+		
 
+		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
+
+		addcoreativacao.add(obj);
 	}
 
 	@FXML
 	void btnAddTabelaFuncionalidade() {
 
+		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
+		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
+		
+
+		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
+
+		addfunativacao.add(objto);
 	}
 
 	@FXML
@@ -373,6 +395,21 @@ public class CrudAtivacao implements Initializable {
 		txtIdCliente.setText(objescopoDTO.getIdCliente());
 		txtNome.setText(objescopoDTO.getRazaoSocial());
 
+
+		//Combo-box Produtos
+
+		ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
+		String IdCliente = txtIdCliente.getText();
+		EscopoDAO dao = new EscopoDAO();
+		objescopoDTO = dao.consultaboxproduto(boxprodutocliente,IdCliente);
+		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
+		System.out.println(objescopoDTO.boxprodutocliente);
+		
+		//Popular lista produto cliente 2
+		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
+		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois,IdCliente);
+		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
+		System.out.println(objescopoDTO.boxprodutoclientedois);
 	}
 
 	@FXML
@@ -381,8 +418,8 @@ public class CrudAtivacao implements Initializable {
 	}
 
 	// ESCOPO
-	private ObservableList<EscopoDTO> addcoreativacao;
-
+	private ObservableList<EscopoTabelaCore> addcoreativacao;
+	private ObservableList<EscopoTabelaFuncionalidades> addfunativacao;
 	@FXML
 	void btnCadastrarEscopo() {
 
@@ -403,8 +440,53 @@ public class CrudAtivacao implements Initializable {
 			exibiDialogoERRO("ERRO! Falha ao cadastrar descritivo.");
 			e1.printStackTrace();
 		}
+		//Cadastrar Produtos
+		
+		ArrayList<String> listprodutos = new ArrayList<String>();
+		if (produtoOptimization.isSelected()) {
+			String produto = "5";
+			listprodutos.add(produto);
+		}
+		if (produtoMatching.isSelected()) {
+			String produto = "6";
+			listprodutos.add(produto);
+		}  
+		if (produtoVox.isSelected()) {
+			String produto = "1";
+			listprodutos.add(produto);
+		}  
+		if (produtoPricing.isSelected()) {
+			String produto = "4";
+			listprodutos.add(produto);		
+		}  
+		if (produtoMarketing.isSelected()) {
+			String produto = "2";
+			listprodutos.add(produto);		
+		}  
+		if (produtoSales.isSelected()) {
+			String produto = "3";
+			listprodutos.add(produto);	
+		//System.out.println(Arrays.toString(listprodutos));
+		}
+		EscopoDTO objescopoDTO = dao.cadastroproduto(listprodutos, IdCliente);
+		System.out.println(IdCliente);
+		System.out.println(listprodutos);
+		System.out.println(listprodutos.size());
+		
+		//Popular lista produto cliente
+		ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
+		objescopoDTO = dao.consultaboxproduto(boxprodutocliente,IdCliente);
+		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
+		System.out.println(objescopoDTO.boxprodutocliente);
 
+		//boxProdutoIdEscopoDois
+		//Popular lista produto cliente 2
+		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
+		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois,IdCliente);
+		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
+		System.out.println(objescopoDTO.boxprodutoclientedois);
 	}
+	
 
 	@FXML
 	void btnCadastrarSilver() {

@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class EscopoDAO {
 
 	Connection con;
@@ -61,37 +64,69 @@ public class EscopoDAO {
 			throw new RuntimeException(e);
 		}
 	}
-public List<EscopoDTO> consultar(String idclienteproduto) {
-		
-		List<EscopoDTO> clientes = new ArrayList<>();
-	String sql = "SELECT * FROM Fonte_dado WHERE id_cliente_produto LIKE '%" +idclienteproduto+ "%'";
-	  
-	try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
-		ResultSet resultSet = stm.executeQuery();
-		
-		while (resultSet.next()){
-		
-			EscopoDTO escopo = new EscopoDTO();
-			
-			escopo.setIdclienteproduto(resultSet.getInt("id_cliente_produto"));
-			escopo.setIdCliente(resultSet.getString("id_cliente"));
-			escopo.setIdProduto(resultSet.getInt("id_produto"));
-			
-			clientes.add(escopo);
-			
 	
+public EscopoDTO consultaProduto(String idProduto) {
+	try (Connection con = new ConnectionFactory().conectaBD()) {
+		EscopoDTO objidProduto = new EscopoDTO();
+		stm = con.prepareStatement("Select * from Produto where id_produto = ?");
+		stm.setString(1, idProduto);
+		rs = stm.executeQuery();
+
+		if (rs.next()) {
+			objidProduto.setOptimization(rs.getString("optimization"));
+			objidProduto.setMatchingRisk(rs.getString("matchingRisk"));
+			objidProduto.setVox(rs.getString("vox"));
+			objidProduto.setPricing(rs.getString("pricing"));
+			objidProduto.setMarketingPlanning(rs.getString("marketingPlanning"));
+			objidProduto.setSalesDistribution(rs.getString("salesDistribution"));
+
+			
+			return objidProduto;
+		} else {
+			return null;
 		}
-		
-		resultSet.close();
-		stm.close();
-		
-	} catch (SQLException e) {
-		e.printStackTrace();
-		throw new RuntimeException(e);
+
+	} catch (SQLException ex) {
+		return null;
 	}
-	
-	
-	return clientes;
+
+}
+
+public EscopoDTO cadastroproduto(ArrayList<String> listprodutos, String IdCliente) {
+	try (Connection con = new ConnectionFactory().conectaBD()) {
+		stm = con.prepareStatement("INSERT INTO Fonte_Dado (id_cliente,id_produto) VALUES (?,?)");
+		for(String list : listprodutos) {
+			stm.setString(1,IdCliente);
+			stm.setString(2,list);
+			stm.executeUpdate();
+		}
+	} catch (SQLException ex) {
+		return null;
+	}
+	return null;
+}
+
+public EscopoDTO consultaboxproduto(ObservableList<String> boxprodutocliente, String IdCliente) {
+	try (Connection con = new ConnectionFactory().conectaBD()) {
+		stm = con.prepareStatement("SELECT prod.nm_produto FROM Fonte_dado font INNER JOIN Produto prod ON prod.id_produto = font.id_produto WHERE font.id_cliente = ?");
+		stm.setString(1, IdCliente);
+		rs = stm.executeQuery();
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		ArrayList<String> gambiarralist = new ArrayList<String>();
+		if(rs!=null){
+			while (rs.next()) {
+			//PERIGO NAO APAGAR A GAMBIARRALIST PELO AMOR DE DEUS
+			gambiarralist.add(rs.getString("nm_produto"));
+		}
+		objescopoDTO.boxprodutocliente = FXCollections.observableArrayList(gambiarralist);
+		objescopoDTO.boxprodutoclientedois = FXCollections.observableArrayList(gambiarralist);
+
+		return objescopoDTO;
+		}
+	} catch (SQLException ex) {
+		return null;
+	}
+	return null;
 }
 }
 			
