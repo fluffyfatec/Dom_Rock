@@ -16,10 +16,12 @@
                     <items>
                   <MenuItem mnemonicParsing="false" onAction="#inputCadastrarCliente" text="Cadastrar Cliente" />
                         <MenuItem mnemonicParsing="false" onAction="#inputCadastrarintro" text="Ativação Cliente" />
-                        <MenuItem mnemonicParsing="false" onAction="#inputBuscarintro" text="Buscar Cliente" />
                     </items>
                 </Menu>
-                <Menu fx:id="inputAjudaintro" mnemonicParsing="false" text="Ajuda" />
+            <Menu fx:id="btnUsuario" mnemonicParsing="false" text="Usuário">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#btnUsuario" text="Controle de Usuários" />
+               </items></Menu>
                 <Menu mnemonicParsing="false" onAction="#inputDesconectarintro" text="Desconectar" />
             </menus>
         </MenuBar>

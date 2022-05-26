@@ -3,13 +3,21 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="521.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoController">
    <children>
-      <Button layoutX="41.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnAtualizarProduto" text="Atualizar" />
-      <TextArea fx:id="txtDadoMinimoProduto" layoutX="41.0" layoutY="135.0" prefHeight="200.0" prefWidth="434.0" />
-      <ComboBox fx:id="boxProdutoProduto" layoutX="260.0" layoutY="97.0" onAction="#boxProdutoProduto" prefWidth="150.0" />
-      <ComboBox fx:id="boxSolucaoProduto" layoutX="41.0" layoutY="97.0" onAction="#boxSolucaoProduto" prefWidth="150.0" />
+      <Button layoutX="41.0" layoutY="12.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnAtualizarProduto" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+               </image></ImageView>
+         </graphic></Button>
+      <ComboBox fx:id="boxProdutoProduto" layoutX="161.0" layoutY="64.0" minWidth="100.0" onAction="#boxProdutoProduto" prefWidth="100.0" style="-fx-base: #21252a;" />
+      <ComboBox fx:id="boxSolucaoProduto" layoutX="40.0" layoutY="64.0" minWidth="100.0" onAction="#boxSolucaoProduto" prefWidth="100.0" style="-fx-base: #21252a;" />
+      <TextArea fx:id="txtDadoMinimoProduto" layoutX="40.0" layoutY="100.0" prefHeight="200.0" prefWidth="442.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-prompt-text-fill: grey; -fx-text-fill: white;" />
    </children>
 </AnchorPane>

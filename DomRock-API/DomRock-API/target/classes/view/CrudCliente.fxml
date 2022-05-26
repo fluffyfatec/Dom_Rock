@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="392.0" prefWidth="704.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudClienteController">
+<AnchorPane prefHeight="392.0" prefWidth="704.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudClienteController">
    <children>
       <TabPane fx:id="abas" layoutY="15.0" onMouseClicked="#gerenciarAbas" prefHeight="335.0" prefWidth="704.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
         <tabs>
@@ -100,7 +100,7 @@
                         <Label fx:id="Cnpj" layoutX="30.0" layoutY="19.0" prefHeight="17.0" prefWidth="34.0" text="CNPJ" textFill="WHITE" />
                         <Button layoutX="395.0" layoutY="16.0" maxHeight="26.0" maxWidth="26.0" minHeight="26.0" minWidth="26.0" mnemonicParsing="false" onAction="#btn_consulta_cnpj" prefHeight="26.0" prefWidth="26.0" style="-fx-base: #1BB2CF;" AnchorPane.rightAnchor="283.0">
                            <graphic>
-                              <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
                                  </image>
@@ -127,7 +127,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/pen-to-square.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>

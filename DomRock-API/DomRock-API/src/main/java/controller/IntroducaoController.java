@@ -18,6 +18,10 @@ public class IntroducaoController implements Initializable {
 	@FXML
 	private Menu bntClienteintro;
 	@FXML
+	private Menu inputUsuario;
+	@FXML
+	private Menu btnUsuario;
+	@FXML
 	private Menu inputCadastrarintro;
 	@FXML
 	private Menu inputAjudaintro;
@@ -38,7 +42,7 @@ public class IntroducaoController implements Initializable {
 		fxmlLoader.setLocation(getClass().getResource("/view/CrudAtivacao.fxml"));
 		Scene scene = null;
 		try {
-			scene = new Scene(fxmlLoader.load(), 980, 580);
+			scene = new Scene(fxmlLoader.load(), 807, 550);
 			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -76,11 +80,27 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 
 	}
-	
-	
 	@FXML
-	void inputAjudaintro (ActionEvent event) {
-	}
+	void btnUsuario(ActionEvent event) {
+
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/CrudUsuario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 668, 432);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle(" Usuário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	    }
+	
 	@FXML
 	void inputDesconectarintro(ActionEvent event) {
 	}
