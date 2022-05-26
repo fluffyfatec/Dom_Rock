@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IntroducaoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #21252a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IntroducaoController">
     <top>
         <MenuBar style="-fx-text-base-color: white; -fx-background-color: #2d343a; -fx-base: black;" BorderPane.alignment="CENTER">
             <menus>
@@ -22,7 +23,6 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#btnUsuario" text="Controle de Usuários" />
                </items></Menu>
-                <Menu mnemonicParsing="false" onAction="#inputDesconectarintro" text="Desconectar" />
             </menus>
         </MenuBar>
     </top>
@@ -36,4 +36,7 @@
          </BorderPane.margin>
       </ImageView>
    </bottom>
+   <left>
+      <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnSair" style="-fx-base: #2d343a;" text="Sair" textFill="WHITE" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
