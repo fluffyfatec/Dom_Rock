@@ -80,6 +80,8 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 
 	}
+	
+	//VAI PARA TELA CRUD USUARIO
 	@FXML
 	void btnUsuario(ActionEvent event) {
 
@@ -101,11 +103,25 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 	    }
 	
+	//VAI PARA TELA LOGON
 	@FXML
 	void inputDesconectarintro(ActionEvent event) {
-	}
-	@FXML
-	void inputBuscarintro(ActionEvent event) {
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Logon.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 367, 297);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle(" Logon - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
 	}
 	
 	
