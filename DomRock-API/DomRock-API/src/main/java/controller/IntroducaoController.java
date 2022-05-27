@@ -36,7 +36,7 @@ public class IntroducaoController implements Initializable {
 	
 	//VAI PARA TELA CRUD ATIVAÇÃO
 	@FXML
-	void inputCadastrarintro(ActionEvent event) {
+	void inputCadastrarintro( ) {
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("/view/CrudAtivacao.fxml"));
@@ -60,7 +60,7 @@ public class IntroducaoController implements Initializable {
 
 	//VAI PARA TELA CRUD CLIENTE
 	@FXML
-	void inputCadastrarCliente(ActionEvent event) {
+	void inputCadastrarCliente( ) {
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("/view/CrudCliente.fxml"));
@@ -83,7 +83,7 @@ public class IntroducaoController implements Initializable {
 	
 	//VAI PARA TELA CRUD USUARIO
 	@FXML
-	void btnUsuario(ActionEvent event) {
+	void btnUsuario( ) {
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("/view/CrudUsuario.fxml"));
@@ -105,7 +105,7 @@ public class IntroducaoController implements Initializable {
 	
 	//VAI PARA TELA LOGON
 	@FXML
-	void inputDesconectarintro(ActionEvent event) {
+	void btnSair( ) {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(getClass().getResource("/view/Logon.fxml"));
 		Scene scene = null;
