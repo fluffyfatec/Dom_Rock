@@ -22,7 +22,14 @@
             <Menu fx:id="btnUsuario" mnemonicParsing="false" text="Usuário">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#btnUsuario" text="Controle de Usuários" />
+                  <MenuItem mnemonicParsing="false" onAction="#btnDadosMinimos" text=" Dados Mínimos" />
                </items></Menu>
+            <Menu fx:id="bntProduto" mnemonicParsing="false" text="Produto" />
+            <Menu fx:id="menusair" mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="btnSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnSair" style="-fx-base: #2d343a;" text="Sair" textAlignment="RIGHT" textFill="WHITE" />
+               </graphic>
+            </Menu>
             </menus>
         </MenuBar>
     </top>
@@ -36,7 +43,4 @@
          </BorderPane.margin>
       </ImageView>
    </bottom>
-   <left>
-      <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnSair" style="-fx-base: #2d343a;" text="Sair" textFill="WHITE" BorderPane.alignment="CENTER" />
-   </left>
 </BorderPane>
