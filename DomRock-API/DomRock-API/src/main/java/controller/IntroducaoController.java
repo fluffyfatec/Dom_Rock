@@ -27,7 +27,11 @@ public class IntroducaoController implements Initializable {
 	private Menu inputAjudaintro;
 	@FXML
 	private Menu inputCadastrarcliente;
-	
+    @FXML
+    private Menu bntProduto;
+
+    @FXML
+    private Menu menusair;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -124,7 +128,26 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 	}
 	
-	
+
+    @FXML
+    void btnDadosMinimos() {
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Produto.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 521, 339);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Dados Mínimos - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+    }
 
 
 }

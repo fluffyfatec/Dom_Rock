@@ -94,7 +94,7 @@ public EscopoDTO consultaProduto(String idProduto) {
 
 public EscopoDTO cadastroproduto(ArrayList<String> listprodutos, String IdCliente) {
 	try (Connection con = new ConnectionFactory().conectaBD()) {
-		stm = con.prepareStatement("INSERT INTO Fonte_Dado (id_cliente,id_produto) VALUES (?,?)");
+		stm = con.prepareStatement("INSERT INTO Cliente_Produto (id_cliente,id_produto) VALUES (?,?)");
 		for(String list : listprodutos) {
 			stm.setString(1,IdCliente);
 			stm.setString(2,list);
@@ -108,7 +108,7 @@ public EscopoDTO cadastroproduto(ArrayList<String> listprodutos, String IdClient
 
 public EscopoDTO consultaboxproduto(ObservableList<String> boxprodutocliente, String IdCliente) {
 	try (Connection con = new ConnectionFactory().conectaBD()) {
-		stm = con.prepareStatement("SELECT prod.nm_produto FROM Fonte_dado font INNER JOIN Produto prod ON prod.id_produto = font.id_produto WHERE font.id_cliente = ?");
+		stm = con.prepareStatement("SELECT prod.nm_produto FROM Cliente_Produto font INNER JOIN Produto prod ON prod.id_produto = font.id_produto WHERE font.id_cliente = ?");
 		stm.setString(1, IdCliente);
 		rs = stm.executeQuery();
 		EscopoDTO objescopoDTO = new EscopoDTO();
@@ -128,6 +128,99 @@ public EscopoDTO consultaboxproduto(ObservableList<String> boxprodutocliente, St
 	}
 	return null;
 }
+
+public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String IdCliente) {
+	try (Connection con = new ConnectionFactory().conectaBD()) {
+		stm = con.prepareStatement("SELECT nm_produto FROM Cliente_Produto cp INNER JOIN Produto prod ON prod.id_produto = cp.id_produto WHERE id_cliente = ?");
+		stm.setString(1, IdCliente);
+		rs = stm.executeQuery();
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		//ArrayList<String> gambiarralist2 = new ArrayList<String>();
+		if(rs!=null){
+			while (rs.next()) {
+			//PERIGO NAO APAGAR A GAMBIARRALIST PELO AMOR DE DEUS
+			crudprodutolist.add(rs.getString("nm_produto"));
+		}
+		//objescopoDTO.crudprodutolist = (gambiarralist2);
+
+		return objescopoDTO;
+		}
+	} catch (SQLException ex) {
+		return null;
+	}
+	return null;
+}
+	
+	public EscopoDTO cadastrocore(String nmproduto,String core,String IdCliente) {
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		try (Connection con = new ConnectionFactory().conectaBD()) {
+			stm = con.prepareStatement("INSERT INTO ClienteProduto_Core (id_cliente_produto, id_core) VALUES (("+
+					"SELECT id_cliente_produto FROM Cliente_Produto fd INNER JOIN Produto prod "+
+					"ON prod.id_produto = fd.id_produto WHERE fd.id_cliente = ? AND prod.nm_produto = ?), "+
+					"(SELECT cc.id_core FROM Core cc WHERE cc.recurso = ?))");
+			stm.setString(1, IdCliente);
+			stm.setString(2, nmproduto);
+			stm.setString(3, core);
+			stm.execute();
+			stm.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	}
+	return objescopoDTO;
+	}
+	
+	public EscopoDTO cadastrofuncionalidade(String nmproduto,String funcionalidades,String IdCliente) {
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		try (Connection con = new ConnectionFactory().conectaBD()) {
+			stm = con.prepareStatement("INSERT INTO ClienteProduto_Funcionalidade (id_cliente_produto, id_funcionalidade) VALUES (("+
+					"SELECT id_cliente_produto FROM Cliente_Produto fd INNER JOIN Produto prod "+
+					"ON prod.id_produto = fd.id_produto WHERE fd.id_cliente = ? AND prod.nm_produto = ?), "+
+					"(SELECT func.id_funcionalidade FROM Funcionalidade func WHERE func.nm_funcionalidade = ?))");
+			stm.setString(1, IdCliente);
+			stm.setString(2, nmproduto);
+			stm.setString(3, funcionalidades);
+			stm.execute();
+			stm.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	}
+	return objescopoDTO;
+	}
+	
+	public EscopoDTO consultadescritivo(String IdCliente) {
+		String sql = "SELECT d.objetivo_negocio, d.entregavel_min, d.entregavel_possivel FROM Descritivo d WHERE d.id_cliente = ?";
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){	
+			stm.setString(1, IdCliente); rs = stm.executeQuery();
+			if(rs.next())
+			objescopoDTO.setEntregaveisMinimos(rs.getString("objetivo_negocio"));
+			objescopoDTO.setObjNegocios(rs.getString("entregavel_min"));	
+			objescopoDTO.setEntregaveisPossiveis(rs.getString("entregavel_possivel"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return objescopoDTO;
+	}
+	
+	public EscopoDTO atualizardescritivo(String IdCliente, String entregavelminimos, String entregavelpossivel, String objetivonegocio) {
+		String sql = "UPDATE Descritivo SET objetivo_negocio = ?, entregavel_min = ?, entregavel_possivel = ? WHERE id_cliente = ?";
+		EscopoDTO objescopoDTO = new EscopoDTO();
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){		
+			stm.setString(1, objetivonegocio);
+			stm.setString(2, entregavelminimos);
+			stm.setString(3, entregavelpossivel);
+			stm.setString(4, IdCliente);
+			stm.execute();
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return objescopoDTO;
+	}
 }
 			
 	

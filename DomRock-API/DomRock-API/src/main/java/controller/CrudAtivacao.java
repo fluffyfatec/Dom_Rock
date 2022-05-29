@@ -35,6 +35,8 @@ import modal.EscopoDAO;
 import modal.EscopoDTO;
 import modal.EscopoTabelaCore;
 import modal.EscopoTabelaFuncionalidades;
+import modal.ProdutoDAO;
+import modal.ProdutoDTO;
 
 public class CrudAtivacao implements Initializable {
 
@@ -314,11 +316,13 @@ public class CrudAtivacao implements Initializable {
 
 	@FXML
 	void btnAddTabelaCore() {
-	
 		String nmproduto = boxProdutoIdEscopo.getSelectionModel().getSelectedItem().toString();
 		String core = boxCore.getSelectionModel().getSelectedItem().toString();
+		String IdCliente = txtIdCliente.getText();
 		
-
+		EscopoDAO dao = new EscopoDAO();
+		EscopoDTO objescopoDTO = dao.cadastrocore(nmproduto,core,IdCliente);
+		
 		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
 
 		addcoreativacao.add(obj);
@@ -329,8 +333,11 @@ public class CrudAtivacao implements Initializable {
 
 		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
 		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
-		
+		String IdCliente = txtIdCliente.getText();
 
+		EscopoDAO dao = new EscopoDAO();
+		EscopoDTO objescopoDTO = dao.cadastrofuncionalidade(nmproduto,funcionalidades,IdCliente);
+		
 		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
 
 		addfunativacao.add(objto);
@@ -403,14 +410,52 @@ public class CrudAtivacao implements Initializable {
 		EscopoDAO dao = new EscopoDAO();
 		objescopoDTO = dao.consultaboxproduto(boxprodutocliente,IdCliente);
 		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
-		System.out.println(objescopoDTO.boxprodutocliente);
 		
 		//Popular lista produto cliente 2
 		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
 		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois,IdCliente);
 		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
-		System.out.println(objescopoDTO.boxprodutoclientedois);
+		
+		// CRUD Descrições
+		objescopoDTO = dao.consultadescritivo(IdCliente);
+		txteMinimos.setText(objescopoDTO.getEntregaveisMinimos());
+		txtObjNegocio.setText(objescopoDTO.getObjNegocios());
+		txtePossiveis.setText(objescopoDTO.getEntregaveisPossiveis());
+		
+		// CRUD CheckBox Produtdos
+		ArrayList<String> crudprodutolist = new ArrayList();
+		objescopoDTO = dao.consultacrudproduto(crudprodutolist,IdCliente);
+		System.out.println(crudprodutolist);
+		if (crudprodutolist.contains("Marketing & Planning")){
+			produtoMarketing.setSelected(true);
+		}
+		if (crudprodutolist.contains("Vox")){
+			produtoVox.setSelected(true);
+		}
+		if (crudprodutolist.contains("Sales & Distribution")){
+			produtoSales.setSelected(true);
+		}
+		if (crudprodutolist.contains("Pricing")){
+			produtoPricing.setSelected(true);
+		}
+		if (crudprodutolist.contains("Optimization")){
+			produtoOptimization.setSelected(true);
+		}
+		if (crudprodutolist.contains("Matching & Risk")){
+			produtoMatching.setSelected(true);
+		}
 	}
+	
+    @FXML
+    void btnAtualizarEscopo(ActionEvent event) {
+    	String IdCliente;
+		IdCliente = txtIdCliente.getText();
+		String entregavelminimos = this.txteMinimos.getText();
+		String entregavelpossivel = this.txtePossiveis.getText();
+		String objetivonegocio = this.txtObjNegocio.getText();
+		EscopoDAO dao = new EscopoDAO();
+		EscopoDTO objescopoDTO = dao.atualizardescritivo(IdCliente, entregavelminimos, entregavelpossivel, objetivonegocio);
+    }
 
 	@FXML
 	void btnCadastrarBronze() {
@@ -486,8 +531,7 @@ public class CrudAtivacao implements Initializable {
 		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
 		System.out.println(objescopoDTO.boxprodutoclientedois);
 	}
-	
-
+    
 	@FXML
 	void btnCadastrarSilver() {
 
