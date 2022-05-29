@@ -6,8 +6,8 @@ DROP TABLE Comentario;
 DROP TABLE Usuario;
 DROP TABLE Validador;
 DROP TABLE Fonte_dado;
-DROP TABLE FonteDado_Core;
-DROP TABLE FonteDado_Funcionalidade;
+DROP TABLE ClienteProduto_Core;
+DROP TABLE ClienteProduto_Funcionalidade;
 DROP TABLE Cliente_Produto;
 DROP TABLE Sistema;
 DROP TABLE Formato;
@@ -18,6 +18,8 @@ DROP TABLE Produto;
 DROP TABLE Solucao;
 DROP TABLE Descritivo;
 DROP TABLE Cliente;
+
+
 
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -98,13 +100,13 @@ CREATE TABLE Cliente_Produto(
 	id_produto int foreign key references Produto(id_produto),
 );
 
-CREATE TABLE FonteDado_Funcionalidade(
+CREATE TABLE ClienteProduto_Funcionalidade(
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
 	id_funcionalidade int foreign key references Funcionalidade(id_funcionalidade),
 	primary key (id_cliente_produto, id_funcionalidade)
 );
 
-CREATE TABLE FonteDado_Core(
+CREATE TABLE ClienteProduto_Core(
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
 	id_core int foreign key references Core(id_core) ,
 	primary key (id_cliente_produto, id_core)
@@ -215,7 +217,8 @@ VALUES ('ERP'),
 
 --INSERIR DADOS NA TABELA Sistema
 INSERT INTO Usuario (nome, funcao, usuario, senha)
-VALUES ('Admin', 'Admilson', 'admin', '123');
+VALUES ('Admin', 'Admilson', 'admin', '123'),
+	   ('Admin', 'Admilson', 'admin', 'admin');
 
 
 
