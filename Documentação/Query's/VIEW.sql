@@ -23,3 +23,51 @@ SELECT usu.id_usuario AS id_usuario,
 FROM Usuario usu;
 
 
+
+/*
+--PROXIMA VIEW
+INSERT INTO ClienteProduto_Core (id_cliente_produto, id_core)
+VALUES (3,1),
+	   (5,2),
+	   (5,3),
+	   (5,4),
+	   (4,4),
+	   (2,3);
+
+INSERT INTO ClienteProduto_Funcionalidade (id_cliente_produto, id_funcionalidade)
+VALUES (3,1),
+	   (5,2),
+	   (5,3),
+	   (5,4),
+	   (4,4),
+	   (2,3);
+
+
+SELECT prod.nm_produto, cc.recurso FROM ClienteProduto_Core cpc
+INNER JOIN Core cc
+ON cc.id_core = cpc.id_core
+INNER JOIN Cliente_Produto cp
+ON cp.id_cliente_produto = cpc.id_cliente_produto
+INNER JOIN Produto prod
+ON prod.id_produto = cp.id_produto
+WHERE cp.id_cliente = 1
+--AND prod.nm_produto = 'Marketing & Planning'
+ORDER BY 1, 2 ASC
+
+
+
+SELECT prod.nm_produto, func.nm_funcionalidade FROM ClienteProduto_Funcionalidade cf
+INNER JOIN Funcionalidade func
+ON func.id_funcionalidade = cf.id_funcionalidade
+INNER JOIN Cliente_Produto cp
+ON cp.id_cliente_produto = cf.id_cliente_produto
+INNER JOIN Produto prod
+ON prod.id_produto = cp.id_produto
+WHERE cp.id_cliente = 1
+--AND prod.nm_produto = 'Marketing & Planning'
+ORDER BY 1, 2 ASC
+
+
+
+*/
+

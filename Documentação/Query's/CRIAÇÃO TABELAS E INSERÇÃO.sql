@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 --//DROP TABELAS
-
+DROP TABLE Comentario;
 DROP TABLE Usuario;
 DROP TABLE Validador;
 DROP TABLE Fonte_dado;
@@ -137,6 +137,13 @@ CREATE TABLE  Usuario (
 	funcao varchar(40),
 	usuario varchar(40),
 	senha varchar(40)
+);
+
+CREATE TABLE Comentario (
+	id_comentario int identity(1,1) primary key,
+	comentario varchar(70),
+	etapa varchar(60),
+	id_cliente int foreign key references Cliente(id_cliente) 
 );
 
 ---------------------------------------------------------------------------------------------------
