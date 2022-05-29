@@ -180,7 +180,6 @@ public class UsuarioController implements Initializable {
     		txtNomeAt.setText(usuarioSelecionado.getNome());
     		txtFuncaoAt.setText(usuarioSelecionado.getFuncao());
     		txtUsuarioAt.setText(usuarioSelecionado.getUsuario());
-    		txtSenhaAt.setText(usuarioSelecionado.getSenha());
     		txtConfirmarSenhaAt.clear();
     	}
     }
