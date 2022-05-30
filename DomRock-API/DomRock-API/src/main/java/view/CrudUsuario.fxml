@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -62,8 +63,11 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Confirmar" />
+                              <Tooltip text="Cadastrar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="30.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparUsuario" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
                            <graphic>
@@ -74,8 +78,11 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Apagar" />
+                              <Tooltip text="Limpar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="456.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <image>
@@ -103,6 +110,9 @@
                            <tooltip>
                               <Tooltip text="Buscar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <TableView fx:id="tabelaUsuario" layoutX="32.0" layoutY="106.0" prefHeight="194.0" prefWidth="610.0" style="-fx-base: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-background-color: #21252a;" stylesheets="@Styles.css" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="106.0">
                            <columns>
@@ -122,8 +132,11 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip text="Apagar" />
+                              <Tooltip text="Deletar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="30.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnUsuarioAtualizar" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;" AnchorPane.leftAnchor="30.0">
                            <graphic>
@@ -136,6 +149,9 @@
                            <tooltip>
                               <Tooltip text="Editar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </AnchorPane>
@@ -156,6 +172,9 @@
                            <tooltip>
                               <Tooltip text="Apagar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button layoutX="72.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnUsuarioSalvarAtt" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
                            <graphic>
@@ -168,6 +187,9 @@
                            <tooltip>
                               <Tooltip text="Confirmar" />
                            </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <ImageView fitHeight="85.0" fitWidth="200.0" layoutX="478.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <image>
