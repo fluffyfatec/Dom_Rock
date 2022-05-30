@@ -8,8 +8,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import modal.ProdutoDAO;
 import modal.ProdutoDTO;
 
@@ -29,7 +31,7 @@ public class ProdutoController implements Initializable {
     @Override
 	public void initialize(URL url, ResourceBundle rb) {
     	dao = new ProdutoDAO();
-    	ObservableList<String> listsolucao = FXCollections.observableArrayList ("NX.Demand","NX.Operations"); //Lista da Solução
+    	ObservableList<String> listsolucao = FXCollections.observableArrayList ("NX.Demand","NX.Operations"); //Lista da Soluï¿½ï¿½o
     	boxSolucaoProduto.setItems(listsolucao);
     	boxProdutoProduto.setItems(listdemand);
     	boxProdutoProduto.getSelectionModel().selectFirst();
@@ -70,10 +72,24 @@ public class ProdutoController implements Initializable {
 
     @FXML
     void btnAtualizarProduto(ActionEvent event) {
-    	String produto;
-		produto = boxProdutoProduto.getSelectionModel().getSelectedItem().toString();
-		String dadominimo = this.txtDadoMinimoProduto.getText();
-		ProdutoDAO dao = new ProdutoDAO();
-		ProdutoDTO objprodutoDTO = dao.produtodadominimo(produto, dadominimo);
-    }	
+    	if (txtDadoMinimoProduto.getText().equals("")) {
+    		exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente.");
+    	}else {
+	    	String produto;
+			produto = boxProdutoProduto.getSelectionModel().getSelectedItem().toString();
+			String dadominimo = this.txtDadoMinimoProduto.getText();
+			ProdutoDAO dao = new ProdutoDAO();
+			ProdutoDTO objprodutoDTO = dao.produtodadominimo(produto, dadominimo);
+    	}
+    }
+    
+    void exibiDialogoERRO(String erro) {
+    	Alert alert = new Alert(AlertType.ERROR);
+    	alert.setTitle("InformaÃ§Ã£o");
+    	alert.setHeaderText(null);
+    	alert.setContentText(erro);
+    	
+    	alert.showAndWait();
+    	
+    }
 }
