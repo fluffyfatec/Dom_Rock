@@ -31,13 +31,15 @@ public class ConsultaUsuario {
 	         stm.setString(2, senha); 
 	         rs = stm.executeQuery(); 
 	     
+	         LoginController objlogin = new LoginController();
+	         
 	         if(rs.next()){ // se encontrou o usuario com a senha
-	        	 LoginController objlogon = new LoginController();
-	        	 exibiDialogoConfirmacao("LOGIN FEITO COM SUCESSO!");
-	        	 objlogon.abrirIntroducao();
+	        	 objlogin.abrirIntroducao();
+	        	 objusuarioDTO.setControle(1);
 	        	return objusuarioDTO; 
 	         } else {
 	        	 exibiDialogoERRO("ERRO NO LOGIN");
+	        	 objusuarioDTO.setControle(2);
 	            return objusuarioDTO;
 	         }
 	 	 } catch (SQLException ex) {
