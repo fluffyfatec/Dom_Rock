@@ -1,10 +1,13 @@
+SELECT * FROM Cliente
+
+
 --VIEW CLIENTE
 DROP VIEW view_cliente;
 
 CREATE VIEW view_cliente AS
 SELECT cli.id_cliente AS id_cliente, 
 	  (CONCAT(UPPER(SUBSTRING(cli.razao_social, 1, 1)) , LOWER(SUBSTRING(cli.razao_social, 2, 80)))) AS razao_social,
-	   CONCAT(SUBSTRING(cli.cnpj, 1, 2), '.', SUBSTRING(cli.cnpj, 3, 3) , '.' , SUBSTRING(cli.cnpj, 6, 3), '/',  SUBSTRING(cli.cnpj, 9, 4), '-', SUBSTRING(cli.cnpj, 13, 2)) AS cnpj,
+	   cli.cnpj as cnpj,
 	   cli.segmento AS segmento,  
 	   FORMAT(cli.datahora_cadastro , 'dd/MM/yyyy HH:mm:ss') as datahora_cadastro
 FROM Cliente cli;
@@ -70,4 +73,63 @@ ORDER BY 1, 2 ASC
 
 
 */
+
+--VIEW USUARIO
+
+DROP VIEW view_bronze;
+
+CREATE VIEW view_bronze AS
+SELECT prod.nm_produto AS nm_produto, 
+od.desc_origem AS desc_origem, 
+fort.formato AS formato,
+sis.sistema AS sistema, 
+fd.volume AS volume, 
+fd.frequencia AS frequencia,
+cp.id_cliente AS id_cliente
+FROM Fonte_dado fd
+INNER JOIN Cliente_Produto cp
+ON cp.id_cliente_produto = fd.id_cliente_produto
+INNER JOIN Produto prod
+ON prod.id_produto = cp.id_produto
+INNER JOIN Origem_dado od
+ON od.id_origem_dado = fd.id_origem_dado
+INNER JOIN Formato fort
+ON fort.id_formato = fd.id_formato
+INNER JOIN Sistema sis
+ON sis.id_sistema = fd.id_sistema;
+
+
+
+SELECT * FROM view_bronze
+WHERE id_cliente = 1
+ORDER BY prod.nm_produto ASC
+
+
+SELECT * FROM Cliente
+
+SELECT * FROM Cliente_Produto
+WHERE id_cliente = 3
+
+SELECT * FROM Fonte_dado fd
+INNER JOIN Cliente_Produto cp
+ON cp.id_cliente_produto = fd.id_cliente_produto
+WHERE cp.id_cliente = 1
+
+
+DROP VIEW view_bronze;
+
+
+CREATE VIEW view_cliente_core AS
+SELECT prod.nm_produto, cc.recurso , cp.id_cliente AS id_cliente FROM ClienteProduto_Core cpc
+INNER JOIN Core cc
+	ON cc.id_core = cpc.id_core
+INNER JOIN Cliente_Produto cp
+	ON cp.id_cliente_produto = cpc.id_cliente_produto
+INNER JOIN Produto prod
+	ON prod.id_produto = cp.id_produto;
+
+SELECT nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 1 ORDER BY nm_produto ASC
+
+WHERE cp.id_cliente = 1
+ORDER BY 1, 2 ASC
 
