@@ -41,8 +41,10 @@ public class LoginController {
     	ConsultaUsuario dao = new ConsultaUsuario();
 		UsuarioDTO objusuarioDTO = dao.consultarusuario(usuario, senha);
 		
+		if (objusuarioDTO.getControle() == 1) {
 		Stage stage = (Stage) btnConectar.getScene().getWindow(); //Obtendo a janela atual
         stage.close();
+		}
     }    
     
     @FXML

@@ -107,7 +107,7 @@ public class CrudClienteController implements Initializable {
 
 		ObservableList<String> lista2 = FXCollections.observableArrayList("Industria", "Atacado", "Comercio/Varejo", "Governo");
 		box_att_segmento.setItems(lista2);
-		box_att_segmento.getSelectionModel().selectFirst();
+		//box_att_segmento.getSelectionModel().selectFirst();
 
 		table_cliente_id.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
 		table_cliente_razao_social.setCellValueFactory(new PropertyValueFactory<>("razao_social"));
@@ -120,31 +120,39 @@ public class CrudClienteController implements Initializable {
 	/// CADASTRAR CLIENTE///
 	@FXML
 	void btn_cad_salvar() {
-		ClienteDTO cliente = new ClienteDTO();
-
-		cliente.setRazao_social(txt_cad_razao_social.getText());
-		cliente.setCnpj(txt_cad_cnpj.getText()); // cliente.setSegmento(box_cad_segmento.getSelectionModel().getSelectedItem().toString());
-		String segmento = box_cad_segmento.getSelectionModel().getSelectedItem().toString();
-
-		cliente.setSegmento(segmento);
-
-		try {
-			dao.cadastrar(cliente);
-			exibiDialogoINFO("Cliente cadastrando com sucesso!");
-			btn_cad_limpar();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			exibiDialogoERRO("ERRO! Falha ao cadastrar cliente.");
-			e.printStackTrace();
+		if(txt_cad_razao_social.getText().equals("") || txt_cad_cnpj.getLength() != 14) {
+			exibiDialogoERRO("ERRO! Por favor, insira todos os campos corretamente.");
+		}else {
+			ClienteDTO cliente = new ClienteDTO();
+	
+			cliente.setRazao_social(txt_cad_razao_social.getText());
+			cliente.setCnpj(txt_cad_cnpj.getText()); // cliente.setSegmento(box_cad_segmento.getSelectionModel().getSelectedItem().toString());
+			String segmento = box_cad_segmento.getSelectionModel().getSelectedItem().toString();
+			cliente.setSegmento(segmento);
+	
+			try {
+				dao.cadastrar(cliente);
+				exibiDialogoINFO("Cliente cadastrado com sucesso!");
+				txt_cad_razao_social.clear();
+				txt_cad_cnpj.clear();
+				box_cad_segmento.getSelectionModel().selectFirst();
+	
+			} catch (Exception e) {
+				// TODO: handle exception
+				exibiDialogoERRO("ERRO! Falha ao cadastrar cliente.");
+				e.printStackTrace();
+			}
 		}
-
 	}
 
 	@FXML
 	void btn_cad_limpar() {
-		txt_cad_razao_social.clear();
-		txt_cad_cnpj.clear();
+		
+		if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+			txt_cad_razao_social.clear();
+			txt_cad_cnpj.clear();
+			box_cad_segmento.getSelectionModel().selectFirst();
+		}
 	}
 
 	/// CONSULTAR / EXCLUIR CLIENTE///
@@ -179,7 +187,7 @@ public class CrudClienteController implements Initializable {
 			atualizar.setDisable(false);
 			txt_att_razao_social.setText(clienteSelecionado.getRazao_social());
 			txt_att_cnpj.setText(clienteSelecionado.getCnpj());
-			// box_cad_segmento.setPromptText(clienteSelecionado.getSegmento());
+			box_att_segmento.setPromptText(clienteSelecionado.getSegmento());
 		}
 
 	}
@@ -188,11 +196,11 @@ public class CrudClienteController implements Initializable {
 	@FXML
 	void btn_consulta_deletar() {
 		if (table_cliente.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("N�o h� cliente selecionado");
+			exibiDialogoERRO("Não há cliente selecionado");
 
 		} else {
 
-			if (exibiDialogoConfirmacao("Confirmar a exclus�o do cliente selecionado?")) {
+			if (exibiDialogoConfirmacao("Confirmar a exclusão do cliente selecionado?")) {
 
 				try {
 					dao.deletar(table_cliente.getSelectionModel().getSelectedItem().getId_cliente());
@@ -210,31 +218,35 @@ public class CrudClienteController implements Initializable {
 	/// ATUALIZAR CLIENTE///
 	@FXML
 	void btn_att_limpar() {
-
+		if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+			txt_att_razao_social.clear();
+			txt_att_cnpj.clear();
+			box_att_segmento.getSelectionModel().selectFirst();
+		}
 	}
 
 	@FXML
 	void btn_att_salvar() {
-		clienteSelecionado = table_cliente.getSelectionModel().getSelectedItem();
-
-		clienteSelecionado.setCnpj(txt_att_cnpj.getText());
-		clienteSelecionado.setRazao_social(txt_att_razao_social.getText());
-		String segmento = box_att_segmento.getSelectionModel().getSelectedItem().toString();
-		clienteSelecionado.setSegmento(segmento);
-		try {
-			dao.atualizar(clienteSelecionado);
-			exibiDialogoINFO("Cliente atualizado com sucesso!");
-			abas.getSelectionModel().select(consultar);
-		} catch (Exception e) {
-			exibiDialogoERRO("ERRO! Falha ao atualizar.");
-
+		if(txt_att_razao_social.getText().equals("") || txt_att_cnpj.getLength() != 14) {
+			exibiDialogoERRO("ERRO! Por favor, insira todos os campos corretamente.");
+		}else {
+			clienteSelecionado = table_cliente.getSelectionModel().getSelectedItem();
+	
+			clienteSelecionado.setCnpj(txt_att_cnpj.getText());
+			clienteSelecionado.setRazao_social(txt_att_razao_social.getText());
+			String segmento = box_att_segmento.getSelectionModel().getSelectedItem().toString();
+			clienteSelecionado.setSegmento(segmento);
+			try {
+				dao.atualizar(clienteSelecionado);
+				exibiDialogoINFO("Cliente atualizado com sucesso!");
+				abas.getSelectionModel().select(consultar);
+				btn_consulta_cnpj();
+				atualizar.setDisable(true);
+			} catch (Exception e) {
+				exibiDialogoERRO("ERRO! Falha ao atualizar.");
+	
+			}
 		}
-	}
-
-	private void limparCadastroAtualizarCliente() {
-		txt_att_razao_social.clear();
-		txt_att_cnpj.clear();
-
 	}
 
 	/// GERENCIAR ABAS///
@@ -248,7 +260,7 @@ public class CrudClienteController implements Initializable {
 
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Informa��o");
+		alert.setTitle("Informação");
 		alert.setHeaderText(null);
 		alert.setContentText(informacao);
 
@@ -258,7 +270,7 @@ public class CrudClienteController implements Initializable {
 
 	void exibiDialogoERRO(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Informa��o");
+		alert.setTitle("Informação");
 		alert.setHeaderText(null);
 		alert.setContentText(erro);
 
@@ -268,7 +280,7 @@ public class CrudClienteController implements Initializable {
 
 	private boolean exibiDialogoConfirmacao(String confirmacao) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirma��o");
+		alert.setTitle("Confirmação");
 		alert.setHeaderText(null);
 		alert.setContentText(confirmacao);
 

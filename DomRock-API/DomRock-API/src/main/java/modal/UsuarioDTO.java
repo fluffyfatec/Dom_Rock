@@ -55,4 +55,14 @@ public class UsuarioDTO {
 		
 	}
 	
+	
+	// CONTROLE FECHAR TELA LOGIN
+	private Integer controle;
+	public Integer getControle() {
+		return controle;
+	}
+	public void setControle(Integer controle) {
+		this.controle = controle;
+	}
+	
 }
