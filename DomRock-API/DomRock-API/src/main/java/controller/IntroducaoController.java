@@ -107,11 +107,16 @@ public class IntroducaoController implements Initializable {
 		stage.show();
 	    }
 	
-	//VAI PARA TELA LOGON
+	//VAI PARA TELA Login
+	@FXML private javafx.scene.control.Button btnSair;
+	
 	@FXML
 	void btnSair( ) {
+		Stage stage = (Stage) btnSair.getScene().getWindow(); //Obtendo a janela atual
+        stage.close();
+		
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("/view/Logon.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("/view/Login.fxml"));
 		Scene scene = null;
 		try {
 			scene = new Scene(fxmlLoader.load(), 367, 297);
@@ -120,9 +125,9 @@ public class IntroducaoController implements Initializable {
 			ex.printStackTrace();
 		}
 
-		Stage stage = new Stage();
-		stage.setTitle(" Logon - Dom Rock");
+		stage.setTitle(" Login - Dom Rock");
 		stage.setResizable(false);
+		stage.setMaximized(false);
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
 		stage.show();
