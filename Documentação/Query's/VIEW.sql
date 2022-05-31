@@ -22,7 +22,7 @@ SELECT usu.id_usuario AS id_usuario,
 		(CONCAT(UPPER(SUBSTRING(usu.nome, 1, 1)) , LOWER(SUBSTRING(usu.nome, 2, 80)))) AS nome,
 		(CONCAT(UPPER(SUBSTRING(usu.funcao, 1, 1)) , LOWER(SUBSTRING(usu.funcao, 2, 80)))) AS funcao,
 		usu.usuario AS usuario,
-		REPLACE(usu.senha, usu.senha, '**********') AS senha
+		REPLACE(usu.senha, usu.senha, '****') AS senha
 FROM Usuario usu;
 
 
@@ -116,8 +116,7 @@ ON cp.id_cliente_produto = fd.id_cliente_produto
 WHERE cp.id_cliente = 1
 
 
-DROP VIEW view_bronze;
-
+DROP VIEW view_cliente_core;
 
 CREATE VIEW view_cliente_core AS
 SELECT prod.nm_produto, cc.recurso , cp.id_cliente AS id_cliente FROM ClienteProduto_Core cpc
@@ -133,3 +132,21 @@ SELECT nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 1 ORDER BY 
 WHERE cp.id_cliente = 1
 ORDER BY 1, 2 ASC
 
+
+
+
+DROP VIEW view_cliente_funcionalidade;
+CREATE VIEW view_cliente_funcionalidade AS
+SELECT prod.nm_produto, func.nm_funcionalidade, cp.id_cliente AS id_cliente, cp.id_cliente_produto FROM ClienteProduto_Funcionalidade cpf
+INNER JOIN Funcionalidade func
+	ON func.id_funcionalidade = cpf.id_funcionalidade
+INNER JOIN Cliente_Produto cp
+	ON cp.id_cliente_produto = cpf.id_cliente_produto
+INNER JOIN Produto prod
+	ON prod.id_produto = cp.id_produto
+
+
+
+SELECT nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 1 ORDER BY nm_produto ASC
+
+SELECT id_cliente_produto, nm_produto, nm_funcionalidade FROM view_cliente_funcionalidade WHERE id_cliente = ? ORDER BY nm_produto ASC
