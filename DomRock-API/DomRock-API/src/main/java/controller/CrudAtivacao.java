@@ -68,19 +68,23 @@ public class CrudAtivacao implements Initializable {
 	@FXML
 	private TableView<EscopoTabelaCore> TabelaCore;
 	@FXML
-	private TableColumn<EscopoTabelaCore, String> colCore;
+	private TableColumn<EscopoTabelaCore, String> colIdClienteCore;
+	@FXML
+	private TableColumn<EscopoTabelaCore, String> colCore; 
 	@FXML
 	private TableColumn<EscopoTabelaCore, String> colNomeProduto;
 
-	
+	// teste
 	@FXML
 	private TableView<EscopoTabelaFuncionalidades> TabelaFuncionalidade;
+	@FXML
+	private TableColumn<EscopoTabelaFuncionalidades, String> colFuncionalidade;
 
 	@FXML
 	private TableColumn<EscopoTabelaFuncionalidades, String> colIdProdutoFuncionalidade;
 	
 	@FXML
-	private TableColumn<EscopoTabelaFuncionalidades, String> colFuncionalidade;
+	private TableColumn<EscopoTabelaFuncionalidades, String> colIdCliente;
 	@FXML
 	private Tab escopo;
 
@@ -228,7 +232,7 @@ public class CrudAtivacao implements Initializable {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	/// COMEï¿½O DO CODIGO///
+	/// COMEÃ‡O DO CODIGO///
 
 	public void initialize(URL url, ResourceBundle rb) {
 
@@ -266,23 +270,6 @@ public class CrudAtivacao implements Initializable {
 		boxSistema.setItems(listSistema);
 
 		boxSistema.getSelectionModel().selectFirst();
-
-		// Populando o Core
-		ObservableList<String> listcore = FXCollections.observableArrayList("Web App", "API", "Gateway", "Filas",
-				"Step Function", "Lambda", "Fargate", "Containers", "S3", "Mongodb", "Parquet", "Quicksight",
-				"Cloudwatch");
-
-		boxCore.setItems(listcore);
-
-		boxCore.getSelectionModel().selectFirst();
-
-		// Populando Funcionalidades
-		ObservableList<String> listfuncionalidades = FXCollections.observableArrayList("Painéis por soluções",
-				"Busca (NLP)", "Gerador de Relatório", "Gerador de Data Lake");
-
-		boxFuncionalidadeEscopo.setItems(listfuncionalidades);
-
-		boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
 		
 		// Tabela bronze
 		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
@@ -300,18 +287,21 @@ public class CrudAtivacao implements Initializable {
 		List<EscopoTabelaCore> addcore = new ArrayList<EscopoTabelaCore>();
 		addcoreativacao = FXCollections.observableList(addcore);
 		
+		colIdClienteCore.setCellValueFactory(new PropertyValueFactory<>("idclienteproduto"));
 		colNomeProduto.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colCore.setCellValueFactory(new PropertyValueFactory<>("core"));
 		
 		TabelaCore.setItems(addcoreativacao);
+		
 		// Tabela Funcionalidades
 		List<EscopoTabelaFuncionalidades> addfun = new ArrayList<EscopoTabelaFuncionalidades>();
 		addfunativacao = FXCollections.observableList(addfun);
 		
+		colIdCliente.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colIdProdutoFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("funcionalidades"));
 		
-		TabelaFuncionalidade.setItems(addfunativacao);
+		TabelaFuncionalidade.setItems(addfunativacao);	
 	}
 
 	@FXML
@@ -325,12 +315,12 @@ public class CrudAtivacao implements Initializable {
 		
 		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
 
-		addcoreativacao.add(obj);
+		addcoreativacao.add(obj);	
 	}
 
 	@FXML
 	void btnAddTabelaFuncionalidade() {
-
+		
 		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
 		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
 		String IdCliente = txtIdCliente.getText();
@@ -416,7 +406,18 @@ public class CrudAtivacao implements Initializable {
 		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois,IdCliente);
 		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
 		
-		// CRUD Descrições
+		// Popular lista Core 
+		ObservableList<String> boxcores = FXCollections.observableArrayList();
+		objescopoDTO = dao.selectcore(boxcores);
+		boxCore.setItems(objescopoDTO.boxcores);
+		
+		//Popular lista Funcionalidade 
+		
+		ObservableList<String> boxfuncionalidade = FXCollections.observableArrayList();
+		objescopoDTO = dao.select(boxfuncionalidade);
+		boxFuncionalidadeEscopo.setItems(objescopoDTO.boxfuncionalidade);
+		
+		// CRUD DescrÃ§Ãµes
 		objescopoDTO = dao.consultadescritivo(IdCliente);
 		txteMinimos.setText(objescopoDTO.getEntregaveisMinimos());
 		txtObjNegocio.setText(objescopoDTO.getObjNegocios());
@@ -443,6 +444,35 @@ public class CrudAtivacao implements Initializable {
 		}
 		if (crudprodutolist.contains("Matching & Risk")){
 			produtoMatching.setSelected(true);
+		}
+		
+		List<EscopoDTO> core = new ArrayList<>();
+		System.out.println(core);
+		try {
+			List<EscopoTabelaCore> resultado  = dao.consultarCore(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaCore.setItems(FXCollections.observableArrayList(resultado));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a consulta!");
+			e.printStackTrace();
+		}
+		
+		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
+		System.out.println(funcionalidade);
+		try {
+			List<EscopoTabelaFuncionalidades> resultado  = dao.consultarFuncionalidades(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a consulta!");
+			e.printStackTrace();
 		}
 	}
 	
@@ -625,7 +655,7 @@ public class CrudAtivacao implements Initializable {
 
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Informaï¿½ï¿½o");
+		alert.setTitle("InformaÃ§Ã£o");
 		alert.setHeaderText(null);
 		alert.setContentText(informacao);
 
@@ -635,7 +665,7 @@ public class CrudAtivacao implements Initializable {
 
 	void exibiDialogoERRO(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Informaï¿½ï¿½o");
+		alert.setTitle("Erro");
 		alert.setHeaderText(null);
 		alert.setContentText(erro);
 
@@ -645,10 +675,9 @@ public class CrudAtivacao implements Initializable {
 
 	private boolean exibiDialogoConfirmacao(String confirmacao) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmaï¿½ï¿½o");
+		alert.setTitle("ConfirmaÃ§Ã£o");
 		alert.setHeaderText(null);
 		alert.setContentText(confirmacao);
-
 		Optional<ButtonType> opcao = alert.showAndWait();
 
 		if (opcao.get() == ButtonType.OK)

@@ -3,8 +3,14 @@ package modal;
 public class EscopoTabelaCore {
 String core;
 String nmproduto;
+Integer idclienteproduto;
 
-
+public Integer getIdclienteproduto() {
+	return idclienteproduto;
+}
+public void setIdclienteproduto(Integer idclienteproduto) {
+	this.idclienteproduto = idclienteproduto;
+}
 public String getCore() {
 	return core;
 }
@@ -20,6 +26,9 @@ public void setNmproduto(String nmproduto) {
 public EscopoTabelaCore(String core, String nmproduto) {
 	this.core = core;
 	this.nmproduto = nmproduto;
+}
+public EscopoTabelaCore() {
+	// TODO Auto-generated constructor stub
 }
 
 

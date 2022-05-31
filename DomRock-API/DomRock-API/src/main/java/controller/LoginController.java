@@ -60,9 +60,8 @@ public class LoginController {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-
 		stage.setTitle("Sistema de Gerenciamento de Clientes - Dom Rock");
-		stage.setResizable(false);
+		stage.setResizable(true);
 		stage.setMaximized(true);
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
@@ -70,5 +69,6 @@ public class LoginController {
 
 	}
     
+   
 }
     

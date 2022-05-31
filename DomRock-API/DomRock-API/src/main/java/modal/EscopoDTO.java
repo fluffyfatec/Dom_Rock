@@ -25,6 +25,8 @@ public class EscopoDTO {
 	private String funcionalidades;
 	public ObservableList<String> boxprodutocliente;
 	public ObservableList<String> boxprodutoclientedois;
+	public ObservableList<String> boxfuncionalidade;
+	public ObservableList<String> boxcores;
 
 
 
