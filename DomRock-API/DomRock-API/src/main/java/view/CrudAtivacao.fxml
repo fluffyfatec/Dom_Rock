@@ -189,16 +189,16 @@
                                           </GridPane>
                                           <TableView fx:id="TabelaCore" layoutX="36.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.leftAnchor="36.0">
                                             <columns>
-                                                <TableColumn fx:id="colIdClienteCore" prefWidth="52.000030517578125" text="ID" />
-                                              <TableColumn fx:id="colNomeProduto" minWidth="89.60000610351562" prefWidth="145.59996795654297" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="ID Produto" />
-                                              <TableColumn fx:id="colCore" minWidth="22.399993896484375" prefWidth="148.800048828125" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Core" />
+                                                <TableColumn fx:id="colIdClienteCore" prefWidth="52.000030517578125" text="ID" visible="false" />
+                                              <TableColumn fx:id="colNomeProduto" minWidth="89.60000610351562" prefWidth="175.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="ID Produto" />
+                                              <TableColumn fx:id="colCore" minWidth="22.399993896484375" prefWidth="173.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Core" />
                                             </columns>
                                           </TableView>
                                           <TableView fx:id="TabelaFuncionalidade" layoutX="534.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.rightAnchor="34.0">
                                              <columns>
-                                                <TableColumn fx:id="colIdCliente" prefWidth="48.799989223480225" text="ID" />
-                                                <TableColumn fx:id="colIdProdutoFuncionalidade" minWidth="134.3999252319336" prefWidth="150.39998626708984" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Produto" />
-                                                <TableColumn fx:id="colFuncionalidade" maxWidth="213.60015869140625" minWidth="112.0" prefWidth="148.79998779296875" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Funcionalidade" />
+                                                <TableColumn fx:id="colIdCliente" prefWidth="48.799989223480225" text="ID" visible="false" />
+                                                <TableColumn fx:id="colIdProdutoFuncionalidade" minWidth="134.3999252319336" prefWidth="175.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Produto" />
+                                                <TableColumn fx:id="colFuncionalidade" maxWidth="213.60015869140625" minWidth="112.0" prefWidth="173.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Funcionalidade" />
                                              </columns>
                                           </TableView>
                                           <Button layoutX="355.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaCore" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;">
@@ -243,7 +243,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDos" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -258,7 +258,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
