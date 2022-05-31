@@ -339,7 +339,7 @@ public class CrudAtivacao implements Initializable {
 	}
 
 	@FXML
-	void btnLimparEscopoDois() {
+	void btnEditarEscopoDois() {
 
 	}
 
@@ -400,24 +400,28 @@ public class CrudAtivacao implements Initializable {
 		EscopoDAO dao = new EscopoDAO();
 		objescopoDTO = dao.consultaboxproduto(boxprodutocliente,IdCliente);
 		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
+		boxProdutoIdEscopo.getSelectionModel().selectFirst();
 		
 		//Popular lista produto cliente 2
 		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
 		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois,IdCliente);
 		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
+		boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
 		
 		// Popular lista Core 
 		ObservableList<String> boxcores = FXCollections.observableArrayList();
 		objescopoDTO = dao.selectcore(boxcores);
 		boxCore.setItems(objescopoDTO.boxcores);
+		boxCore.getSelectionModel().selectFirst();
 		
 		//Popular lista Funcionalidade 
 		
 		ObservableList<String> boxfuncionalidade = FXCollections.observableArrayList();
 		objescopoDTO = dao.select(boxfuncionalidade);
 		boxFuncionalidadeEscopo.setItems(objescopoDTO.boxfuncionalidade);
+		boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
 		
-		// CRUD Descrções
+		// CRUD Descritivos
 		objescopoDTO = dao.consultadescritivo(IdCliente);
 		txteMinimos.setText(objescopoDTO.getEntregaveisMinimos());
 		txtObjNegocio.setText(objescopoDTO.getObjNegocios());
@@ -574,7 +578,9 @@ public class CrudAtivacao implements Initializable {
 
 	@FXML
 	void btnLimparCliente() {
-
+	txtCnpj.clear();
+	txtIdCliente.clear();
+	txtNome.clear();
 	}
 
 	@FXML
