@@ -305,7 +305,7 @@ public class CrudAtivacao implements Initializable {
 	}
 
 	@FXML
-	void btnAddTabelaCore() {
+	void btnAddTabelaCore() {		
 		String nmproduto = boxProdutoIdEscopo.getSelectionModel().getSelectedItem().toString();
 		String core = boxCore.getSelectionModel().getSelectedItem().toString();
 		String IdCliente = txtIdCliente.getText();
@@ -478,6 +478,10 @@ public class CrudAtivacao implements Initializable {
 			exibiDialogoERRO("Falha ao realizar a consulta!");
 			e.printStackTrace();
 		}
+		
+		colIdClienteCore.setVisible(true);
+		colIdCliente.setVisible(true);
+		
 	}
 	
     @FXML
@@ -570,24 +574,50 @@ public class CrudAtivacao implements Initializable {
 	void btnCadastrarSilver() {
 
 	}
+	
+	@FXML
+	void btnLimparEscopoDois() {
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		}
+	}
 
 	@FXML
 	void btnLimparBronze() {
-
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		}
 	}
 
 	@FXML
 	void btnLimparCliente() {
-	txtCnpj.clear();
-	txtIdCliente.clear();
-	txtNome.clear();
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			txtCnpj.clear();
+			txtIdCliente.clear();
+			txtNome.clear();
+			txteMinimos.clear();
+			txtObjNegocio.clear();
+			txtePossiveis.clear();
+			produtoOptimization.setSelected(false);
+			produtoMatching.setSelected(false);
+			produtoVox.setSelected(false);
+			produtoPricing.setSelected(false);
+			produtoMarketing.setSelected(false);
+			produtoSales.setSelected(false);
+		}
 	}
 
 	@FXML
 	void btnLimparEscopo() {
-		txteMinimos.clear();
-		txtObjNegocio.clear();
-		txtePossiveis.clear();
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			txteMinimos.clear();
+			txtObjNegocio.clear();
+			txtePossiveis.clear();
+			produtoOptimization.setSelected(false);
+			produtoMatching.setSelected(false);
+			produtoVox.setSelected(false);
+			produtoPricing.setSelected(false);
+			produtoMarketing.setSelected(false);
+			produtoSales.setSelected(false);
+		}
 	}
 
 	// Bronze
@@ -656,6 +686,8 @@ public class CrudAtivacao implements Initializable {
 
 	@FXML
 	void btnLimparSilver() {
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		}
 
 	}
 
