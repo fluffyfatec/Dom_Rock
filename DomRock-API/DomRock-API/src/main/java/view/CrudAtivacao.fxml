@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacao">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacao">
 	<children>
 		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -67,7 +67,7 @@
                                                 </ImageView>
                                              </graphic>
                                              <tooltip>
-                                                <Tooltip fx:id="toolConsultar1" text="Apagar" />
+                                                <Tooltip fx:id="toolConsultar1" text="Limpar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -88,7 +88,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnAtualizarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -96,7 +96,7 @@
                                                    </image></ImageView>
                                              </graphic>
                                              <tooltip>
-                                                <Tooltip fx:id="toolConsultar112" text="Cadastrar" />
+                                                <Tooltip fx:id="toolConsultar112" text="Editar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -163,7 +163,7 @@
                                     </AnchorPane>
                               </content>
                             </Tab>
-                            <Tab style="-fx-background-color: #2d343a; -fx-text-base-color: white; -fx-opacity: adriana_filhadaputa;" text="Funcionalidade / Core">
+                            <Tab style="-fx-background-color: #2d343a; -fx-text-base-color: white;" text="Funcionalidade / Core">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -177,8 +177,14 @@
                                                 <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="boxProdutoIdEscopoDois" onAction="#boxProdutoIdEscopoDois" prefWidth="150.0" style="-fx-base: #21252a;" />
-                                                <ComboBox fx:id="boxFuncionalidadeEscopo" maxWidth="150.0" minWidth="150.0" onAction="#boxFuncionalidadeEscopo" prefWidth="150.0" style="-fx-base: #21252a;" GridPane.columnIndex="2" />
+                                                <ComboBox fx:id="boxProdutoIdEscopoDois" onAction="#boxProdutoIdEscopoDois" prefWidth="150.0" style="-fx-base: #21252a;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ComboBox>
+                                                <ComboBox fx:id="boxFuncionalidadeEscopo" maxWidth="150.0" minWidth="150.0" onAction="#boxFuncionalidadeEscopo" prefWidth="150.0" style="-fx-base: #21252a;" GridPane.columnIndex="2">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ComboBox>
                                              </children>
                                           </GridPane>
                                           <TableView fx:id="TabelaCore" layoutX="36.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.leftAnchor="36.0">
@@ -221,7 +227,7 @@
                                              <tooltip>
                                                 <Tooltip text="Adicionar a Tabela" />
                                              </tooltip></Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -229,13 +235,13 @@
                                                    </image></ImageView>
                                              </graphic>
                                              <tooltip>
-                                                <Tooltip fx:id="toolConsultar11" text="Apagar" />
+                                                <Tooltip fx:id="toolConsultar11" text="Editar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -244,13 +250,13 @@
                                                 </ImageView>
                                              </graphic>
                                              <tooltip>
-                                                <Tooltip fx:id="toolConsultar112" text="Cadastrar" />
+                                                <Tooltip fx:id="toolConsultar112" text="Limpar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -275,8 +281,14 @@
                                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="boxProdutoIdEscopo" onAction="#boxProdutoIdEscopo" prefWidth="150.0" style="-fx-base: #21252a;" />
-                                                <ComboBox fx:id="boxCore" onAction="#boxCore" prefWidth="150.0" style="-fx-base: #21252a;" GridPane.columnIndex="2" />
+                                                <ComboBox fx:id="boxProdutoIdEscopo" onAction="#boxProdutoIdEscopo" prefWidth="150.0" style="-fx-base: #21252a;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ComboBox>
+                                                <ComboBox fx:id="boxCore" onAction="#boxCore" prefWidth="150.0" style="-fx-base: #21252a;" GridPane.columnIndex="2">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ComboBox>
                                              </children>
                                           </GridPane>
                                           <Line endX="-74.0" layoutX="882.0" startX="-881.0" stroke="#b5b5b5" />
@@ -387,7 +399,7 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar121" text="Apagar" />
+                              <Tooltip fx:id="toolConsultar121" text="Limpar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -477,7 +489,7 @@
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar12" text="Apagar" />
+                              <Tooltip fx:id="toolConsultar12" text="Limpar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="392.0" prefWidth="704.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudClienteController">
+<AnchorPane prefHeight="392.0" prefWidth="704.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudClienteController">
    <children>
       <TabPane fx:id="abas" layoutY="15.0" onMouseClicked="#gerenciarAbas" prefHeight="335.0" prefWidth="704.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
         <tabs>
@@ -32,7 +34,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Limpar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Button layoutX="72.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btn_cad_salvar" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -40,7 +48,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <GridPane layoutX="33.0" layoutY="104.0" prefHeight="122.0" prefWidth="363.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="400.0" prefWidth="306.0" />
@@ -73,7 +87,10 @@
                                     <ComboBox fx:id="box_cad_segmento" prefHeight="25.0" prefWidth="209.0" style="-fx-base: #21252a;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                        <GridPane.margin>
                                           <Insets left="5.0" />
-                                       </GridPane.margin></ComboBox>
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></ComboBox>
                                     <Label prefHeight="17.0" prefWidth="75.0" text="Segmento" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets left="5.0" />
@@ -105,7 +122,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <tooltip>
+                              <Tooltip text="Buscar" />
+                           </tooltip></Button>
                         <TableView fx:id="table_cliente" layoutX="30.0" layoutY="103.0" prefHeight="231.0" prefWidth="625.0" style="-fx-base: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-background-color: #21252a;" stylesheets="@Styles.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="103.0">
                           <columns>
                             <TableColumn fx:id="table_cliente_id" editable="false" maxWidth="656.0" minWidth="-1.0" prefWidth="30.0" style="-fx-text-fill: white; -fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="ID" />
@@ -122,7 +145,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/trash.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Deletar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Button layoutX="30.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btn_consulta_atualizar" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;" AnchorPane.leftAnchor="30.0">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -130,7 +159,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/pen-to-square.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Editar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -140,7 +175,10 @@
                      <children>
                         <TextField fx:id="txt_att_razao_social" layoutX="30.0" layoutY="119.0" prefHeight="27.0" prefWidth="400.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" />
                         <TextField fx:id="txt_att_cnpj" layoutX="30.0" layoutY="193.0" minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-text-fill: white;" />
-                        <ComboBox fx:id="box_att_segmento" layoutX="238.0" layoutY="193.0" prefHeight="25.0" prefWidth="193.0" style="-fx-base: #21252a;" />
+                        <ComboBox fx:id="box_att_segmento" layoutX="238.0" layoutY="193.0" prefHeight="25.0" prefWidth="193.0" style="-fx-base: #21252a;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ComboBox>
                         <Button layoutX="30.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btn_att_limpar" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -148,7 +186,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Limpar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Button layoutX="72.0" layoutY="56.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btn_att_salvar" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #21252a;">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -156,7 +200,13 @@
                                     <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
                                  </image>
                               </ImageView>
-                           </graphic></Button>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Label layoutX="30.0" layoutY="97.0" prefHeight="17.0" prefWidth="82.0" text="Razão Social" textFill="WHITE" />
                         <Label layoutX="30.0" layoutY="171.0" prefHeight="17.0" prefWidth="38.0" text="CNPJ" textFill="WHITE" />
                         <Label layoutX="242.0" layoutY="171.0" prefHeight="17.0" prefWidth="71.0" text="Segmento" textFill="WHITE" />
