@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacao">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacao">
 	<children>
 		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -523,6 +523,56 @@
                      </children>
                   </AnchorPane>
               </content>
+            </Tab>
+            <Tab style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Gold">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c3338" height="33.0" layoutX="36.0" layoutY="245.0" stroke="#6c6c6c" strokeType="INSIDE" width="125.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c3338" height="33.0" layoutX="37.0" layoutY="99.0" stroke="#6c6c6c" strokeType="INSIDE" width="125.0" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparGold" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar122" text="Limpar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnCadastrarGold" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarGold" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar1111" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <CheckBox layoutX="44.0" layoutY="104.0" mnemonicParsing="false" text="Matching" textFill="WHITE" AnchorPane.leftAnchor="44.0" />
+                        <CheckBox layoutX="44.0" layoutY="252.0" mnemonicParsing="false" text="Série Temporal" textFill="WHITE" AnchorPane.leftAnchor="44.0" />
+                        <TextArea layoutX="37.0" layoutY="127.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" AnchorPane.leftAnchor="37.0" />
+                        <TextArea layoutX="36.0" layoutY="276.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c3338" height="33.0" layoutX="471.0" layoutY="245.0" stroke="#6c6c6c" strokeType="INSIDE" width="125.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c3338" height="33.0" layoutX="471.0" layoutY="99.0" stroke="#6c6c6c" strokeType="INSIDE" width="125.0" />
+                        <CheckBox layoutX="478.0" layoutY="104.0" mnemonicParsing="false" text="Join" textFill="WHITE" />
+                        <CheckBox layoutX="478.0" layoutY="252.0" mnemonicParsing="false" text="Agregação" textFill="WHITE" />
+                        <TextArea layoutX="471.0" layoutY="127.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" AnchorPane.rightAnchor="45.0" />
+                        <TextArea layoutX="471.0" layoutY="276.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" AnchorPane.rightAnchor="45.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
 			</tabs>
 		</TabPane>
