@@ -120,6 +120,7 @@ public EscopoDTO consultaboxproduto(ObservableList<String> boxprodutocliente, St
 		}
 		objescopoDTO.boxprodutocliente = FXCollections.observableArrayList(gambiarralist);
 		objescopoDTO.boxprodutoclientedois = FXCollections.observableArrayList(gambiarralist);
+		objescopoDTO.boxprodutobronze = FXCollections.observableArrayList(gambiarralist);
 
 		return objescopoDTO;
 		}

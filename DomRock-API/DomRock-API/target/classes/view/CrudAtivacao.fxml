@@ -189,16 +189,16 @@
                                           </GridPane>
                                           <TableView fx:id="TabelaCore" layoutX="36.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.leftAnchor="36.0">
                                             <columns>
-                                                <TableColumn fx:id="colIdClienteCore" prefWidth="52.000030517578125" text="ID" />
-                                              <TableColumn fx:id="colNomeProduto" minWidth="89.60000610351562" prefWidth="145.59996795654297" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="ID Produto" />
-                                              <TableColumn fx:id="colCore" minWidth="22.399993896484375" prefWidth="148.800048828125" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Core" />
+                                                <TableColumn fx:id="colIdClienteCore" prefWidth="52.000030517578125" text="ID" visible="false" />
+                                              <TableColumn fx:id="colNomeProduto" minWidth="89.60000610351562" prefWidth="175.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="ID Produto" />
+                                              <TableColumn fx:id="colCore" minWidth="22.399993896484375" prefWidth="173.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Core" />
                                             </columns>
                                           </TableView>
                                           <TableView fx:id="TabelaFuncionalidade" layoutX="534.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.rightAnchor="34.0">
                                              <columns>
-                                                <TableColumn fx:id="colIdCliente" prefWidth="48.799989223480225" text="ID" />
-                                                <TableColumn fx:id="colIdProdutoFuncionalidade" minWidth="134.3999252319336" prefWidth="150.39998626708984" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Produto" />
-                                                <TableColumn fx:id="colFuncionalidade" maxWidth="213.60015869140625" minWidth="112.0" prefWidth="148.79998779296875" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Funcionalidade" />
+                                                <TableColumn fx:id="colIdCliente" prefWidth="48.799989223480225" text="ID" visible="false" />
+                                                <TableColumn fx:id="colIdProdutoFuncionalidade" minWidth="134.3999252319336" prefWidth="174.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Produto" />
+                                                <TableColumn fx:id="colFuncionalidade" maxWidth="213.60015869140625" minWidth="112.0" prefWidth="174.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Funcionalidade" />
                                              </columns>
                                           </TableView>
                                           <Button layoutX="355.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaCore" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;">
@@ -229,7 +229,7 @@
                                              <tooltip>
                                                 <Tooltip text="Adicionar a Tabela" />
                                              </tooltip></Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnEditarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -243,7 +243,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnEditarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="36.0">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -258,7 +258,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -407,16 +407,31 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCadastrarBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="77.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnCadastrarBronze" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntConsultaBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar1111" text="Cadastrar" />
+                              <Tooltip fx:id="toolConsultar1211" text="Limpar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntDeletarBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar12111" text="Limpar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -430,21 +445,16 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="36.0" layoutY="326.0" prefHeight="50.0" prefWidth="409.0">
+                        <GridPane layoutX="529.0" layoutY="323.0" prefHeight="30.0" prefWidth="208.0">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
                           </columnConstraints>
                           <rowConstraints>
-                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdcSilver" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                              <Button maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdcSilver" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" GridPane.columnIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -458,21 +468,17 @@
                                  <tooltip>
                                     <Tooltip text="Adicionar" />
                                  </tooltip></Button>
-                              <TextField fx:id="txtValidador" prefHeight="27.0" prefWidth="314.0" promptText="Validador" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-prompt-text-fill: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Validador" wrappingWidth="76.00003051757812" GridPane.columnIndex="2" />
-                              <CheckBox fx:id="ckbObrigatorio" mnemonicParsing="false" text="Obrigatório" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                              <CheckBox fx:id="ckbObrigatorio" mnemonicParsing="false" text="Obrigatório" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <TextField fx:id="txtIdFonteDados" layoutX="111.0" layoutY="32.0" prefHeight="27.0" prefWidth="314.0" promptText="ID Fonte de dados" style="-fx-text-fill: white; -fx-background-color: #21252a; -fx-border-color: #6c6c6c; -fx-border-radius: 5; -fx-prompt-text-fill: gray;" GridPane.rowIndex="1" />
-                              <Text fill="WHITE" layoutX="111.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Fonte de dados" wrappingWidth="122.00003051757812" />
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaSilver" layoutX="36.0" layoutY="92.0" prefHeight="222.0" prefWidth="746.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css">
+                        <TableView fx:id="tabelaSilver" layoutX="36.0" layoutY="92.0" prefHeight="222.0" prefWidth="454.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles.css" AnchorPane.leftAnchor="36.0">
                           <columns>
-                              <TableColumn fx:id="colIdFonteSilver" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text=" ID Fonte de dados" />
+                              <TableColumn fx:id="colIdFonte" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Id Fonte" />
                             <TableColumn fx:id="colProdutoSilver" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
-                            <TableColumn fx:id="colOrigemSilver" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem do dado" />
+                            <TableColumn fx:id="colOrigemSilver" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem" />
                               <TableColumn fx:id="colFormatoSilver" prefWidth="151.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Formato" />
                               <TableColumn fx:id="colVolumeSilver" minWidth="0.0" prefWidth="122.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Volume" />
                               <TableColumn fx:id="colFrequenciaSilver" prefWidth="123.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Frequência" />
@@ -512,6 +518,8 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <TextArea fx:id="txtValidador" layoutX="533.0" layoutY="115.0" prefHeight="200.0" prefWidth="251.0" style="-fx-control-inner-background: #21252a; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10;" AnchorPane.rightAnchor="36.0" />
+                        <Label layoutX="529.0" layoutY="92.0" text="Validador" textFill="WHITE" />
                      </children>
                   </AnchorPane>
               </content>

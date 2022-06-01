@@ -9,10 +9,7 @@ public class BronzeDTO {
 	private String volume;
 	private String nomeProduto;
 	private String idCliente;
-	private int idOrigem;
-	private int idFormato;
-	private int idSistema;
-	private int idProduto;
+	
 
 	public String getIdCliente() {
 		return idCliente;
@@ -20,38 +17,6 @@ public class BronzeDTO {
 
 	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
-	}
-
-	public int getIdProduto() {
-		return idProduto;
-	}
-
-	public void setIdProduto(int idProduto) {
-		this.idProduto = idProduto;
-	}
-
-	public int getIdOrigem() {
-		return idOrigem;
-	}
-
-	public void setIdOrigem(int idOrigem) {
-		this.idOrigem = idOrigem;
-	}
-
-	public int getIdFormato() {
-		return idFormato;
-	}
-
-	public void setIdFormato(int idFormato) {
-		this.idFormato = idFormato;
-	}
-
-	public int getIdSistema() {
-		return idSistema;
-	}
-
-	public void setIdSistema(int idSistema) {
-		this.idSistema = idSistema;
 	}
 
 	public BronzeDTO() {

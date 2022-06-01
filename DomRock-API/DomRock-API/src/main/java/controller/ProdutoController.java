@@ -85,7 +85,7 @@ public class ProdutoController implements Initializable {
     
     void exibiDialogoERRO(String erro) {
     	Alert alert = new Alert(AlertType.ERROR);
-    	alert.setTitle("Informação");
+    	alert.setTitle("Informacao");
     	alert.setHeaderText(null);
     	alert.setContentText(erro);
     	

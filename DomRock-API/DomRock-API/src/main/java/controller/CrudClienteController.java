@@ -148,7 +148,7 @@ public class CrudClienteController implements Initializable {
 	@FXML
 	void btn_cad_limpar() {
 		
-		if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
 			txt_cad_razao_social.clear();
 			txt_cad_cnpj.clear();
 			box_cad_segmento.getSelectionModel().selectFirst();
@@ -181,7 +181,7 @@ public class CrudClienteController implements Initializable {
 
 		clienteSelecionado = table_cliente.getSelectionModel().getSelectedItem();
 		if (table_cliente.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("N�o h� cliente selecionado");
+			exibiDialogoERRO("Nao ha cliente selecionado");
 
 		} else {
 			atualizar.setDisable(false);
@@ -196,11 +196,11 @@ public class CrudClienteController implements Initializable {
 	@FXML
 	void btn_consulta_deletar() {
 		if (table_cliente.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("Não há cliente selecionado");
+			exibiDialogoERRO("Nao ha cliente selecionado");
 
 		} else {
 
-			if (exibiDialogoConfirmacao("Confirmar a exclusão do cliente selecionado?")) {
+			if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
 
 				try {
 					dao.deletar(table_cliente.getSelectionModel().getSelectedItem().getId_cliente());
@@ -218,7 +218,7 @@ public class CrudClienteController implements Initializable {
 	/// ATUALIZAR CLIENTE///
 	@FXML
 	void btn_att_limpar() {
-		if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
 			txt_att_razao_social.clear();
 			txt_att_cnpj.clear();
 			box_att_segmento.getSelectionModel().selectFirst();
@@ -260,7 +260,7 @@ public class CrudClienteController implements Initializable {
 
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Informação");
+		alert.setTitle("Informacao");
 		alert.setHeaderText(null);
 		alert.setContentText(informacao);
 
@@ -270,7 +270,7 @@ public class CrudClienteController implements Initializable {
 
 	void exibiDialogoERRO(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Informação");
+		alert.setTitle("Informacao");
 		alert.setHeaderText(null);
 		alert.setContentText(erro);
 
@@ -280,7 +280,7 @@ public class CrudClienteController implements Initializable {
 
 	private boolean exibiDialogoConfirmacao(String confirmacao) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmação");
+		alert.setTitle("Confirmacao");
 		alert.setHeaderText(null);
 		alert.setContentText(confirmacao);
 

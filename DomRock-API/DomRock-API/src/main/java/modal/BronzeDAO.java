@@ -1,52 +1,100 @@
 package modal;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.SQLException;
-	import java.sql.Statement;
-	import java.text.SimpleDateFormat;
-	import java.util.Calendar;
-	import java.util.List;
-	import javafx.collections.FXCollections;
-	import javafx.collections.ObservableList;
+public class BronzeDAO {
 
-	public class BronzeDAO {
-	    
-	/*	BronzeDTO idProduto;
-		Connection conn;
-		PreparedStatement stm;
+	Connection conn;
+	PreparedStatement stm;
 
-		public void cadastarBronze( BronzeDTO bronze ) throws SQLException {
+	public BronzeDTO cadastrorBronze(String nomeFormato, String nomeFrequencia, String nomeOrigem, String nomeSistema,
+			String volume, String nomeProduto, String IdCliente) {
+		BronzeDTO bronze = new BronzeDTO();
+		try (Connection conn = new ConnectionFactory().conectaBD()) {
+			stm = conn.prepareStatement(
+					"INSERT INTO Fonte_dado(volume , frequencia , id_cliente_produto, id_origem_dado, id_formato, id_sistema)"
+							+ "VALUES( ? , ? ," + "		(SELECT cp.id_cliente_produto FROM Cliente_Produto cp"
+							+ "		INNER JOIN Produto prod" + "		ON prod.id_produto = cp.id_produto"
+							+ "		WHERE cp.id_cliente = ?" + "		AND prod.nm_produto = ?)" + "		,"
+							+ "		(SELECT id_origem_dado FROM Origem_dado od" + "		WHERE od.desc_origem = ?)"
+							+ "		," + "		(SELECT fmt.id_formato FROM Formato fmt"
+							+ "		WHERE fmt.formato = ?)" + "		," + "		(SELECT sis.id_sistema FROM Sistema sis"
+							+ "		WHERE sis.sistema = ?)" + "	  )");
 
+			stm.setString(1, volume);
+			stm.setString(2, nomeFrequencia);
+			stm.setString(3, IdCliente);
+			stm.setString(4, nomeProduto);
+			stm.setString(5, nomeOrigem);
+			stm.setString(6, nomeFormato);
+			stm.setString(7, nomeSistema);
+			stm.execute();
+			stm.close();
 
-
-			
-
-				String cadastro = "INSERT INTO Fonte_Dado (id_cliente_produto" + "id_origem_dado," + "id_formato,"
-						+ "id_sistema," + "volume," + "frequencia) " + "values (?,?,?,?,?,?,?)";
-
-				try (Connection conn = new ConnectionFactory().conectaBD();
-						PreparedStatement stm = conn.prepareStatement(cadastro);) {
-					
-						
-						
-							stm.setInt(2,bronze.getIdOrigem());
-							stm.setInt(3,bronze.getIdFormato());
-							stm.setInt(4,bronze.getIdSistema());
-							stm.setString(5,bronze.getVolume());
-							stm.setString(6,bronze.getFormato());
-							stm.execute();
-						
-
-					}
-				} catch (SQLException e) {
-
-					throw new RuntimeException(e);
-				}*/
-
-			
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
+		return bronze;
+	}
 
+	public List<BronzeDTO> consultar(String IdCliente) throws SQLException {
+
+		List<BronzeDTO> tabelabronze = new ArrayList<>();
+
+		String sql = "SELECT nm_produto,desc_origem,formato,sistema,volume,frequencia FROM view_bronze WHERE id_cliente = ?";
+
+		try (Connection conn = new ConnectionFactory().conectaBD();
+				PreparedStatement stm = conn.prepareStatement(sql);) {
+
+			stm.setString(1, IdCliente);
+			ResultSet resultSet = stm.executeQuery();
+
+			while (resultSet.next()) {
+
+				BronzeDTO bronze = new BronzeDTO();
+
+				bronze.setNomeProduto(resultSet.getString("nm_produto"));
+				bronze.setOrigenDado(resultSet.getString("desc_origem"));
+				bronze.setFormato(resultSet.getString("formato"));
+				bronze.setSistema(resultSet.getString("sistema"));
+				bronze.setVolume(resultSet.getString("volume"));
+				bronze.setFrequencia(resultSet.getString("frequencia"));
+
+				tabelabronze.add(bronze);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return tabelabronze;
+
+	}
+
+	public void deletar(String volume) {
+		String sql = "DELETE FROM Fonte_dado  WHERE  volume = ?";
+		try (Connection conn = new ConnectionFactory().conectaBD();
+				PreparedStatement stm = conn.prepareStatement(sql);) {
+
+			stm.setString(1, volume);
+
+			stm.execute();
+			stm.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+}

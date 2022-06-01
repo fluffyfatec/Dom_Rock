@@ -140,7 +140,7 @@ public class UsuarioController implements Initializable {
 			    	txtConfirmarSenha.clear();
 				} catch (Exception e) {
 					// TODO: handle exception
-					exibiDialogoERRO("ERRO! Falha ao cadastrar usuário.");
+					exibiDialogoERRO("ERRO! Falha ao cadastrar usuario.");
 					e.printStackTrace();
 				}
 	    	}else {
@@ -152,7 +152,7 @@ public class UsuarioController implements Initializable {
     ///LIMPAR CAMPOS CADASTRO USUARIO////////////////////////////////////////////////////////////////
     @FXML
     void btnLimparUsuario() {
-    	if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
 	    	txtNomeCadastro.clear();
 	    	txtFuncaoCadastro.clear();
 	    	txtUsuarioCadastro.clear();
@@ -250,7 +250,7 @@ public class UsuarioController implements Initializable {
     ///LIMPAR CAMPOS ATUALIZAÇÃO USUARIO////////////////////////////////////////////////////////////////
     @FXML
     void btnUsuarioLimparAtt() {
-    	if (exibiDialogoConfirmacao("Todos os campos serão limpos. Confirmar?")) {
+    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
 			txtNomeAt.clear();
 			txtFuncaoAt.clear();
 			txtUsuarioAt.clear();
@@ -270,7 +270,7 @@ public class UsuarioController implements Initializable {
     
     private void exibiDialogoINFO(String informacao) {
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Informação");
+    	alert.setTitle("Informacao");
     	alert.setHeaderText(null);
     	alert.setContentText(informacao);
     	
@@ -280,7 +280,7 @@ public class UsuarioController implements Initializable {
     
      void exibiDialogoERRO(String erro) {
     	Alert alert = new Alert(AlertType.ERROR);
-    	alert.setTitle("Informação");
+    	alert.setTitle("Informacao");
     	alert.setHeaderText(null);
     	alert.setContentText(erro);
     	
@@ -290,7 +290,7 @@ public class UsuarioController implements Initializable {
      
      private boolean exibiDialogoConfirmacao(String confirmacao) {
      	Alert alert = new Alert(AlertType.CONFIRMATION);
-     	alert.setTitle("Confirmação");
+     	alert.setTitle("Confirmacao");
      	alert.setHeaderText(null);
      	alert.setContentText(confirmacao);
      	

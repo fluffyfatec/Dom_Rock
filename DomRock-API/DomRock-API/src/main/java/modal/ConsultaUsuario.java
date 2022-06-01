@@ -49,25 +49,11 @@ public class ConsultaUsuario {
 	
 	void exibiDialogoERRO(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Informação");
+		alert.setTitle("Informacao");
 		alert.setHeaderText(null);
 		alert.setContentText(erro);
 
 		alert.showAndWait();
-
-	}
-
-	private boolean exibiDialogoConfirmacao(String confirmacao) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmação");
-		alert.setHeaderText(null);
-		alert.setContentText(confirmacao);
-
-		Optional<ButtonType> opcao = alert.showAndWait();
-
-		if (opcao.get() == ButtonType.OK)
-			return true;
-		return false;
 
 	}
 	
