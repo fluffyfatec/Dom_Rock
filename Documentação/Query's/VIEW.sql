@@ -85,7 +85,8 @@ fort.formato AS formato,
 sis.sistema AS sistema, 
 fd.volume AS volume, 
 fd.frequencia AS frequencia,
-cp.id_cliente AS id_cliente
+cp.id_cliente AS id_cliente,
+fd.id_cliente_produto
 FROM Fonte_dado fd
 INNER JOIN Cliente_Produto cp
 ON cp.id_cliente_produto = fd.id_cliente_produto
@@ -93,17 +94,29 @@ INNER JOIN Produto prod
 ON prod.id_produto = cp.id_produto
 INNER JOIN Origem_dado od
 ON od.id_origem_dado = fd.id_origem_dado
-INNER JOIN Formato fort
+LEFT JOIN Formato fort
 ON fort.id_formato = fd.id_formato
 INNER JOIN Sistema sis
-ON sis.id_sistema = fd.id_sistema;
+ON sis.id_sistema = fd.id_sistema
+ORDER BY fd.id_cliente_produto
+
+SELECT * FROM Fonte_dado fd
+INNER JOIN Cliente_Produto cp
+ON cp.id_cliente_produto = fd.id_cliente_produto
+ORDER BY fd.id_cliente_produto
 
 
+
+SELECT * FROM Cliente_Produto
+
+FORN
 
 SELECT * FROM view_bronze
 WHERE id_cliente = 1
 ORDER BY prod.nm_produto ASC
 
+
+SELECT * FROM Fonte_dado
 
 SELECT * FROM Cliente
 

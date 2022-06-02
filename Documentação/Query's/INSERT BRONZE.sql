@@ -73,3 +73,17 @@ SELECT * FROM Cliente_Produto cp
 		AND prod.nm_produto = ?
 
 SELECT * FROM Validador
+
+
+SELECT * FROM Fonte_dado
+
+DELETE Fonte_dado WHERE id_sistema = (SELECT id_sistema FROM Sistema WHERE sistema = 'Outros') AND id_origem_dado = (SELECT id_origem_dado FROM Origem_dado WHERE desc_origem = 'Upload') AND id_formato = (SELECT id_formato FROM Formato WHERE formato = 'planilhas') AND frequencia = '7 dias' AND volume = 'ffsdfed' 
+
+/*
+1 - Sistemas
+2 - Origem Dado
+3 - Formato
+4 - Frequencia
+5 - Volume
+*/
+

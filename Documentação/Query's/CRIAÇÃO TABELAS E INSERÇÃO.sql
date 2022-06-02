@@ -5,6 +5,7 @@
 DROP TABLE Comentario;
 DROP TABLE Usuario;
 DROP TABLE Validador;
+DROP TABLE Gold;
 DROP TABLE Fonte_dado;
 DROP TABLE ClienteProduto_Core;
 DROP TABLE ClienteProduto_Funcionalidade;
@@ -101,15 +102,15 @@ CREATE TABLE Cliente_Produto(
 );
 
 CREATE TABLE ClienteProduto_Funcionalidade(
+	id_clienteproduto_funcionaliade int identity(1,1) primary key,
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
-	id_funcionalidade int foreign key references Funcionalidade(id_funcionalidade),
-	primary key (id_cliente_produto, id_funcionalidade)
+	id_funcionalidade int foreign key references Funcionalidade(id_funcionalidade)
 );
 
 CREATE TABLE ClienteProduto_Core(
+	id_clienteproduto_core int identity(1,1) primary key,
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
-	id_core int foreign key references Core(id_core) ,
-	primary key (id_cliente_produto, id_core)
+	id_core int foreign key references Core(id_core)
 );
 
 
@@ -124,13 +125,23 @@ CREATE TABLE Fonte_dado(
 	--unique(id_cliente, id_produto)
 );
 
+CREATE TABLE  Gold (
+	id_gold int identity(1,1) primary key,
+	operacao varchar(40),
+	descritivo_operacao varchar(40),
+	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)
+);
 
 CREATE TABLE  Validador (
 	id_validador int identity(1,1) primary key,
     desc_regra varchar(40),
 	obrigatorio varchar(1),
-	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)
+	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado),
+	id_gold int foreign key references Gold(id_gold)
 );
+
+
+
 
 
 CREATE TABLE  Usuario (
@@ -146,6 +157,16 @@ CREATE TABLE Comentario (
 	comentario varchar(70),
 	etapa varchar(60),
 	id_cliente int foreign key references Cliente(id_cliente) 
+);
+
+DROP TABLE Teste_JSON;
+
+CREATE TABLE Teste_JSON (
+	id_coluna int identity(1,1) primary key,
+	coluna_1 varchar(70),
+	coluna_2 varchar(70),
+	coluna_3 varchar(70),
+	coluna_4 varchar(70)
 );
 
 ---------------------------------------------------------------------------------------------------
@@ -218,7 +239,9 @@ VALUES ('ERP'),
 --INSERIR DADOS NA TABELA Sistema
 INSERT INTO Usuario (nome, funcao, usuario, senha)
 VALUES ('Admin', 'Admilson', 'admin', '123'),
-	   ('Admin', 'Admilson', 'admin', 'admin');
+	   ('Admin', 'Admilson', 'admin', 'admin'),
+	   ('Patrick a senha é ppk', 'Rei Delas', 'rei', 'ppk');
+
 
 
 
