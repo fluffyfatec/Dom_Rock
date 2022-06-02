@@ -762,6 +762,141 @@ public class CrudAtivacao implements Initializable {
 		}
 	}
 
+	// GOLD
+
+	@FXML
+    private CheckBox ckMatching;
+	@FXML
+    private CheckBox ckSerie;
+	@FXML
+    private CheckBox ckJoin;
+	@FXML
+    private CheckBox ckAgregacao;
+
+	@FXML
+    private TextArea txtMatching;
+	@FXML
+    private TextArea txtSerie;
+	@FXML
+    private TextArea txtJoin;
+    @FXML
+    private TextArea txtAgregacao;
+	
+    private GoldDAO objGoldDAO = new GoldDAO();
+
+	@FXML
+    void ckMatching(ActionEvent event) {
+		
+		if (ckMatching.isSelected()) {
+			txtMatching.setDisable(false);
+        }else {
+        	txtMatching.setDisable(true);
+        }
+    }
+    
+    @FXML
+    void ckSerie(ActionEvent event) {
+		
+		if (ckSerie.isSelected()) {
+			txtSerie.setDisable(false);
+        }else {
+        	txtSerie.setDisable(true);
+        }
+    }
+    
+    @FXML
+    void ckJoin(ActionEvent event) {
+		
+		if (ckJoin.isSelected()) {
+			txtJoin.setDisable(false);
+        }else {
+        	txtJoin.setDisable(true);
+        }
+    }
+    
+    @FXML
+    void ckAgregacao(ActionEvent event) {
+		
+		if (ckAgregacao.isSelected()) {
+			txtAgregacao.setDisable(false);
+        }else {
+        	txtAgregacao.setDisable(true);
+        }
+    }
+    
+    @FXML
+	void btnLimparGold(){
+    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+    		ckMatching.setSelected(false);
+    		ckSerie.setSelected(false);
+    		ckJoin.setSelected(false);
+    		ckAgregacao.setSelected(false);
+    		txtMatching.clear();
+    		txtMatching.setDisable(true);
+    		txtSerie.clear();
+    		txtSerie.setDisable(true);
+    		txtJoin.clear();
+    		txtJoin.setDisable(true);
+    		txtAgregacao.clear();
+    		txtAgregacao.setDisable(true);
+		}
+    }
+    
+    @FXML
+	void btnCadastrarGold(){
+    	
+    	GoldDTO objGold = new GoldDTO();
+    	
+    	if ((ckMatching.isSelected() && txtMatching.getText().equals("")) || (ckSerie.isSelected() && txtSerie.getText().equals("")) ||
+    		(ckJoin.isSelected() && txtJoin.getText().equals("")) || (ckAgregacao.isSelected() && txtAgregacao.getText().equals(""))) {
+    		exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente!");
+    	}else{
+    		if (ckMatching.isSelected() || ckSerie.isSelected() || ckJoin.isSelected() || ckAgregacao.isSelected()) {
+	    		if (ckMatching.isSelected()){
+		    		objGold.setOperacao("Matching");
+		    		objGold.setStrMatching(txtMatching.getText());
+		    		
+		    		objGoldDAO.cadastrarOperacoes(objGold);
+		    	}
+		    	if (ckSerie.isSelected()) {
+		    		objGold.setOperacao("Serie Temporal");
+		    		objGold.setStrSerie(txtSerie.getText());
+		    		
+		    		objGoldDAO.cadastrarOperacoes(objGold);
+		    	}
+		    	if (ckJoin.isSelected()) {
+		    		objGold.setOperacao("Join");
+		    		objGold.setStrJoin(txtJoin.getText());
+		    		
+		    		objGoldDAO.cadastrarOperacoes(objGold);
+		    	}
+		    	if (ckAgregacao.isSelected()) {
+		    		objGold.setOperacao("Agregacao");
+		    		objGold.setStrAgregacao(txtAgregacao.getText());
+		    		
+		    		objGoldDAO.cadastrarOperacoes(objGold);
+		    	}
+		    	exibiDialogoConfirmacao("Cadastrado com sucesso!");
+		    	ckMatching.setSelected(false);
+	    		ckSerie.setSelected(false);
+	    		ckJoin.setSelected(false);
+	    		ckAgregacao.setSelected(false);
+	    		txtMatching.clear();
+	    		txtMatching.setDisable(true);
+	    		txtSerie.clear();
+	    		txtSerie.setDisable(true);
+	    		txtJoin.clear();
+	    		txtJoin.setDisable(true);
+	    		txtAgregacao.clear();
+	    		txtAgregacao.setDisable(true);
+	    	}else{
+	    		exibiDialogoERRO("ERRO! Por favor, selecione no minimo uma opcao!");
+	    	}
+    	}
+    }
+
+	//FIM GOLD
+
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Informacao");
