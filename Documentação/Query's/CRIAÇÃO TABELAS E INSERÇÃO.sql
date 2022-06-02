@@ -31,12 +31,13 @@ DROP TABLE Cliente;
 CREATE TABLE  Cliente (
 	id_cliente int identity(1,1) primary key,
     razao_social varchar(40),
-    cnpj varchar(14),
+    cnpj varchar(14) unique,
 	segmento varchar(40),
 	datahora_cadastro datetime
 );
 
---CRIAÇÃO TABELA Descritivo
+--CRIAÇÃO TABELA Descritivo 
+
 CREATE TABLE  Descritivo (
 	id_descritivo int identity(1,1) primary key,
 	objetivo_negocio varchar(70),
@@ -101,8 +102,9 @@ CREATE TABLE Cliente_Produto(
 	id_produto int foreign key references Produto(id_produto),
 );
 
+
 CREATE TABLE ClienteProduto_Funcionalidade(
-	id_clienteproduto_funcionaliade int identity(1,1) primary key,
+	id_clienteproduto_funcionalidade int identity(1,1) primary key,
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
 	id_funcionalidade int foreign key references Funcionalidade(id_funcionalidade)
 );
@@ -125,23 +127,13 @@ CREATE TABLE Fonte_dado(
 	--unique(id_cliente, id_produto)
 );
 
-CREATE TABLE  Gold (
-	id_gold int identity(1,1) primary key,
-	operacao varchar(40),
-	descritivo_operacao varchar(40),
-	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)
-);
 
 CREATE TABLE  Validador (
 	id_validador int identity(1,1) primary key,
     desc_regra varchar(40),
 	obrigatorio varchar(1),
-	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado),
-	id_gold int foreign key references Gold(id_gold)
+	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)
 );
-
-
-
 
 
 CREATE TABLE  Usuario (

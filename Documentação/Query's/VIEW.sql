@@ -73,20 +73,23 @@ ORDER BY 1, 2 ASC
 
 
 */
-
---VIEW USUARIO
-
+DELETE Validador WHERE id_validador = 4
+--VIEW BRONZE-----------------------------------------------
 DROP VIEW view_bronze;
 
 CREATE VIEW view_bronze AS
-SELECT prod.nm_produto AS nm_produto, 
+SELECT fd.id_fonte_dado AS id_fonte_dado,
+prod.nm_produto AS nm_produto, 
 od.desc_origem AS desc_origem, 
 fort.formato AS formato,
 sis.sistema AS sistema, 
 fd.volume AS volume, 
 fd.frequencia AS frequencia,
 cp.id_cliente AS id_cliente,
-fd.id_cliente_produto
+fd.id_cliente_produto,
+valid.desc_regra AS desc_regra,
+valid.obrigatorio AS obrigatorio,
+valid.id_validador AS id_validador
 FROM Fonte_dado fd
 INNER JOIN Cliente_Produto cp
 ON cp.id_cliente_produto = fd.id_cliente_produto
@@ -94,63 +97,36 @@ INNER JOIN Produto prod
 ON prod.id_produto = cp.id_produto
 INNER JOIN Origem_dado od
 ON od.id_origem_dado = fd.id_origem_dado
-LEFT JOIN Formato fort
+INNER JOIN Formato fort
 ON fort.id_formato = fd.id_formato
 INNER JOIN Sistema sis
 ON sis.id_sistema = fd.id_sistema
-ORDER BY fd.id_cliente_produto
+INNER JOIN Validador valid
+ON valid.id_fonte_dado = fd.id_fonte_dado;
+----------------------------------------------------------
+SELECT id_fonte_dado, nm_produto, desc_origem, formato, volume, sistema, frequencia, desc_regra, obrigatorio, id_validador FROM view_bronze WHERE id_cliente = ?
 
-SELECT * FROM Fonte_dado fd
-INNER JOIN Cliente_Produto cp
-ON cp.id_cliente_produto = fd.id_cliente_produto
-ORDER BY fd.id_cliente_produto
-
-
-
-SELECT * FROM Cliente_Produto
-
-FORN
-
-SELECT * FROM view_bronze
-WHERE id_cliente = 1
-ORDER BY prod.nm_produto ASC
-
-
-SELECT * FROM Fonte_dado
-
-SELECT * FROM Cliente
-
-SELECT * FROM Cliente_Produto
-WHERE id_cliente = 3
-
-SELECT * FROM Fonte_dado fd
-INNER JOIN Cliente_Produto cp
-ON cp.id_cliente_produto = fd.id_cliente_produto
-WHERE cp.id_cliente = 1
-
-
+--VIEW CORE-----------------------------------------------
 DROP VIEW view_cliente_core;
 
 CREATE VIEW view_cliente_core AS
-SELECT prod.nm_produto, cc.recurso , cp.id_cliente AS id_cliente FROM ClienteProduto_Core cpc
+SELECT id_clienteproduto_core, prod.nm_produto, cc.recurso , cp.id_cliente AS id_cliente, cp.id_cliente_produto FROM ClienteProduto_Core cpc
 INNER JOIN Core cc
 	ON cc.id_core = cpc.id_core
 INNER JOIN Cliente_Produto cp
 	ON cp.id_cliente_produto = cpc.id_cliente_produto
 INNER JOIN Produto prod
 	ON prod.id_produto = cp.id_produto;
-
-SELECT nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 1 ORDER BY nm_produto ASC
-
-WHERE cp.id_cliente = 1
-ORDER BY 1, 2 ASC
-
+--CORE
+SELECT id_clienteproduto_core, id_cliente_produto, nm_produto, recurso FROM view_cliente_core WHERE id_cliente = ?
+SELECT * FROM ClienteProduto_Core
+----------------------------------------------------------
 
 
-
+--VIEW CORE-----------------------------------------------
 DROP VIEW view_cliente_funcionalidade;
 CREATE VIEW view_cliente_funcionalidade AS
-SELECT prod.nm_produto, func.nm_funcionalidade, cp.id_cliente AS id_cliente, cp.id_cliente_produto FROM ClienteProduto_Funcionalidade cpf
+SELECT id_clienteproduto_funcionalidade, prod.nm_produto, func.nm_funcionalidade, cp.id_cliente AS id_cliente, cp.id_cliente_produto FROM ClienteProduto_Funcionalidade cpf
 INNER JOIN Funcionalidade func
 	ON func.id_funcionalidade = cpf.id_funcionalidade
 INNER JOIN Cliente_Produto cp
@@ -158,8 +134,61 @@ INNER JOIN Cliente_Produto cp
 INNER JOIN Produto prod
 	ON prod.id_produto = cp.id_produto
 
+SELECT * FROM view_cliente_funcionalidade
+--FUNCIONALIDADE
+SELECT id_clienteproduto_funcionalidade, id_cliente_produto, nm_produto, nm_funcionalidade FROM view_cliente_funcionalidade WHERE id_cliente = ?
+----------------------------------------------------------
+
+--FUNCIONALIDADE
+DELETE ClienteProduto_Funcionalidade WHERE id_clienteproduto_funcionalidade = ?
+
+--CORE
+DELETE ClienteProduto_Core WHERE id_clienteproduto_core = ?
 
 
-SELECT nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 1 ORDER BY nm_produto ASC
+--Fonte Dado
+DELETE Fonte_dado WHERE id_fonte_dado = ?
+SELECT * FROM Validador
 
-SELECT id_cliente_produto, nm_produto, nm_funcionalidade FROM view_cliente_funcionalidade WHERE id_cliente = ? ORDER BY nm_produto ASC
+
+SELECT * FROM ClienteProduto_Core
+
+SELECT * FROM Cliente_Produto fd 
+INNER JOIN Produto prod
+ON prod.id_produto = fd.id_produto 
+WHERE fd.id_cliente = 2 AND prod.nm_produto = 'Optimization'
+
+SELECT id_clienteproduto_core, id_cliente_produto, nm_produto, recurso FROM view_cliente_core WHERE id_cliente = 2
+
+public List<EscopoTabelaCore> consultarCore(String id_cliente) throws SQLException {
+		
+		List<EscopoTabelaCore> core = new ArrayList<>();
+		
+		String sql = "SELECT id_clienteproduto_core, id_cliente_produto, nm_produto, recurso FROM view_cliente_core WHERE id_cliente = ?";
+	
+
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+			stm.setString(1, id_cliente); ResultSet resultSet = stm.executeQuery();
+			
+			while (resultSet.next()){
+			
+				EscopoTabelaCore objCore = new EscopoTabelaCore();
+				
+				objCore.setIdclienteprodutocore(resultSet.getString("id_clienteproduto_core"));
+				objCore.setIdclienteproduto(resultSet.getInt("id_cliente_produto"));
+				objCore.setNmproduto(resultSet.getString("nm_produto"));
+				objCore.setCore(resultSet.getString("recurso"));
+				
+				core.add(objCore);
+		
+			}
+			
+			resultSet.close();
+			stm.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return core;
+}
