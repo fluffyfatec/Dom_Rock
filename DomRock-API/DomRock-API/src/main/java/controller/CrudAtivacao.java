@@ -40,6 +40,8 @@ import modal.ProdutoDAO;
 import modal.ProdutoDTO;
 import modal.SilverDAO;
 import modal.SilverDTO;
+import modal.GoldDAO;
+import modal.GoldDTO;
 
 public class CrudAtivacao implements Initializable {
 
