@@ -4,7 +4,15 @@ public class EscopoTabelaFuncionalidades {
 	String nmproduto;
 	String funcionalidades;
 	String Id;
+	String idprodutofuncionalidade;
 
+
+	public String getIdprodutofuncionalidade() {
+		return idprodutofuncionalidade;
+	}
+	public void setIdprodutofuncionalidade(String idprodutofuncionalidade) {
+		this.idprodutofuncionalidade = idprodutofuncionalidade;
+	}
 	public String getId() {
 		return Id;
 	}
@@ -27,7 +35,7 @@ public class EscopoTabelaFuncionalidades {
 		this.nmproduto = nmproduto;
 		this.funcionalidades = funcionalidades;
 	}
-
+	
 	public EscopoTabelaFuncionalidades() {
 		// TODO Auto-generated constructor stub
 	}

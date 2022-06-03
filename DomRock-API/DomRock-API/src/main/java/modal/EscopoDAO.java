@@ -222,25 +222,61 @@ public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String I
 		}
 		return objescopoDTO;
 	}
-public List<EscopoTabelaCore> consultarCore(String id_cliente) throws SQLException {
-		
-		List<EscopoTabelaCore> core = new ArrayList<>();
-		
-		String sql = "SELECT id_cliente_produto, nm_produto, recurso FROM view_cliente_core WHERE id_cliente = ? ORDER BY nm_produto ASC";
 	
-
+	public List<EscopoTabelaCore> consultarCore(String id_cliente) throws SQLException {
+			
+			List<EscopoTabelaCore> core = new ArrayList<>();
+			
+			String sql = "SELECT id_clienteproduto_core, id_cliente_produto, nm_produto, recurso FROM view_cliente_core WHERE id_cliente = ?";
+		
+	
+			try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+				stm.setString(1, id_cliente); ResultSet resultSet = stm.executeQuery();
+				
+				while (resultSet.next()){
+				
+					EscopoTabelaCore objCore = new EscopoTabelaCore();
+					objCore.setIdcoreproduto(resultSet.getInt("id_clienteproduto_core"));
+					objCore.setIdclienteproduto(resultSet.getInt("id_cliente_produto"));
+					objCore.setNmproduto(resultSet.getString("nm_produto"));
+					objCore.setCore(resultSet.getString("recurso"));
+					
+					core.add(objCore);
+					System.out.println(objCore);
+			
+				}
+				
+				resultSet.close();
+				stm.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			return core;
+	}
+	
+	public List<EscopoTabelaFuncionalidades> consultarFuncionalidades(String id_cliente) throws SQLException {
+		
+		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
+		String sql = "SELECT id_clienteproduto_funcionalidade, id_cliente_produto, nm_produto, nm_funcionalidade FROM view_cliente_funcionalidade WHERE id_cliente = ?";
+	
+	
+	
 		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			stm.setString(1, id_cliente); ResultSet resultSet = stm.executeQuery();
 			
 			while (resultSet.next()){
 			
-				EscopoTabelaCore objCore = new EscopoTabelaCore();
-				objCore.setIdclienteproduto(resultSet.getInt("id_cliente_produto"));
-				objCore.setNmproduto(resultSet.getString("nm_produto"));
-				objCore.setCore(resultSet.getString("recurso"));
+				EscopoTabelaFuncionalidades objFuncionalidade = new EscopoTabelaFuncionalidades();
 				
-				core.add(objCore);
-				System.out.println(objCore);
+				objFuncionalidade.setIdprodutofuncionalidade(resultSet.getString("id_clienteproduto_funcionalidade"));
+				objFuncionalidade.setId(resultSet.getString("id_cliente_produto"));
+				objFuncionalidade.setNmproduto(resultSet.getString("nm_produto"));
+				objFuncionalidade.setFuncionalidades(resultSet.getString("nm_funcionalidade"));
+				
+				funcionalidade.add(objFuncionalidade);
+				System.out.println(objFuncionalidade);
 		
 			}
 			
@@ -251,82 +287,94 @@ public List<EscopoTabelaCore> consultarCore(String id_cliente) throws SQLExcepti
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		return core;
-}
-public List<EscopoTabelaFuncionalidades> consultarFuncionalidades(String id_cliente) throws SQLException {
-	
-	List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
-	
-	String sql = "SELECT id_cliente_produto, nm_produto, nm_funcionalidade FROM view_cliente_funcionalidade WHERE id_cliente = ? ORDER BY nm_produto ASC";
-
-
-	try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
-		stm.setString(1, id_cliente); ResultSet resultSet = stm.executeQuery();
-		
-		while (resultSet.next()){
-		
-			EscopoTabelaFuncionalidades objFuncionalidade = new EscopoTabelaFuncionalidades();
-			
-			objFuncionalidade.setId(resultSet.getString("id_cliente_produto"));
-			objFuncionalidade.setNmproduto(resultSet.getString("nm_produto"));
-			objFuncionalidade.setFuncionalidades(resultSet.getString("nm_funcionalidade"));
-			
-			funcionalidade.add(objFuncionalidade);
-			System.out.println(objFuncionalidade);
-	
-		}
-		
-		resultSet.close();
-		stm.close();
-		
-	} catch (SQLException e) {
-		e.printStackTrace();
-		throw new RuntimeException(e);
+		return funcionalidade;
 	}
-	return funcionalidade;
-}
-
-public EscopoDTO select(ObservableList<String> boxfuncionalidade) {
-	try (Connection con = new ConnectionFactory().conectaBD()) {
-		stm = con.prepareStatement("Select nm_funcionalidade from funcionalidade");
-		rs = stm.executeQuery();
-		EscopoDTO objescopoDTO = new EscopoDTO();
-		ArrayList<String> funcionalidadelist = new ArrayList<String>();
-		if(rs!=null){
-			while (rs.next()) {
-				funcionalidadelist.add(rs.getString("nm_funcionalidade"));
+	
+	public EscopoDTO select(ObservableList<String> boxfuncionalidade) {
+		try (Connection con = new ConnectionFactory().conectaBD()) {
+			stm = con.prepareStatement("Select nm_funcionalidade from funcionalidade");
+			rs = stm.executeQuery();
+			EscopoDTO objescopoDTO = new EscopoDTO();
+			ArrayList<String> funcionalidadelist = new ArrayList<String>();
+			if(rs!=null){
+				while (rs.next()) {
+					funcionalidadelist.add(rs.getString("nm_funcionalidade"));
+			}
+			objescopoDTO.boxfuncionalidade = FXCollections.observableArrayList(funcionalidadelist);
+			
+	
+			return objescopoDTO;
+			}
+		} catch (SQLException ex) {
+			return null;
 		}
-		objescopoDTO.boxfuncionalidade = FXCollections.observableArrayList(funcionalidadelist);
-		
-
-		return objescopoDTO;
-		}
-	} catch (SQLException ex) {
 		return null;
 	}
-	return null;
-}
-public EscopoDTO selectcore(ObservableList<String> boxcores) {
-	try (Connection con = new ConnectionFactory().conectaBD()) {
-		stm = con.prepareStatement("Select Recurso from Core");
-		rs = stm.executeQuery();
-		EscopoDTO objescopoDTO = new EscopoDTO();
-		ArrayList<String> corelist = new ArrayList<String>();
-		if(rs!=null){
-			while (rs.next()) {
-				corelist.add(rs.getString("recurso"));
+	
+	public EscopoDTO selectcore(ObservableList<String> boxcores) {
+		try (Connection con = new ConnectionFactory().conectaBD()) {
+			stm = con.prepareStatement("Select Recurso from Core");
+			rs = stm.executeQuery();
+			EscopoDTO objescopoDTO = new EscopoDTO();
+			ArrayList<String> corelist = new ArrayList<String>();
+			if(rs!=null){
+				while (rs.next()) {
+					corelist.add(rs.getString("recurso"));
+			}
+			objescopoDTO.boxcores = FXCollections.observableArrayList(corelist);
+			
+	
+			return objescopoDTO;
+			}
+		} catch (SQLException ex) {
+			return null;
 		}
-		objescopoDTO.boxcores = FXCollections.observableArrayList(corelist);
-		
-
-		return objescopoDTO;
-		}
-	} catch (SQLException ex) {
 		return null;
+	
 	}
-	return null;
-
-}
+	
+	public void deletarcore(Integer id_clienteproduto_core) {
+		String sql = "DELETE ClienteProduto_Core WHERE id_clienteproduto_core = ?";
+		System.out.println(id_clienteproduto_core);
+		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
+	
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+			
+			stm.setInt(1, id_clienteproduto_core);
+			
+			stm.execute();
+			System.out.println(id_clienteproduto_core);
+			System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
+	
+			stm.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void deletarfuncionalidade(String id_clienteproduto_funcionalidade) {
+		String sql = "DELETE ClienteProduto_Funcionalidade WHERE id_clienteproduto_funcionalidade = ?";
+		System.out.println(id_clienteproduto_funcionalidade);
+		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
+	
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+			
+			stm.setString(1, id_clienteproduto_funcionalidade);
+			
+			stm.execute();
+			System.out.println(id_clienteproduto_funcionalidade);
+			System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
+	
+			stm.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
 }
 			
 	

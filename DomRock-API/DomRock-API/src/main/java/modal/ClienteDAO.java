@@ -87,11 +87,11 @@ public class ClienteDAO {
 		}
 	}
 
-	public List<ClienteDTO> consultar(String razao_social) {
+	public List<ClienteDTO> consultar(String cnpj) {
 		
 		List<ClienteDTO> clientes = new ArrayList<>();
 		
-		String sql = "SELECT * FROM view_cliente WHERE razao_social LIKE '%" + razao_social + "%'";
+		String sql = "SELECT * FROM view_cliente WHERE cnpj LIKE '%" + cnpj + "%'";
 		
 		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			ResultSet resultSet = stm.executeQuery();

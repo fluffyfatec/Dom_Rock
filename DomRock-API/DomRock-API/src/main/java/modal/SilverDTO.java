@@ -1,6 +1,28 @@
 package modal;
 
-public class SilverDTO {
+public class SilverDTO {	
+	
+
+	private String formato;
+	private String frequencia;
+	private String origenDado;
+	private String sistema;
+	private String volume;
+	private String nomeProduto;
+	private String idCliente;
+	private String idFonteDado;
+	private String validador;
+	private String obrigatorio;
+	private String idSilver;
+	
+
+	public String getIdSilver() {
+		return idSilver;
+	}
+
+	public void setIdSilver(String idSilver) {
+		this.idSilver = idSilver;
+	}
 	public String getIdFonteDado() {
 		return idFonteDado;
 	}
@@ -25,16 +47,7 @@ public class SilverDTO {
 		this.obrigatorio = obrigatorio;
 	}
 
-	private String formato;
-	private String frequencia;
-	private String origenDado;
-	private String sistema;
-	private String volume;
-	private String nomeProduto;
-	private String idCliente;
-	private String idFonteDado;
-	private String validador;
-	private String obrigatorio;
+
 
 	public String getIdCliente() {
 		return idCliente;

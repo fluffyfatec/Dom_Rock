@@ -52,7 +52,7 @@ public class BronzeDAO {
 
 		List<BronzeDTO> tabelabronze = new ArrayList<>();
 
-		String sql = "SELECT nm_produto,desc_origem,formato,sistema,volume,frequencia FROM view_bronze WHERE id_cliente = ?";
+		String sql = "SELECT nm_produto,desc_origem,formato,sistema,volume,frequencia,id_fonte_dado FROM view_bronze WHERE id_cliente = ?";
 
 		try (Connection conn = new ConnectionFactory().conectaBD();
 				PreparedStatement stm = conn.prepareStatement(sql);) {
@@ -70,6 +70,7 @@ public class BronzeDAO {
 				bronze.setSistema(resultSet.getString("sistema"));
 				bronze.setVolume(resultSet.getString("volume"));
 				bronze.setFrequencia(resultSet.getString("frequencia"));
+				bronze.setIdFonteDado(resultSet.getString("id_fonte_dado"));
 
 				tabelabronze.add(bronze);
 
@@ -82,13 +83,14 @@ public class BronzeDAO {
 
 	}
 
-	public void deletar(String volume) {
-		String sql = "DELETE FROM Fonte_dado  WHERE  volume = ?";
+	public void deletar(String idfontedado) {
+		String sql = "DELETE Fonte_dado WHERE id_fonte_dado = ?";
 		try (Connection conn = new ConnectionFactory().conectaBD();
 				PreparedStatement stm = conn.prepareStatement(sql);) {
-
-			stm.setString(1, volume);
-
+            
+			stm.setString(1, idfontedado);
+			
+		
 			stm.execute();
 			stm.close();
 

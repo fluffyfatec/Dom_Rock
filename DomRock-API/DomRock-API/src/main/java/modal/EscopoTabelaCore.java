@@ -4,7 +4,15 @@ public class EscopoTabelaCore {
 String core;
 String nmproduto;
 Integer idclienteproduto;
+Integer idcoreproduto;
 
+
+public Integer getIdcoreproduto() {
+	return idcoreproduto;
+}
+public void setIdcoreproduto(Integer idcoreproduto) {
+	this.idcoreproduto = idcoreproduto;
+}
 public Integer getIdclienteproduto() {
 	return idclienteproduto;
 }

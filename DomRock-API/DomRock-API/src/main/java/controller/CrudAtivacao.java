@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.event.ItemEvent;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,12 +37,12 @@ import modal.EscopoDAO;
 import modal.EscopoDTO;
 import modal.EscopoTabelaCore;
 import modal.EscopoTabelaFuncionalidades;
+import modal.GoldDAO;
+import modal.GoldDTO;
 import modal.ProdutoDAO;
 import modal.ProdutoDTO;
 import modal.SilverDAO;
 import modal.SilverDTO;
-import modal.GoldDAO;
-import modal.GoldDTO;
 
 public class CrudAtivacao implements Initializable {
 
@@ -92,6 +93,8 @@ public class CrudAtivacao implements Initializable {
 	@FXML
 	private TableView<EscopoTabelaCore> TabelaCore;
 	@FXML
+	private TableColumn<EscopoTabelaCore, Integer> IdClienteProdutoCore;
+	@FXML
 	private TableColumn<EscopoTabelaCore, String> colIdClienteCore;
 	@FXML
 	private TableColumn<EscopoTabelaCore, String> colCore;
@@ -101,6 +104,8 @@ public class CrudAtivacao implements Initializable {
 	// teste
 	@FXML
 	private TableView<EscopoTabelaFuncionalidades> TabelaFuncionalidade;
+	@FXML
+	private TableColumn<EscopoTabelaFuncionalidades, String> idFuncionalidade;
 	@FXML
 	private TableColumn<EscopoTabelaFuncionalidades, String> colFuncionalidade;
 
@@ -130,7 +135,7 @@ public class CrudAtivacao implements Initializable {
 
 	@FXML
 	private Button btnLimparSilver;
-	
+
 	@FXML
 	private TableColumn<BronzeDTO, String> colFormato = new TableColumn<BronzeDTO, String>();
 
@@ -150,29 +155,41 @@ public class CrudAtivacao implements Initializable {
 	private TableColumn<BronzeDTO, String> colVolume = new TableColumn<BronzeDTO, String>();
 
 	@FXML
-    private TableColumn<SilverDTO, String> colIdFonte = new TableColumn<SilverDTO, String>();
-	
+	private TableColumn<SilverDTO, String> colIdFonte = new TableColumn<SilverDTO, String>();
+
 	@FXML
 	private TableColumn<SilverDTO, String> colFormatoSilver = new TableColumn<SilverDTO, String>();
-	
+
 	@FXML
 	private TableColumn<SilverDTO, String> colFrequenciaSilver = new TableColumn<SilverDTO, String>();
-	
+
 	@FXML
 	private TableColumn<SilverDTO, String> colOrigemSilver = new TableColumn<SilverDTO, String>();
-	
+
+	@FXML
+	private TableColumn<SilverDTO, String> colObrigatorio = new TableColumn<SilverDTO, String>();
+
+	@FXML
+	private TableColumn<SilverDTO, String> colValidador = new TableColumn<SilverDTO, String>();
+
+	@FXML
+	private TableColumn<SilverDTO, String> colIdSilver = new TableColumn<SilverDTO, String>();
+
+	@FXML
+	private TableColumn<SilverDTO, String> colfontedadoBronze = new TableColumn<SilverDTO, String>();
+
 	@FXML
 	private TableColumn<SilverDTO, String> colProdutoSilver = new TableColumn<SilverDTO, String>();
-	
+
 	@FXML
 	private TableColumn<SilverDTO, String> colSistemaSilver = new TableColumn<SilverDTO, String>();
-	
+
 	@FXML
 	private TableColumn<SilverDTO, String> colVolumeSilver = new TableColumn<SilverDTO, String>();
 
 	@FXML
 	private Tab geral;
-	
+
 	@FXML
 	private TableView<BronzeDTO> tabelaBronze = new TableView<BronzeDTO>();
 
@@ -220,7 +237,7 @@ public class CrudAtivacao implements Initializable {
 
 	@FXML
 	private TextArea txtObjNegocio;
-	
+
 	@FXML
 	private TextField txtVolume;
 
@@ -230,8 +247,32 @@ public class CrudAtivacao implements Initializable {
 	@FXML
 	private TextArea txtePossiveis;
 
-    @FXML
-    private TextArea txtValidador;
+	@FXML
+	private TextArea txtValidador;
+
+	@FXML
+	private CheckBox ckMatching;
+
+	@FXML
+	private CheckBox ckSerie;
+
+	@FXML
+	private TextArea txtMatching;
+
+	@FXML
+	private TextArea txtSerie;
+
+	@FXML
+	private CheckBox ckJoin;
+
+	@FXML
+	private CheckBox ckAgregacao;
+
+	@FXML
+	private TextArea txtJoin;
+
+	@FXML
+	private TextArea txtAgregacao;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -273,10 +314,12 @@ public class CrudAtivacao implements Initializable {
 		boxSistema.setItems(listSistema);
 
 		boxSistema.getSelectionModel().selectFirst();
+		
 		// Tabela Core
 		List<EscopoTabelaCore> addcore = new ArrayList<EscopoTabelaCore>();
 		addcoreativacao = FXCollections.observableList(addcore);
 
+		IdClienteProdutoCore.setCellValueFactory(new PropertyValueFactory<>("idcoreproduto"));
 		colIdClienteCore.setCellValueFactory(new PropertyValueFactory<>("idclienteproduto"));
 		colNomeProduto.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colCore.setCellValueFactory(new PropertyValueFactory<>("core"));
@@ -287,16 +330,18 @@ public class CrudAtivacao implements Initializable {
 		List<EscopoTabelaFuncionalidades> addfun = new ArrayList<EscopoTabelaFuncionalidades>();
 		addfunativacao = FXCollections.observableList(addfun);
 
-		colIdCliente.setCellValueFactory(new PropertyValueFactory<>("id"));
+		idFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("idprodutofuncionalidade"));
+		colIdCliente.setCellValueFactory(new PropertyValueFactory<>("Id"));
 		colIdProdutoFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("nmproduto"));
 		colFuncionalidade.setCellValueFactory(new PropertyValueFactory<>("funcionalidades"));
 
 		TabelaFuncionalidade.setItems(addfunativacao);
-		
+
 		// Tabela bronze
 		List<BronzeDTO> ativacaoDTOs = new ArrayList<BronzeDTO>();
 		produtoAtivacaoObservableList = FXCollections.observableList(ativacaoDTOs);
 
+		colfontedadoBronze.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("idFonteDado"));
 		colProduto.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("nomeProduto"));
 		colFormato.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("formato"));
 		colSistema.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("sistema"));
@@ -305,12 +350,13 @@ public class CrudAtivacao implements Initializable {
 		colVolume.setCellValueFactory(new PropertyValueFactory<BronzeDTO, String>("volume"));
 
 		tabelaBronze.setItems(produtoAtivacaoObservableList);
-		
-		
+
 		// Tabela Silver
 		List<SilverDTO> addsil = new ArrayList<SilverDTO>();
 		addsilver = FXCollections.observableList(addsil);
-
+		colIdSilver.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("idSilver"));
+		colObrigatorio.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("obrigatorio"));
+		colValidador.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("validador"));
 		colIdFonte.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("idFonteDado"));
 		colProdutoSilver.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("nomeProduto"));
 		colFormatoSilver.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("formato"));
@@ -333,6 +379,7 @@ public class CrudAtivacao implements Initializable {
 		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
 
 		addcoreativacao.add(obj);
+		btnBuscarEscopoDois();
 	}
 
 	@FXML
@@ -348,17 +395,108 @@ public class CrudAtivacao implements Initializable {
 		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
 
 		addfunativacao.add(objto);
+		btnBuscarEscopoDois();
 	}
 
 	@FXML
 	void btnCadastrarEscopoDois() {
 
 	}
-
+	
 	@FXML
-	void btnEditarEscopoDois() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+	void btnBuscarEscopoDois() {
+		EscopoDAO dao = new EscopoDAO();
+		List<EscopoDTO> core = new ArrayList<>();
+		System.out.println(core);
+		try {
+			List<EscopoTabelaCore> resultado = dao.consultarCore(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaCore.setItems(FXCollections.observableArrayList(resultado));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a consulta!");
+			e.printStackTrace();
 		}
+		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
+		System.out.println(funcionalidade);
+		try {
+			List<EscopoTabelaFuncionalidades> resultado = dao.consultarFuncionalidades(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a consulta!");
+			e.printStackTrace();
+		}
+		
+		colIdClienteCore.setVisible(true);
+		colIdCliente.setVisible(true);
+		idFuncionalidade.setVisible(true);
+		IdClienteProdutoCore.setVisible(true);
+	}
+	
+	@FXML
+	void btnLimparEscopoDois() {
+		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			boxProdutoIdEscopo.getSelectionModel().selectFirst();
+			boxCore.getSelectionModel().selectFirst();
+			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
+			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
+			
+			TabelaCore.getItems().removeAll(TabelaCore.getItems());
+			TabelaFuncionalidade.getItems().removeAll(TabelaFuncionalidade.getItems());
+			
+			colIdClienteCore.setVisible(false);
+			colIdCliente.setVisible(false);
+			idFuncionalidade.setVisible(false);
+			IdClienteProdutoCore.setVisible(false);
+			
+		}
+	}
+	
+	@FXML
+	void btnDeletarEscopoDois() {
+		if(TabelaCore.getSelectionModel().getSelectedItem() == null && TabelaFuncionalidade.getSelectionModel().getSelectedItem() == null) {
+			exibiDialogoERRO("Nao ha nenhuma linha selecionada");
+		}else {
+			if (TabelaCore.getSelectionModel().getSelectedItem() != null) {
+				if (exibiDialogoConfirmacao("Confirmar a exclusao do CORE selecionado?")) {
+	
+					try {
+						EscopoDAO dao = new EscopoDAO();
+						dao.deletarcore(TabelaCore.getSelectionModel().getSelectedItem().getIdcoreproduto());
+						btnBuscarEscopoDois();
+	
+						exibiDialogoConfirmacao("CORE deletado com sucesso.");
+						btnBuscarEscopoDois();
+					} catch (Exception e) {
+						exibiDialogoERRO("Falha ao deletar CORE.");
+					}
+				}
+			}
+			
+			if (TabelaFuncionalidade.getSelectionModel().getSelectedItem() != null) {
+				if (exibiDialogoConfirmacao("Confirmar a exclusao da FUNCIONALIDADE selecionada?")) {
+	
+					try {
+						EscopoDAO dao = new EscopoDAO();
+						dao.deletarfuncionalidade(TabelaFuncionalidade.getSelectionModel().getSelectedItem().getIdprodutofuncionalidade());
+						btnBuscarEscopoDois();
+	
+						exibiDialogoConfirmacao("FUNCIONALIDADE deletada com sucesso.");
+						btnBuscarEscopoDois();
+					} catch (Exception e) {
+						exibiDialogoERRO("Falha ao deletar FUNCIONALIDADE.");
+					}
+				}
+			}
+		}
+		
 	}
 
 	@FXML
@@ -432,7 +570,6 @@ public class CrudAtivacao implements Initializable {
 		boxCore.getSelectionModel().selectFirst();
 
 		// Popular lista Funcionalidade
-
 		ObservableList<String> boxfuncionalidade = FXCollections.observableArrayList();
 		objescopoDTO = dao.select(boxfuncionalidade);
 		boxFuncionalidadeEscopo.setItems(objescopoDTO.boxfuncionalidade);
@@ -495,14 +632,16 @@ public class CrudAtivacao implements Initializable {
 			exibiDialogoERRO("Falha ao realizar a consulta!");
 			e.printStackTrace();
 		}
-		
+
 		colIdClienteCore.setVisible(true);
 		colIdCliente.setVisible(true);
+		idFuncionalidade.setVisible(true);
+		IdClienteProdutoCore.setVisible(true);
 		
 	}
 
 	@FXML
-	void btnAtualizarEscopo(ActionEvent event) {
+	void btnAtualizarEscopo() {
 		String IdCliente;
 		IdCliente = txtIdCliente.getText();
 		String entregavelminimos = this.txteMinimos.getText();
@@ -535,7 +674,7 @@ public class CrudAtivacao implements Initializable {
 		try {
 			dao.cadastrarDescritivo(e);
 			exibiDialogoINFO(" Descritivo cadastrado com sucesso!");
-			btnLimparEscopo();
+			//btnLimparEscopo();
 
 		} catch (Exception e1) {
 			// TODO: handle exception
@@ -589,7 +728,6 @@ public class CrudAtivacao implements Initializable {
 		System.out.println(objescopoDTO.boxprodutoclientedois);
 	}
 
-
 	@FXML
 	void btnLimparCliente() {
 		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
@@ -605,22 +743,60 @@ public class CrudAtivacao implements Initializable {
 			produtoPricing.setSelected(false);
 			produtoMarketing.setSelected(false);
 			produtoSales.setSelected(false);
+			
+			boxProdutoIdEscopo.getSelectionModel().selectFirst();
+			boxCore.getSelectionModel().selectFirst();
+			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
+			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
+			TabelaCore.getItems().removeAll(TabelaCore.getItems());
+			TabelaFuncionalidade.getItems().removeAll(TabelaFuncionalidade.getItems());
+			
+			colIdClienteCore.setVisible(false);
+			colIdCliente.setVisible(false);
+			idFuncionalidade.setVisible(false);
+			IdClienteProdutoCore.setVisible(false);
+
+			txtVolume.clear();
+			boxProduto.getSelectionModel().clearSelection();
+			boxOrigem.getSelectionModel().selectFirst();
+			boxFormato.getSelectionModel().selectFirst();
+			boxFrequencia.getSelectionModel().selectFirst();
+			boxSistema.getSelectionModel().selectFirst();
+			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
+			
+			txtValidador.clear();			
+			ckbObrigatorio.setSelected(false);
+			tabelaSilver.getItems().removeAll(tabelaSilver.getItems());
+
+			ckMatching.setSelected(false);
+    		ckSerie.setSelected(false);
+    		ckJoin.setSelected(false);
+    		ckAgregacao.setSelected(false);
+    		txtMatching.clear();
+    		txtMatching.setDisable(true);
+    		txtSerie.clear();
+    		txtSerie.setDisable(true);
+    		txtJoin.clear();
+    		txtJoin.setDisable(true);
+    		txtAgregacao.clear();
+    		txtAgregacao.setDisable(true);
 		}
 	}
 
 	@FXML
 	void btnLimparEscopo() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
-			txteMinimos.clear();
-			txtObjNegocio.clear();
-			txtePossiveis.clear();
-			produtoOptimization.setSelected(false);
-			produtoMatching.setSelected(false);
-			produtoVox.setSelected(false);
-			produtoPricing.setSelected(false);
-			produtoMarketing.setSelected(false);
-			produtoSales.setSelected(false);
-		}
+		 if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			 txteMinimos.clear();
+				txtObjNegocio.clear();
+				txtePossiveis.clear();
+				produtoOptimization.setSelected(false);
+				produtoMatching.setSelected(false);
+				produtoVox.setSelected(false);
+				produtoPricing.setSelected(false);
+				produtoMarketing.setSelected(false);
+				produtoSales.setSelected(false); 
+		 }
+		 
 	}
 
 	// Bronze
@@ -658,18 +834,19 @@ public class CrudAtivacao implements Initializable {
 		List<BronzeDTO> resultado = dao.consultar(idCliente);
 
 		tabelaBronze.setItems(FXCollections.observableArrayList(resultado));
+		colfontedadoBronze.setVisible(true);
 
 	}
 
 	@FXML
-	void bntDeletarBronze(ActionEvent event) {
+	void bntDeletarBronze() {
 
 		if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
 
 			try {
-				BronzeDAO dao = new BronzeDAO();
-				dao.deletar(tabelaBronze.getSelectionModel().getSelectedItem().getVolume());
 
+				BronzeDAO dao = new BronzeDAO();
+				dao.deletar(tabelaBronze.getSelectionModel().getSelectedItem().getIdFonteDado());
 				exibiDialogoConfirmacao("Cliente deletado com sucesso.");
 				bntConsultaBronze();
 			} catch (Exception e) {
@@ -682,7 +859,7 @@ public class CrudAtivacao implements Initializable {
 	void btnLimparBronze() {
 		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
 			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
-	
+
 			txtVolume.clear();
 			boxProduto.getSelectionModel().clearSelection();
 			boxOrigem.getSelectionModel().selectFirst();
@@ -733,11 +910,11 @@ public class CrudAtivacao implements Initializable {
 		}
 
 	}
-	
+
 	// Silver
 
 	private ObservableList<SilverDTO> addsilver;
-	
+
 	@FXML
 	void btnCadastrarSilver() throws SQLException {
 		String idCliente = this.txtIdCliente.getText();
@@ -746,48 +923,79 @@ public class CrudAtivacao implements Initializable {
 
 		tabelaSilver.setItems(FXCollections.observableArrayList(resultado));
 	}
-	
-	@FXML
-	void btnLimparEscopoDois() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
-		}
-	}	
-	
-	@FXML
-	void btnAdcSilver() {
 
+	@FXML
+	void btnAdcSilver() throws SQLException {
+		String validador = this.txtValidador.getText();
+		String idfontedado = (tabelaSilver.getSelectionModel().getSelectedItem().getIdFonteDado());
+		String obrigatorio;
+
+		if (ckbObrigatorio.isSelected()) {
+			obrigatorio = "S";
+		} else {
+			obrigatorio = "N";
+		}
+
+		SilverDTO objsilverDTO = new SilverDTO();
+		SilverDAO dao = new SilverDAO();
+		objsilverDTO = dao.cadastrarSilver(validador, obrigatorio, idfontedado);
+
+	}
+
+	@FXML
+	void btnLimparCamposSilver() {
+		txtValidador.clear();
+		ckbObrigatorio.setSelected(false);
 	}
 
 	@FXML
 	void btnLimparSilver() {
 		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			txtValidador.clear();
+			ckbObrigatorio.setSelected(false);
+			tabelaSilver.getItems().removeAll(tabelaSilver.getItems());
 		}
 	}
 
-	// GOLD
+	@FXML
+	void btnConsultarSilver() throws SQLException {
+
+		String idCliente = this.txtIdCliente.getText();
+		SilverDAO dao = new SilverDAO();
+		List<SilverDTO> resultado = dao.consultarSilver(idCliente);
+
+		tabelaSilver.setItems(FXCollections.observableArrayList(resultado));
+		colObrigatorio.setVisible(true);
+		colIdSilver.setVisible(true);
+		colValidador.setVisible(true);
+	}
 
 	@FXML
-    private CheckBox ckMatching;
-	@FXML
-    private CheckBox ckSerie;
-	@FXML
-    private CheckBox ckJoin;
-	@FXML
-    private CheckBox ckAgregacao;
+	void btnDeletarSilver() {
+		if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
+
+			try {
+
+				SilverDAO dao = new SilverDAO();
+				dao.deletar(tabelaSilver.getSelectionModel().getSelectedItem().getIdSilver());
+				exibiDialogoConfirmacao("Cliente deletado com sucesso.");
+				btnConsultarSilver();
+			} catch (Exception e) {
+			}
+		}
+	}
+
 
 	@FXML
-    private TextArea txtMatching;
-	@FXML
-    private TextArea txtSerie;
-	@FXML
-    private TextArea txtJoin;
-    @FXML
-    private TextArea txtAgregacao;
-	
+	void btnAtualizarSilver() {
+		
+	}
+
+	// Gold	
     private GoldDAO objGoldDAO = new GoldDAO();
-
-	@FXML
-    void ckMatching(ActionEvent event) {
+	
+    @FXML
+    void ckMatching() {
 		
 		if (ckMatching.isSelected()) {
 			txtMatching.setDisable(false);
@@ -797,7 +1005,7 @@ public class CrudAtivacao implements Initializable {
     }
     
     @FXML
-    void ckSerie(ActionEvent event) {
+    void ckSerie() {
 		
 		if (ckSerie.isSelected()) {
 			txtSerie.setDisable(false);
@@ -807,7 +1015,7 @@ public class CrudAtivacao implements Initializable {
     }
     
     @FXML
-    void ckJoin(ActionEvent event) {
+    void ckJoin() {
 		
 		if (ckJoin.isSelected()) {
 			txtJoin.setDisable(false);
@@ -817,7 +1025,7 @@ public class CrudAtivacao implements Initializable {
     }
     
     @FXML
-    void ckAgregacao(ActionEvent event) {
+    void ckAgregacao() {
 		
 		if (ckAgregacao.isSelected()) {
 			txtAgregacao.setDisable(false);
@@ -897,8 +1105,6 @@ public class CrudAtivacao implements Initializable {
     	}
     }
 
-	//FIM GOLD
-
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Informacao");
@@ -931,4 +1137,5 @@ public class CrudAtivacao implements Initializable {
 		return false;
 
 	}
+
 }

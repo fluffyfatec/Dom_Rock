@@ -1,7 +1,6 @@
 package modal;
 
 public class BronzeDTO {
-
 	private String formato;
 	private String frequencia;
 	private String origenDado;
@@ -9,7 +8,15 @@ public class BronzeDTO {
 	private String volume;
 	private String nomeProduto;
 	private String idCliente;
+	private String idFonteDado;
 	
+	public String getIdFonteDado() {
+		return idFonteDado;
+	}
+
+	public void setIdFonteDado(String idFonteDado) {
+		this.idFonteDado = idFonteDado;
+	}
 
 	public String getIdCliente() {
 		return idCliente;
