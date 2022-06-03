@@ -33,7 +33,6 @@ public class UsuarioDAO {
 			stm.close();
 			
 		}catch (SQLException e) {
-			System.out.println(e);
 		}
 	
 	}

@@ -242,7 +242,6 @@ public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String I
 					objCore.setCore(resultSet.getString("recurso"));
 					
 					core.add(objCore);
-					System.out.println(objCore);
 			
 				}
 				
@@ -276,7 +275,6 @@ public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String I
 				objFuncionalidade.setFuncionalidades(resultSet.getString("nm_funcionalidade"));
 				
 				funcionalidade.add(objFuncionalidade);
-				System.out.println(objFuncionalidade);
 		
 			}
 			
@@ -335,17 +333,12 @@ public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String I
 	
 	public void deletarcore(Integer id_clienteproduto_core) {
 		String sql = "DELETE ClienteProduto_Core WHERE id_clienteproduto_core = ?";
-		System.out.println(id_clienteproduto_core);
-		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
 	
 		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			
 			stm.setInt(1, id_clienteproduto_core);
 			
-			stm.execute();
-			System.out.println(id_clienteproduto_core);
-			System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
-	
+			stm.execute();	
 			stm.close();
 			
 		} catch (SQLException e) {
@@ -356,17 +349,12 @@ public EscopoDTO consultacrudproduto(ArrayList<String> crudprodutolist, String I
 	
 	public void deletarfuncionalidade(String id_clienteproduto_funcionalidade) {
 		String sql = "DELETE ClienteProduto_Funcionalidade WHERE id_clienteproduto_funcionalidade = ?";
-		System.out.println(id_clienteproduto_funcionalidade);
-		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
 	
 		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
 			
 			stm.setString(1, id_clienteproduto_funcionalidade);
 			
 			stm.execute();
-			System.out.println(id_clienteproduto_funcionalidade);
-			System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////");
-	
 			stm.close();
 			
 		} catch (SQLException e) {

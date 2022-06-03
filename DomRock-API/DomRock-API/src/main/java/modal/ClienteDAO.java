@@ -58,12 +58,6 @@ public class ClienteDAO {
 			stm.setString(3, cliente.getSegmento());
 			stm.setInt(4, cliente.getId_cliente());
 			
-			System.out.println('1'+ cliente.getRazao_social());
-			System.out.println('2'+ cliente.getCnpj());
-			System.out.println('3'+ cliente.getSegmento());
-			System.out.println('4'+ cliente.getId_cliente());
-
-			
 			stm.execute();
 			stm.close();
 		} catch (SQLException e) {

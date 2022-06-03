@@ -37,7 +37,6 @@ public class SilverDAO {
 				silver.setFrequencia(resultSet.getString("frequencia"));
 
 				tabelaSilver.add(silver);
-				System.out.println(resultSet.getString("id_fonte_dado"));
 
 			}
 		} catch (SQLException e) {

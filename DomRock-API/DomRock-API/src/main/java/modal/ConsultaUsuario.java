@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import com.example.view.Alerts;
-
 import controller.LoginController;
 import modal.UsuarioDTO;
 import javafx.scene.control.Alert;
