@@ -5,7 +5,7 @@
 DROP TABLE Comentario;
 DROP TABLE Usuario;
 DROP TABLE Validador;
-DROP TABLE Gold;
+--DROP TABLE Gold;
 DROP TABLE Fonte_dado;
 DROP TABLE ClienteProduto_Core;
 DROP TABLE ClienteProduto_Funcionalidade;
@@ -20,6 +20,20 @@ DROP TABLE Solucao;
 DROP TABLE Descritivo;
 DROP TABLE Cliente;
 
+SELECT * FROM ClienteProduto_Funcionalidade
+
+DELETE Validador;
+DELETE ClienteProduto_Core;
+DELETE ClienteProduto_Funcionalidade;
+DELETE Fonte_dado;
+DELETE Cliente_Produto;
+
+ALTER TABLE Cliente_Produto  
+ADD CONSTRAINT UK_UNIQUE UNIQUE (id_cliente, id_produto);
+
+
+ALTER TABLE Fonte_dado  
+ADD CONSTRAINT FD_UNIQUE UNIQUE (id_origem_dado, id_formato, id_sistema);
 
 
 ---------------------------------------------------------------------------------------------------
@@ -34,7 +48,10 @@ CREATE TABLE  Cliente (
     cnpj varchar(14) unique,
 	segmento varchar(40),
 	datahora_cadastro datetime
+	--unique(razao_social, cnpj)
 );
+
+ 
 
 --CRIAÇÃO TABELA Descritivo 
 
@@ -44,6 +61,7 @@ CREATE TABLE  Descritivo (
 	entregavel_min varchar(60),
 	entregavel_possivel varchar(60),
 	id_cliente int foreign key references Cliente(id_cliente) 
+
 
 );
 
@@ -99,7 +117,7 @@ CREATE TABLE  Sistema (
 CREATE TABLE Cliente_Produto(
 	id_cliente_produto int identity(1,1) primary key,
 	id_cliente int foreign key references Cliente(id_cliente),
-	id_produto int foreign key references Produto(id_produto),
+	id_produto int foreign key references Produto(id_produto)
 );
 
 
@@ -123,8 +141,8 @@ CREATE TABLE Fonte_dado(
 	id_cliente_produto int foreign key references Cliente_Produto(id_cliente_produto),
 	id_origem_dado int foreign key references Origem_dado(id_origem_dado),
 	id_formato int foreign key references Formato(id_formato),
-	id_sistema int foreign key references Sistema(id_sistema)
-	--unique(id_cliente, id_produto)
+	id_sistema int foreign key references Sistema(id_sistema),
+	unique (id_origem_dado, id_formato, id_sistema)
 );
 
 
