@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
 	<children>
 		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@DomRock-API/src/main/java/view/Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -572,6 +572,21 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </Button>
+                        <Button fx:id="btnAtualizar" layoutX="737.0" layoutY="326.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAdcAtualizacaoSilver" opacity="0.89" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 5; -fx-base: #1BB2CF;" visible="false">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Adicionar" />
+                           </tooltip>
                         </Button>
                      </children>
                   </AnchorPane>

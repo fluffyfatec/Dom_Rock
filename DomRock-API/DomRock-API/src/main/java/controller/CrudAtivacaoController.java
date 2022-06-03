@@ -135,6 +135,9 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	private Button btnLimparSilver;
+	
+	@FXML
+	private Button btnAtualizar;
 
 	@FXML
 	private TableColumn<BronzeDTO, String> colFormato = new TableColumn<BronzeDTO, String>();
@@ -832,6 +835,7 @@ public class CrudAtivacaoController implements Initializable {
 			boxFormato.getSelectionModel().selectFirst();
 			boxFrequencia.getSelectionModel().selectFirst();
 			boxSistema.getSelectionModel().selectFirst();
+			colfontedadoBronze.setVisible(false);
 		}
 	}
 
@@ -917,9 +921,10 @@ public class CrudAtivacaoController implements Initializable {
 	@FXML
 	void btnLimparSilver() {
 		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+			tabelaSilver.getItems().removeAll(tabelaSilver.getItems());
 			txtValidador.clear();
 			ckbObrigatorio.setSelected(false);
-			tabelaSilver.getItems().removeAll(tabelaSilver.getItems());
+			btnAtualizar.setVisible(false);
 			colObrigatorio.setVisible(false);
 			colIdSilver.setVisible(false);
 			colValidador.setVisible(false);
@@ -954,11 +959,40 @@ public class CrudAtivacaoController implements Initializable {
 		}
 	}
 
-
 	@FXML
-	void btnAtualizarSilver() {
+	void btnAtualizarSilver(ActionEvent event) {
+		tabelaSilver.getSelectionModel().getSelectedItem().getValidador();
+		txtValidador.setText(tabelaSilver.getSelectionModel().getSelectedItem().getValidador());
 		
+		
+		if (tabelaSilver.getSelectionModel().getSelectedItem().getObrigatorio().equals("S")) {
+			ckbObrigatorio.setSelected(true);
+		} else {
+			
+		}
+		
+		btnAtualizar.setVisible(true);
 	}
+	
+    @FXML
+    void btnAdcAtualizacaoSilver(ActionEvent event) throws SQLException {
+    	String validador = this.txtValidador.getText();
+		String idSilver = (tabelaSilver.getSelectionModel().getSelectedItem().getIdSilver());
+		String obrigatorio;
+
+		if (ckbObrigatorio.isSelected()) {
+			obrigatorio = "S";
+		} else {
+			obrigatorio = "N";
+		}
+
+		SilverDTO objsilverDTO = new SilverDTO();
+		SilverDAO dao = new SilverDAO();
+		objsilverDTO = dao.Atualizar(validador, obrigatorio, idSilver);
+		btnLimparCamposSilver();
+		btnConsultarSilver();
+		btnAtualizar.setVisible(false);
+    }
 
 	// Gold	
     private GoldDAO objGoldDAO = new GoldDAO();

@@ -118,5 +118,22 @@ public class SilverDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	public SilverDTO Atualizar(String validador, String obrigatorio, String idSilver) throws SQLException {
+		String sql = "Update Validador set desc_regra = ?, obrigatorio = ? Where id_validador = ?";
+		try(Connection conn = new ConnectionFactory().conectaBD(); PreparedStatement stm = conn.prepareStatement(sql);){
+			
+			
+			stm.setString(1, validador);
+			stm.setString(2, obrigatorio);
+			stm.setString(3, idSilver);
+			stm.execute();
+			stm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return null;
+
+}
 
 }
