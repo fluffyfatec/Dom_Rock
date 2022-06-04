@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import controller.CrudAtivacaoController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

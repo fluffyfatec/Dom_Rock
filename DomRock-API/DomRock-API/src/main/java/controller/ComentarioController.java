@@ -49,12 +49,12 @@ public class ComentarioController implements Initializable{
     	if (teste!=null) {
 			ComentarioDAO dao = new ComentarioDAO();
 			ComentarioDTO objcomentariodto = dao.updatecomentario(comentario, idcliente, etapa);
-			exibiDialogoINFO("Comentário ATUALIZADO com sucesso !");
+			exibiDialogoINFO("Comentário ATUALIZADO com sucesso!");
 		}
 		else {
 			ComentarioDAO dao = new ComentarioDAO();
 			ComentarioDTO objcomentariodto = dao.cadastrocomentario(comentario, idcliente, etapa);
-			exibiDialogoINFO("Comentário CADASTRADO com sucesso !");
+			exibiDialogoINFO("Comentário CADASTRADO com sucesso!");
 		}
     	}
 
