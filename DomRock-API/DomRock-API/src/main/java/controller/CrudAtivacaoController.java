@@ -142,6 +142,9 @@ public class CrudAtivacaoController implements Initializable {
 	private Button btnLimparSilver;
 	
 	@FXML
+	private Button btnAdcSilver;
+	
+	@FXML
 	private Button btnAtualizar;
 
 	@FXML
@@ -545,6 +548,10 @@ public class CrudAtivacaoController implements Initializable {
     		txtJoin.setDisable(true);
     		txtAgregacao.clear();
     		txtAgregacao.setDisable(true);
+    		ckMatching();
+    		ckSerie();
+    		ckJoin();
+    		ckAgregacao();
 		}
 	}
 
@@ -1086,6 +1093,8 @@ public class CrudAtivacaoController implements Initializable {
 		}
 		
 		btnAtualizar.setVisible(true);
+		btnAdcSilver.setVisible(false);
+		
 	}
 	
     @FXML
@@ -1105,6 +1114,7 @@ public class CrudAtivacaoController implements Initializable {
 		objsilverDTO = dao.Atualizar(validador, obrigatorio, idSilver);
 		btnLimparCamposSilver();
 		btnAtualizar.setVisible(false);
+		btnAdcSilver.setVisible(true);
 		btnConsultarSilver();
 
     }
@@ -1117,8 +1127,17 @@ public class CrudAtivacaoController implements Initializable {
 		
 		if (ckMatching.isSelected()) {
 			txtMatching.setDisable(false);
+			
+			ckSerie.setDisable(true);
+			ckJoin.setDisable(true);
+			ckAgregacao.setDisable(true);
         }else {
         	txtMatching.setDisable(true);
+        	txtMatching.clear();
+        	
+        	ckSerie.setDisable(false);
+			ckJoin.setDisable(false);
+			ckAgregacao.setDisable(false);
         }
     }
     
@@ -1127,8 +1146,17 @@ public class CrudAtivacaoController implements Initializable {
 		
 		if (ckSerie.isSelected()) {
 			txtSerie.setDisable(false);
+			
+			ckMatching.setDisable(true);
+			ckJoin.setDisable(true);
+			ckAgregacao.setDisable(true);
         }else {
         	txtSerie.setDisable(true);
+        	txtSerie.clear();
+        	
+        	ckMatching.setDisable(false);
+			ckJoin.setDisable(false);
+			ckAgregacao.setDisable(false);
         }
     }
     
@@ -1137,8 +1165,17 @@ public class CrudAtivacaoController implements Initializable {
 		
 		if (ckJoin.isSelected()) {
 			txtJoin.setDisable(false);
+			
+			ckMatching.setDisable(true);
+			ckSerie.setDisable(true);
+			ckAgregacao.setDisable(true);
         }else {
         	txtJoin.setDisable(true);
+        	txtJoin.clear();
+        	
+        	ckMatching.setDisable(false);
+        	ckSerie.setDisable(false);
+			ckAgregacao.setDisable(false);
         }
     }
     
@@ -1147,8 +1184,17 @@ public class CrudAtivacaoController implements Initializable {
 		
 		if (ckAgregacao.isSelected()) {
 			txtAgregacao.setDisable(false);
+			
+			ckMatching.setDisable(true);
+			ckSerie.setDisable(true);
+			ckJoin.setDisable(true);
         }else {
         	txtAgregacao.setDisable(true);
+        	txtAgregacao.clear();
+        	
+        	ckMatching.setDisable(false);
+        	ckSerie.setDisable(false);
+        	ckJoin.setDisable(false);
         }
     }
     @FXML
@@ -1187,61 +1233,61 @@ public class CrudAtivacaoController implements Initializable {
     		txtJoin.setDisable(true);
     		txtAgregacao.clear();
     		txtAgregacao.setDisable(true);
+    		ckMatching();
+    		ckSerie();
+    		ckJoin();
+    		ckAgregacao();
 		}
     }
+    
+    
+    
     
     @FXML
 	void btnCadastrarGold(){
     	
     	GoldDTO objGold = new GoldDTO();
-    	
     	if ((ckMatching.isSelected() && txtMatching.getText().equals("")) || (ckSerie.isSelected() && txtSerie.getText().equals("")) ||
-    		(ckJoin.isSelected() && txtJoin.getText().equals("")) || (ckAgregacao.isSelected() && txtAgregacao.getText().equals(""))) {
-    		exibiDialogoERRO("ERRO! Por favor, insira os DADOS corretamente!");
-    	}else{
-    		if (ckMatching.isSelected() || ckSerie.isSelected() || ckJoin.isSelected() || ckAgregacao.isSelected()) {
-	    		if (ckMatching.isSelected()){
-		    		objGold.setOperacao("Matching");
-		    		objGold.setStrMatching(txtMatching.getText());
-		    		
-		    		objGoldDAO.cadastrarOperacoes(objGold);
-		    	}
-		    	if (ckSerie.isSelected()) {
-		    		objGold.setOperacao("Série Temporal");
-		    		objGold.setStrSerie(txtSerie.getText());
-		    		
-		    		objGoldDAO.cadastrarOperacoes(objGold);
-		    	}
-		    	if (ckJoin.isSelected()) {
-		    		objGold.setOperacao("Join");
-		    		objGold.setStrJoin(txtJoin.getText());
-		    		
-		    		objGoldDAO.cadastrarOperacoes(objGold);
-		    	}
-		    	if (ckAgregacao.isSelected()) {
-		    		objGold.setOperacao("Agregação");
-		    		objGold.setStrAgregacao(txtAgregacao.getText());
-		    		
-		    		objGoldDAO.cadastrarOperacoes(objGold);
-		    	}
-		    	exibiDialogoINFO("Cadastrado com SUSSESO!");
-		    	ckMatching.setSelected(false);
-	    		ckSerie.setSelected(false);
-	    		ckJoin.setSelected(false);
-	    		ckAgregacao.setSelected(false);
-	    		txtMatching.clear();
-	    		txtMatching.setDisable(true);
-	    		txtSerie.clear();
-	    		txtSerie.setDisable(true);
-	    		txtJoin.clear();
-	    		txtJoin.setDisable(true);
-	    		txtAgregacao.clear();
-	    		txtAgregacao.setDisable(true);
-	    	}else{
-	    		exibiDialogoERRO("ERRO! Por favor, selecione no MÍNIMO uma opção!");
-	    	}
-    	}
+        		(ckJoin.isSelected() && txtJoin.getText().equals("")) || (ckAgregacao.isSelected() && txtAgregacao.getText().equals(""))) {
+        		exibiDialogoERRO("ERRO! Por favor, insira os DADOS corretamente!");
+        	}else{
+        		if (ckMatching.isSelected() || ckSerie.isSelected() || ckJoin.isSelected() || ckAgregacao.isSelected()) {
+    	    		if (ckMatching.isSelected()){
+    		    		objGold.setOperacao("Matching");
+    		    		objGold.setStrMatching(txtMatching.getText());
+    		    		
+    		    		objGoldDAO.cadastrarOperacoes(objGold);
+    		    	}
+    		    	if (ckSerie.isSelected()) {
+    		    		objGold.setOperacao("Série Temporal");
+    		    		objGold.setStrSerie(txtSerie.getText());
+    		    		
+    		    		objGoldDAO.cadastrarOperacoes(objGold);
+    		    	}
+    		    	if (ckJoin.isSelected()) {
+    		    		objGold.setOperacao("Join");
+    		    		objGold.setStrJoin(txtJoin.getText());
+    		    		
+    		    		objGoldDAO.cadastrarOperacoes(objGold);
+    		    	}
+    		    	if (ckAgregacao.isSelected()) {
+    		    		objGold.setOperacao("Agregação");
+    		    		objGold.setStrAgregacao(txtAgregacao.getText());
+    		    		
+    		    		objGoldDAO.cadastrarOperacoes(objGold);
+    		    	}
+    		    	exibiDialogoINFO("Cadastrado com SUSSESO!");
+    	    	}else{
+    	    		exibiDialogoERRO("ERRO! Por favor, selecione no MÁXIMO uma opção!");
+    	    	}
+        	}
     }
+    
+    @FXML
+   	void btnAtualizarGold(){
+    	
+    }
+    
 
     //ALERTAS//
 	private void exibiDialogoINFO(String informacao) {
