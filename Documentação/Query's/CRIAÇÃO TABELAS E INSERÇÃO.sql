@@ -20,22 +20,6 @@ DROP TABLE Solucao;
 DROP TABLE Descritivo;
 DROP TABLE Cliente;
 
-SELECT * FROM ClienteProduto_Funcionalidade
-
-DELETE Validador;
-DELETE ClienteProduto_Core;
-DELETE ClienteProduto_Funcionalidade;
-DELETE Fonte_dado;
-DELETE Cliente_Produto;
-
-ALTER TABLE Cliente_Produto  
-ADD CONSTRAINT UK_UNIQUE UNIQUE (id_cliente, id_produto);
-
-
-ALTER TABLE Fonte_dado  
-ADD CONSTRAINT FD_UNIQUE UNIQUE (id_origem_dado, id_formato, id_sistema);
-
-
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -169,6 +153,7 @@ CREATE TABLE Comentario (
 	id_cliente int foreign key references Cliente(id_cliente) 
 );
 
+/*
 DROP TABLE Teste_JSON;
 
 CREATE TABLE Teste_JSON (
@@ -178,7 +163,7 @@ CREATE TABLE Teste_JSON (
 	coluna_3 varchar(70),
 	coluna_4 varchar(70)
 );
-
+*/
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -253,5 +238,42 @@ VALUES ('Admin', 'Admilson', 'admin', '123'),
 	   ('Patrick a senha é ppk', 'Rei Delas', 'rei', 'ppk');
 
 
+/*
+SELECT * FROM SYS.TABLES
+ORDER BY create_date desc
 
 
+DELETE Comentario;
+DELETE Gold;
+DELETE ClienteProduto_Funcionalidade;
+DELETE Validador;
+DELETE Teste_JSON;
+DELETE Usuario;
+DELETE Fonte_dado;
+DELETE ClienteProduto_Core;
+DELETE Cliente_Produto;
+DELETE Sistema;
+DELETE Formato;
+DELETE Origem_dado;
+DELETE Core;
+DELETE Funcionalidade;
+DELETE Produto;
+DELETE Solucao;
+DELETE Descritivo;
+DELETE Cliente;
+SELECT * FROM ClienteProduto_Funcionalidade
+
+DELETE Validador;
+DELETE ClienteProduto_Core;
+DELETE ClienteProduto_Funcionalidade;
+DELETE Fonte_dado;
+DELETE Cliente_Produto;
+
+ALTER TABLE Cliente_Produto  
+ADD CONSTRAINT UK_UNIQUE UNIQUE (id_cliente, id_produto);
+
+SELECT 
+
+ALTER TABLE Fonte_dado  
+DROP CONSTRAINT FD_UNIQUE UNIQUE (id_origem_dado, id_formato, id_sistema);
+*/
