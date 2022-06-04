@@ -215,12 +215,13 @@ VALUES ('API'),
 	   ('SFTP'),
 	   ('Upload');
 
+
 --INSERIR DADOS NA TABELA Formato
 INSERT INTO Formato (formato)
 VALUES ('JSON'),
-	   ('csv'),
-	   ('planilhas'),
-	   ('tabelas'),
+	   ('CSV'),
+	   ('Planilhas'),
+	   ('Tabelas'),
 	   ('PDF'),
 	   ('Audio'),
 	   ('Texto');
