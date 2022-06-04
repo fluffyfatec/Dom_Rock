@@ -30,7 +30,7 @@ public class GoldDAO {
 					stm.setString(2, gold.getStrMatching());
 					break;
 				case "Serie Temporal":
-					stm.setString(1, "Serie Temporal");
+					stm.setString(1, "Série Temporal");
 					stm.setString(2, gold.getStrSerie());
 					break;
 				case "Join":
@@ -38,7 +38,7 @@ public class GoldDAO {
 					stm.setString(2, gold.getStrJoin());
 					break;
 				case "Agregacao":
-					stm.setString(1, "Agregacao");
+					stm.setString(1, "Agregação");
 					stm.setString(2, gold.getStrAgregacao());
 					break;
 			}
