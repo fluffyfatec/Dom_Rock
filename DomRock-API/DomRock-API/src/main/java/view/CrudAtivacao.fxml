@@ -23,15 +23,15 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
 	<children>
-		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@DomRock-API/src/main/java/view/Styles.css" tabClosingPolicy="UNAVAILABLE">
+		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@Styles/Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
 				<Tab fx:id="geral" style="-fx-text-base-color: white; -fx-background-color: #21252a;" text="Escopo">
 					<content>
 						<AnchorPane maxHeight="430.0" maxWidth="1181.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="842.0" style="-fx-background-color: #21252a;">
 							<children>
-                        <TabPane prefHeight="434.0" prefWidth="816.0" stylesheets="@DomRock-API/src/main/java/view/tabsecundariastyle.css" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane prefHeight="434.0" prefWidth="816.0" stylesheets="@Styles/tabsecundariastyle.css" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab style="-fx-background-color: #2d343a; -fx-text-base-color: white;" text="Produto">
                               <content>
@@ -62,7 +62,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                                      <Image url="@Styles/eraser.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -77,7 +77,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                                      <Image url="@Styles/check.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -88,11 +88,11 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnAtualizarEscopo" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/pen-to-square.png" />
+                                                      <Image url="@Styles/edit.png" />
                                                    </image></ImageView>
                                              </graphic>
                                              <tooltip>
@@ -159,6 +159,36 @@
                                              </children>
                                           </GridPane>
                                           <Line endX="-74.0" layoutX="882.0" startX="-881.0" stroke="#b5b5b5" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="159.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/lupa.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar121121" text="Limpar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="200.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/comment.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar1211211" text="Limpar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -167,9 +197,9 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <GridPane layoutX="432.0" layoutY="74.0" prefHeight="27.0" prefWidth="291.0">
+                                          <GridPane layoutX="432.0" layoutY="74.0" prefHeight="27.0" prefWidth="281.0">
                                              <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                              </columnConstraints>
@@ -187,7 +217,7 @@
                                                    </cursor></ComboBox>
                                              </children>
                                           </GridPane>
-                                          <TableView fx:id="TabelaCore" layoutX="36.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@DomRock-API/src/main/java/view/Styles.css" AnchorPane.leftAnchor="36.0">
+                                          <TableView fx:id="TabelaCore" layoutX="36.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles/Styles.css" AnchorPane.leftAnchor="36.0">
                                             <columns>
                                                 <TableColumn fx:id="IdClienteProdutoCore" prefWidth="52.000030517578125" text="Column X" visible="false" />
                                                 <TableColumn fx:id="colIdClienteCore" prefWidth="52.000030517578125" text="ID" visible="false" />
@@ -195,7 +225,7 @@
                                               <TableColumn fx:id="colCore" minWidth="22.399993896484375" prefWidth="173.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Core" />
                                             </columns>
                                           </TableView>
-                                          <TableView fx:id="TabelaFuncionalidade" layoutX="534.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@DomRock-API/src/main/java/view/Styles.css" AnchorPane.rightAnchor="34.0">
+                                          <TableView fx:id="TabelaFuncionalidade" layoutX="534.0" layoutY="155.0" prefHeight="200.0" prefWidth="350.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles/Styles.css" AnchorPane.rightAnchor="34.0">
                                              <columns>
                                                 <TableColumn fx:id="idFuncionalidade" prefWidth="48.799989223480225" text="Column X" visible="false" />
                                                 <TableColumn fx:id="colIdCliente" prefWidth="48.799989223480225" text="ID" visible="false" />
@@ -203,11 +233,11 @@
                                                 <TableColumn fx:id="colFuncionalidade" maxWidth="213.60015869140625" minWidth="112.0" prefWidth="174.0" style="-fx-base: #21252a; -fx-border-color: trasparent; -fx-alignment: center;" text="Funcionalidade" />
                                              </columns>
                                           </TableView>
-                                          <Button layoutX="355.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaCore" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;">
+                                          <Button layoutX="323.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaCore" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                                      <Image url="@Styles/plus.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -217,11 +247,11 @@
                                              <tooltip>
                                                 <Tooltip text="Adicionar a Tabela" />
                                              </tooltip></Button>
-                                          <Button layoutX="749.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaFuncionalidade" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;" AnchorPane.rightAnchor="42.0">
+                                          <Button layoutX="719.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnAddTabelaFuncionalidade" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #1BB2CF;" AnchorPane.rightAnchor="72.0">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                                      <Image url="@Styles/plus.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -231,11 +261,11 @@
                                              <tooltip>
                                                 <Tooltip text="Adicionar a Tabela" />
                                              </tooltip></Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnDeletarEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER" AnchorPane.leftAnchor="80.0">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnDeletarEscopoDois" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" AnchorPane.leftAnchor="353.0">
                                              <graphic>
-                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/trash.png" />
+                                                      <Image url="@Styles/trash.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -248,7 +278,7 @@
                                           </Button>
                                           <GridPane layoutX="36.0" layoutY="74.0" prefHeight="27.0" prefWidth="207.0" AnchorPane.leftAnchor="36.0">
                                             <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                             </columnConstraints>
@@ -267,11 +297,11 @@
                                              </children>
                                           </GridPane>
                                           <Line endX="-74.0" layoutX="882.0" startX="-881.0" stroke="#b5b5b5" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="40.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="36.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                                      <Image url="@Styles/eraser.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -282,16 +312,76 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnBuscarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="77.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
+                                                      <Image url="@Styles/check.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
                                              <tooltip>
                                                 <Tooltip fx:id="toolConsultar113" text="Editar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnBuscarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/lupa.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar12112" text="Limpar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="118.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/edit.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar1121" text="Editar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/comment.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar121123" text="Limpar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="749.0" layoutY="75.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnDeletarEscopoDois" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Styles/trash.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar1123" text="Deletar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -311,22 +401,23 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="36.0" layoutY="95.0" prefHeight="50.0" prefWidth="752.0">
+                        <GridPane layoutX="36.0" layoutY="95.0" prefHeight="50.0" prefWidth="735.0">
                            <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="108.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
@@ -346,7 +437,7 @@
                                  <graphic>
                                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                          <Image url="@Styles/plus.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -380,9 +471,24 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ComboBox>
+                              <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#bntDeletarBronze" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="14" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Styles/trash.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip fx:id="toolConsultar12111" text="Limpar" />
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaBronze" layoutX="36.0" layoutY="154.0" prefHeight="222.0" prefWidth="743.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@DomRock-API/src/main/java/view/Styles.css">
+                        <TableView fx:id="tabelaBronze" layoutX="36.0" layoutY="154.0" prefHeight="222.0" prefWidth="743.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles/Styles.css">
                            <columns>
                               <TableColumn fx:id="colProduto" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Produto" />
                               <TableColumn fx:id="colOrigem" minWidth="0.0" prefWidth="145.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-alignment: center;" text="Origem do dado" />
@@ -400,7 +506,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                    <Image url="@Styles/eraser.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -411,11 +517,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntConsultaBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntConsultaBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
+                                    <Image url="@Styles/lupa.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -426,16 +532,46 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntDeletarBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="77.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/trash.png" />
+                                    <Image url="@Styles/check.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <tooltip>
-                              <Tooltip fx:id="toolConsultar12111" text="Limpar" />
+                              <Tooltip fx:id="toolConsultar121122" text="Limpar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="118.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar11211" text="Editar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/comment.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar12113" text="Limpar" />
                            </tooltip>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -449,7 +585,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="980.0" style="-fx-background-color: #21252a;">
                      <children>
-                        <GridPane layoutX="529.0" layoutY="323.0" prefHeight="30.0" prefWidth="208.0">
+                        <GridPane layoutX="576.0" layoutY="324.0" prefHeight="30.0" prefWidth="208.0">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
@@ -466,7 +602,7 @@
                                  <graphic>
                                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/plus.png" />
+                                          <Image url="@Styles/plus.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -477,11 +613,11 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></CheckBox>
-                              <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnLimparCamposSilver" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER" GridPane.columnIndex="2">
+                              <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnLimparCamposSilver" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" GridPane.columnIndex="2">
                                  <graphic>
                                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                          <Image url="@Styles/eraser.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -494,7 +630,7 @@
                               </Button>
                            </children>
                         </GridPane>
-                        <TableView fx:id="tabelaSilver" layoutX="27.0" layoutY="92.0" prefHeight="222.0" prefWidth="483.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@DomRock-API/src/main/java/view/Styles.css" AnchorPane.leftAnchor="27.0">
+                        <TableView fx:id="tabelaSilver" layoutX="37.0" layoutY="92.0" prefHeight="222.0" prefWidth="524.0" style="-fx-border-radius: 5; -fx-border-color: #6c6c6c; -fx-text-fill: white; -fx-background-color: #2d343a; -fx-base: #2d343a;" stylesheets="@Styles/Styles.css" AnchorPane.leftAnchor="37.0">
                           <columns>
                               <TableColumn fx:id="colIdFonte" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Id Fonte" />
                             <TableColumn fx:id="colProdutoSilver" prefWidth="162.0" style="-fx-base: #21252a; -fx-border-color: transparent; -fx-opacity: 50; -fx-alignment: center;" text="Produto" />
@@ -515,7 +651,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                    <Image url="@Styles/eraser.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -530,7 +666,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                    <Image url="@Styles/check.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -541,13 +677,13 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <TextArea fx:id="txtValidador" layoutX="533.0" layoutY="115.0" prefHeight="200.0" prefWidth="251.0" style="-fx-control-inner-background: #21252a; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10;" AnchorPane.rightAnchor="36.0" />
-                        <Label layoutX="529.0" layoutY="92.0" text="Validador" textFill="WHITE" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnConsultarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <TextArea fx:id="txtValidador" layoutX="533.0" layoutY="115.0" prefHeight="200.0" prefWidth="205.0" style="-fx-control-inner-background: #21252a; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10;" AnchorPane.rightAnchor="36.0" />
+                        <Label layoutX="575.0" layoutY="92.0" text="Validador" textFill="WHITE" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnConsultarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
+                                    <Image url="@Styles/lupa.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -558,11 +694,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnDeletarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="326.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#btnDeletarSilver" opacity="0.8" prefHeight="25.0" prefWidth="25.0" style="-fx-base: red;" textAlignment="CENTER" textFill="RED">
                            <graphic>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/trash.png" />
+                                    <Image url="@Styles/trash.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -573,11 +709,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnAtualizarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnAtualizarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/pen-to-square.png" />
+                                    <Image url="@Styles/edit.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -603,6 +739,21 @@
                               <Tooltip text="Adicionar" />
                            </tooltip>
                         </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/comment.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar11123" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </AnchorPane>
               </content>
@@ -617,7 +768,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/eraser.png" />
+                                    <Image url="@Styles/eraser.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -632,7 +783,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/check.png" />
+                                    <Image url="@Styles/check.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -653,6 +804,51 @@
                         <CheckBox fx:id="ckAgregacao" layoutX="478.0" layoutY="252.0" mnemonicParsing="false" onAction="#ckAgregacao" text="Agregação" textFill="WHITE" />
                         <TextArea fx:id="txtJoin" disable="true" layoutX="471.0" layoutY="127.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" AnchorPane.rightAnchor="45.0" />
                         <TextArea fx:id="txtAgregacao" disable="true" layoutX="471.0" layoutY="276.0" prefHeight="106.0" prefWidth="300.0" style="-fx-control-inner-background: #21252a; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10; -fx-text-fill: white;" AnchorPane.rightAnchor="45.0" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/lupa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar11122" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="118.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar111211" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="200.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Styles/comment.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip fx:id="toolConsultar111221" text="Cadastrar" />
+                           </tooltip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>
@@ -693,9 +889,9 @@
 					</GridPane.margin>
 					<graphic>
 						<ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-							<image>
-								<Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
-							</image>
+                     <image>
+                        <Image url="@Styles/lupa.png" />
+                     </image>
 						</ImageView>
 					</graphic>
                <tooltip>
@@ -715,7 +911,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/close.png" />
+                        <Image url="@Styles/eraser.png" />
                      </image>
                   </ImageView>
                </graphic>
