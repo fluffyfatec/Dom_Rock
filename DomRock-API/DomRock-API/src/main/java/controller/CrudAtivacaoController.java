@@ -398,6 +398,7 @@ public class CrudAtivacaoController implements Initializable {
 
 		addfunativacao.add(objto);
 		btnBuscarEscopoDois();
+		btnBuscaCliente();
 	}
 	
 	@FXML
