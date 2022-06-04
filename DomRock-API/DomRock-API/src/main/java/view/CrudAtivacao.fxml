@@ -327,7 +327,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnBuscarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="159.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnBuscarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -517,7 +517,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntConsultaBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#bntConsultaBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -679,7 +679,7 @@
                         </Button>
                         <TextArea fx:id="txtValidador" layoutX="533.0" layoutY="115.0" prefHeight="200.0" prefWidth="205.0" style="-fx-control-inner-background: #21252a; -fx-border-color: null; -fx-text-box-border: #6c6c6c; -fx-border-radius: 10;" AnchorPane.rightAnchor="36.0" />
                         <Label layoutX="575.0" layoutY="92.0" text="Validador" textFill="WHITE" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnConsultarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="159.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnConsultarSilver" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

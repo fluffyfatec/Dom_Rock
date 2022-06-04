@@ -298,7 +298,7 @@ public class CrudAtivacaoController implements Initializable {
 
 		// Populando o boxFormato
 
-		ObservableList<String> listFormato = FXCollections.observableArrayList("JSON", "csv", "planilhas", "tabelas",
+		ObservableList<String> listFormato = FXCollections.observableArrayList("JSON", "CSV", "Planilhas", "Tabelas",
 				"PDF", "Audio", "Texto");
 
 		boxFormato.setItems(listFormato);
@@ -376,7 +376,7 @@ public class CrudAtivacaoController implements Initializable {
 	
 	//BUSCAR CLIENTE //
 	@FXML
-	void btnBuscaCliente() {	
+	void btnBuscaCliente() throws SQLException {	
 		if(txtCnpj.getLength() != 14){
 			exibiDialogoERRO("Erro! Por favor, insira o CPF corretamente!");
 		}else {
@@ -481,6 +481,14 @@ public class CrudAtivacaoController implements Initializable {
 			IdClienteProdutoCore.setVisible(true);
 		}
 			ComentarioController objcomentariodto = new ComentarioController();
+			{	
+		
+			bntConsultaBronze();
+			{
+			btnConsultarSilver();
+			}
+			}
+		
 	}
 	@FXML
 	void btnLimparCliente() {
@@ -631,7 +639,7 @@ public class CrudAtivacaoController implements Initializable {
 		 
 	}
 	@FXML
-	void btnAddTabelaFuncionalidade() {
+	void btnAddTabelaFuncionalidade() throws SQLException {
 
 		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
 		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
@@ -836,10 +844,17 @@ public class CrudAtivacaoController implements Initializable {
 	
 			List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
 			prods.add(objBronzeDTO);
-	
-			BronzeDAO dao = new BronzeDAO();
-			objBronzeDTO = dao.cadastrorBronze(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
-					idCliente);
+	try {
+		BronzeDAO dao = new BronzeDAO();
+		objBronzeDTO = dao.cadastrorBronze(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
+				idCliente);
+		bntConsultaBronze();
+		{
+		btnConsultarSilver();
+		}
+	} catch (Exception e) {
+	}
+			
 		}
 	}
 	
@@ -970,6 +985,10 @@ public class CrudAtivacaoController implements Initializable {
 			SilverDTO objsilverDTO = new SilverDTO();
 			SilverDAO dao = new SilverDAO();
 			objsilverDTO = dao.cadastrarSilver(validador, obrigatorio, idfontedado);
+			colObrigatorio.setVisible(true);
+			colIdSilver.setVisible(true);
+			colValidador.setVisible(true);
+			btnConsultarSilver();
 		}
 	}
 	@FXML
@@ -1015,17 +1034,26 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnConsultarSilver() throws SQLException {
-
+	try {
 		String idCliente = this.txtIdCliente.getText();
 		SilverDAO dao = new SilverDAO();
 		List<SilverDTO> resultado = dao.consultarSilver(idCliente);
-
 		tabelaSilver.setItems(FXCollections.observableArrayList(resultado));
+		if (colValidador.getText() == null ) {
+			colObrigatorio.setVisible(false);
+			colIdSilver.setVisible(false);
+			colValidador.setVisible(false);
+		}
+		
+	} catch (Exception e) {
 		colObrigatorio.setVisible(true);
 		colIdSilver.setVisible(true);
-		colValidador.setVisible(true);
-	}
+		colValidador.setVisible(true);	} 
+	
+	} 
 
+	
+	
 	@FXML
 	void btnDeletarSilver() {
 		if (exibiDialogoConfirmacao("Confirmar a exclusão da LINHA selecionada?")) {
@@ -1034,9 +1062,13 @@ public class CrudAtivacaoController implements Initializable {
 
 				SilverDAO dao = new SilverDAO();
 				dao.deletar(tabelaSilver.getSelectionModel().getSelectedItem().getIdSilver());
-				exibiDialogoINFO("Cliente DELETADO com sucesso.");
 				btnConsultarSilver();
+				exibiDialogoINFO("Cliente DELETADO com sucesso.");
+				
+
 			} catch (Exception e) {
+				exibiDialogoINFO("Cliente Erro ao DELETAR.");
+
 			}
 		}
 	}
@@ -1072,8 +1104,9 @@ public class CrudAtivacaoController implements Initializable {
 		SilverDAO dao = new SilverDAO();
 		objsilverDTO = dao.Atualizar(validador, obrigatorio, idSilver);
 		btnLimparCamposSilver();
-		btnConsultarSilver();
 		btnAtualizar.setVisible(false);
+		btnConsultarSilver();
+
     }
 
 	// GOLD	
