@@ -465,12 +465,11 @@ public class CrudAtivacaoController implements Initializable {
 					try {
 						EscopoDAO dao = new EscopoDAO();
 						dao.deletarcore(TabelaCore.getSelectionModel().getSelectedItem().getIdcoreproduto());
-						btnBuscarEscopoDois();
 	
-						exibiDialogoConfirmacao("CORE deletado com sucesso.");
+						exibiDialogoINFO("CORE deletado com sucesso!");
 						btnBuscarEscopoDois();
 					} catch (Exception e) {
-						exibiDialogoERRO("Falha ao deletar CORE.");
+						exibiDialogoERRO("Falha ao deletar CORE!");
 					}
 				}
 			}
@@ -481,12 +480,11 @@ public class CrudAtivacaoController implements Initializable {
 					try {
 						EscopoDAO dao = new EscopoDAO();
 						dao.deletarfuncionalidade(TabelaFuncionalidade.getSelectionModel().getSelectedItem().getIdprodutofuncionalidade());
-						btnBuscarEscopoDois();
 	
-						exibiDialogoConfirmacao("FUNCIONALIDADE deletada com sucesso.");
+						exibiDialogoINFO("FUNCIONALIDADE deletada com sucesso!");
 						btnBuscarEscopoDois();
 					} catch (Exception e) {
-						exibiDialogoERRO("Falha ao deletar FUNCIONALIDADE.");
+						exibiDialogoERRO("Falha ao deletar FUNCIONALIDADE!");
 					}
 				}
 			}
@@ -516,105 +514,109 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnBuscaCliente() {	
-		String cnpj;
-		cnpj = txtCnpj.getText();
-		EscopoDAO consultaId = new EscopoDAO();
-		EscopoDTO objescopoDTO = consultaId.consultaId(cnpj);
-		txtIdCliente.setText(objescopoDTO.getIdCliente());
-		txtNome.setText(objescopoDTO.getRazaoSocial());
-
-		// Combo-box Produtos
-
-		ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
-		String IdCliente = txtIdCliente.getText();
-		EscopoDAO dao = new EscopoDAO();
-		objescopoDTO = dao.consultaboxproduto(boxprodutocliente, IdCliente);
-		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
-		boxProdutoIdEscopo.getSelectionModel().selectFirst();
-
-		// Popular lista produto cliente 2
-		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
-		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois, IdCliente);
-		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
-		boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
-
-		// Popular boxProduto bronze
-		ObservableList<String> boxprodutobronze = FXCollections.observableArrayList();
-		objescopoDTO = dao.consultaboxproduto(boxprodutobronze, IdCliente);
-		boxProduto.setItems(objescopoDTO.boxprodutobronze);
-		boxProduto.getSelectionModel().selectFirst();
-		
-		// Popular lista Core
-		ObservableList<String> boxcores = FXCollections.observableArrayList();
-		objescopoDTO = dao.selectcore(boxcores);
-		boxCore.setItems(objescopoDTO.boxcores);
-		boxCore.getSelectionModel().selectFirst();
-
-		// Popular lista Funcionalidade
-		ObservableList<String> boxfuncionalidade = FXCollections.observableArrayList();
-		objescopoDTO = dao.select(boxfuncionalidade);
-		boxFuncionalidadeEscopo.setItems(objescopoDTO.boxfuncionalidade);
-		boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
-
-		// CRUD Descritivos
-		objescopoDTO = dao.consultadescritivo(IdCliente);
-		txteMinimos.setText(objescopoDTO.getEntregaveisMinimos());
-		txtObjNegocio.setText(objescopoDTO.getObjNegocios());
-		txtePossiveis.setText(objescopoDTO.getEntregaveisPossiveis());
-
-		// CRUD CheckBox Produtdos
-		ArrayList<String> crudprodutolist = new ArrayList();
-		objescopoDTO = dao.consultacrudproduto(crudprodutolist, IdCliente);
-		if (crudprodutolist.contains("Marketing & Planning")) {
-			produtoMarketing.setSelected(true);
-		}
-		if (crudprodutolist.contains("Vox")) {
-			produtoVox.setSelected(true);
-		}
-		if (crudprodutolist.contains("Sales & Distribution")) {
-			produtoSales.setSelected(true);
-		}
-		if (crudprodutolist.contains("Pricing")) {
-			produtoPricing.setSelected(true);
-		}
-		if (crudprodutolist.contains("Optimization")) {
-			produtoOptimization.setSelected(true);
-		}
-		if (crudprodutolist.contains("Matching & Risk")) {
-			produtoMatching.setSelected(true);
-		}
-
-		List<EscopoDTO> core = new ArrayList<>();
-		try {
-			List<EscopoTabelaCore> resultado = dao.consultarCore(txtIdCliente.getText());
-			if (resultado.isEmpty()) {
-			} else {
-				TabelaCore.setItems(FXCollections.observableArrayList(resultado));
+		if(txtCnpj.getLength() != 14){
+			exibiDialogoERRO("Erro! Por favor, insira os dados corretamente!");
+		}else {
+			String cnpj;
+			cnpj = txtCnpj.getText();
+			EscopoDAO consultaId = new EscopoDAO();
+			EscopoDTO objescopoDTO = consultaId.consultaId(cnpj);
+			txtIdCliente.setText(objescopoDTO.getIdCliente());
+			txtNome.setText(objescopoDTO.getRazaoSocial());
+	
+			// Combo-box Produtos
+	
+			ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
+			String IdCliente = txtIdCliente.getText();
+			EscopoDAO dao = new EscopoDAO();
+			objescopoDTO = dao.consultaboxproduto(boxprodutocliente, IdCliente);
+			boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
+			boxProdutoIdEscopo.getSelectionModel().selectFirst();
+	
+			// Popular lista produto cliente 2
+			ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
+			objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois, IdCliente);
+			boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
+			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
+	
+			// Popular boxProduto bronze
+			ObservableList<String> boxprodutobronze = FXCollections.observableArrayList();
+			objescopoDTO = dao.consultaboxproduto(boxprodutobronze, IdCliente);
+			boxProduto.setItems(objescopoDTO.boxprodutobronze);
+			boxProduto.getSelectionModel().selectFirst();
+			
+			// Popular lista Core
+			ObservableList<String> boxcores = FXCollections.observableArrayList();
+			objescopoDTO = dao.selectcore(boxcores);
+			boxCore.setItems(objescopoDTO.boxcores);
+			boxCore.getSelectionModel().selectFirst();
+	
+			// Popular lista Funcionalidade
+			ObservableList<String> boxfuncionalidade = FXCollections.observableArrayList();
+			objescopoDTO = dao.select(boxfuncionalidade);
+			boxFuncionalidadeEscopo.setItems(objescopoDTO.boxfuncionalidade);
+			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
+	
+			// CRUD Descritivos
+			objescopoDTO = dao.consultadescritivo(IdCliente);
+			txteMinimos.setText(objescopoDTO.getEntregaveisMinimos());
+			txtObjNegocio.setText(objescopoDTO.getObjNegocios());
+			txtePossiveis.setText(objescopoDTO.getEntregaveisPossiveis());
+	
+			// CRUD CheckBox Produtdos
+			ArrayList<String> crudprodutolist = new ArrayList();
+			objescopoDTO = dao.consultacrudproduto(crudprodutolist, IdCliente);
+			if (crudprodutolist.contains("Marketing & Planning")) {
+				produtoMarketing.setSelected(true);
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			exibiDialogoERRO("Falha ao realizar a consulta!");
-			e.printStackTrace();
-		}
-
-		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
-		try {
-			List<EscopoTabelaFuncionalidades> resultado = dao.consultarFuncionalidades(txtIdCliente.getText());
-			if (resultado.isEmpty()) {
-			} else {
-				TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
+			if (crudprodutolist.contains("Vox")) {
+				produtoVox.setSelected(true);
 			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			exibiDialogoERRO("Falha ao realizar a consulta!");
-			e.printStackTrace();
+			if (crudprodutolist.contains("Sales & Distribution")) {
+				produtoSales.setSelected(true);
+			}
+			if (crudprodutolist.contains("Pricing")) {
+				produtoPricing.setSelected(true);
+			}
+			if (crudprodutolist.contains("Optimization")) {
+				produtoOptimization.setSelected(true);
+			}
+			if (crudprodutolist.contains("Matching & Risk")) {
+				produtoMatching.setSelected(true);
+			}
+	
+			List<EscopoDTO> core = new ArrayList<>();
+			try {
+				List<EscopoTabelaCore> resultado = dao.consultarCore(txtIdCliente.getText());
+				if (resultado.isEmpty()) {
+				} else {
+					TabelaCore.setItems(FXCollections.observableArrayList(resultado));
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				exibiDialogoERRO("Falha ao realizar a consulta!");
+				e.printStackTrace();
+			}
+	
+			List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
+			try {
+				List<EscopoTabelaFuncionalidades> resultado = dao.consultarFuncionalidades(txtIdCliente.getText());
+				if (resultado.isEmpty()) {
+				} else {
+					TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
+				}
+	
+			} catch (Exception e) {
+				// TODO: handle exception
+				exibiDialogoERRO("Falha ao realizar a consulta!");
+				e.printStackTrace();
+			}
+	
+			colIdClienteCore.setVisible(true);
+			colIdCliente.setVisible(true);
+			idFuncionalidade.setVisible(true);
+			IdClienteProdutoCore.setVisible(true);
 		}
-
-		colIdClienteCore.setVisible(true);
-		colIdCliente.setVisible(true);
-		idFuncionalidade.setVisible(true);
-		IdClienteProdutoCore.setVisible(true);
 		
 	}
 
@@ -774,25 +776,29 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnAdc() throws SQLException {
-		String volume = this.txtVolume.getText();
-		String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
-		String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
-		String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
-		String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
-		String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
-		String idCliente = this.txtIdCliente.getText();
-
-		BronzeDTO objBronzeDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume,
-				nomeProduto);
-
-		produtoAtivacaoObservableList.add(objBronzeDTO);
-
-		List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
-		prods.add(objBronzeDTO);
-
-		BronzeDAO dao = new BronzeDAO();
-		objBronzeDTO = dao.cadastrorBronze(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
-				idCliente);
+		if (txtVolume.getText().equals("")) {
+			exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente");
+		}else{
+			String volume = this.txtVolume.getText();
+			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
+			String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
+			String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
+			String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
+			String nomeProduto = boxProduto.getSelectionModel().getSelectedItem().toString();
+			String idCliente = this.txtIdCliente.getText();
+	
+			BronzeDTO objBronzeDTO = new BronzeDTO(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume,
+					nomeProduto);
+	
+			produtoAtivacaoObservableList.add(objBronzeDTO);
+	
+			List<BronzeDTO> prods = new LinkedList<BronzeDTO>();
+			prods.add(objBronzeDTO);
+	
+			BronzeDAO dao = new BronzeDAO();
+			objBronzeDTO = dao.cadastrorBronze(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
+					idCliente);
+		}
 
 	}
 
@@ -817,7 +823,7 @@ public class CrudAtivacaoController implements Initializable {
 
 				BronzeDAO dao = new BronzeDAO();
 				dao.deletar(tabelaBronze.getSelectionModel().getSelectedItem().getIdFonteDado());
-				exibiDialogoConfirmacao("Cliente deletado com sucesso.");
+				exibiDialogoINFO("Cliente deletado com sucesso.");
 				bntConsultaBronze();
 			} catch (Exception e) {
 			}
@@ -897,20 +903,23 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnAdcSilver() throws SQLException {
-		String validador = this.txtValidador.getText();
-		String idfontedado = (tabelaSilver.getSelectionModel().getSelectedItem().getIdFonteDado());
-		String obrigatorio;
-
-		if (ckbObrigatorio.isSelected()) {
-			obrigatorio = "S";
-		} else {
-			obrigatorio = "N";
+		if(txtValidador.getText().equals("")) {
+			exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente!");
+		}else{
+			String validador = this.txtValidador.getText();
+			String idfontedado = (tabelaSilver.getSelectionModel().getSelectedItem().getIdFonteDado());
+			String obrigatorio;
+	
+			if (ckbObrigatorio.isSelected()) {
+				obrigatorio = "S";
+			} else {
+				obrigatorio = "N";
+			}
+	
+			SilverDTO objsilverDTO = new SilverDTO();
+			SilverDAO dao = new SilverDAO();
+			objsilverDTO = dao.cadastrarSilver(validador, obrigatorio, idfontedado);
 		}
-
-		SilverDTO objsilverDTO = new SilverDTO();
-		SilverDAO dao = new SilverDAO();
-		objsilverDTO = dao.cadastrarSilver(validador, obrigatorio, idfontedado);
-
 	}
 
 	@FXML
@@ -953,7 +962,7 @@ public class CrudAtivacaoController implements Initializable {
 
 				SilverDAO dao = new SilverDAO();
 				dao.deletar(tabelaSilver.getSelectionModel().getSelectedItem().getIdSilver());
-				exibiDialogoConfirmacao("Cliente deletado com sucesso.");
+				exibiDialogoINFO("Cliente deletado com sucesso.");
 				btnConsultarSilver();
 			} catch (Exception e) {
 			}
@@ -1090,7 +1099,7 @@ public class CrudAtivacaoController implements Initializable {
 		    		
 		    		objGoldDAO.cadastrarOperacoes(objGold);
 		    	}
-		    	exibiDialogoConfirmacao("Cadastrado com sucesso!");
+		    	exibiDialogoINFO("Cadastrado com sucesso!");
 		    	ckMatching.setSelected(false);
 	    		ckSerie.setSelected(false);
 	    		ckJoin.setSelected(false);
