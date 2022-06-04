@@ -92,7 +92,7 @@ public class CrudClienteController implements Initializable {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	/// COME�O DO CODIGO///
+	/// INICIO DO CODIGO///
 
 	private ClienteDAO dao;
 
@@ -132,14 +132,14 @@ public class CrudClienteController implements Initializable {
 	
 			try {
 				dao.cadastrar(cliente);
-				exibiDialogoINFO("Cliente cadastrado com sucesso!");
+				exibiDialogoINFO("Cliente cadastrado com SUCESSO!");
 				txt_cad_razao_social.clear();
 				txt_cad_cnpj.clear();
 				box_cad_segmento.getSelectionModel().selectFirst();
 	
 			} catch (Exception e) {
 				// TODO: handle exception
-				exibiDialogoERRO("ERRO! Falha ao cadastrar cliente.");
+				exibiDialogoERRO("ERRO! Falha ao cadastrar CLIENTE.");
 				e.printStackTrace();
 			}
 		}
@@ -148,7 +148,7 @@ public class CrudClienteController implements Initializable {
 	@FXML
 	void btn_cad_limpar() {
 		
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serao LIMPOS. Confirmar?")) {
 			txt_cad_razao_social.clear();
 			txt_cad_cnpj.clear();
 			box_cad_segmento.getSelectionModel().selectFirst();
@@ -161,7 +161,7 @@ public class CrudClienteController implements Initializable {
 		try {
 			List<ClienteDTO> resultado = dao.consultar(txt_consulta_cnpj.getText());
 			if (resultado.isEmpty()) {
-				exibiDialogoINFO("Nenhum cliente encontrado!");
+				exibiDialogoINFO("Nenhum CLIENTE encontrado!");
 			} else {
 
 				table_cliente.setItems(FXCollections.observableArrayList(resultado));
@@ -170,7 +170,7 @@ public class CrudClienteController implements Initializable {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			exibiDialogoERRO("Falha ao realizar a consulta!");
+			exibiDialogoERRO("Falha ao realizar a CONSULTA!");
 			e.printStackTrace();
 		}
 
@@ -181,7 +181,7 @@ public class CrudClienteController implements Initializable {
 
 		clienteSelecionado = table_cliente.getSelectionModel().getSelectedItem();
 		if (table_cliente.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("Nao ha cliente selecionado");
+			exibiDialogoERRO("Nao há LINHA selecionada");
 
 		} else {
 			atualizar.setDisable(false);
@@ -196,19 +196,19 @@ public class CrudClienteController implements Initializable {
 	@FXML
 	void btn_consulta_deletar() {
 		if (table_cliente.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("Nao ha cliente selecionado");
+			exibiDialogoERRO("Nao há LINHA selecionada");
 
 		} else {
 
-			if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
+			if (exibiDialogoConfirmacao("Confirmar a exclusão da LINHA selecionada?")) {
 
 				try {
 					dao.deletar(table_cliente.getSelectionModel().getSelectedItem().getId_cliente());
 					;
-					exibiDialogoConfirmacao("Cliente deletado com sucesso.");
+					exibiDialogoConfirmacao("Cliente DELETADO com sucesso.");
 					btn_consulta_cnpj();
 				} catch (Exception e) {
-					exibiDialogoERRO("Falha ao deletar cliente.");
+					exibiDialogoERRO("Falha ao DELETAR cliente.");
 				}
 			}
 
@@ -218,7 +218,7 @@ public class CrudClienteController implements Initializable {
 	/// ATUALIZAR CLIENTE///
 	@FXML
 	void btn_att_limpar() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 			txt_att_razao_social.clear();
 			txt_att_cnpj.clear();
 			box_att_segmento.getSelectionModel().selectFirst();
@@ -238,12 +238,12 @@ public class CrudClienteController implements Initializable {
 			clienteSelecionado.setSegmento(segmento);
 			try {
 				dao.atualizar(clienteSelecionado);
-				exibiDialogoINFO("Cliente atualizado com sucesso!");
+				exibiDialogoINFO("Cliente ATUALIZADO com sucesso!");
 				abas.getSelectionModel().select(consultar);
 				btn_consulta_cnpj();
 				atualizar.setDisable(true);
 			} catch (Exception e) {
-				exibiDialogoERRO("ERRO! Falha ao atualizar.");
+				exibiDialogoERRO("ERRO! Falha ao ATUALIZAR.");
 	
 			}
 		}
@@ -260,7 +260,7 @@ public class CrudClienteController implements Initializable {
 
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Informacao");
+		alert.setTitle("Informação");
 		alert.setHeaderText(null);
 		alert.setContentText(informacao);
 
@@ -270,7 +270,7 @@ public class CrudClienteController implements Initializable {
 
 	void exibiDialogoERRO(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Informacao");
+		alert.setTitle("Erro");
 		alert.setHeaderText(null);
 		alert.setContentText(erro);
 
@@ -280,7 +280,7 @@ public class CrudClienteController implements Initializable {
 
 	private boolean exibiDialogoConfirmacao(String confirmacao) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmacao");
+		alert.setTitle("Confirmação");
 		alert.setHeaderText(null);
 		alert.setContentText(confirmacao);
 

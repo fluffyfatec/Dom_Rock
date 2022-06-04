@@ -132,7 +132,7 @@ public class UsuarioController implements Initializable {
 				
 				try {
 					dao.cadastrarUsuario(usuario);
-					exibiDialogoINFO("Usuario cadastrado com sucesso!");
+					exibiDialogoINFO("Usuario CADASTRADO com sucesso!");
 					txtNomeCadastro.clear();
 			    	txtFuncaoCadastro.clear();
 			    	txtUsuarioCadastro.clear();
@@ -140,11 +140,11 @@ public class UsuarioController implements Initializable {
 			    	txtConfirmarSenha.clear();
 				} catch (Exception e) {
 					// TODO: handle exception
-					exibiDialogoERRO("ERRO! Falha ao cadastrar usuario.");
+					exibiDialogoERRO("ERRO! Falha ao CADASTRAR usuario.");
 					e.printStackTrace();
 				}
 	    	}else {
-	    		exibiDialogoINFO("Por favor, digite a senha corretamente nos dois campos");
+	    		exibiDialogoINFO("Por favor, digite a SENHA corretamente nos dois campos");
 	    	}    		
     	}
     }
@@ -152,7 +152,7 @@ public class UsuarioController implements Initializable {
     ///LIMPAR CAMPOS CADASTRO USUARIO////////////////////////////////////////////////////////////////
     @FXML
     void btnLimparUsuario() {
-    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+    	if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 	    	txtNomeCadastro.clear();
 	    	txtFuncaoCadastro.clear();
 	    	txtUsuarioCadastro.clear();
@@ -167,14 +167,14 @@ public class UsuarioController implements Initializable {
     	try {
     		List<UsuarioDTO> resultado =  dao.consultar(txtUsuarioConsultar.getText());
         	if(resultado.isEmpty()) {
-        		exibiDialogoINFO("Nenhum usuario encontrado!");
+        		exibiDialogoINFO("Nenhum USUÁRIO encontrado!");
         	}else {
         		tabelaUsuario.setItems(FXCollections.observableArrayList(resultado));
         	}
 			
 		} catch (Exception e) {
 
-			exibiDialogoERRO("Falha ao realizar a consulta!");
+			exibiDialogoERRO("Falha ao realizar a CONSULTA!");
 			e.printStackTrace();
 		}
     }
@@ -184,7 +184,7 @@ public class UsuarioController implements Initializable {
     void btnUsuarioAtualizar() {
     	usuarioSelecionado = tabelaUsuario.getSelectionModel().getSelectedItem();
     	if (tabelaUsuario.getSelectionModel().getSelectedItem()== null) {
-			exibiDialogoERRO("Nao ha usuario selecionado");
+			exibiDialogoERRO("Não há usuário SELECIONADO");
 
     	} else {
     		atualizarUsuario.setDisable(false);
@@ -199,19 +199,19 @@ public class UsuarioController implements Initializable {
     @FXML
     void btnUsuarioDeletar() {
     	if (tabelaUsuario.getSelectionModel().getSelectedItem()== null) {
-			exibiDialogoERRO("Nao ha usuario selecionado");
+			exibiDialogoERRO("Não há usuário SELECIONADO");
 
     	} else {
     		
-    		if (exibiDialogoConfirmacao("Confirmar a exclusao do usuario selecionado?")) {
+    		if (exibiDialogoConfirmacao("Confirmar a exclusão do USUÁRIO selecionado?")) {
     	  
     			try{
 					dao.deletar(tabelaUsuario.getSelectionModel().getSelectedItem().getId_usuario());;
-					exibiDialogoConfirmacao("Usuario deletado com sucesso.");
+					exibiDialogoConfirmacao("USUÁRIO deletado com sucesso.");
 					txtUsuarioConsultar.clear();
 					btnUsuarioConsultar();
     				}catch (Exception e) {
-    			     exibiDialogoERRO("Falha ao deletar usuario.");
+    			     exibiDialogoERRO("Falha ao deletar USUÁRIO.");
     				}
     			}
     
@@ -223,7 +223,7 @@ public class UsuarioController implements Initializable {
     void btnUsuarioSalvarAtt() {
     	if (txtNomeAt.getText().equals("") || txtFuncaoAt.getText().equals("") || 
     			txtUsuarioAt.getText().equals("") || txtSenhaAt.getText().equals("") ) {
-    		exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente.");
+    		exibiDialogoERRO("ERRO! Por favor, insira os DADOS corretamente.");
     	}else {
 	    	if (txtSenhaAt.getText().equals(txtConfirmarSenhaAt.getText())) {
 				usuarioSelecionado = tabelaUsuario.getSelectionModel().getSelectedItem();
@@ -234,15 +234,15 @@ public class UsuarioController implements Initializable {
 				usuarioSelecionado.setSenha(txtSenhaAt.getText());
 			    try {
 					dao.atualizar(usuarioSelecionado);
-					exibiDialogoINFO("Usuario atualizado com sucesso!");
+					exibiDialogoINFO("Usuario ATUALIZADO com sucesso!");
 					abas.getSelectionModel().select(consultar);
 					btnUsuarioConsultar();
 					atualizarUsuario.setDisable(true);
 				} catch (Exception e) { 			
-					exibiDialogoERRO("ERRO! Falha ao atualizar.");
+					exibiDialogoERRO("ERRO! Falha ao ATUALIZAR.");
 				}
 	    	}else {
-	    		exibiDialogoINFO("Por favor, digite a senha corretamente nos dois campos");
+	    		exibiDialogoINFO("Por favor, digite a SENHA corretamente nos dois campos");
 	    	}
     	}
     }
@@ -250,7 +250,7 @@ public class UsuarioController implements Initializable {
     ///LIMPAR CAMPOS ATUALIZAÇÃO USUARIO////////////////////////////////////////////////////////////////
     @FXML
     void btnUsuarioLimparAtt() {
-    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+    	if (exibiDialogoConfirmacao("Todos os campos serao LIMPOS. Confirmar?")) {
 			txtNomeAt.clear();
 			txtFuncaoAt.clear();
 			txtUsuarioAt.clear();
@@ -270,7 +270,7 @@ public class UsuarioController implements Initializable {
     
     private void exibiDialogoINFO(String informacao) {
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Informacao");
+    	alert.setTitle("Informação");
     	alert.setHeaderText(null);
     	alert.setContentText(informacao);
     	
@@ -280,7 +280,7 @@ public class UsuarioController implements Initializable {
     
      void exibiDialogoERRO(String erro) {
     	Alert alert = new Alert(AlertType.ERROR);
-    	alert.setTitle("Informacao");
+    	alert.setTitle("Erro");
     	alert.setHeaderText(null);
     	alert.setContentText(erro);
     	
@@ -290,7 +290,7 @@ public class UsuarioController implements Initializable {
      
      private boolean exibiDialogoConfirmacao(String confirmacao) {
      	Alert alert = new Alert(AlertType.CONFIRMATION);
-     	alert.setTitle("Confirmacao");
+     	alert.setTitle("Confirmação");
      	alert.setHeaderText(null);
      	alert.setContentText(confirmacao);
      	

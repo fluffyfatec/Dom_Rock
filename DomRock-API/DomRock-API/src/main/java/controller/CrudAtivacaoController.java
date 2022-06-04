@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +18,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -30,6 +33,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import modal.BronzeDAO;
 import modal.BronzeDTO;
 import modal.ClienteDTO;
@@ -43,6 +48,7 @@ import modal.ProdutoDAO;
 import modal.ProdutoDTO;
 import modal.SilverDAO;
 import modal.SilverDTO;
+import modal.Singleton;
 
 public class CrudAtivacaoController implements Initializable {
 
@@ -116,7 +122,6 @@ public class CrudAtivacaoController implements Initializable {
 	private TableColumn<EscopoTabelaFuncionalidades, String> colIdCliente;
 	@FXML
 	private Tab escopo;
-
 	///
 	@FXML
 	private Button btnCadastrarBronze1;
@@ -279,7 +284,7 @@ public class CrudAtivacaoController implements Initializable {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	/// COMEÇO DO CODIGO///
+	/// Inicio do código///
 
 	public void initialize(URL url, ResourceBundle rb) {
 
@@ -368,155 +373,12 @@ public class CrudAtivacaoController implements Initializable {
 		colVolumeSilver.setCellValueFactory(new PropertyValueFactory<SilverDTO, String>("volume"));
 
 	}
-
-	@FXML
-	void btnAddTabelaCore() {
-		String nmproduto = boxProdutoIdEscopo.getSelectionModel().getSelectedItem().toString();
-		String core = boxCore.getSelectionModel().getSelectedItem().toString();
-		String IdCliente = txtIdCliente.getText();
-
-		EscopoDAO dao = new EscopoDAO();
-		EscopoDTO objescopoDTO = dao.cadastrocore(nmproduto, core, IdCliente);
-
-		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
-
-		addcoreativacao.add(obj);
-		btnBuscarEscopoDois();
-	}
-
-	@FXML
-	void btnAddTabelaFuncionalidade() {
-
-		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
-		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
-		String IdCliente = txtIdCliente.getText();
-
-		EscopoDAO dao = new EscopoDAO();
-		EscopoDTO objescopoDTO = dao.cadastrofuncionalidade(nmproduto, funcionalidades, IdCliente);
-
-		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
-
-		addfunativacao.add(objto);
-		btnBuscarEscopoDois();
-		btnBuscaCliente();
-	}
 	
-	@FXML
-	void btnBuscarEscopoDois() {
-		EscopoDAO dao = new EscopoDAO();
-		List<EscopoDTO> core = new ArrayList<>();
-		try {
-			List<EscopoTabelaCore> resultado = dao.consultarCore(txtIdCliente.getText());
-			if (resultado.isEmpty()) {
-			} else {
-				TabelaCore.setItems(FXCollections.observableArrayList(resultado));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			exibiDialogoERRO("Falha ao realizar a consulta!");
-			e.printStackTrace();
-		}
-		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
-		try {
-			List<EscopoTabelaFuncionalidades> resultado = dao.consultarFuncionalidades(txtIdCliente.getText());
-			if (resultado.isEmpty()) {
-			} else {
-				TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			exibiDialogoERRO("Falha ao realizar a consulta!");
-			e.printStackTrace();
-		}
-		
-		colIdClienteCore.setVisible(true);
-		colIdCliente.setVisible(true);
-		idFuncionalidade.setVisible(true);
-		IdClienteProdutoCore.setVisible(true);
-	}
-	
-	@FXML
-	void btnLimparEscopoDois() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
-			boxProdutoIdEscopo.getSelectionModel().selectFirst();
-			boxCore.getSelectionModel().selectFirst();
-			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
-			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
-			
-			TabelaCore.getItems().removeAll(TabelaCore.getItems());
-			TabelaFuncionalidade.getItems().removeAll(TabelaFuncionalidade.getItems());
-			
-			colIdClienteCore.setVisible(false);
-			colIdCliente.setVisible(false);
-			idFuncionalidade.setVisible(false);
-			IdClienteProdutoCore.setVisible(false);
-			
-		}
-	}
-	
-	@FXML
-	void btnDeletarEscopoDois() {
-		if(TabelaCore.getSelectionModel().getSelectedItem() == null && TabelaFuncionalidade.getSelectionModel().getSelectedItem() == null) {
-			exibiDialogoERRO("Nao ha nenhuma linha selecionada");
-		}else {
-			if (TabelaCore.getSelectionModel().getSelectedItem() != null) {
-				if (exibiDialogoConfirmacao("Confirmar a exclusao do CORE selecionado?")) {
-	
-					try {
-						EscopoDAO dao = new EscopoDAO();
-						dao.deletarcore(TabelaCore.getSelectionModel().getSelectedItem().getIdcoreproduto());
-	
-						exibiDialogoINFO("CORE deletado com sucesso!");
-						btnBuscarEscopoDois();
-					} catch (Exception e) {
-						exibiDialogoERRO("Falha ao deletar CORE!");
-					}
-				}
-			}
-			
-			if (TabelaFuncionalidade.getSelectionModel().getSelectedItem() != null) {
-				if (exibiDialogoConfirmacao("Confirmar a exclusao da FUNCIONALIDADE selecionada?")) {
-	
-					try {
-						EscopoDAO dao = new EscopoDAO();
-						dao.deletarfuncionalidade(TabelaFuncionalidade.getSelectionModel().getSelectedItem().getIdprodutofuncionalidade());
-	
-						exibiDialogoINFO("FUNCIONALIDADE deletada com sucesso!");
-						btnBuscarEscopoDois();
-					} catch (Exception e) {
-						exibiDialogoERRO("Falha ao deletar FUNCIONALIDADE!");
-					}
-				}
-			}
-		}
-		
-	}	
-
-	@FXML
-	void boxCore() {
-		EscopoDTO escopo = new EscopoDTO();
-		if (boxCore.getSelectionModel().getSelectedItem() != null) {
-			String core = boxCore.getSelectionModel().getSelectedItem().toString();
-			escopo.setNmProduto(core);
-
-		}
-	}
-
-	@FXML
-	void boxFuncionalidadeEscopo() {
-		EscopoDTO escopo = new EscopoDTO();
-		if (boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem() != null) {
-			String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
-			escopo.setNmProduto(funcionalidades);
-
-		}
-	}
-
+	//BUSCAR CLIENTE //
 	@FXML
 	void btnBuscaCliente() {	
 		if(txtCnpj.getLength() != 14){
-			exibiDialogoERRO("Erro! Por favor, insira os dados corretamente!");
+			exibiDialogoERRO("Erro! Por favor, insira o CPF corretamente!");
 		}else {
 			String cnpj;
 			cnpj = txtCnpj.getText();
@@ -595,7 +457,7 @@ public class CrudAtivacaoController implements Initializable {
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				exibiDialogoERRO("Falha ao realizar a consulta!");
+				exibiDialogoERRO("Falha ao realizar a CONSULTA!");
 				e.printStackTrace();
 			}
 	
@@ -609,7 +471,7 @@ public class CrudAtivacaoController implements Initializable {
 	
 			} catch (Exception e) {
 				// TODO: handle exception
-				exibiDialogoERRO("Falha ao realizar a consulta!");
+				exibiDialogoERRO("Falha ao realizar a CONSULTA!");
 				e.printStackTrace();
 			}
 	
@@ -618,89 +480,11 @@ public class CrudAtivacaoController implements Initializable {
 			idFuncionalidade.setVisible(true);
 			IdClienteProdutoCore.setVisible(true);
 		}
-		
+			ComentarioController objcomentariodto = new ComentarioController();
 	}
-
-	@FXML
-	void btnAtualizarEscopo() {
-		String IdCliente;
-		IdCliente = txtIdCliente.getText();
-		String entregavelminimos = this.txteMinimos.getText();
-		String entregavelpossivel = this.txtePossiveis.getText();
-		String objetivonegocio = this.txtObjNegocio.getText();
-		EscopoDAO dao = new EscopoDAO();
-		EscopoDTO objescopoDTO = dao.atualizardescritivo(IdCliente, entregavelminimos, entregavelpossivel,
-				objetivonegocio);
-	}
-
-	// ESCOPO
-	private ObservableList<EscopoTabelaCore> addcoreativacao;
-	private ObservableList<EscopoTabelaFuncionalidades> addfunativacao;
-
-	@FXML
-	void btnCadastrarEscopo() {
-
-		EscopoDTO e = new EscopoDTO();
-		EscopoDAO dao = new EscopoDAO();
-		String IdCliente = this.txtIdCliente.getText();
-		e.setEntregaveisMinimos(txteMinimos.getText());
-		e.setObjNegocios(txtObjNegocio.getText());
-		e.setEntregaveisPossiveis(txtePossiveis.getText());
-		e.setIdCliente(txtIdCliente.getText());
-		try {
-			dao.cadastrarDescritivo(e);
-			exibiDialogoINFO(" Descritivo cadastrado com sucesso!");
-			//btnLimparEscopo();
-
-		} catch (Exception e1) {
-			// TODO: handle exception
-			exibiDialogoERRO("ERRO! Falha ao cadastrar descritivo.");
-			e1.printStackTrace();
-		}
-		// Cadastrar Produtos
-
-		ArrayList<String> listprodutos = new ArrayList<String>();
-		if (produtoOptimization.isSelected()) {
-			String produto = "5";
-			listprodutos.add(produto);
-		}
-		if (produtoMatching.isSelected()) {
-			String produto = "6";
-			listprodutos.add(produto);
-		}
-		if (produtoVox.isSelected()) {
-			String produto = "1";
-			listprodutos.add(produto);
-		}
-		if (produtoPricing.isSelected()) {
-			String produto = "4";
-			listprodutos.add(produto);
-		}
-		if (produtoMarketing.isSelected()) {
-			String produto = "2";
-			listprodutos.add(produto);
-		}
-		if (produtoSales.isSelected()) {
-			String produto = "3";
-			listprodutos.add(produto);
-		}
-		EscopoDTO objescopoDTO = dao.cadastroproduto(listprodutos, IdCliente);
-
-		// Popular lista produto cliente
-		ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
-		objescopoDTO = dao.consultaboxproduto(boxprodutocliente, IdCliente);
-		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
-
-		// boxProdutoIdEscopoDois
-		// Popular lista produto cliente 2
-		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
-		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois, IdCliente);
-		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
-	}
-
 	@FXML
 	void btnLimparCliente() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 			txtCnpj.clear();
 			txtIdCliente.clear();
 			txtNome.clear();
@@ -756,9 +540,84 @@ public class CrudAtivacaoController implements Initializable {
 		}
 	}
 
+	// ESCOPO //
+	private ObservableList<EscopoTabelaCore> addcoreativacao;
+	private ObservableList<EscopoTabelaFuncionalidades> addfunativacao;
+
+	@FXML
+	void btnCadastrarEscopo() {
+
+		EscopoDTO e = new EscopoDTO();
+		EscopoDAO dao = new EscopoDAO();
+		String IdCliente = this.txtIdCliente.getText();
+		e.setEntregaveisMinimos(txteMinimos.getText());
+		e.setObjNegocios(txtObjNegocio.getText());
+		e.setEntregaveisPossiveis(txtePossiveis.getText());
+		e.setIdCliente(txtIdCliente.getText());
+		try {
+			dao.cadastrarDescritivo(e);
+			exibiDialogoINFO("Cadastrado com SUCESSO!");
+			//btnLimparEscopo();
+
+		} catch (Exception e1) {
+			// TODO: handle exception
+			exibiDialogoERRO("ERRO! Falha ao CADASTRAR.");
+			e1.printStackTrace();
+		}
+		// Cadastrar Produtos
+
+		ArrayList<String> listprodutos = new ArrayList<String>();
+		if (produtoOptimization.isSelected()) {
+			String produto = "5";
+			listprodutos.add(produto);
+		}
+		if (produtoMatching.isSelected()) {
+			String produto = "6";
+			listprodutos.add(produto);
+		}
+		if (produtoVox.isSelected()) {
+			String produto = "1";
+			listprodutos.add(produto);
+		}
+		if (produtoPricing.isSelected()) {
+			String produto = "4";
+			listprodutos.add(produto);
+		}
+		if (produtoMarketing.isSelected()) {
+			String produto = "2";
+			listprodutos.add(produto);
+		}
+		if (produtoSales.isSelected()) {
+			String produto = "3";
+			listprodutos.add(produto);
+		}
+		EscopoDTO objescopoDTO = dao.cadastroproduto(listprodutos, IdCliente);
+
+		// Popular lista produto cliente
+		ObservableList<String> boxprodutocliente = FXCollections.observableArrayList();
+		objescopoDTO = dao.consultaboxproduto(boxprodutocliente, IdCliente);
+		boxProdutoIdEscopo.setItems(objescopoDTO.boxprodutocliente);
+
+		// boxProdutoIdEscopoDois
+		// Popular lista produto cliente 2
+		ObservableList<String> boxprodutoclientedois = FXCollections.observableArrayList();
+		objescopoDTO = dao.consultaboxproduto(boxprodutoclientedois, IdCliente);
+		boxProdutoIdEscopoDois.setItems(objescopoDTO.boxprodutoclientedois);
+	}
+	@FXML
+	void btnAtualizarEscopo() {
+		String IdCliente;
+		IdCliente = txtIdCliente.getText();
+		String entregavelminimos = this.txteMinimos.getText();
+		String entregavelpossivel = this.txtePossiveis.getText();
+		String objetivonegocio = this.txtObjNegocio.getText();
+		EscopoDAO dao = new EscopoDAO();
+		EscopoDTO objescopoDTO = dao.atualizardescritivo(IdCliente, entregavelminimos, entregavelpossivel,
+				objetivonegocio);
+	}
 	@FXML
 	void btnLimparEscopo() {
-		 if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		 if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 			 txteMinimos.clear();
 				txtObjNegocio.clear();
 				txtePossiveis.clear();
@@ -771,14 +630,196 @@ public class CrudAtivacaoController implements Initializable {
 		 }
 		 
 	}
+	@FXML
+	void btnAddTabelaFuncionalidade() {
 
-	// Bronze
+		String nmproduto = boxProdutoIdEscopoDois.getSelectionModel().getSelectedItem().toString();
+		String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
+		String IdCliente = txtIdCliente.getText();
+
+		EscopoDAO dao = new EscopoDAO();
+		EscopoDTO objescopoDTO = dao.cadastrofuncionalidade(nmproduto, funcionalidades, IdCliente);
+
+		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
+
+		addfunativacao.add(objto);
+		btnBuscarEscopoDois();
+		btnBuscaCliente();
+	}
+
+	@FXML
+	void btnComentarioEscopo() {
+		Singleton.getInstance().IdCliente = txtIdCliente.getText();
+    	Singleton.getInstance().etapa = "Escopo";
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Comentario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 600, 400);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Comentário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+
+	// ESCOPO DOIS //
+	@FXML
+	void btnBuscarEscopoDois() {
+		EscopoDAO dao = new EscopoDAO();
+		List<EscopoDTO> core = new ArrayList<>();
+		try {
+			List<EscopoTabelaCore> resultado = dao.consultarCore(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaCore.setItems(FXCollections.observableArrayList(resultado));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a CONSULTA!");
+			e.printStackTrace();
+		}
+		List<EscopoTabelaFuncionalidades> funcionalidade = new ArrayList<>();
+		try {
+			List<EscopoTabelaFuncionalidades> resultado = dao.consultarFuncionalidades(txtIdCliente.getText());
+			if (resultado.isEmpty()) {
+			} else {
+				TabelaFuncionalidade.setItems(FXCollections.observableArrayList(resultado));
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			exibiDialogoERRO("Falha ao realizar a CONSULTA!");
+			e.printStackTrace();
+		}
+		
+		colIdClienteCore.setVisible(true);
+		colIdCliente.setVisible(true);
+		idFuncionalidade.setVisible(true);
+		IdClienteProdutoCore.setVisible(true);
+	}
+	//Box escopo
+			@FXML
+			void boxCore() {
+				EscopoDTO escopo = new EscopoDTO();
+				if (boxCore.getSelectionModel().getSelectedItem() != null) {
+					String core = boxCore.getSelectionModel().getSelectedItem().toString();
+					escopo.setNmProduto(core);
+
+				}
+			}
+
+			@FXML
+			void boxFuncionalidadeEscopo() {
+				EscopoDTO escopo = new EscopoDTO();
+				if (boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem() != null) {
+					String funcionalidades = boxFuncionalidadeEscopo.getSelectionModel().getSelectedItem().toString();
+					escopo.setNmProduto(funcionalidades);
+
+				}
+			}
+		@FXML
+		void btnAddTabelaCore() {
+			String nmproduto = boxProdutoIdEscopo.getSelectionModel().getSelectedItem().toString();
+			String core = boxCore.getSelectionModel().getSelectedItem().toString();
+			String IdCliente = txtIdCliente.getText();
+
+			EscopoDAO dao = new EscopoDAO();
+			EscopoDTO objescopoDTO = dao.cadastrocore(nmproduto, core, IdCliente);
+
+			EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
+
+			addcoreativacao.add(obj);
+			btnBuscarEscopoDois();
+		}
+	@FXML
+	void btnLimparEscopoDois() {
+		if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
+			boxProdutoIdEscopo.getSelectionModel().selectFirst();
+			boxCore.getSelectionModel().selectFirst();
+			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
+			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
+			
+			TabelaCore.getItems().removeAll(TabelaCore.getItems());
+			TabelaFuncionalidade.getItems().removeAll(TabelaFuncionalidade.getItems());
+			
+			colIdClienteCore.setVisible(false);
+			colIdCliente.setVisible(false);
+			idFuncionalidade.setVisible(false);
+			IdClienteProdutoCore.setVisible(false);
+			
+		}
+	}
+	@FXML
+	void btnComentarioEscopoDois() {
+		Singleton.getInstance().IdCliente = txtIdCliente.getText();
+    	Singleton.getInstance().etapa = "Escopo";
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Comentario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 600, 400);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		Stage stage = new Stage();
+		stage.setTitle("Comentário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	}
+	@FXML
+	void btnDeletarEscopoDois() {
+		if(TabelaCore.getSelectionModel().getSelectedItem() == null && TabelaFuncionalidade.getSelectionModel().getSelectedItem() == null) {
+			exibiDialogoERRO("Não há nenhuma LINHA selecionada");
+		}else {
+			if (TabelaCore.getSelectionModel().getSelectedItem() != null) {
+				if (exibiDialogoConfirmacao("Confirmar a exclusao da linha selecionado?")) {
+	
+					try {
+						EscopoDAO dao = new EscopoDAO();
+						dao.deletarcore(TabelaCore.getSelectionModel().getSelectedItem().getIdcoreproduto());
+	
+						exibiDialogoINFO("CORE deletado com sucesso!");
+						btnBuscarEscopoDois();
+					} catch (Exception e) {
+						exibiDialogoERRO("Falha ao deletar CORE!");
+					}
+				}
+			}
+			
+			if (TabelaFuncionalidade.getSelectionModel().getSelectedItem() != null) {
+				if (exibiDialogoConfirmacao("Confirmar a exclusão da LINHA selecionada?")) {
+	
+					try {
+						EscopoDAO dao = new EscopoDAO();
+						dao.deletarfuncionalidade(TabelaFuncionalidade.getSelectionModel().getSelectedItem().getIdprodutofuncionalidade());
+	
+						exibiDialogoINFO("FUNCIONALIDADE deletada com sucesso!");
+						btnBuscarEscopoDois();
+					} catch (Exception e) {
+						exibiDialogoERRO("Falha ao deletar a FUNCIONALIDADE!");
+					}
+				}
+			}
+		}		
+	}	
+
+	// BRONZE//
 	private ObservableList<BronzeDTO> produtoAtivacaoObservableList;
-
 	@FXML
 	void btnAdc() throws SQLException {
 		if (txtVolume.getText().equals("")) {
-			exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente");
+			exibiDialogoERRO("ERRO! Por favor, insira o VOLUME corretamente");
 		}else{
 			String volume = this.txtVolume.getText();
 			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
@@ -800,7 +841,27 @@ public class CrudAtivacaoController implements Initializable {
 			objBronzeDTO = dao.cadastrorBronze(nomeFormato, nomeFrequencia, nomeOrigem, nomeSistema, volume, nomeProduto,
 					idCliente);
 		}
-
+	}
+	
+	@FXML
+	void btnComentarioBronze() {
+		Singleton.getInstance().IdCliente = txtIdCliente.getText();
+    	Singleton.getInstance().etapa = "Bronze";
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Comentario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 600, 400);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		Stage stage = new Stage();
+		stage.setTitle("Comentário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -812,31 +873,27 @@ public class CrudAtivacaoController implements Initializable {
 
 		tabelaBronze.setItems(FXCollections.observableArrayList(resultado));
 		colfontedadoBronze.setVisible(true);
-
 	}
 
 	@FXML
 	void bntDeletarBronze() {
 
-		if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
+		if (exibiDialogoConfirmacao("Confirmar a exclusão da LINHA selecionada?")) {
 
 			try {
 
 				BronzeDAO dao = new BronzeDAO();
 				dao.deletar(tabelaBronze.getSelectionModel().getSelectedItem().getIdFonteDado());
-				exibiDialogoINFO("Cliente deletado com sucesso.");
+				exibiDialogoINFO("LINHA deletada com sucesso.");
 				bntConsultaBronze();
 			} catch (Exception e) {
 			}
 		}
-
 	}
-
 	@FXML
 	void btnLimparBronze() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
-
 			txtVolume.clear();
 			boxProduto.getSelectionModel().selectFirst();
 			boxOrigem.getSelectionModel().selectFirst();
@@ -847,30 +904,25 @@ public class CrudAtivacaoController implements Initializable {
 		}
 	}
 
+	//Box Bronze
 	@FXML
 	void boxOrigem() {
-
 		BronzeDTO objbronzeDTO = new BronzeDTO();
 		if (boxOrigem.getSelectionModel().getSelectedItem() != null) {
 			String nomeOrigem = boxOrigem.getSelectionModel().getSelectedItem().toString();
 			objbronzeDTO.setOrigenDado(nomeOrigem);
-
 		}
 	}
-
 	@FXML
 	void boxFormato() {
-
 		BronzeDTO objbronzeDTO = new BronzeDTO();
 		if (boxFormato.getSelectionModel().getSelectedItem() != null) {
 			String nomeFormato = boxFormato.getSelectionModel().getSelectedItem().toString();
 			objbronzeDTO.setFormato(nomeFormato);
 		}
 	}
-
 	@FXML
 	void boxFrequencia() {
-
 		BronzeDTO objbronzeDTO = new BronzeDTO();
 		if (boxFrequencia.getSelectionModel().getSelectedItem() != null) {
 			String nomeFrequencia = boxFrequencia.getSelectionModel().getSelectedItem().toString();
@@ -880,16 +932,14 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void boxSistema() {
-
 		BronzeDTO objbronzeDTO = new BronzeDTO();
 		if (boxSistema.getSelectionModel().getSelectedItem() != null) {
 			String nomeSistema = boxSistema.getSelectionModel().getSelectedItem().toString();
 			objbronzeDTO.setSistema(nomeSistema);
 		}
-
 	}
 
-	// Silver
+	// SILVER //
 
 	private ObservableList<SilverDTO> addsilver;
 
@@ -905,7 +955,7 @@ public class CrudAtivacaoController implements Initializable {
 	@FXML
 	void btnAdcSilver() throws SQLException {
 		if(txtValidador.getText().equals("")) {
-			exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente!");
+			exibiDialogoERRO("ERRO! Por favor, insira o VALIDADOR!");
 		}else{
 			String validador = this.txtValidador.getText();
 			String idfontedado = (tabelaSilver.getSelectionModel().getSelectedItem().getIdFonteDado());
@@ -922,7 +972,28 @@ public class CrudAtivacaoController implements Initializable {
 			objsilverDTO = dao.cadastrarSilver(validador, obrigatorio, idfontedado);
 		}
 	}
+	@FXML
+	void btnComentarioSilver() {
+		Singleton.getInstance().IdCliente = txtIdCliente.getText();
+    	Singleton.getInstance().etapa = "Silver";
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Comentario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 600, 400);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 
+		Stage stage = new Stage();
+		stage.setTitle("Comentário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 	@FXML
 	void btnLimparCamposSilver() {
 		txtValidador.clear();
@@ -931,7 +1002,7 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnLimparSilver() {
-		if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+		if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
 			tabelaSilver.getItems().removeAll(tabelaSilver.getItems());
 			txtValidador.clear();
 			ckbObrigatorio.setSelected(false);
@@ -957,13 +1028,13 @@ public class CrudAtivacaoController implements Initializable {
 
 	@FXML
 	void btnDeletarSilver() {
-		if (exibiDialogoConfirmacao("Confirmar a exclusao do cliente selecionado?")) {
+		if (exibiDialogoConfirmacao("Confirmar a exclusão da LINHA selecionada?")) {
 
 			try {
 
 				SilverDAO dao = new SilverDAO();
 				dao.deletar(tabelaSilver.getSelectionModel().getSelectedItem().getIdSilver());
-				exibiDialogoINFO("Cliente deletado com sucesso.");
+				exibiDialogoINFO("Cliente DELETADO com sucesso.");
 				btnConsultarSilver();
 			} catch (Exception e) {
 			}
@@ -1005,7 +1076,7 @@ public class CrudAtivacaoController implements Initializable {
 		btnAtualizar.setVisible(false);
     }
 
-	// Gold	
+	// GOLD	
     private GoldDAO objGoldDAO = new GoldDAO();
 	
     @FXML
@@ -1047,10 +1118,30 @@ public class CrudAtivacaoController implements Initializable {
         	txtAgregacao.setDisable(true);
         }
     }
-    
+    @FXML
+	void btnComentarioGold(){
+    	Singleton.getInstance().IdCliente = txtIdCliente.getText();
+    	Singleton.getInstance().etapa = "Gold";
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/view/Comentario.fxml"));
+		Scene scene = null;
+		try {
+			scene = new Scene(fxmlLoader.load(), 600, 400);
+			scene.getStylesheets().add("https://raw.githubusercontent.com/fluffyfatec/Front-/main/Styles.css");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		Stage stage = new Stage();
+		stage.setTitle("Comentário - Dom Rock");
+		stage.setResizable(false);
+		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
+		stage.setScene(scene);
+		stage.show();
+    }
     @FXML
 	void btnLimparGold(){
-    	if (exibiDialogoConfirmacao("Todos os campos serao limpos. Confirmar?")) {
+    	if (exibiDialogoConfirmacao("Todos os campos serão LIMPOS. Confirmar?")) {
     		ckMatching.setSelected(false);
     		ckSerie.setSelected(false);
     		ckJoin.setSelected(false);
@@ -1073,7 +1164,7 @@ public class CrudAtivacaoController implements Initializable {
     	
     	if ((ckMatching.isSelected() && txtMatching.getText().equals("")) || (ckSerie.isSelected() && txtSerie.getText().equals("")) ||
     		(ckJoin.isSelected() && txtJoin.getText().equals("")) || (ckAgregacao.isSelected() && txtAgregacao.getText().equals(""))) {
-    		exibiDialogoERRO("ERRO! Por favor, insira os dados corretamente!");
+    		exibiDialogoERRO("ERRO! Por favor, insira os DADOS corretamente!");
     	}else{
     		if (ckMatching.isSelected() || ckSerie.isSelected() || ckJoin.isSelected() || ckAgregacao.isSelected()) {
 	    		if (ckMatching.isSelected()){
@@ -1083,7 +1174,7 @@ public class CrudAtivacaoController implements Initializable {
 		    		objGoldDAO.cadastrarOperacoes(objGold);
 		    	}
 		    	if (ckSerie.isSelected()) {
-		    		objGold.setOperacao("Serie Temporal");
+		    		objGold.setOperacao("Série Temporal");
 		    		objGold.setStrSerie(txtSerie.getText());
 		    		
 		    		objGoldDAO.cadastrarOperacoes(objGold);
@@ -1095,12 +1186,12 @@ public class CrudAtivacaoController implements Initializable {
 		    		objGoldDAO.cadastrarOperacoes(objGold);
 		    	}
 		    	if (ckAgregacao.isSelected()) {
-		    		objGold.setOperacao("Agregacao");
+		    		objGold.setOperacao("Agregação");
 		    		objGold.setStrAgregacao(txtAgregacao.getText());
 		    		
 		    		objGoldDAO.cadastrarOperacoes(objGold);
 		    	}
-		    	exibiDialogoINFO("Cadastrado com sucesso!");
+		    	exibiDialogoINFO("Cadastrado com SUSSESO!");
 		    	ckMatching.setSelected(false);
 	    		ckSerie.setSelected(false);
 	    		ckJoin.setSelected(false);
@@ -1114,14 +1205,15 @@ public class CrudAtivacaoController implements Initializable {
 	    		txtAgregacao.clear();
 	    		txtAgregacao.setDisable(true);
 	    	}else{
-	    		exibiDialogoERRO("ERRO! Por favor, selecione no minimo uma opcao!");
+	    		exibiDialogoERRO("ERRO! Por favor, selecione no MÍNIMO uma opção!");
 	    	}
     	}
     }
 
+    //ALERTAS//
 	private void exibiDialogoINFO(String informacao) {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Informacao");
+		alert.setTitle("Informação");
 		alert.setHeaderText(null);
 		alert.setContentText(informacao);
 
@@ -1141,7 +1233,7 @@ public class CrudAtivacaoController implements Initializable {
 
 	private boolean exibiDialogoConfirmacao(String confirmacao) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmacao");
+		alert.setTitle("Confirmação");
 		alert.setHeaderText(null);
 		alert.setContentText(confirmacao);
 		Optional<ButtonType> opcao = alert.showAndWait();

@@ -38,7 +38,7 @@ public class IntroducaoController implements Initializable {
 		
 	}
 	
-	//VAI PARA TELA CRUD ATIVA��O
+	//VAI PARA TELA CRUD ATIVAÇÃO
 	@FXML
 	void inputCadastrarintro( ) {
 
@@ -100,7 +100,7 @@ public class IntroducaoController implements Initializable {
 		}
 
 		Stage stage = new Stage();
-		stage.setTitle(" Usuario - Dom Rock");
+		stage.setTitle(" Usuário - Dom Rock");
 		stage.setResizable(false);
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
@@ -147,7 +147,7 @@ public class IntroducaoController implements Initializable {
 		}
 
 		Stage stage = new Stage();
-		stage.setTitle("Dados Minimos - Dom Rock");
+		stage.setTitle("Dados Mínimos - Dom Rock");
 		stage.setResizable(false);
 		stage.getIcons().add(new Image("https://raw.githubusercontent.com/fluffyfatec/Front-/main/domrock.png"));
 		stage.setScene(scene);
