@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="807.0" style="-fx-background-color: #2d343a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrudAtivacaoController">
 	<children>
 		<TabPane layoutY="110.0" prefHeight="459.0" prefWidth="816.0" stylesheets="@DomRock-API/src/main/java/view/Styles.css" tabClosingPolicy="UNAVAILABLE">
 			<tabs>
@@ -240,7 +240,7 @@
                                                 </ImageView>
                                              </graphic>
                                              <tooltip>
-                                                <Tooltip fx:id="toolConsultar112" text="Limpar" />
+                                                <Tooltip fx:id="toolConsultar112" text="Deletar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -267,7 +267,7 @@
                                              </children>
                                           </GridPane>
                                           <Line endX="-74.0" layoutX="882.0" startX="-881.0" stroke="#b5b5b5" />
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="40.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparEscopoDois" prefHeight="36.0" prefWidth="36.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                                              <graphic>
                                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -277,6 +277,21 @@
                                              </graphic>
                                              <tooltip>
                                                 <Tooltip fx:id="toolConsultar1122" text="Limpar" />
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="14.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnBuscarEscopoDois" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="https://raw.githubusercontent.com/fluffyfatec/Front-/main/magnifying-glass.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <tooltip>
+                                                <Tooltip fx:id="toolConsultar113" text="Editar" />
                                              </tooltip>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -381,7 +396,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="btnLimparBronze1" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnLimparBronze1" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="36.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparBronze" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -496,7 +511,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="btnLimparSilver" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparSilver" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
+                        <Button fx:id="btnLimparSilver" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="36.0" layoutY="43.0" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#btnLimparSilver" prefHeight="25.0" prefWidth="25.0" style="-fx-base: #2d343a;" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

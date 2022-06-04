@@ -381,7 +381,7 @@ public class CrudAtivacaoController implements Initializable {
 		EscopoTabelaCore obj = new EscopoTabelaCore(core, nmproduto);
 
 		addcoreativacao.add(obj);
-		btn();
+		btnBuscarEscopoDois();
 	}
 
 	@FXML
@@ -397,10 +397,11 @@ public class CrudAtivacaoController implements Initializable {
 		EscopoTabelaFuncionalidades objto = new EscopoTabelaFuncionalidades(funcionalidades, nmproduto);
 
 		addfunativacao.add(objto);
-		btn();
+		btnBuscarEscopoDois();
 	}
 	
-	private void btn() {
+	@FXML
+	void btnBuscarEscopoDois() {
 		EscopoDAO dao = new EscopoDAO();
 		List<EscopoDTO> core = new ArrayList<>();
 		try {
@@ -464,10 +465,10 @@ public class CrudAtivacaoController implements Initializable {
 					try {
 						EscopoDAO dao = new EscopoDAO();
 						dao.deletarcore(TabelaCore.getSelectionModel().getSelectedItem().getIdcoreproduto());
-						btn();
+						btnBuscarEscopoDois();
 	
 						exibiDialogoConfirmacao("CORE deletado com sucesso.");
-						btn();
+						btnBuscarEscopoDois();
 					} catch (Exception e) {
 						exibiDialogoERRO("Falha ao deletar CORE.");
 					}
@@ -480,10 +481,10 @@ public class CrudAtivacaoController implements Initializable {
 					try {
 						EscopoDAO dao = new EscopoDAO();
 						dao.deletarfuncionalidade(TabelaFuncionalidade.getSelectionModel().getSelectedItem().getIdprodutofuncionalidade());
-						btn();
+						btnBuscarEscopoDois();
 	
 						exibiDialogoConfirmacao("FUNCIONALIDADE deletada com sucesso.");
-						btn();
+						btnBuscarEscopoDois();
 					} catch (Exception e) {
 						exibiDialogoERRO("Falha ao deletar FUNCIONALIDADE.");
 					}
@@ -491,8 +492,7 @@ public class CrudAtivacaoController implements Initializable {
 			}
 		}
 		
-	}
-
+	}	
 
 	@FXML
 	void boxCore() {
@@ -515,7 +515,7 @@ public class CrudAtivacaoController implements Initializable {
 	}
 
 	@FXML
-	void btnBuscaCliente() {
+	void btnBuscaCliente() {	
 		String cnpj;
 		cnpj = txtCnpj.getText();
 		EscopoDAO consultaId = new EscopoDAO();
@@ -542,7 +542,8 @@ public class CrudAtivacaoController implements Initializable {
 		ObservableList<String> boxprodutobronze = FXCollections.observableArrayList();
 		objescopoDTO = dao.consultaboxproduto(boxprodutobronze, IdCliente);
 		boxProduto.setItems(objescopoDTO.boxprodutobronze);
-
+		boxProduto.getSelectionModel().selectFirst();
+		
 		// Popular lista Core
 		ObservableList<String> boxcores = FXCollections.observableArrayList();
 		objescopoDTO = dao.selectcore(boxcores);
@@ -710,10 +711,10 @@ public class CrudAtivacaoController implements Initializable {
 			produtoMarketing.setSelected(false);
 			produtoSales.setSelected(false);
 			
-			boxProdutoIdEscopo.getSelectionModel().selectFirst();
-			boxCore.getSelectionModel().selectFirst();
-			boxProdutoIdEscopoDois.getSelectionModel().selectFirst();
-			boxFuncionalidadeEscopo.getSelectionModel().selectFirst();
+			boxProdutoIdEscopo.getSelectionModel().clearSelection();
+			boxCore.getSelectionModel().clearSelection();
+			boxProdutoIdEscopoDois.getSelectionModel().clearSelection();
+			boxFuncionalidadeEscopo.getSelectionModel().clearSelection();
 			TabelaCore.getItems().removeAll(TabelaCore.getItems());
 			TabelaFuncionalidade.getItems().removeAll(TabelaFuncionalidade.getItems());
 			
@@ -724,10 +725,10 @@ public class CrudAtivacaoController implements Initializable {
 
 			txtVolume.clear();
 			boxProduto.getSelectionModel().clearSelection();
-			boxOrigem.getSelectionModel().selectFirst();
-			boxFormato.getSelectionModel().selectFirst();
-			boxFrequencia.getSelectionModel().selectFirst();
-			boxSistema.getSelectionModel().selectFirst();
+			boxOrigem.getSelectionModel().clearSelection();
+			boxFormato.getSelectionModel().clearSelection();
+			boxFrequencia.getSelectionModel().clearSelection();
+			boxSistema.getSelectionModel().clearSelection();
 			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
 			
 			colObrigatorio.setVisible(false);
@@ -830,7 +831,7 @@ public class CrudAtivacaoController implements Initializable {
 			tabelaBronze.getItems().removeAll(tabelaBronze.getItems());
 
 			txtVolume.clear();
-			boxProduto.getSelectionModel().clearSelection();
+			boxProduto.getSelectionModel().selectFirst();
 			boxOrigem.getSelectionModel().selectFirst();
 			boxFormato.getSelectionModel().selectFirst();
 			boxFrequencia.getSelectionModel().selectFirst();
