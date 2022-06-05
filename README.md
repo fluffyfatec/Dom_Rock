@@ -114,18 +114,10 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## DER - Escopo
+## DER 
 
 <p align="center">
-      <img src="./GIT/DEREscopo2.jpg" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
-## DER - Bronze/ Silver
-
-<p align="center">
-      <img src="./GIT/DEREscopo2bronze_prata.jpg" width="100%" height="100%">
+      <img src="./GIT/DERDomrock.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
