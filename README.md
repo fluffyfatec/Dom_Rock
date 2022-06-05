@@ -150,6 +150,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 | <img src = "./GIT/avatartiago.png" width="60" >|__Tiago Camillo__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/tcamillo4-ctrlz) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/tiago-camillo-277257192/) |
 | <img src = "./GIT/avataraldrik.png" width="60" >|__Aldrik Álvaro__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Aldrik-Alvaro) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/aldrik-alvaro-0bb952180/) |
 | <img src = "./GIT/avatarmanu.png" width="60" >|__Emanuele Diniz__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/ecampos14) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/emanuele-diniz-campos-b14699181) |
+| <img src = "./GIT/avatarmichael.png" width="60" >|__Michael Felipe__| *Developer Team*| [![](https://bit.ly/3f9Xo0P)](https://github.com/Michaelfss/Michaelfss) | [![](https://bit.ly/2P1ZogM)](https://www.linkedin.com/in/emanuele-diniz-campos-b14699181) |
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
