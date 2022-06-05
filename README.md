@@ -75,7 +75,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Proposta do Projeto
 
 <p align="center">
-      <img src="./GIT/proposta2.jpg" width="100%" height="100%">
+      <img src="./GIT/proposta3.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -83,7 +83,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Backlog do Produto
 
 <p align="center">
-      <img src="./GIT/BACKLOG2.jpg" width="100%" height="100%">
+      <img src="./GIT/backlog3.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -91,7 +91,7 @@ A Fluffy API desenvolveu o Sistema de Gerenciamento de Clientes - Dom Rock, uma 
 ## Metas das Sprints
 
 <p align="center">
-      <img src="./GIT/CARD2.jpg" width="100%" height="100%">
+      <img src="./GIT/CARD3.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
