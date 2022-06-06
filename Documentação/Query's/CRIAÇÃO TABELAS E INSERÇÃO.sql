@@ -136,8 +136,17 @@ CREATE TABLE  Validador (
 	obrigatorio varchar(1),
 	id_fonte_dado int foreign key references Fonte_dado(id_fonte_dado)
 );
+/*
+ALTER TABLE Validador
+ADD id_gold int foreign key references Gold(id_gold);
 
-
+SELECT * FROM Validador
+CREATE TABLE  Gold (
+    id_gold int identity(1,1) primary key,
+    operacao varchar(40),
+    descritivo_operacao varchar(40),
+);
+*/
 CREATE TABLE  Usuario (
 	id_usuario int identity(1,1) primary key,
     nome varchar(40),
